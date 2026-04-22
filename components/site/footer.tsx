@@ -1,4 +1,5 @@
 import { siteConfig, type DashboardState } from "@/lib/site-data";
+import { formatDateOnlyGmtPlus2, formatDateTimeGmtPlus2 } from "@/lib/time";
 
 export function SiteFooter({ dashboard }: { dashboard: DashboardState }) {
   return (
@@ -92,18 +93,13 @@ export function SiteFooter({ dashboard }: { dashboard: DashboardState }) {
             <li>
               Ostatni snapshot danych:{" "}
               <span className="text-paper">
-                {dashboard.metadata.lastUpdatedUtc
-                  .replace("T", " ")
-                  .slice(0, 16)}
-                Z
+                {formatDateTimeGmtPlus2(dashboard.metadata.lastUpdatedUtc)}
               </span>
             </li>
             <li>
               Start streamu:{" "}
               <span className="text-paper">
-                {dashboard.metadata.startTimestampUtc
-                  .replace("T", " ")
-                  .slice(0, 10)}
+                {formatDateOnlyGmtPlus2(dashboard.metadata.startTimestampUtc)}
               </span>
             </li>
             <li>Platforma: {dashboard.metadata.platform}</li>

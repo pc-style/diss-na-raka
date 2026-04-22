@@ -1,10 +1,10 @@
 import type { DashboardState } from "@/lib/site-data";
+import { formatDateTimeGmtPlus2 } from "@/lib/time";
 
 const fillerGlyphs = ["◆", "◇", "✶", "×", "◉", "▲"];
 
 function buildTickerSegmentsFromDashboard(dashboard: DashboardState) {
-  const now =
-    dashboard.metadata.lastUpdatedUtc.replace("T", " ").slice(0, 16) + "Z";
+  const now = formatDateTimeGmtPlus2(dashboard.metadata.lastUpdatedUtc);
   const raw = [
     `NA ŻYWO · ŁATWOGANG × CANCER FIGHTERS`,
     `DZIEŃ ${Math.floor(dashboard.hoursElapsed / 24) + 1} / 9`,

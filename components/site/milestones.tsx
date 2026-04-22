@@ -1,17 +1,8 @@
 import type { DashboardState, Milestone } from "@/lib/site-data";
+import { formatMilestoneDateGmtPlus2 } from "@/lib/time";
 
 function formatPLN(n: number) {
   return n.toLocaleString("pl-PL");
-}
-
-function formatDate(iso: string) {
-  const d = new Date(iso);
-  return d.toLocaleString("pl-PL", {
-    day: "2-digit",
-    month: "short",
-    hour: "2-digit",
-    minute: "2-digit",
-  });
 }
 
 export function MilestonesSection({
@@ -169,7 +160,11 @@ function MilestoneCard({
         </p>
 
         <div className="mt-auto pt-3 hairline-t flex items-center justify-between font-mono text-[10px] tracking-widest text-paper-dim">
-          <span>{achieved && m.dateAchieved ? formatDate(m.dateAchieved) : "—"}</span>
+          <span>
+            {achieved && m.dateAchieved
+              ? formatMilestoneDateGmtPlus2(m.dateAchieved)
+              : "—"}
+          </span>
           <span>{achieved ? "✓ LIVE" : "Δ ROŚNIE"}</span>
         </div>
       </div>

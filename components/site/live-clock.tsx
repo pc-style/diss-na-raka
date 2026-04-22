@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react";
 import type { DashboardState } from "@/lib/site-data";
+import { formatDateTimeGmtPlus2 } from "@/lib/time";
 
 /**
  * Hours elapsed + loop counter computed client-side from startTimestampUtc
@@ -44,7 +45,7 @@ export function LiveClock({ dashboard }: { dashboard: DashboardState }) {
           {pad(hours)}:{pad(minutes)}:{pad(seconds)}
         </div>
         <div className="mt-2 font-mono text-[10px] text-paper-dim">
-          od {dashboard.metadata.startTimestampUtc.replace("T", " ").slice(0, 16)}Z
+          od {formatDateTimeGmtPlus2(dashboard.metadata.startTimestampUtc)}
         </div>
       </div>
       <div className="p-4 relative">
