@@ -30,9 +30,21 @@ const caveat = Caveat({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://latwo-x-cancerfighters.pcstyle.dev"),
   title: "DISS NA RAKA · Tablica Streamu",
   description:
-    "Nieoficjalna tablica sterownicza 9-dniowego streamu Łatwogang × Cancer Fighters. Licznik zbiórki, harmonogram kamieni milowych i oś czasu gości — żeby chat przestał pytać „ile jeszcze do następnego celu”.",
+    "Nieoficjalna tablica sterownicza streamu Łatwogang × Cancer Fighters. Ręcznie zbierane snapshoty zbiórki, harmonogram kamieni milowych i oś czasu gości.",
+  alternates: {
+    canonical: "https://latwo-x-cancerfighters.pcstyle.dev",
+  },
+  openGraph: {
+    title: "DISS NA RAKA · Tablica Streamu",
+    description:
+      "Ręcznie aktualizowany fan tracker dla streamu Łatwogang × Cancer Fighters.",
+    url: "https://latwo-x-cancerfighters.pcstyle.dev",
+    siteName: "Diss na raka",
+    type: "website",
+  },
 };
 
 export default function RootLayout({

@@ -1,7 +1,7 @@
 import Link from "next/link";
-import { dashboard } from "@/lib/data";
+import type { DashboardState } from "@/lib/site-data";
 
-export function SiteHeader() {
+export function SiteHeader({ dashboard }: { dashboard: DashboardState }) {
   return (
     <header className="hairline-b">
       <div className="mx-auto max-w-[1440px] grid grid-cols-12 items-stretch">

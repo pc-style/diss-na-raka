@@ -1,12 +1,19 @@
-import { dashboard, milestones } from "@/lib/data";
+import type { DashboardState, Milestone } from "@/lib/site-data";
 import { LiveClock } from "./live-clock";
 import { CrabMascot } from "./crab-mascot";
+import { siteConfig } from "@/lib/site-data";
 
 function formatPLN(n: number) {
   return n.toLocaleString("pl-PL");
 }
 
-export function HeroDashboard() {
+export function HeroDashboard({
+  dashboard,
+  milestones,
+}: {
+  dashboard: DashboardState;
+  milestones: Milestone[];
+}) {
   // Find next pending milestone for mini progress meter
   const nextGoal = milestones.find((m) => m.status === "pending");
   const raised = dashboard.totalRaisedPln;
@@ -75,7 +82,23 @@ export function HeroDashboard() {
             <span className="text-paper">łatwogang</span>, na którym utwór
             Bedoesa 2115 i Mai Mecan leci w pętli, a środki lecą do{" "}
             <span className="text-paper">Cancer Fighters</span>. Tu jest
-            licznik, cele i oś czasu — żeby chat przestał pytać „ile jeszcze".
+            licznik, cele i oś czasu — żeby chat przestał pytać „ile jeszcze”.
+          </p>
+          <p
+            className="mt-4 max-w-xl font-mono text-[11px] tracking-[0.14em] text-paper-dim rise"
+            style={{ animationDelay: "200ms" }}
+          >
+            Dane zbieram ręcznie. Jeśli chcesz pomóc w update&apos;ach albo
+            dorzucić snapshoty, pingnij mnie na{" "}
+            <a
+              className="text-paper underline decoration-accent underline-offset-4"
+              href={siteConfig.supportUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              x.com/{siteConfig.supportHandle.replace("@", "")}
+            </a>
+            .
           </p>
 
           {/* Massive total */}
@@ -148,7 +171,7 @@ export function HeroDashboard() {
         {/* Right side metrics rail */}
         <aside className="col-span-12 lg:col-span-3 flex flex-col divide-y divide-[var(--color-hair)]">
           <div className="p-5">
-            <LiveClock />
+            <LiveClock dashboard={dashboard} />
           </div>
           <MetricRow
             label="ŚREDNIA / GODZ"

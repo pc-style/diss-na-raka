@@ -1,14 +1,14 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { dashboard } from "@/lib/data";
+import type { DashboardState } from "@/lib/site-data";
 
 /**
  * Hours elapsed + loop counter computed client-side from startTimestampUtc
  * so it visibly ticks without needing server refresh. When a real WS feed is
  * wired up, total counter will overwrite these derived values.
  */
-export function LiveClock() {
+export function LiveClock({ dashboard }: { dashboard: DashboardState }) {
   const start = new Date(dashboard.metadata.startTimestampUtc).getTime();
   const trackSec = dashboard.metadata.trackLengthSeconds;
 
@@ -18,7 +18,6 @@ export function LiveClock() {
   const anchor = new Date(dashboard.metadata.lastUpdatedUtc).getTime();
   const [tick, setTick] = useState(anchor);
   useEffect(() => {
-    setTick(Date.now());
     const id = setInterval(() => setTick(Date.now()), 1000);
     return () => clearInterval(id);
   }, []);
@@ -57,7 +56,7 @@ export function LiveClock() {
           {loops.toLocaleString("pl-PL")}×
         </div>
         <div className="mt-2 font-mono text-[10px] text-paper-dim line-clamp-1">
-          „Ciągle tutaj jestem (diss na raka)"
+          „Ciągle tutaj jestem (diss na raka)”
         </div>
       </div>
     </div>

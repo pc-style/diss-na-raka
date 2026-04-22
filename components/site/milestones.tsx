@@ -1,4 +1,4 @@
-import { milestones, dashboard, type Milestone } from "@/lib/data";
+import type { DashboardState, Milestone } from "@/lib/site-data";
 
 function formatPLN(n: number) {
   return n.toLocaleString("pl-PL");
@@ -14,7 +14,13 @@ function formatDate(iso: string) {
   });
 }
 
-export function MilestonesSection() {
+export function MilestonesSection({
+  dashboard,
+  milestones,
+}: {
+  dashboard: DashboardState;
+  milestones: Milestone[];
+}) {
   const raised = dashboard.totalRaisedPln;
   const max = Math.max(...milestones.map((m) => m.targetAmount));
 

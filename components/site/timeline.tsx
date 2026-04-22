@@ -2,11 +2,9 @@
 
 import { useMemo, useState } from "react";
 import {
-  timelineEvents,
-  categoryMeta,
   type EventCategory,
   type TimelineEvent,
-} from "@/lib/data";
+} from "@/lib/site-data";
 
 const filters: { key: EventCategory | "all"; label: string }[] = [
   { key: "all", label: "Wszystko" },
@@ -17,7 +15,13 @@ const filters: { key: EventCategory | "all"; label: string }[] = [
   { key: "core_event", label: "Rdzeń" },
 ];
 
-export function TimelineSection() {
+export function TimelineSection({
+  timelineEvents,
+  categoryMeta,
+}: {
+  timelineEvents: TimelineEvent[];
+  categoryMeta: Record<EventCategory, { label: string; short: string }>;
+}) {
   const [active, setActive] = useState<EventCategory | "all">("all");
   const [query, setQuery] = useState("");
 
@@ -32,7 +36,7 @@ export function TimelineSection() {
         e.tags.join(" ").toLowerCase().includes(q);
       return matchesCat && matchesQ;
     });
-  }, [active, query]);
+  }, [active, query, timelineEvents]);
 
   return (
     <section id="os" className="hairline-t relative bg-ink">
@@ -101,11 +105,11 @@ export function TimelineSection() {
           />
           {filtered.length === 0 && (
             <li className="pl-10 py-6 font-mono text-sm text-paper-dim">
-              // brak wpisów dla tego filtra
+              {"// brak wpisów dla tego filtra"}
             </li>
           )}
           {filtered.map((e) => (
-            <EventRow key={e.id} e={e} />
+            <EventRow key={e.id} e={e} categoryMeta={categoryMeta} />
           ))}
         </ol>
       </div>
@@ -113,7 +117,13 @@ export function TimelineSection() {
   );
 }
 
-function EventRow({ e }: { e: TimelineEvent }) {
+function EventRow({
+  e,
+  categoryMeta,
+}: {
+  e: TimelineEvent;
+  categoryMeta: Record<EventCategory, { label: string; short: string }>;
+}) {
   const meta = categoryMeta[e.category];
   const isPending = e.category === "scheduled_appearance";
   const isMilestone = e.category === "milestone_execution";

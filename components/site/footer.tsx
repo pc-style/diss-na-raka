@@ -1,6 +1,6 @@
-import { dashboard } from "@/lib/data";
+import { siteConfig, type DashboardState } from "@/lib/site-data";
 
-export function SiteFooter() {
+export function SiteFooter({ dashboard }: { dashboard: DashboardState }) {
   return (
     <footer className="hairline-t bg-ink">
       {/* Giant wordmark */}
@@ -17,14 +17,24 @@ export function SiteFooter() {
       <div className="mx-auto max-w-[1440px] px-5 md:px-10 pb-10 pt-10 grid grid-cols-12 gap-6 hairline-t">
         <div className="col-span-12 md:col-span-5 flex flex-col gap-3">
           <span className="font-mono text-[10px] tracking-[0.28em] text-paper-dim">
-            STOPKA · TYLKO UI
+            STOPKA · FAN TRACKER
           </span>
           <p className="font-serif text-base text-paper-dim max-w-prose leading-snug">
             Nieoficjalna tablica fanowska do streamu{" "}
             <span className="text-paper">łatwogang × Cancer Fighters</span>.
-            Nie jestem afiliowany — to tylko prezent dla chatu, żeby łatwiej
-            śledzić, co się dzieje. Prawdziwe donejty idą do oficjalnej
-            zbiórki Fundacji Cancer Fighters.
+            Nie jestem afiliowany — ręcznie zbieram dane, żeby łatwiej śledzić,
+            co się dzieje. Jeśli chcesz pomóc z update&apos;ami lub snapshotami,
+            odezwij się na{" "}
+            <a
+              className="text-paper underline decoration-accent underline-offset-4"
+              href={siteConfig.supportUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              {siteConfig.supportHandle}
+            </a>
+            . Prawdziwe donejty idą do oficjalnej zbiórki Fundacji Cancer
+            Fighters.
           </p>
         </div>
 
@@ -64,6 +74,14 @@ export function SiteFooter() {
           >
             Utwór na YouTube ↗
           </a>
+          <a
+            className="font-display uppercase text-base hover:text-accent transition-colors"
+            href={siteConfig.repoUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Repo ↗
+          </a>
         </div>
 
         <div className="col-span-6 md:col-span-4 flex flex-col gap-2">
@@ -90,12 +108,23 @@ export function SiteFooter() {
             </li>
             <li>Platforma: {dashboard.metadata.platform}</li>
             <li>Beneficjent: {dashboard.metadata.beneficiary}</li>
+            <li>
+              URL:{" "}
+              <a
+                className="text-paper hover:text-accent transition-colors"
+                href={siteConfig.siteUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                {siteConfig.siteUrl}
+              </a>
+            </li>
           </ul>
         </div>
 
         <div className="col-span-12 flex items-center justify-between pt-6 hairline-t font-mono text-[10px] tracking-[0.2em] text-paper-dim">
           <span>◆ BUILT FOR THE CHAT · NOT FOR PROFIT</span>
-          <span>v0.1 · UI-ONLY · 2026</span>
+          <span>v0.2 · API-READY · 2026</span>
         </div>
       </div>
     </footer>

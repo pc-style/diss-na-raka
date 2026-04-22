@@ -1,36 +1,63 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Diss na raka
 
-## Getting Started
+Fan-made tracker for the Łatwogang × Cancer Fighters stream.
 
-First, run the development server:
+- Production URL: [latwo-x-cancerfighters.pcstyle.dev](https://latwo-x-cancerfighters.pcstyle.dev)
+- Repo: [pc-style/diss-na-raka](https://github.com/pc-style/diss-na-raka)
+- Support / data help: [x.com/@pcstyle53](https://x.com/pcstyle53)
+
+The site is manually updated. It serves the current dataset through `GET /api/data` and accepts authenticated manual updates through `PUT /api/data`.
+
+## Local development
+
+Install deps and start the app with Bun:
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
+bun install
 bun dev
 ```
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Environment
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+Copy `.env.example` to `.env.local` and set:
 
-## Learn More
+```bash
+DATA_UPDATE_TOKEN=your-long-random-token
+```
 
-To learn more about Next.js, take a look at the following resources:
+Optional for production-like local storage:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+```bash
+BLOB_READ_WRITE_TOKEN=...
+```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+Without `BLOB_READ_WRITE_TOKEN`, local updates are written to `data/site-data.json`.
 
-## Deploy on Vercel
+## Update API
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+```bash
+curl -X PUT "http://localhost:3000/api/data" \
+  -H "Authorization: Bearer $DATA_UPDATE_TOKEN" \
+  -H "Content-Type: application/json" \
+  -d '{
+    "dashboard": {
+      "totalRaisedPln": 5000000,
+      "metadata": {
+        "lastUpdatedUtc": "2026-04-23T08:15:00Z"
+      }
+    }
+  }'
+```
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Full docs live in [dosc/README.md](./dosc/README.md).
+
+## Vercel deployment
+
+1. Create a Vercel project from this repo.
+2. Add `DATA_UPDATE_TOKEN`.
+3. Create a public Vercel Blob store and connect it to the project so `BLOB_READ_WRITE_TOKEN` is provided.
+4. Deploy.
+
+Why Blob: Vercel Functions use a read-only filesystem except for temporary `/tmp`, so persisted tracker updates need external storage.

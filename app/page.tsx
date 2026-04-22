@@ -5,19 +5,31 @@ import { MilestonesSection } from "@/components/site/milestones";
 import { TimelineSection } from "@/components/site/timeline";
 import { ContextSection } from "@/components/site/context";
 import { SiteFooter } from "@/components/site/footer";
+import { getSiteData } from "@/lib/data-store";
+import { categoryMeta } from "@/lib/site-data";
 
-export default function Home() {
+export const dynamic = "force-dynamic";
+
+export default async function Home() {
+  const data = await getSiteData();
+
   return (
     <div className="flex flex-1 flex-col">
-      <TopBar />
-      <SiteHeader />
+      <TopBar dashboard={data.dashboard} />
+      <SiteHeader dashboard={data.dashboard} />
       <main className="flex-1">
-        <HeroDashboard />
-        <MilestonesSection />
-        <TimelineSection />
+        <HeroDashboard dashboard={data.dashboard} milestones={data.milestones} />
+        <MilestonesSection
+          dashboard={data.dashboard}
+          milestones={data.milestones}
+        />
+        <TimelineSection
+          timelineEvents={data.timelineEvents}
+          categoryMeta={categoryMeta}
+        />
         <ContextSection />
       </main>
-      <SiteFooter />
+      <SiteFooter dashboard={data.dashboard} />
     </div>
   );
 }

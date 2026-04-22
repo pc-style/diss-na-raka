@@ -1,8 +1,8 @@
-import { dashboard } from "@/lib/data";
+import type { DashboardState } from "@/lib/site-data";
 
 const fillerGlyphs = ["◆", "◇", "✶", "×", "◉", "▲"];
 
-function buildTickerSegments() {
+function buildTickerSegmentsFromDashboard(dashboard: DashboardState) {
   const now =
     dashboard.metadata.lastUpdatedUtc.replace("T", " ").slice(0, 16) + "Z";
   const raw = [
@@ -17,8 +17,8 @@ function buildTickerSegments() {
   return raw;
 }
 
-export function TopBar() {
-  const segments = buildTickerSegments();
+export function TopBar({ dashboard }: { dashboard: DashboardState }) {
+  const segments = buildTickerSegmentsFromDashboard(dashboard);
   // Duplicate so the -50% keyframe loops seamlessly
   const loop = [...segments, ...segments];
   return (
