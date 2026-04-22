@@ -1,0 +1,689 @@
+{
+  "dataset_name": "latwogang-cancer-fighters-research",
+  "created_at": "2026-04-23",
+  "created_by": "OpenAI coding assistant",
+  "notes": [
+    "This file is a seed dataset for a website/dashboard around the Łatwogang / Bedoes / Cancer Fighters action.",
+    "Amounts are snapshots from public reporting, not an official audited ledger.",
+    "Some entries come from article text, others from search-result snippets when the underlying platform page was not directly scrapeable.",
+    "The user's live observation that the stream is at 5,000,000 PLN is included as an unverified current-state note, not as a confirmed sourced milestone."
+  ],
+  "campaign": {
+    "title": "Ciągle tutaj jestem (diss na raka)",
+    "alt_title": "diss na raka",
+    "charity": "Fundacja Cancer Fighters",
+    "primary_people": [
+      "Łatwogang",
+      "Bedoes 2115",
+      "Maja Mecan"
+    ],
+    "song": {
+      "title": "Ciągle tutaj jestem (diss na raka)",
+      "artists": [
+        "Bedoes 2115",
+        "Maja Mecan",
+        "Fundacja Cancer Fighters"
+      ],
+      "youtube_url": "https://www.youtube.com/watch?v=d-kldWAQBzk",
+      "published_at": "2026-04-13T15:00:45-07:00",
+      "length_seconds": 165,
+      "views_snapshot": 2343096,
+      "likes_snapshot": 284085,
+      "description_claim": "Cały dochód z utworu zostanie przeznaczony na Fundację Cancer Fighters.",
+      "source_id": "src_song_youtube"
+    },
+    "stream": {
+      "creator": "Łatwogang",
+      "platform": "YouTube",
+      "format": "9-day charity stream with the song looped continuously",
+      "duration_hours_target": 200,
+      "duration_hours_nominal": 216,
+      "donation_url": "https://tipply.pl/@latwogang",
+      "started_on_reported": "2026-04-17",
+      "initial_public_goal_pln": 30000,
+      "loop_estimates": {
+        "for_200_hours": 4364,
+        "for_216_hours": 4713
+      },
+      "source_ids": [
+        "src_onet_200h",
+        "src_tipply_page",
+        "src_glamrap_early"
+      ]
+    }
+  },
+  "milestones": [
+    {
+      "id": "m_2026_04_17_launch",
+      "date": "2026-04-17",
+      "amount_pln": 30000,
+      "label": "launch framing / initial target",
+      "event": "Onet described the challenge as a roughly 200-hour stream intended to raise 30k PLN.",
+      "confidence": "high",
+      "source_ids": [
+        "src_onet_200h"
+      ]
+    },
+    {
+      "id": "m_2026_04_17_413k",
+      "date": "2026-04-17",
+      "amount_pln": 413000,
+      "label": "early stream snapshot",
+      "event": "GlamRap reported over 413k PLN already raised from donations only; 500k was the active milestone and Bedoes had pledged a viewer-chosen tattoo.",
+      "confidence": "high",
+      "source_ids": [
+        "src_glamrap_early"
+      ]
+    },
+    {
+      "id": "m_2026_04_17_500k_goal",
+      "date": "2026-04-17",
+      "amount_pln": 500000,
+      "label": "first big public milestone",
+      "event": "Multiple sources say 500k was the first major threshold. Public reporting ties it to Bedoes getting a tattoo chosen by viewers; later reporting also ties this moment to head/beard/mustache shaving in solidarity.",
+      "confidence": "medium",
+      "source_ids": [
+        "src_glamrap_early",
+        "src_pudelek_3m",
+        "src_silnycharakter_snippet"
+      ]
+    },
+    {
+      "id": "m_2026_04_19_1_1m",
+      "date": "2026-04-19",
+      "amount_pln": 1100000,
+      "label": "1.1M snapshot",
+      "event": "A Facebook search snippet reported nearly 1.1M PLN with 161 hours left in the stream.",
+      "confidence": "medium",
+      "source_ids": [
+        "src_silnycharakter_snippet"
+      ]
+    },
+    {
+      "id": "m_2026_04_20_1_5m",
+      "date": "2026-04-20",
+      "amount_pln": 1500000,
+      "label": "~1.5M after about 3 days",
+      "event": "Several sources reported almost / over 1.5M PLN by around day 3. Bedoes had shaved beard and mustache, had tattoos done, and the stream had the 'gang łysych' moment.",
+      "confidence": "high",
+      "source_ids": [
+        "src_wp_tech",
+        "src_cgm_1_5m",
+        "src_glamrap_1_5m"
+      ]
+    },
+    {
+      "id": "m_2026_04_21_1_66m",
+      "date": "2026-04-21",
+      "amount_pln": 1660000,
+      "label": "1.66M snapshot",
+      "event": "Cancer Fighters Facebook search snippet reported over 1,660,000 PLN during the still-running stream.",
+      "confidence": "medium",
+      "source_ids": [
+        "src_cancerfighters_1660k_snippet"
+      ]
+    },
+    {
+      "id": "m_2026_04_21_2_1m",
+      "date": "2026-04-21",
+      "amount_pln": 2100000,
+      "label": "2.1M+ reached",
+      "event": "Interia reported over 2.1M PLN raised during the event.",
+      "confidence": "high",
+      "source_ids": [
+        "src_interia_2_1m"
+      ]
+    },
+    {
+      "id": "m_2026_04_21_2_3m",
+      "date": "2026-04-21",
+      "amount_pln": 2300000,
+      "label": "Szpaku condition announced",
+      "event": "GlamRap reported 2.3M PLN after four days, with Szpaku promising to come play a concert if the stream hit 3M.",
+      "confidence": "high",
+      "source_ids": [
+        "src_glamrap_szpaku_3m"
+      ]
+    },
+    {
+      "id": "m_2026_04_22_2_4m",
+      "date": "2026-04-22",
+      "amount_pln": 2400000,
+      "label": "Eryk Moczko challenge threshold",
+      "event": "Pudelek reported Eryk Moczko planned a DissNaRakaChallenge if donations crossed 2.4M PLN.",
+      "confidence": "high",
+      "source_ids": [
+        "src_pudelek_3m"
+      ]
+    },
+    {
+      "id": "m_2026_04_22_2_6m",
+      "date": "2026-04-22",
+      "amount_pln": 2600000,
+      "label": "Bambi snippet milestone",
+      "event": "GlamRap reported Bambi revealed a snippet of a new track around the 2.6M donation mark.",
+      "confidence": "high",
+      "source_ids": [
+        "src_glamrap_bambi_2_8m"
+      ]
+    },
+    {
+      "id": "m_2026_04_22_2_8m",
+      "date": "2026-04-22",
+      "amount_pln": 2800000,
+      "label": "Bambi appearance / album declaration",
+      "event": "GlamRap and Pudelek both reported the stream was near / above 2.8M PLN when Bambi appeared and said she would join the planned album/project.",
+      "confidence": "high",
+      "source_ids": [
+        "src_glamrap_bambi_2_8m",
+        "src_pudelek_3m"
+      ]
+    },
+    {
+      "id": "m_2026_04_22_3m",
+      "date": "2026-04-22",
+      "amount_pln": 3000000,
+      "label": "3M range / big public breakthrough",
+      "event": "Major media reported the stream was near or above 3M PLN. Radio Zet additionally reported 17 shaved heads and 9 tattoos as support actions.",
+      "confidence": "high",
+      "source_ids": [
+        "src_radiozet_3m",
+        "src_fakt_3m",
+        "src_pudelek_3m"
+      ]
+    },
+    {
+      "id": "m_2026_04_22_3_5m",
+      "date": "2026-04-22",
+      "amount_pln": 3500000,
+      "label": "3.5M snapshot",
+      "event": "A Facebook search snippet reported 3.5M PLN with around 93 hours left in the stream.",
+      "confidence": "medium",
+      "source_ids": [
+        "src_transfery_3_5m_snippet"
+      ]
+    },
+    {
+      "id": "m_2026_04_22_4m",
+      "date": "2026-04-22",
+      "amount_pln": 4000000,
+      "label": "4M reached",
+      "event": "GlamRap reported the 4M PLN threshold had been reached, tying it to an Oki / Kinny Zimmer reconciliation moment on stream.",
+      "confidence": "high",
+      "source_ids": [
+        "src_glamrap_oki_4m"
+      ]
+    },
+    {
+      "id": "m_2026_04_23_4_2m",
+      "date": "2026-04-23",
+      "amount_pln": 4200000,
+      "label": "4.2M snapshot",
+      "event": "Search snippets on Facebook and Instagram reported over 4.2M PLN raised.",
+      "confidence": "medium",
+      "source_ids": [
+        "src_normalnechlopaczki_42m_snippet",
+        "src_instagram_42m_snippet"
+      ]
+    },
+    {
+      "id": "m_2026_04_23_5m_user_observed",
+      "date": "2026-04-23",
+      "amount_pln": 5000000,
+      "label": "user-observed current live total",
+      "event": "User reported the live total had reached 5M PLN. Keep this as a current-state note until matched with a public source or archived screenshot.",
+      "confidence": "low",
+      "source_ids": [
+        "src_user_observation_5m"
+      ]
+    }
+  ],
+  "people": [
+    {
+      "name": "Łatwogang",
+      "role": "host / streamer",
+      "confidence": "high",
+      "source_ids": [
+        "src_onet_200h",
+        "src_wp_tech"
+      ]
+    },
+    {
+      "name": "Bedoes 2115",
+      "role": "artist / campaign co-creator / guest / donor",
+      "confidence": "high",
+      "source_ids": [
+        "src_song_youtube",
+        "src_glamrap_1_5m",
+        "src_glamrap_oki_4m"
+      ]
+    },
+    {
+      "name": "Maja Mecan",
+      "role": "artist / campaign co-creator",
+      "confidence": "high",
+      "source_ids": [
+        "src_song_youtube",
+        "src_onet_200h"
+      ]
+    },
+    {
+      "name": "Doda",
+      "role": "announced / reported stream guest",
+      "confidence": "high",
+      "source_ids": [
+        "src_wp_tech",
+        "src_fakt_3m",
+        "src_radiozet_3m"
+      ]
+    },
+    {
+      "name": "Bambi",
+      "role": "guest / future album contributor",
+      "confidence": "high",
+      "source_ids": [
+        "src_glamrap_bambi_2_8m",
+        "src_pudelek_3m"
+      ]
+    },
+    {
+      "name": "Francis",
+      "role": "guest / shaved on stream in Bambi segment",
+      "confidence": "high",
+      "source_ids": [
+        "src_glamrap_bambi_2_8m",
+        "src_pudelek_3m"
+      ]
+    },
+    {
+      "name": "Szpaku",
+      "role": "announced 3M concert challenge guest",
+      "confidence": "high",
+      "source_ids": [
+        "src_glamrap_szpaku_3m",
+        "src_pudelek_3m"
+      ]
+    },
+    {
+      "name": "Oki",
+      "role": "guest / donor / 4M milestone tie-in",
+      "confidence": "high",
+      "source_ids": [
+        "src_glamrap_oki_4m",
+        "src_radiozet_3m",
+        "src_pudelek_3m"
+      ]
+    },
+    {
+      "name": "Żabson",
+      "role": "guest / donor",
+      "confidence": "high",
+      "source_ids": [
+        "src_glamrap_oki_4m",
+        "src_radiozet_3m",
+        "src_pudelek_3m"
+      ]
+    },
+    {
+      "name": "White2115",
+      "role": "reported guest / participant",
+      "confidence": "high",
+      "source_ids": [
+        "src_radiozet_3m",
+        "src_pudelek_3m"
+      ]
+    },
+    {
+      "name": "Kinny Zimmer",
+      "role": "4M reconciliation milestone tie-in",
+      "confidence": "high",
+      "source_ids": [
+        "src_glamrap_oki_4m"
+      ]
+    },
+    {
+      "name": "Young Multi",
+      "role": "reported donor / supporter",
+      "confidence": "high",
+      "source_ids": [
+        "src_interia_2_1m",
+        "src_radiozet_3m"
+      ]
+    },
+    {
+      "name": "Wojan",
+      "role": "reported donor / supporter",
+      "confidence": "high",
+      "source_ids": [
+        "src_interia_2_1m",
+        "src_radiozet_3m"
+      ]
+    },
+    {
+      "name": "SVM!R",
+      "role": "reported donor / supporter",
+      "confidence": "high",
+      "source_ids": [
+        "src_interia_2_1m",
+        "src_radiozet_3m"
+      ]
+    },
+    {
+      "name": "Sagi",
+      "role": "reported donor / supporter",
+      "confidence": "high",
+      "source_ids": [
+        "src_radiozet_3m"
+      ]
+    },
+    {
+      "name": "Fausti",
+      "role": "reported donor / supporter",
+      "confidence": "high",
+      "source_ids": [
+        "src_radiozet_3m"
+      ]
+    },
+    {
+      "name": "Merghani",
+      "role": "reported donor",
+      "confidence": "high",
+      "source_ids": [
+        "src_glamrap_oki_4m"
+      ]
+    },
+    {
+      "name": "Maciek Dąbrowski",
+      "role": "reported stream guest",
+      "confidence": "high",
+      "source_ids": [
+        "src_pudelek_3m"
+      ]
+    },
+    {
+      "name": "Kostek",
+      "role": "reported stream guest",
+      "confidence": "high",
+      "source_ids": [
+        "src_pudelek_3m"
+      ]
+    },
+    {
+      "name": "Zoja Skubis",
+      "role": "reported stream guest",
+      "confidence": "high",
+      "source_ids": [
+        "src_pudelek_3m"
+      ]
+    },
+    {
+      "name": "Eryk Moczko",
+      "role": "reported guest / challenge participant",
+      "confidence": "high",
+      "source_ids": [
+        "src_pudelek_3m"
+      ]
+    },
+    {
+      "name": "Dajczman",
+      "role": "reported participant in shaving segment",
+      "confidence": "high",
+      "source_ids": [
+        "src_glamrap_1_5m",
+        "src_pudelek_3m"
+      ]
+    },
+    {
+      "name": "Brokies",
+      "role": "reported participants in shaving segment",
+      "confidence": "high",
+      "source_ids": [
+        "src_glamrap_1_5m",
+        "src_pudelek_3m"
+      ]
+    }
+  ],
+  "notable_donations": [
+    {
+      "name": "Oki",
+      "amount_pln": 180000,
+      "confidence": "high",
+      "source_ids": [
+        "src_glamrap_oki_4m"
+      ]
+    },
+    {
+      "name": "Żabson",
+      "amount_pln": 70000,
+      "confidence": "high",
+      "source_ids": [
+        "src_glamrap_oki_4m"
+      ]
+    },
+    {
+      "name": "Merghani",
+      "amount_pln": 140000,
+      "confidence": "high",
+      "source_ids": [
+        "src_glamrap_oki_4m"
+      ]
+    },
+    {
+      "name": "Bedoes",
+      "amount_pln": 150000,
+      "confidence": "high",
+      "source_ids": [
+        "src_glamrap_oki_4m"
+      ]
+    }
+  ],
+  "special_actions": [
+    {
+      "action": "viewer-chosen tattoo by Bedoes",
+      "threshold_pln": 500000,
+      "confidence": "high",
+      "source_ids": [
+        "src_glamrap_early",
+        "src_pudelek_3m"
+      ]
+    },
+    {
+      "action": "Bedoes shaved head, beard, and mustache in solidarity",
+      "threshold_pln": 500000,
+      "confidence": "medium",
+      "source_ids": [
+        "src_pudelek_3m",
+        "src_silnycharakter_snippet"
+      ]
+    },
+    {
+      "action": "17 people shaved heads",
+      "threshold_pln": 3000000,
+      "confidence": "high",
+      "source_ids": [
+        "src_radiozet_3m"
+      ]
+    },
+    {
+      "action": "9 people got tattoos designed by Maja Mecan",
+      "threshold_pln": 3000000,
+      "confidence": "high",
+      "source_ids": [
+        "src_radiozet_3m"
+      ]
+    },
+    {
+      "action": "Szpaku concert promise",
+      "threshold_pln": 3000000,
+      "confidence": "high",
+      "source_ids": [
+        "src_glamrap_szpaku_3m"
+      ]
+    },
+    {
+      "action": "Oki and Kinny Zimmer reconciliation segment",
+      "threshold_pln": 4000000,
+      "confidence": "high",
+      "source_ids": [
+        "src_glamrap_oki_4m"
+      ]
+    },
+    {
+      "action": "Doda helping push toward 5M",
+      "threshold_pln": 5000000,
+      "confidence": "medium",
+      "source_ids": [
+        "src_silnycharakter_doda_5m_snippet"
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "id": "src_song_youtube",
+      "title": "Bedoes 2115, Maja Mecan, Cancer Fighters - Ciągle tutaj jestem (diss na raka)",
+      "url": "https://www.youtube.com/watch?v=d-kldWAQBzk",
+      "type": "youtube scrape",
+      "trust": "high"
+    },
+    {
+      "id": "src_tipply_page",
+      "title": "latwogang on Tipply",
+      "url": "https://tipply.pl/@latwogang",
+      "type": "page scrape",
+      "trust": "high"
+    },
+    {
+      "id": "src_onet_200h",
+      "title": "W 200 godz. chce zebrać 30 tys. zł. Wszystko przez chorobę 11-letniej Mai",
+      "url": "https://www.onet.pl/kultura/onetkultura/w-200-godz-chce-zebrac-30-tys-zl-wszystko-przez-chorobe-11-letniej-mai/r8vww1c,681c1dfa",
+      "type": "article scrape",
+      "trust": "high"
+    },
+    {
+      "id": "src_wp_tech",
+      "title": "Ekstremalny stream. Bedoes, Maja Mecan i Łatwogang w walce z rakiem",
+      "url": "https://tech.wp.pl/ekstremalny-stream-bedoes-maja-mecan-i-latwogang-w-walce-z-rakiem,7277293946349920a",
+      "type": "article scrape",
+      "trust": "high"
+    },
+    {
+      "id": "src_interia_2_1m",
+      "title": "Bedoes i jego 'diss na raka'. Zebrano już ponad 2 mln zł na rzecz chorych",
+      "url": "https://muzyka.interia.pl/mocny-temat/news-bedoes-i-jego-diss-na-raka-zebrano-juz-ponad-2-mln-zl-na-rze,nId,23331347",
+      "type": "article scrape",
+      "trust": "high"
+    },
+    {
+      "id": "src_radiozet_3m",
+      "title": "Bedoes atakuje w słusznym celu. Każdy Polak powinien usłyszeć tę piosenkę",
+      "url": "https://rozrywka.radiozet.pl/muzyka/bedoes-atakuje-w-slusznym-celu-kazdy-polak-powinien-uslyszec-te-piosenke",
+      "type": "article scrape",
+      "trust": "high"
+    },
+    {
+      "id": "src_cgm_1_5m",
+      "title": "Bedoes i Łatwogang zebrali półtora miliona złotych na Cancer Fighters",
+      "url": "https://cgm.pl/news/bedoes-i-latwogang-zebrali-poltora-miliona-zlotych-na-cancer-fighters-bedoes-ogolil-glowe-wasy-i-zrobil-tatuaz-podczas-streamu/",
+      "type": "article scrape",
+      "trust": "high"
+    },
+    {
+      "id": "src_fakt_3m",
+      "title": "Łatwogang wspiera dzieci chore na raka. Jego transmisja na żywo bije rekordy",
+      "url": "https://ludzie.fakt.pl/latwogang-wspiera-dzieci-chore-na-raka-jego-transmisja-na-zywo-bije-rekordy/3q6rewp",
+      "type": "article scrape",
+      "trust": "high"
+    },
+    {
+      "id": "src_glamrap_early",
+      "title": "Łatwogang słucha 'dissu na raka' przez 9 dni, a Bedoes robi tatuaż",
+      "url": "https://glamrap.pl/latwogang-slucha-dissu-na-raka-przez-9-dni-a-bedoes-robi-tatuaz/",
+      "type": "article scrape",
+      "trust": "high"
+    },
+    {
+      "id": "src_glamrap_1_5m",
+      "title": "Bedoes zrobił tatuaż, zgolił brodę i wąsy, a na streamie Łatwogang pojawił się gang łysych",
+      "url": "https://glamrap.pl/bedoes-zrobil-tatuaz-zgolil-brode-i-wasy-a-na-streamie-latwogang-pojawil-sie-gang-lysych/",
+      "type": "article scrape",
+      "trust": "high"
+    },
+    {
+      "id": "src_glamrap_bambi_2_8m",
+      "title": "Bambi nie ogoliła się na łyso, ale Łatwogang poczęstował ją ostrymi sosami",
+      "url": "https://glamrap.pl/bedoes-zrobil-tatuaz-zgolil-brode-i-wasy-a-na-streamie-latwogang-pojawil-sie-gang-lysych/",
+      "type": "article section scrape",
+      "trust": "high"
+    },
+    {
+      "id": "src_glamrap_szpaku_3m",
+      "title": "Szpaku zagra koncert na streamie Łatwogang, ale stawia warunek – 3 mln zł",
+      "url": "https://glamrap.pl/szpaku-zagra-koncert-na-streamie-latwogang-ale-stawia-warunek-3-mln-zl/",
+      "type": "article scrape",
+      "trust": "high"
+    },
+    {
+      "id": "src_glamrap_oki_4m",
+      "title": "Koniec beefu – Oki i Kinny Zimmer się pogodzą",
+      "url": "https://glamrap.pl/koniec-beefu-oki-i-kinny-zimmer-sie-pogodza/",
+      "type": "article scrape",
+      "trust": "high"
+    },
+    {
+      "id": "src_pudelek_3m",
+      "title": "Łatwogang zebrał prawie 3 MLN ZŁ na WALKĘ DZIECI Z RAKIEM",
+      "url": "https://www.pudelek.pl/latwogang-zebral-prawie-3-mln-zl-na-walke-dzieci-z-rakiem-wspieraja-go-bedoes-2115-bambi-zoja-skubis-i-inni-7277957026146592a",
+      "type": "article scrape",
+      "trust": "high"
+    },
+    {
+      "id": "src_silnycharakter_snippet",
+      "title": "Łatwogang zebrał już ponad milion złotych na walkę z rakiem!",
+      "url": "https://www.facebook.com/silnycharakter/posts/%C5%82atwogang-zebra%C5%82-ju%C5%BC-ponad-milion-z%C5%82otych-na-walk%C4%99-z-rakiem-17-kwietnia-wystarto/1279474360960998/",
+      "type": "search snippet",
+      "trust": "medium"
+    },
+    {
+      "id": "src_transfery_3_5m_snippet",
+      "title": "3.500.000 złotych dla potrzebujących z Fundacji Cancer Fighters",
+      "url": "https://www.facebook.com/TransferyPilkarskie/posts/-3500000-z%C5%82otych-dla-potrzebuj%C4%85cych-z-fundacji-cancer-fighters%C5%82atwogang-nie-zwal/1258911973104052/",
+      "type": "search snippet",
+      "trust": "medium"
+    },
+    {
+      "id": "src_cancerfighters_1660k_snippet",
+      "title": "Cancer Fighters Facebook snippet reporting over 1,660,000 zł",
+      "url": "https://www.facebook.com/fundacjacancerfighters/posts/to-si%C4%99-dzieje-na-naszych-oczach%EF%B8%8F-%C5%82atwogang-zebra%C5%82-ju%C5%BC-ponad-1-660-000-z%C5%82-na-walk/982249360987668/",
+      "type": "search snippet",
+      "trust": "medium"
+    },
+    {
+      "id": "src_normalnechlopaczki_42m_snippet",
+      "title": "Łatwogang na swoim streamie zebrał już ponad 4,2 mln złotych",
+      "url": "https://www.facebook.com/NormalneChlopaczki/posts/%C5%82atwogang-na-swoim-streamie-zebra%C5%82-ju%C5%BC-ponad-42-mln-z%C5%82otych-wszystkie-%C5%9Brodki-tra/1441742617997451/",
+      "type": "search snippet",
+      "trust": "medium"
+    },
+    {
+      "id": "src_instagram_42m_snippet",
+      "title": "Instagram snippet reporting over 4.2M PLN",
+      "url": "https://www.instagram.com/p/DXcjMEtje2P/",
+      "type": "search snippet",
+      "trust": "medium"
+    },
+    {
+      "id": "src_silnycharakter_doda_5m_snippet",
+      "title": "Doda helps push toward 5M",
+      "url": "https://www.facebook.com/silnycharakter/posts/jak-chodzi-o-pomaganie-doda-nie-bierze-je%C5%84c%C3%B3w-w%C5%82a%C5%9Bnie-jest-na-streamie-%C5%82atwogang/1281729054068862/",
+      "type": "search snippet",
+      "trust": "medium"
+    },
+    {
+      "id": "src_user_observation_5m",
+      "title": "User live observation",
+      "url": null,
+      "type": "user message",
+      "trust": "low"
+    }
+  ]
+}

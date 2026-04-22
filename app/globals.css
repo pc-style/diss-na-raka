@@ -1,0 +1,369 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+@import "shadcn/tailwind.css";
+
+@custom-variant dark (&:is(.dark *));
+
+/* ===== Paper & Marker palette (album-cover inspired) =====
+   NOTE: We semantically flip `ink` and `paper`. "ink" now holds the CREAM
+   paper color used as backgrounds, and "paper" holds the near-black marker
+   ink color used for text/strokes. Component classes (`bg-ink`, `text-paper`)
+   therefore render as: cream surface + ink text. The crab-red accent is
+   the only hue; green "acid" is remapped to ink so it reads as a hard
+   marker stroke on paper. */
+@theme inline {
+  --color-ink: #f1e7d4;              /* main paper surface (warm cream) */
+  --color-ink-2: #e9ddc5;             /* paper surface band — slightly deeper */
+  --color-ink-3: #dccfb3;             /* deepest paper tint */
+  --color-paper: #171512;             /* marker ink (near-black, warm) */
+  --color-paper-dim: #6b6455;         /* soft pencil-grey on paper */
+  --color-accent: #dc2320;            /* crab red */
+  --color-accent-2: #dc2320;          /* legacy slot, keep = accent */
+  --color-acid: #171512;              /* "achieved" now = hard ink stamp */
+  --color-hair: rgba(23, 21, 18, 0.22);
+  --color-hair-strong: rgba(23, 21, 18, 0.55);
+
+  --color-background: var(--color-ink);
+  --color-foreground: var(--color-paper);
+  --font-display: var(--font-display);
+  --font-mono: var(--font-mono);
+  --font-sans: var(--font-mono);
+  --font-heading: var(--font-display);
+  --font-serif: var(--font-serif);
+  --color-sidebar-ring: var(--sidebar-ring);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar: var(--sidebar);
+  --color-chart-5: var(--chart-5);
+  --color-chart-4: var(--chart-4);
+  --color-chart-3: var(--chart-3);
+  --color-chart-2: var(--chart-2);
+  --color-chart-1: var(--chart-1);
+  --color-ring: var(--ring);
+  --color-input: var(--input);
+  --color-border: var(--border);
+  --color-destructive: var(--destructive);
+  --color-accent-foreground: var(--accent-foreground);
+  /* NOTE: `--color-accent` is intentionally NOT set here — we keep the
+     crab-red value defined at the top of @theme. Without this override
+     the shadcn grey `--accent` value would win (later declarations
+     override earlier ones inside a single @theme block). */
+  --color-muted-foreground: var(--muted-foreground);
+  --color-muted: var(--muted);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-secondary: var(--secondary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-primary: var(--primary);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-popover: var(--popover);
+  --color-card-foreground: var(--card-foreground);
+  --color-card: var(--card);
+  --radius-sm: calc(var(--radius) * 0.6);
+  --radius-md: calc(var(--radius) * 0.8);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) * 1.4);
+  --radius-2xl: calc(var(--radius) * 1.8);
+  --radius-3xl: calc(var(--radius) * 2.2);
+  --radius-4xl: calc(var(--radius) * 2.6);
+}
+
+:root {
+  --background: oklch(1 0 0);
+  --foreground: oklch(0.145 0 0);
+  --card: oklch(1 0 0);
+  --card-foreground: oklch(0.145 0 0);
+  --popover: oklch(1 0 0);
+  --popover-foreground: oklch(0.145 0 0);
+  --primary: oklch(0.205 0 0);
+  --primary-foreground: oklch(0.985 0 0);
+  --secondary: oklch(0.97 0 0);
+  --secondary-foreground: oklch(0.205 0 0);
+  --muted: oklch(0.97 0 0);
+  --muted-foreground: oklch(0.556 0 0);
+  /* Crab-red accent. Tailwind v4 compiles `text-accent` / `bg-accent` to
+     `var(--accent)`, so this is the single source of truth for the red. */
+  --accent: #dc2320;
+  --accent-foreground: #f1e7d4;
+  --destructive: oklch(0.577 0.245 27.325);
+  --border: oklch(0.922 0 0);
+  --input: oklch(0.922 0 0);
+  --ring: oklch(0.708 0 0);
+  --chart-1: oklch(0.87 0 0);
+  --chart-2: oklch(0.556 0 0);
+  --chart-3: oklch(0.439 0 0);
+  --chart-4: oklch(0.371 0 0);
+  --chart-5: oklch(0.269 0 0);
+  --radius: 0.625rem;
+  --sidebar: oklch(0.985 0 0);
+  --sidebar-foreground: oklch(0.145 0 0);
+  --sidebar-primary: oklch(0.205 0 0);
+  --sidebar-primary-foreground: oklch(0.985 0 0);
+  --sidebar-accent: oklch(0.97 0 0);
+  --sidebar-accent-foreground: oklch(0.205 0 0);
+  --sidebar-border: oklch(0.922 0 0);
+  --sidebar-ring: oklch(0.708 0 0);
+}
+
+.dark {
+  --background: oklch(0.145 0 0);
+  --foreground: oklch(0.985 0 0);
+  --card: oklch(0.205 0 0);
+  --card-foreground: oklch(0.985 0 0);
+  --popover: oklch(0.205 0 0);
+  --popover-foreground: oklch(0.985 0 0);
+  --primary: oklch(0.922 0 0);
+  --primary-foreground: oklch(0.205 0 0);
+  --secondary: oklch(0.269 0 0);
+  --secondary-foreground: oklch(0.985 0 0);
+  --muted: oklch(0.269 0 0);
+  --muted-foreground: oklch(0.708 0 0);
+  --accent: oklch(0.269 0 0);
+  --accent-foreground: oklch(0.985 0 0);
+  --destructive: oklch(0.704 0.191 22.216);
+  --border: oklch(1 0 0 / 10%);
+  --input: oklch(1 0 0 / 15%);
+  --ring: oklch(0.556 0 0);
+  --chart-1: oklch(0.87 0 0);
+  --chart-2: oklch(0.556 0 0);
+  --chart-3: oklch(0.439 0 0);
+  --chart-4: oklch(0.371 0 0);
+  --chart-5: oklch(0.269 0 0);
+  --sidebar: oklch(0.205 0 0);
+  --sidebar-foreground: oklch(0.985 0 0);
+  --sidebar-primary: oklch(0.488 0.243 264.376);
+  --sidebar-primary-foreground: oklch(0.985 0 0);
+  --sidebar-accent: oklch(0.269 0 0);
+  --sidebar-accent-foreground: oklch(0.985 0 0);
+  --sidebar-border: oklch(1 0 0 / 10%);
+  --sidebar-ring: oklch(0.556 0 0);
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+  html {
+    @apply font-sans;
+  }
+}
+
+/* ===== Custom utilities & motifs ===== */
+@layer utilities {
+  .font-display {
+    font-family: var(--font-display), "Archivo Black", system-ui, sans-serif;
+    letter-spacing: -0.01em;
+  }
+  .font-mono {
+    font-family: var(--font-mono), ui-monospace, "SF Mono", Menlo, monospace;
+  }
+  .font-serif {
+    font-family: var(--font-serif), ui-serif, Georgia, serif;
+  }
+  .font-hand {
+    font-family: var(--font-hand), "Caveat", cursive;
+    letter-spacing: 0;
+  }
+  .hairline-b {
+    border-bottom: 1px solid var(--color-hair);
+  }
+  .hairline-t {
+    border-top: 1px solid var(--color-hair);
+  }
+  .hairline-r {
+    border-right: 1px solid var(--color-hair);
+  }
+  .hairline-l {
+    border-left: 1px solid var(--color-hair);
+  }
+  .hairline-box {
+    border: 1px solid var(--color-hair);
+  }
+}
+
+/* Faint ruled graph paper (lighter than before, on cream) */
+.bg-graph {
+  background-image:
+    linear-gradient(to right, rgba(23, 21, 18, 0.05) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(23, 21, 18, 0.05) 1px, transparent 1px);
+  background-size: 48px 48px;
+}
+
+/* Paper grain — denser noise, multiply blend for organic texture */
+.bg-grain::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0.22;
+  mix-blend-mode: multiply;
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='220' height='220'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='1.2' numOctaves='2' stitchTiles='stitch' seed='7'/><feColorMatrix values='0 0 0 0 0.35  0 0 0 0 0.28  0 0 0 0 0.18  0 0 0 0.65 0'/></filter><rect width='100%25' height='100%25' filter='url(%23n)'/></svg>");
+}
+
+/* Coffee-stain / aged paper vignette */
+.bg-paper-stain {
+  background-image:
+    radial-gradient(ellipse at 12% 0%, rgba(120, 70, 20, 0.08), transparent 42%),
+    radial-gradient(ellipse at 88% 100%, rgba(120, 70, 20, 0.07), transparent 44%),
+    radial-gradient(ellipse at 50% 50%, rgba(23, 21, 18, 0.04), transparent 70%);
+}
+
+/* Hand-drawn wobble filter — applied to elements that should look
+   like they were traced with a sharpie. Feed through feTurbulence +
+   feDisplacementMap to push/pull edges by ~1.5px. */
+.wobble {
+  filter: url(#marker-wobble);
+}
+
+/* Scrolling ticker */
+@keyframes ticker {
+  0% {
+    transform: translate3d(0, 0, 0);
+  }
+  100% {
+    transform: translate3d(-50%, 0, 0);
+  }
+}
+.ticker-track {
+  display: flex;
+  width: max-content;
+  animation: ticker 80s linear infinite;
+}
+
+/* Pulse dot for LIVE indicator */
+@keyframes live-pulse {
+  0%, 100% {
+    box-shadow: 0 0 0 0 rgba(220, 35, 32, 0.6);
+  }
+  70% {
+    box-shadow: 0 0 0 10px rgba(220, 35, 32, 0);
+  }
+}
+.live-dot {
+  animation: live-pulse 1.6s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+/* Slow counter tick-up */
+@keyframes tick-glow {
+  0% {
+    text-shadow: 0 0 0 rgba(192, 255, 92, 0);
+  }
+  40% {
+    text-shadow: 0 0 24px rgba(192, 255, 92, 0.35);
+  }
+  100% {
+    text-shadow: 0 0 0 rgba(192, 255, 92, 0);
+  }
+}
+
+/* Stamped rubber ink — rotated "OSIĄGNIĘTE" badge */
+.stamp {
+  font-family: var(--font-display), "Archivo Black", sans-serif;
+  letter-spacing: 0.24em;
+  border: 2px solid currentColor;
+  padding: 0.28rem 0.7rem 0.22rem;
+  transform: rotate(-6deg);
+  filter: drop-shadow(0 0 0 currentColor);
+}
+.stamp--distress {
+  -webkit-mask-image: radial-gradient(
+    circle at 20% 30%,
+    transparent 2%,
+    #000 6%,
+    #000 60%,
+    transparent 62%,
+    #000 66%
+  );
+          mask-image: radial-gradient(
+    circle at 20% 30%,
+    transparent 2%,
+    #000 6%,
+    #000 60%,
+    transparent 62%,
+    #000 66%
+  );
+}
+
+/* Staggered intro reveal */
+@keyframes rise {
+  0% {
+    opacity: 0;
+    transform: translate3d(0, 12px, 0);
+  }
+  100% {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+}
+.rise {
+  animation: rise 0.8s cubic-bezier(0.2, 0.7, 0.2, 1) both;
+}
+
+/* Marquee wipe on hover for cards */
+.card-wipe {
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+}
+.card-wipe::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(23, 21, 18, 0.04) 50%,
+    transparent 100%
+  );
+  transform: translateX(-100%);
+  transition: transform 0.8s cubic-bezier(0.2, 0.7, 0.2, 1);
+  z-index: 0;
+}
+
+/* Sharpie underline for emphasis words — hand-wobbled stroke */
+.marker-underline {
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 220 14' preserveAspectRatio='none'><path d='M2 9 C 40 2 80 12 120 6 S 200 10 218 5' fill='none' stroke='%23dc2320' stroke-width='6' stroke-linecap='round'/></svg>");
+  background-repeat: no-repeat;
+  background-position: 0 92%;
+  background-size: 100% 0.38em;
+  padding-bottom: 0.06em;
+}
+
+/* Circle highlight (hand-drawn loop around a word) */
+.marker-circle {
+  position: relative;
+  display: inline-block;
+  padding: 0.05em 0.3em;
+}
+.marker-circle::before {
+  content: "";
+  position: absolute;
+  inset: -0.05em -0.25em;
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 300 100' preserveAspectRatio='none'><path d='M260 20 C 280 40 290 70 240 88 C 180 100 80 98 30 82 C -5 68 -2 30 40 18 C 100 2 210 4 260 20 Z' fill='none' stroke='%23dc2320' stroke-width='4' stroke-linecap='round'/></svg>");
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  pointer-events: none;
+}
+
+/* Scribble strikeout — used on "achieved" items if we want */
+.marker-strike {
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 220 14' preserveAspectRatio='none'><path d='M2 7 C 50 4 120 10 218 6' fill='none' stroke='%23171512' stroke-width='3' stroke-linecap='round'/></svg>");
+  background-repeat: no-repeat;
+  background-position: 0 55%;
+  background-size: 100% 0.2em;
+}
+.card-wipe:hover::before {
+  transform: translateX(100%);
+}
+
+/* Tabular numerals for counters */
+.tnum {
+  font-variant-numeric: tabular-nums;
+  font-feature-settings: "tnum" 1;
+}
