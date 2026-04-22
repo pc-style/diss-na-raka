@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { Analytics } from "@vercel/analytics/next";
 import {
   Archivo_Black,
   JetBrains_Mono,
@@ -84,6 +85,7 @@ export default function RootLayout({
           </defs>
         </svg>
         {children}
+        <Analytics />
       </body>
     </html>
   );
