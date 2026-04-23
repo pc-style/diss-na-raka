@@ -26,16 +26,18 @@ export function TimelineSection({
   const [query, setQuery] = useState("");
 
   const filtered = useMemo(() => {
-    return timelineEvents.filter((e) => {
-      const matchesCat = active === "all" || e.category === active;
-      const q = query.trim().toLowerCase();
-      const matchesQ =
-        !q ||
-        e.description.toLowerCase().includes(q) ||
-        e.participants.join(" ").toLowerCase().includes(q) ||
-        e.tags.join(" ").toLowerCase().includes(q);
-      return matchesCat && matchesQ;
-    });
+    return timelineEvents
+      .filter((e) => {
+        const matchesCat = active === "all" || e.category === active;
+        const q = query.trim().toLowerCase();
+        const matchesQ =
+          !q ||
+          e.description.toLowerCase().includes(q) ||
+          e.participants.join(" ").toLowerCase().includes(q) ||
+          e.tags.join(" ").toLowerCase().includes(q);
+        return matchesCat && matchesQ;
+      })
+      .reverse();
   }, [active, query, timelineEvents]);
 
   return (

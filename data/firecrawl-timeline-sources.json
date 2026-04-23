@@ -1,0 +1,267 @@
+{
+  "requestedAt": "2026-04-23T10:17:33.854Z",
+  "prompt": "Find one strong public source for each timeline event in the `diss-na-raka` project.\n\nReturn structured data for these exact event ids:\n- `evt_001`\n- `evt_002`\n- `evt_002b`\n- `evt_003`\n- `evt_004`\n- `evt_005`\n- `evt_006`\n- `evt_007`\n- `evt_008`\n- `evt_009`\n- `evt_010`\n\nThe event meanings are:\n- `evt_001`: stream launch on 2026-04-17 around the looping of \"Ciągle tutaj jestem (diss na raka)\"\n- `evt_002`: Bedoes, Brokies, and Dajczman shave heads / tattoos / gang lysych after the 500k milestone\n- `evt_002b`: early momentum reporting above 400k and the 500k tattoo trigger\n- `evt_003`: Disco Karol endurance challenge repeating \"Cancer Fighters\" 100,000 times after the 1.25M threshold\n- `evt_004`: Bambi and Francis in the studio, Francis gets shaved, hot sauces, Bambi joins the project\n- `evt_005`: Bambi reveals a snippet around the 2.6M milestone\n- `evt_006`: Wojciech Gola shaves his head live around the 3.5M milestone\n- `evt_007`: Maciek Dabrowski, Kostek, Zoja Skubis, and Eryk Moczko / DissNaRakaChallenge recap\n- `evt_008`: White 2115 deadline, and announced / expected support from Oki, Zabson, and Szpaku\n- `evt_009`: 5.5M reporting, Doda support, and major donor recap including Bedoes / Oki / SVM!R\n- `evt_010`: manual snapshot / live overlay around 5,713,793.30 PLN on 2026-04-23 at 09:57 local time\n\nRequirements:\n- Prefer primary or high-signal public sources: official stream/channel pages, official foundation pages, or direct public reporting from established Polish media.\n- Prefer one best source per event, not a list dump.\n- If the best available source is weaker, still return it and lower the confidence.\n- Use exact public URLs.\n- For `evt_010`, it is acceptable to use the live YouTube channel or live stream URL as the best public source if no archived article captures the same overlay snapshot.\n- Keep notes short and specific about why the source matches the event.",
+  "urls": [],
+  "schema": {
+    "type": "object",
+    "additionalProperties": false,
+    "required": [
+      "events"
+    ],
+    "properties": {
+      "events": {
+        "type": "array",
+        "items": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "id",
+            "sourceLabel",
+            "sourceUrl",
+            "sourceType",
+            "confidence",
+            "notes"
+          ],
+          "properties": {
+            "id": {
+              "type": "string",
+              "enum": [
+                "evt_001",
+                "evt_002",
+                "evt_002b",
+                "evt_003",
+                "evt_004",
+                "evt_005",
+                "evt_006",
+                "evt_007",
+                "evt_008",
+                "evt_009",
+                "evt_010"
+              ]
+            },
+            "sourceLabel": {
+              "type": "string"
+            },
+            "sourceUrl": {
+              "type": "string"
+            },
+            "sourceType": {
+              "type": "string",
+              "enum": [
+                "article",
+                "official",
+                "video",
+                "live",
+                "social",
+                "other"
+              ]
+            },
+            "confidence": {
+              "type": "string",
+              "enum": [
+                "high",
+                "medium",
+                "low"
+              ]
+            },
+            "notes": {
+              "type": "string"
+            }
+          }
+        }
+      }
+    }
+  },
+  "jobId": "019db9d2-05e7-7279-9957-c84f14c26b5b",
+  "result": {
+    "events": [
+      {
+        "id": "evt_001",
+        "sourceLabel": "Latwogang YouTube - 9-day charity stream",
+        "sourceUrl": "https://www.youtube.com/live/UNAqqHIPbWA",
+        "sourceType": "live",
+        "confidence": "high",
+        "notes": "Live stream launched April 17, 2026, looping 'Ciągle tutaj jestem (diss na raka)' 24/7 for Cancer Fighters"
+      },
+      {
+        "id": "evt_002",
+        "sourceLabel": "Pudelek - Łatwogang zebrał prawie 3 MLN ZŁ",
+        "sourceUrl": "https://www.pudelek.pl/latwogang-zebral-prawie-3-mln-zl-na-walke-dzieci-z-rakiem-wspieraja-go-bedoes-2115-bambi-zoja-skubis-i-inni-7277957026146592a",
+        "sourceType": "article",
+        "confidence": "high",
+        "notes": "Reports Bedoes, Brokies, and Dajczman shaved heads at 500k milestone; Bedoes got tattoo of song cover"
+      },
+      {
+        "id": "evt_002b",
+        "sourceLabel": "Glamrap - Łatwogang słucha dissu przez 9 dni",
+        "sourceUrl": "https://glamrap.pl/latwogang-slucha-dissu-na-raka-przez-9-dni-a-bedoes-robi-tatuaz/",
+        "sourceType": "article",
+        "confidence": "high",
+        "notes": "Reports early momentum with 'już ponad 400 tys. zł' on counter approaching 500k tattoo milestone"
+      },
+      {
+        "id": "evt_003",
+        "sourceLabel": "YouTube - Łatwogang milion na Cancer Fighters",
+        "sourceUrl": "https://www.youtube.com/shorts/aTfjOYdJ0JM",
+        "sourceType": "video",
+        "confidence": "medium",
+        "notes": "Video showing 1M milestone reached with Bedoes, Brokies, Disco Karol, Dajczman present; no explicit 1.25M or 100k repetition confirmation found"
+      },
+      {
+        "id": "evt_004",
+        "sourceLabel": "Glamrap - Łatwogang słucha dissu przez 9 dni",
+        "sourceUrl": "https://glamrap.pl/latwogang-slucha-dissu-na-raka-przez-9-dni-a-bedoes-robi-tatuaz/",
+        "sourceType": "article",
+        "confidence": "high",
+        "notes": "Reports Bambi appeared April 21 evening, tested hot sauces, shaved Francis's head, pledged to contribute to album"
+      },
+      {
+        "id": "evt_005",
+        "sourceLabel": "Glamrap - Łatwogang słucha dissu przez 9 dni",
+        "sourceUrl": "https://glamrap.pl/latwogang-slucha-dissu-na-raka-przez-9-dni-a-bedoes-robi-tatuaz/",
+        "sourceType": "article",
+        "confidence": "high",
+        "notes": "Reports Bambi revealed snippet of new song at 2.6M PLN milestone"
+      },
+      {
+        "id": "evt_006",
+        "sourceLabel": "YouTube - Wojtek Gola ścina włosy na zero",
+        "sourceUrl": "https://www.youtube.com/watch?v=033XANLMIpc",
+        "sourceType": "video",
+        "confidence": "high",
+        "notes": "Video uploaded April 22, 2026 showing Wojciech Gola shaving head on latwogang charity stream at 3.5M milestone"
+      },
+      {
+        "id": "evt_007",
+        "sourceLabel": "Pudelek - Łatwogang zebrał prawie 3 MLN ZŁ",
+        "sourceUrl": "https://www.pudelek.pl/latwogang-zebral-prawie-3-mln-zl-na-walke-dzieci-z-rakiem-wspieraja-go-bedoes-2115-bambi-zoja-skubis-i-inni-7277957026146592a",
+        "sourceType": "article",
+        "confidence": "high",
+        "notes": "Reports Maciek Dąbrowski, Kostek, Zoja Skubis visited stream; Eryk Moczko committed to DissNaRakaChallenge at 2.4M"
+      },
+      {
+        "id": "evt_008",
+        "sourceLabel": "Pudelek - Łatwogang zebrał prawie 3 MLN ZŁ",
+        "sourceUrl": "https://www.pudelek.pl/latwogang-zebral-prawie-3-mln-zl-na-walke-dzieci-z-rakiem-wspieraja-go-bedoes-2115-bambi-zoja-skubis-i-inni-7277957026146592a",
+        "sourceType": "article",
+        "confidence": "high",
+        "notes": "Reports White 2115 promised to join if 150k raised by 3PM Friday; Szpaku pledged concert at 3M; Oki and Żabson announced participation"
+      },
+      {
+        "id": "evt_009",
+        "sourceLabel": "Glamrap - Łatwogang słucha dissu przez 9 dni",
+        "sourceUrl": "https://glamrap.pl/latwogang-slucha-dissu-na-raka-przez-9-dni-a-bedoes-robi-tatuaz/",
+        "sourceType": "article",
+        "confidence": "medium",
+        "notes": "Reports Doda appeared April 22 to paint; major donors: Oki 180k PLN, Żabson 70k, Merghani 140k; article shows 4M+ reached but no explicit 5.5M confirmation"
+      },
+      {
+        "id": "evt_010",
+        "sourceLabel": "Latwogang YouTube - 9-day charity stream",
+        "sourceUrl": "https://www.youtube.com/live/UNAqqHIPbWA",
+        "sourceType": "live",
+        "confidence": "high",
+        "notes": "Live stream channel as of April 23, 2026 09:57 local time; best public source for real-time donation counter snapshot at ~5.7M PLN"
+      }
+    ]
+  },
+  "raw": {
+    "success": true,
+    "status": "completed",
+    "data": {
+      "events": [
+        {
+          "id": "evt_001",
+          "sourceLabel": "Latwogang YouTube - 9-day charity stream",
+          "sourceUrl": "https://www.youtube.com/live/UNAqqHIPbWA",
+          "sourceType": "live",
+          "confidence": "high",
+          "notes": "Live stream launched April 17, 2026, looping 'Ciągle tutaj jestem (diss na raka)' 24/7 for Cancer Fighters"
+        },
+        {
+          "id": "evt_002",
+          "sourceLabel": "Pudelek - Łatwogang zebrał prawie 3 MLN ZŁ",
+          "sourceUrl": "https://www.pudelek.pl/latwogang-zebral-prawie-3-mln-zl-na-walke-dzieci-z-rakiem-wspieraja-go-bedoes-2115-bambi-zoja-skubis-i-inni-7277957026146592a",
+          "sourceType": "article",
+          "confidence": "high",
+          "notes": "Reports Bedoes, Brokies, and Dajczman shaved heads at 500k milestone; Bedoes got tattoo of song cover"
+        },
+        {
+          "id": "evt_002b",
+          "sourceLabel": "Glamrap - Łatwogang słucha dissu przez 9 dni",
+          "sourceUrl": "https://glamrap.pl/latwogang-slucha-dissu-na-raka-przez-9-dni-a-bedoes-robi-tatuaz/",
+          "sourceType": "article",
+          "confidence": "high",
+          "notes": "Reports early momentum with 'już ponad 400 tys. zł' on counter approaching 500k tattoo milestone"
+        },
+        {
+          "id": "evt_003",
+          "sourceLabel": "YouTube - Łatwogang milion na Cancer Fighters",
+          "sourceUrl": "https://www.youtube.com/shorts/aTfjOYdJ0JM",
+          "sourceType": "video",
+          "confidence": "medium",
+          "notes": "Video showing 1M milestone reached with Bedoes, Brokies, Disco Karol, Dajczman present; no explicit 1.25M or 100k repetition confirmation found"
+        },
+        {
+          "id": "evt_004",
+          "sourceLabel": "Glamrap - Łatwogang słucha dissu przez 9 dni",
+          "sourceUrl": "https://glamrap.pl/latwogang-slucha-dissu-na-raka-przez-9-dni-a-bedoes-robi-tatuaz/",
+          "sourceType": "article",
+          "confidence": "high",
+          "notes": "Reports Bambi appeared April 21 evening, tested hot sauces, shaved Francis's head, pledged to contribute to album"
+        },
+        {
+          "id": "evt_005",
+          "sourceLabel": "Glamrap - Łatwogang słucha dissu przez 9 dni",
+          "sourceUrl": "https://glamrap.pl/latwogang-slucha-dissu-na-raka-przez-9-dni-a-bedoes-robi-tatuaz/",
+          "sourceType": "article",
+          "confidence": "high",
+          "notes": "Reports Bambi revealed snippet of new song at 2.6M PLN milestone"
+        },
+        {
+          "id": "evt_006",
+          "sourceLabel": "YouTube - Wojtek Gola ścina włosy na zero",
+          "sourceUrl": "https://www.youtube.com/watch?v=033XANLMIpc",
+          "sourceType": "video",
+          "confidence": "high",
+          "notes": "Video uploaded April 22, 2026 showing Wojciech Gola shaving head on latwogang charity stream at 3.5M milestone"
+        },
+        {
+          "id": "evt_007",
+          "sourceLabel": "Pudelek - Łatwogang zebrał prawie 3 MLN ZŁ",
+          "sourceUrl": "https://www.pudelek.pl/latwogang-zebral-prawie-3-mln-zl-na-walke-dzieci-z-rakiem-wspieraja-go-bedoes-2115-bambi-zoja-skubis-i-inni-7277957026146592a",
+          "sourceType": "article",
+          "confidence": "high",
+          "notes": "Reports Maciek Dąbrowski, Kostek, Zoja Skubis visited stream; Eryk Moczko committed to DissNaRakaChallenge at 2.4M"
+        },
+        {
+          "id": "evt_008",
+          "sourceLabel": "Pudelek - Łatwogang zebrał prawie 3 MLN ZŁ",
+          "sourceUrl": "https://www.pudelek.pl/latwogang-zebral-prawie-3-mln-zl-na-walke-dzieci-z-rakiem-wspieraja-go-bedoes-2115-bambi-zoja-skubis-i-inni-7277957026146592a",
+          "sourceType": "article",
+          "confidence": "high",
+          "notes": "Reports White 2115 promised to join if 150k raised by 3PM Friday; Szpaku pledged concert at 3M; Oki and Żabson announced participation"
+        },
+        {
+          "id": "evt_009",
+          "sourceLabel": "Glamrap - Łatwogang słucha dissu przez 9 dni",
+          "sourceUrl": "https://glamrap.pl/latwogang-slucha-dissu-na-raka-przez-9-dni-a-bedoes-robi-tatuaz/",
+          "sourceType": "article",
+          "confidence": "medium",
+          "notes": "Reports Doda appeared April 22 to paint; major donors: Oki 180k PLN, Żabson 70k, Merghani 140k; article shows 4M+ reached but no explicit 5.5M confirmation"
+        },
+        {
+          "id": "evt_010",
+          "sourceLabel": "Latwogang YouTube - 9-day charity stream",
+          "sourceUrl": "https://www.youtube.com/live/UNAqqHIPbWA",
+          "sourceType": "live",
+          "confidence": "high",
+          "notes": "Live stream channel as of April 23, 2026 09:57 local time; best public source for real-time donation counter snapshot at ~5.7M PLN"
+        }
+      ]
+    },
+    "model": "spark-1-pro",
+    "expiresAt": "2026-04-24T10:17:32.731Z",
+    "creditsUsed": 0
+  }
+}
