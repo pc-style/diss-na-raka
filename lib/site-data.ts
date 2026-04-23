@@ -209,6 +209,15 @@ export const seedSiteData: SiteData = {
       dateAchieved: "2026-04-22T23:22:26Z",
     },
     {
+      id: "ms_9_2m_gortat_call",
+      targetAmount: 9_200_000,
+      title: "9,2M · Telefon do Marcina Gortata i zgoda",
+      description:
+        "Przy 9,2 miliona PLN Mateusz Bonitka ma zadzwonić do Marcina Gortata i publicznie pogodzić się z nim na streamie.",
+      status: "pending",
+      dateAchieved: null,
+    },
+    {
       id: "ms_10m_lewandowski_tiktok",
       targetAmount: 10_000_000,
       title: "10M · Lewandowski nagrywa TikToka do dissu",
