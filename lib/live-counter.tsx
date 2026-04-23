@@ -103,10 +103,8 @@ export function LiveCounterProvider({
     return () => window.clearInterval(id);
   }, []);
 
-  const growthPlnPerSecond = useMemo(
-    () => estimateGrowthPlnPerSecond(dashboard, snapshots),
-    [dashboard, snapshots],
-  );
+  // Disabled live extrapolation for the night
+  const growthPlnPerSecond = 0;
 
   const value = useMemo(
     () => ({
