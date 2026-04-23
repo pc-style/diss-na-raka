@@ -22,10 +22,9 @@ export function MilestonesSection({
         <Header raised={raised} max={max} />
 
         {/* Horizontal timeline rail — snap scroller */}
-        <div className="mt-16 relative -mx-5 md:-mx-10">
+        <div className="mt-16 relative -mx-5 md:-mx-10 milestones-scrollbar overflow-x-auto snap-x snap-mandatory scroll-smooth" style={{ scrollbarWidth: "thin" }}>
           <ol
-            className="milestones-scrollbar relative flex w-max min-w-full overflow-x-auto snap-x snap-mandatory scroll-smooth px-5 md:px-10"
-            style={{ scrollbarWidth: "thin" }}
+            className="relative flex w-max min-w-full px-5 md:px-10"
           >
             <div
               aria-hidden
