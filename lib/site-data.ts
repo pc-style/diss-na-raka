@@ -243,10 +243,19 @@ export const seedSiteData: SiteData = {
     },
     {
       id: "ms_9m_gortat_reconciliation",
-      targetAmount: 9_000_000,
-      title: "9M · Pojednanie z Gortatem",
+      targetAmount: 9_200_000,
+      title: "9,2M · Telefon do Marcina Gortata i zgoda",
       description:
-        "Przy 9 milionach PLN ma dojść do publicznego pojednania z Marcinem Gortatem na streamie.",
+        "Cel 9,2 miliona PLN został już dowieziony: na streamie odpalił się telefon do Marcina Gortata i doszło do zgody.",
+      status: "achieved",
+      dateAchieved: "2026-04-23T12:00:00Z",
+    },
+    {
+      id: "ms_10m_young_leosia_kacper_b",
+      targetAmount: 10_000_000,
+      title: "10M · Young Leosia dzwoni do Kacpra B. o dziarę",
+      description:
+        "Przy 10 milionach PLN Young Leosia ma zadzwonić do Kacpra B. i zapytać go na streamie, czy chce zrobić dziarę.",
       status: "pending",
       dateAchieved: null,
     },
@@ -256,15 +265,6 @@ export const seedSiteData: SiteData = {
       title: "10M · Robert wraca z contentem na TikToka",
       description:
         'Przy 10 milionach PLN ma odpalić się kolejny głośny trigger: Robert Lewandowski wraca z contentem na TikToka do numeru "Bedoes 2115, Maja Mecan, Cancer Fighters - Ciągle tutaj jestem (diss na raka)".',
-      status: "pending",
-      dateAchieved: null,
-    },
-    {
-      id: "ms_10m_young_leosia_kacper_b",
-      targetAmount: 10_000_000,
-      title: "10M · Young Leosia dzwoni do Kacpra B. o dziarę",
-      description:
-        "Przy 10 milionach PLN Young Leosia ma zadzwonić do Kacpra B. i zapytać go na streamie, czy chce zrobić dziarę.",
       status: "pending",
       dateAchieved: null,
     },
