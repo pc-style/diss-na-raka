@@ -128,7 +128,7 @@ export function HeroDashboard({
               ODPALONE OD OSTATNIEGO SNAPSHOTU
             </div>
             <div className="mt-1 tnum overflow-hidden">
-              <div className="font-display leading-[0.82] text-paper whitespace-nowrap tracking-tight text-[clamp(44px,10.5vw,168px)] marker-underline pb-2">
+              <div className="font-display leading-[0.82] text-paper whitespace-nowrap tracking-tight text-[clamp(44px,9vw,168px)] marker-underline pb-2 w-fit max-w-full" style={{ fontSize: `clamp(44px, ${formatted.length <= 9 ? '10.5vw' : `${95 / formatted.length}vw`}, 168px)` }}>
                 {formatted}
               </div>
             </div>
