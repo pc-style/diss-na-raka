@@ -101,7 +101,7 @@ export const seedSiteData: SiteData = {
       hostId: "latwogang_official",
       beneficiary: "Fundacja Cancer Fighters",
       startTimestampUtc: "2026-04-17T00:00:00Z",
-      lastUpdatedUtc: "2026-04-22T23:22:26Z",
+      lastUpdatedUtc: "2026-04-23T07:57:00Z",
       platform: "YouTube Live",
       channelId: "UCjpBbH8NmL4XHVUgJurDPZg",
       donationUrl: "https://tipply.pl/@latwogang",
@@ -110,16 +110,16 @@ export const seedSiteData: SiteData = {
       trackArtists: ["Bedoes 2115", "Maja Mecan", "Cancer Fighters"],
       trackLengthSeconds: 165,
     },
-    totalRaisedPln: 5_385_000,
-    hoursElapsed: 143,
-    estimatedTotalLoops: 3_128,
+    totalRaisedPln: 5_715_000,
+    hoursElapsed: 151,
+    estimatedTotalLoops: 3_315,
     engagement: {
       averageConcurrentViewers: 19_000,
       newSubscribersDuringEvent: 17_000,
       totalViewsGenerated: 2_480_000,
     },
     velocity: {
-      averagePlnPerHour: 37_559.14,
+      averagePlnPerHour: 37_611.06,
       milestoneVelocity: [
         { label: "500 000", hours: 48 },
         { label: "1 000 000", hours: 60 },
@@ -197,7 +197,7 @@ export const seedSiteData: SiteData = {
       targetAmount: 5_000_000,
       title: "5M · Doda pomaga dobić do piątki",
       description:
-        "Doda wchodzi do studia i pomaga rozkręcić donejty — licznik przebił 5 milionów PLN i leci dalej. Aktualny ręczny snapshot z live'a: 5 385 000 PLN.",
+        "Doda wchodzi do studia i pomaga rozkręcić donejty — licznik przebił 5 milionów PLN i leci dalej. GlamRap raportował potem już ponad 5,5 mln PLN po pięciu dniach streamu. Snapshot z 23 kwietnia 2026, 09:57 GMT+2: ~5 715 000 PLN (overlay na screenie pokazywał dokładnie 5 713 793,30 PLN).",
       status: "achieved",
       dateAchieved: "2026-04-22T23:22:26Z",
     },
@@ -282,6 +282,16 @@ export const seedSiteData: SiteData = {
       description:
         "Artyści zapowiedziani. White 2115 rzuca wyzwanie: +150k PLN do 15:00, żeby potwierdzić wejście. Szpaku obiecał koncert po przekroczeniu 3M PLN.",
       tags: ["upcoming", "conditional_challenge"],
+    },
+    {
+      id: "evt_009",
+      dateLocal: "2026-04-23",
+      relativeTime: "Dzień 7 — Poranek",
+      participants: ["Bedoes 2115", "Doda", "White 2115", "Oki", "Żabson"],
+      category: "milestone_execution",
+      description:
+        "GlamRap raportuje, że po pięciu dniach stream przebił już 5,5 mln PLN. Bedoes 2115 miał wtedy ponad 700 tys. PLN łącznych wpłat, w tym jedną wpłatę przekraczającą 500 tys. Na streamie przewijają się też White 2115, Oki, Żabson i Doda.",
+      tags: ["5_5m", "bedoes", "doda", "white2115", "oki", "zabson"],
     },
   ],
 };
