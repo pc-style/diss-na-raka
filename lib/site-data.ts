@@ -108,7 +108,7 @@ export const seedSiteData: SiteData = {
       hostId: "latwogang_official",
       beneficiary: "Fundacja Cancer Fighters",
       startTimestampUtc: "2026-04-17T00:00:00Z",
-      lastUpdatedUtc: "2026-04-23T07:57:00Z",
+      lastUpdatedUtc: "2026-04-23T10:11:24Z",
       platform: "YouTube Live",
       channelId: "UCjpBbH8NmL4XHVUgJurDPZg",
       donationUrl: "https://tipply.pl/@latwogang",
@@ -117,7 +117,7 @@ export const seedSiteData: SiteData = {
       trackArtists: ["Bedoes 2115", "Maja Mecan", "Cancer Fighters"],
       trackLengthSeconds: 165,
     },
-    totalRaisedPln: 5_715_000,
+    totalRaisedPln: 6_065_000,
     hoursElapsed: 151,
     estimatedTotalLoops: 3_315,
     engagement: {
@@ -359,6 +359,21 @@ export const seedSiteData: SiteData = {
       description:
         "Plejada i GlamRap raportują 5,5 mln PLN po pięciu dniach streamu. Bedoes 2115 ma już 700k+ łącznych wpłat, w tym jednorazowe 500 tys. W czołówce wpłat przewijają się też Oki (180 tys.) i SVM!R (137 tys.), a Doda dalej boostuje finałową fazę streamu.",
       tags: ["5_5m", "bedoes", "doda", "oki", "svmr", "top_donors"],
+    },
+    {
+      id: "evt_011",
+      dateLocal: "2026-04-23",
+      relativeTime: "Dzień 7 — Live update",
+      sortUtc: "2026-04-23T10:11:24Z",
+      zrodlo: {
+        label: "YouTube Live: bieżący stan streamu",
+        url: "https://www.youtube.com/channel/UCjpBbH8NmL4XHVUgJurDPZg/live",
+      },
+      participants: ["Łatwogang", "Cancer Fighters"],
+      category: "milestone_execution",
+      description:
+        "Bieżący live update: licznik dobił do 6 065 000 PLN. To nowszy punkt odniesienia niż wcześniejszy snapshot 5 713 793,30 PLN z tego samego dnia.",
+      tags: ["live_update", "manual_update", "6_065m"],
     },
     {
       id: "evt_010",
