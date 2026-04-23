@@ -16,10 +16,17 @@ export type EventCategory =
   | "endurance_challenge"
   | "scheduled_appearance";
 
+export interface TimelineSource {
+  label: string;
+  url: string;
+}
+
 export interface TimelineEvent {
   id: string;
   dateLocal: string;
   relativeTime: string;
+  sortUtc?: string;
+  zrodlo?: TimelineSource;
   participants: string[];
   category: EventCategory;
   description: string;
@@ -207,6 +214,11 @@ export const seedSiteData: SiteData = {
       id: "evt_001",
       dateLocal: "2026-04-17",
       relativeTime: "Dzień 1 — Start",
+      sortUtc: "2026-04-17T00:00:00Z",
+      zrodlo: {
+        label: "Onet: start 200h streamu i cel 30k",
+        url: "https://www.onet.pl/kultura/onetkultura/w-200-godz-chce-zebrac-30-tys-zl-wszystko-przez-chorobe-11-letniej-mai/r8vww1c,681c1dfa",
+      },
       participants: ["Bedoes 2115", "Maja Mecan"],
       category: "core_event",
       description:
@@ -217,6 +229,11 @@ export const seedSiteData: SiteData = {
       id: "evt_002",
       dateLocal: "2026-04-19",
       relativeTime: "Dzień 3 — Popołudnie",
+      sortUtc: "2026-04-19T14:00:00Z",
+      zrodlo: {
+        label: "GlamRap: Bedoes, Brokies i Dajczman robią gang łysych",
+        url: "https://glamrap.pl/bedoes-zrobil-tatuaz-zgolil-brode-i-wasy-a-na-streamie-latwogang-pojawil-sie-gang-lysych/",
+      },
       participants: ["Bedoes 2115", "Brokies", "Dajczman"],
       category: "milestone_execution",
       description:
@@ -227,6 +244,11 @@ export const seedSiteData: SiteData = {
       id: "evt_002b",
       dateLocal: "2026-04-19",
       relativeTime: "Dzień 3 — Wczesny impet",
+      sortUtc: "2026-04-19T09:00:00Z",
+      zrodlo: {
+        label: "GlamRap: ponad 400k i zapowiedź tatuażu przy 500k",
+        url: "https://glamrap.pl/latwogang-slucha-dissu-na-raka-przez-9-dni-a-bedoes-robi-tatuaz/",
+      },
       participants: ["Bedoes 2115"],
       category: "milestone_execution",
       description:
@@ -237,6 +259,11 @@ export const seedSiteData: SiteData = {
       id: "evt_003",
       dateLocal: "2026-04-19",
       relativeTime: "Dzień 3 — Wieczór",
+      sortUtc: "2026-04-19T23:30:00Z",
+      zrodlo: {
+        label: "4INFLU: challenge Disco Karola przy 1,25 mln",
+        url: "https://4influ.pl/latwogang-osiagnal-milion-zlotych-na-zbiorce-dla-fundacji-cancer-fighters/",
+      },
       participants: ["Disco Karol"],
       category: "endurance_challenge",
       description:
@@ -247,6 +274,11 @@ export const seedSiteData: SiteData = {
       id: "evt_004",
       dateLocal: "2026-04-21",
       relativeTime: "Dzień 5 — Wieczór",
+      sortUtc: "2026-04-21T20:00:00Z",
+      zrodlo: {
+        label: "GlamRap: Bambi, Francis i ostre sosy na streamie",
+        url: "https://glamrap.pl/bambi-nie-ogolila-sie-na-lyso-ale-latwogang-poczestowal-ja-ostrymi-sosami/",
+      },
       participants: ["Bambi", "Francis"],
       category: "guest_appearance",
       description:
@@ -257,6 +289,11 @@ export const seedSiteData: SiteData = {
       id: "evt_005",
       dateLocal: "2026-04-21",
       relativeTime: "Dzień 5 — Wieczór",
+      sortUtc: "2026-04-21T21:00:00Z",
+      zrodlo: {
+        label: "GlamRap: snippet Bambi przy 2,6 mln",
+        url: "https://glamrap.pl/bambi-nie-ogolila-sie-na-lyso-ale-latwogang-poczestowal-ja-ostrymi-sosami/",
+      },
       participants: ["Bambi"],
       category: "milestone_execution",
       description:
@@ -267,6 +304,11 @@ export const seedSiteData: SiteData = {
       id: "evt_006",
       dateLocal: "2026-04-22",
       relativeTime: "Dzień 6 — Popołudnie",
+      sortUtc: "2026-04-22T16:00:00Z",
+      zrodlo: {
+        label: "Świat Gwiazd: Wojciech Gola goli głowę na żywo",
+        url: "https://swiatgwiazd.pl/publicznie-ogolili-glowe-wojtkowi-goli-niewiarygodne-sceny-na-oczach-ludzi-ms-whk-220426",
+      },
       participants: ["Wojciech Gola"],
       category: "milestone_execution",
       description:
@@ -277,6 +319,11 @@ export const seedSiteData: SiteData = {
       id: "evt_007",
       dateLocal: "2026-04-22",
       relativeTime: "Dzień 6 — W trakcie",
+      sortUtc: "2026-04-22T14:00:00Z",
+      zrodlo: {
+        label: "Pudelek: Maciek, Kostek, Zoja i challenge Eryka Moczko",
+        url: "https://www.pudelek.pl/latwogang-zebral-prawie-3-mln-zl-na-walke-dzieci-z-rakiem-wspieraja-go-bedoes-2115-bambi-zoja-skubis-i-inni-7277957026146592a",
+      },
       participants: ["Maciek Dąbrowski", "Kostek", "Zoja Skubis", "Eryk Moczko"],
       category: "guest_appearance",
       description:
@@ -287,6 +334,11 @@ export const seedSiteData: SiteData = {
       id: "evt_008",
       dateLocal: "2026-04-22",
       relativeTime: "Dzień 6 — Wieczór",
+      sortUtc: "2026-04-22T18:00:00Z",
+      zrodlo: {
+        label: "Pudelek: White 2115 ustawia deadline, Oki i Żabson zapowiadają wejście",
+        url: "https://www.pudelek.pl/latwogang-zebral-prawie-3-mln-zl-na-walke-dzieci-z-rakiem-wspieraja-go-bedoes-2115-bambi-zoja-skubis-i-inni-7277957026146592a",
+      },
       participants: ["White 2115", "Szpaku", "Oki", "Żabson"],
       category: "scheduled_appearance",
       description:
@@ -297,6 +349,11 @@ export const seedSiteData: SiteData = {
       id: "evt_009",
       dateLocal: "2026-04-23",
       relativeTime: "Dzień 7 — 07:55",
+      sortUtc: "2026-04-23T07:55:00Z",
+      zrodlo: {
+        label: "Plejada: 5,5 mln, Doda i top wpłaty Bedoesa oraz Okiego",
+        url: "https://plejada.pl/newsy/bedoes-2115-na-zywo-przekazal-pol-miliona-zlotych-wczesniej-nagral-diss-na-raka/l35s0rh",
+      },
       participants: ["Bedoes 2115", "Doda", "Oki", "SVM!R"],
       category: "milestone_execution",
       description:
@@ -307,6 +364,11 @@ export const seedSiteData: SiteData = {
       id: "evt_010",
       dateLocal: "2026-04-23",
       relativeTime: "Dzień 7 — 09:57",
+      sortUtc: "2026-04-23T09:57:00Z",
+      zrodlo: {
+        label: "YouTube Live: manualny snapshot overlayu na streamie",
+        url: "https://www.youtube.com/channel/UCjpBbH8NmL4XHVUgJurDPZg/live",
+      },
       participants: ["Łatwogang", "Cancer Fighters"],
       category: "milestone_execution",
       description:
@@ -362,6 +424,64 @@ export function mergeSiteDataPatch(
   return {
     dashboard,
     milestones: patch.milestones ?? current.milestones,
-    timelineEvents: patch.timelineEvents ?? current.timelineEvents,
+    timelineEvents: normalizeTimelineEvents(
+      patch.timelineEvents ?? current.timelineEvents,
+    ),
   };
+}
+
+const RELATIVE_TIME_SLOTS: Array<{ pattern: RegExp; minutes: number }> = [
+  { pattern: /\bstart\b/i, minutes: 0 },
+  { pattern: /\bwczesny impet\b/i, minutes: 8 * 60 },
+  { pattern: /\bporanek\b/i, minutes: 9 * 60 },
+  { pattern: /\bw trakcie\b/i, minutes: 14 * 60 },
+  { pattern: /\bpopołudnie\b/i, minutes: 16 * 60 },
+  { pattern: /\bwieczór\b/i, minutes: 20 * 60 },
+  { pattern: /\bnoc\b/i, minutes: 23 * 60 },
+];
+
+function getTimelineEventSortTime(event: TimelineEvent) {
+  if (event.sortUtc) {
+    const exact = Date.parse(event.sortUtc);
+    if (!Number.isNaN(exact)) {
+      return exact;
+    }
+  }
+
+  if (!/^\d{4}-\d{2}-\d{2}$/.test(event.dateLocal)) {
+    return Number.NEGATIVE_INFINITY;
+  }
+
+  const explicitTime = event.relativeTime.match(/\b(\d{1,2}):(\d{2})\b/);
+  const hours = explicitTime ? Number(explicitTime[1]) : null;
+  const minutes = explicitTime ? Number(explicitTime[2]) : null;
+
+  if (hours !== null && minutes !== null) {
+    return Date.parse(
+      `${event.dateLocal}T${String(hours).padStart(2, "0")}:${String(minutes).padStart(2, "0")}:00Z`,
+    );
+  }
+
+  for (const slot of RELATIVE_TIME_SLOTS) {
+    if (slot.pattern.test(event.relativeTime)) {
+      return Date.parse(
+        `${event.dateLocal}T00:00:00Z`,
+      ) + slot.minutes * 60 * 1000;
+    }
+  }
+
+  return Date.parse(`${event.dateLocal}T00:00:00Z`);
+}
+
+export function normalizeTimelineEvents(timelineEvents: TimelineEvent[]) {
+  return [...timelineEvents].sort((left, right) => {
+    const delta =
+      getTimelineEventSortTime(right) - getTimelineEventSortTime(left);
+
+    if (delta !== 0) {
+      return delta;
+    }
+
+    return left.id.localeCompare(right.id);
+  });
 }

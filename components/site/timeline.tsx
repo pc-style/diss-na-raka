@@ -175,6 +175,22 @@ function EventRow({
               </span>
             ))}
           </div>
+          {e.zrodlo && (
+            <div className="mt-4">
+              <div className="font-mono text-[10px] tracking-[0.24em] text-paper-dim">
+                ZRODLO
+              </div>
+              <a
+                href={e.zrodlo.url}
+                target="_blank"
+                rel="noreferrer"
+                className="mt-1 inline-flex items-center gap-2 font-mono text-[11px] tracking-[0.12em] text-accent underline-offset-4 hover:text-paper hover:underline"
+              >
+                {e.zrodlo.label}
+                <span aria-hidden>↗</span>
+              </a>
+            </div>
+          )}
         </div>
         <div className="col-span-12 md:col-span-3">
           <div className="font-mono text-[10px] tracking-[0.24em] text-paper-dim mb-2">

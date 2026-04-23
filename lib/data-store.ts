@@ -3,6 +3,7 @@ import { mkdir, readFile, writeFile } from "node:fs/promises";
 import path from "node:path";
 import {
   mergeSiteDataPatch,
+  normalizeTimelineEvents,
   seedSiteData,
   type SiteData,
   type SiteDataPatch,
@@ -57,11 +58,14 @@ async function writeBlobData(data: SiteData) {
 }
 
 export async function getSiteData() {
-  if (shouldUseBlobStorage()) {
-    return (await readBlobData()) ?? seedSiteData;
-  }
+  const loaded = shouldUseBlobStorage()
+    ? (await readBlobData()) ?? seedSiteData
+    : (await readLocalData()) ?? seedSiteData;
 
-  return (await readLocalData()) ?? seedSiteData;
+  return {
+    ...loaded,
+    timelineEvents: normalizeTimelineEvents(loaded.timelineEvents),
+  };
 }
 
 export async function updateSiteData(patch: SiteDataPatch) {
