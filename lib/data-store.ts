@@ -10,6 +10,7 @@ import {
 
 const DATA_BLOB_PATHNAME = "tracker/site-data.json";
 const LOCAL_DATA_PATH = path.join(process.cwd(), "data", "site-data.json");
+const DATA_BLOB_ACCESS = "private";
 
 function shouldUseBlobStorage() {
   return Boolean(process.env.BLOB_READ_WRITE_TOKEN);
@@ -31,7 +32,7 @@ async function writeLocalData(data: SiteData) {
 
 async function readBlobData() {
   try {
-    const blob = await get(DATA_BLOB_PATHNAME, { access: "public" });
+    const blob = await get(DATA_BLOB_PATHNAME, { access: DATA_BLOB_ACCESS });
     if (!blob || blob.statusCode !== 200) {
       return null;
     }
@@ -47,7 +48,7 @@ async function writeBlobData(data: SiteData) {
     DATA_BLOB_PATHNAME,
     JSON.stringify(data, null, 2) + "\n",
     {
-      access: "public",
+      access: DATA_BLOB_ACCESS,
       addRandomSuffix: false,
       allowOverwrite: true,
       contentType: "application/json; charset=utf-8",

@@ -53,11 +53,27 @@ curl -X PUT "http://localhost:3000/api/data" \
 
 Full docs live in [dosc/README.md](./dosc/README.md).
 
+## Quick updater
+
+Instead of hand-writing `curl`, you can run:
+
+```bash
+bun run update --amount 5800000 --time "2026-04-23T10:30:00Z"
+```
+
+Or pass local Warsaw-style tracker time directly:
+
+```bash
+bun run update --amount 5800000 --time-gmt2 "2026-04-23 12:30"
+```
+
+The script uses `DATA_UPDATE_TOKEN` and defaults to `https://diss-na-raka.vercel.app/api/data`.
+
 ## Vercel deployment
 
 1. Create a Vercel project from this repo.
 2. Add `DATA_UPDATE_TOKEN`.
-3. Create a public Vercel Blob store and connect it to the project so `BLOB_READ_WRITE_TOKEN` is provided.
+3. Create a Vercel Blob store and connect it to the project so `BLOB_READ_WRITE_TOKEN` is provided.
 4. Deploy.
 
 Why Blob: Vercel Functions use a read-only filesystem except for temporary `/tmp`, so persisted tracker updates need external storage.

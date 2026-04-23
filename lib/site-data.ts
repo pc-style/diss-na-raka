@@ -143,7 +143,7 @@ export const seedSiteData: SiteData = {
       targetAmount: 500_000,
       title: "Tatuaż Bedoesa + gang łysych",
       description:
-        "Bedoes robi tatuaż wybrany przez widzów. Dołącza do niego ekipa Brokies i Dajczman — głowy, brody i wąsy idą pod maszynkę w solidarności.",
+        "GlamRap raportował już ponad 400k PLN na wczesnym etapie streamu, a po dobiciu do 500k uruchamia się obiecany trigger: Bedoes robi tatuaż wybrany przez widzów. Dołącza do niego ekipa Brokies i Dajczman — głowy, brody i wąsy idą pod maszynkę w solidarności.",
       status: "achieved",
       dateAchieved: "2026-04-19T14:00:00Z",
     },
@@ -161,7 +161,7 @@ export const seedSiteData: SiteData = {
       targetAmount: 2_300_000,
       title: "Szpaku rzuca warunek 3M",
       description:
-        "Przy 2,3M PLN Szpaku deklaruje: zagra live koncert, ale dopiero kiedy licznik przebije 3 miliony.",
+        "Po czterech dniach streamu licznik dobija do około 2,3M PLN. Szpaku deklaruje wtedy, że zagra live koncert, ale dopiero kiedy licznik przebije 3 miliony.",
       status: "achieved",
       dateAchieved: "2026-04-21T16:00:00Z",
     },
@@ -220,8 +220,18 @@ export const seedSiteData: SiteData = {
       participants: ["Bedoes 2115", "Brokies", "Dajczman"],
       category: "milestone_execution",
       description:
-        'Cel 500k PLN osiągnięty. Bedoes, Brokies i Dajczman golą głowy — rodzi się "gang łysych". Bedoes tatuuje okładkę singla i logo Cancer Fighters.',
+        'Cel 500k PLN osiągnięty po wcześniejszym szybkim dojściu do 400k+. Bedoes, Brokies i Dajczman golą głowy — rodzi się "gang łysych". Bedoes tatuuje okładkę singla i logo Cancer Fighters.',
       tags: ["haircut", "tattoo", "milestone"],
+    },
+    {
+      id: "evt_002b",
+      dateLocal: "2026-04-19",
+      relativeTime: "Dzień 3 — Wczesny impet",
+      participants: ["Bedoes 2115"],
+      category: "milestone_execution",
+      description:
+        'GlamRap podbija wczesny momentum streamu: licznik jest już ponad 400k PLN, a zapowiedź tatuażu Bedoesa przy 500k staje się głównym następnym triggerem dla widzów.',
+      tags: ["400k", "500k", "tattoo", "momentum"],
     },
     {
       id: "evt_003",
@@ -267,31 +277,41 @@ export const seedSiteData: SiteData = {
       id: "evt_007",
       dateLocal: "2026-04-22",
       relativeTime: "Dzień 6 — W trakcie",
-      participants: ["Maciek Dąbrowski", "Kostek", "Zoja Skubis"],
+      participants: ["Maciek Dąbrowski", "Kostek", "Zoja Skubis", "Eryk Moczko"],
       category: "guest_appearance",
       description:
-        "Influencerzy wpadają do studia, żeby dać support i napędzić donejty.",
-      tags: ["support", "influencers"],
+        'Pudelek zbiera szerszy recap supportu: do studia wpadają Maciek Dąbrowski, Kostek i Zoja Skubis, a Eryk Moczko deklaruje własny "DissNaRakaChallenge", jeśli licznik przebije 2,4M PLN.',
+      tags: ["support", "influencers", "eryk_moczko", "2_4m"],
     },
     {
       id: "evt_008",
-      dateLocal: "TBD",
-      relativeTime: "Oczekujące",
-      participants: ["Szpaku", "Oki", "Żabson", "Doda", "White 2115"],
+      dateLocal: "2026-04-22",
+      relativeTime: "Dzień 6 — Wieczór",
+      participants: ["White 2115", "Szpaku", "Oki", "Żabson"],
       category: "scheduled_appearance",
       description:
-        "Artyści zapowiedziani. White 2115 rzuca wyzwanie: +150k PLN do 15:00, żeby potwierdzić wejście. Szpaku obiecał koncert po przekroczeniu 3M PLN.",
-      tags: ["upcoming", "conditional_challenge"],
+        "Media round-upy łapią kilka głośnych zapowiedzi naraz: White 2115 rzuca deadline +150k PLN do 15:00, a równolegle krążą zapowiedzi supportu od Okiego i Żabsona oraz warunek Szpaka na koncert po 3M.",
+      tags: ["white2115", "deadline", "conditional_challenge", "szpaku", "oki", "zabson"],
     },
     {
       id: "evt_009",
       dateLocal: "2026-04-23",
-      relativeTime: "Dzień 7 — Poranek",
-      participants: ["Bedoes 2115", "Doda", "White 2115", "Oki", "Żabson"],
+      relativeTime: "Dzień 7 — 07:55",
+      participants: ["Bedoes 2115", "Doda", "Oki", "SVM!R"],
       category: "milestone_execution",
       description:
-        "GlamRap raportuje, że po pięciu dniach stream przebił już 5,5 mln PLN. Bedoes 2115 miał wtedy ponad 700 tys. PLN łącznych wpłat, w tym jedną wpłatę przekraczającą 500 tys. Na streamie przewijają się też White 2115, Oki, Żabson i Doda.",
-      tags: ["5_5m", "bedoes", "doda", "white2115", "oki", "zabson"],
+        "Plejada i GlamRap raportują 5,5 mln PLN po pięciu dniach streamu. Bedoes 2115 ma już 700k+ łącznych wpłat, w tym jednorazowe 500 tys. W czołówce wpłat przewijają się też Oki (180 tys.) i SVM!R (137 tys.), a Doda dalej boostuje finałową fazę streamu.",
+      tags: ["5_5m", "bedoes", "doda", "oki", "svmr", "top_donors"],
+    },
+    {
+      id: "evt_010",
+      dateLocal: "2026-04-23",
+      relativeTime: "Dzień 7 — 09:57",
+      participants: ["Łatwogang", "Cancer Fighters"],
+      category: "milestone_execution",
+      description:
+        "Ręcznie potwierdzony snapshot z overlayu: 5 713 793,30 PLN wobec celu 6 000 000 PLN. Tracker zaokrągla ten stan do 5 715 000 PLN i oznacza go jako lokalny punkt odniesienia dla dalszych aktualizacji.",
+      tags: ["snapshot", "overlay", "manual_update", "5_715m"],
     },
   ],
 };

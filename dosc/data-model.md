@@ -1,6 +1,6 @@
 # Data model
 
-The site reads one JSON document with this top-level shape:
+The tracker reads one JSON document with this shape:
 
 ```ts
 type SiteData = {
@@ -12,39 +12,127 @@ type SiteData = {
 
 ## `dashboard`
 
-Used for the hero counter, ticker, live clock, footer metadata, and milestone progress.
+Used by the hero counter, ticker, footer, live clock, and stat blocks.
 
-Important fields:
+```ts
+type DashboardState = {
+  metadata: {
+    hostId: string;
+    beneficiary: string;
+    startTimestampUtc: string;
+    lastUpdatedUtc: string;
+    platform: string;
+    channelId: string;
+    donationUrl: string;
+    songUrl: string;
+    trackTitle: string;
+    trackArtists: string[];
+    trackLengthSeconds: number;
+  };
+  totalRaisedPln: number;
+  hoursElapsed: number;
+  estimatedTotalLoops: number;
+  engagement: {
+    averageConcurrentViewers: number;
+    newSubscribersDuringEvent: number;
+    totalViewsGenerated: number;
+  };
+  velocity: {
+    averagePlnPerHour: number;
+    milestoneVelocity: { label: string; hours: number }[];
+  };
+};
+```
 
-- `dashboard.metadata.lastUpdatedUtc`: latest manual snapshot timestamp in UTC.
-- `dashboard.totalRaisedPln`: main visible counter.
-- `dashboard.hoursElapsed`: coarse summary number for the ticker.
-- `dashboard.estimatedTotalLoops`: summary number for the ticker.
-- `dashboard.engagement.*`: sidebar metrics.
-- `dashboard.velocity.*`: sidebar pace module.
+Core fields:
+
+- `dashboard.totalRaisedPln`
+- `dashboard.hoursElapsed`
+- `dashboard.estimatedTotalLoops`
+- `dashboard.engagement`
+- `dashboard.velocity`
+- `dashboard.metadata`
+
+Important `metadata` fields:
+
+- `startTimestampUtc`: event start in UTC
+- `lastUpdatedUtc`: latest snapshot in UTC
+- `beneficiary`: current beneficiary label
+- `donationUrl`: donation target link
+- `songUrl`: track link
 
 ## `milestones`
 
-Ordered list of fundraising thresholds shown in the horizontal roadmap.
+Ordered roadmap entries shown against the current total.
 
-Important fields:
+```ts
+type Milestone = {
+  id: string;
+  targetAmount: number;
+  title: string;
+  description: string;
+  status: "achieved" | "pending" | "failed";
+  dateAchieved: string | null;
+};
+```
 
-- `status`: `achieved`, `pending`, or `failed`.
-- `dateAchieved`: UTC ISO string or `null`.
-- `targetAmount`: value used for the progress rail and sorting.
+Notes:
+
+- `targetAmount` drives progress positioning
+- `dateAchieved` should be a UTC ISO string when known
+- descriptions can carry source context, guest names, or exact snapshot notes
 
 ## `timelineEvents`
 
-Chronological event index for the searchable VOD/timeline block.
+Chronological story index for the searchable event timeline.
 
-Important fields:
+```ts
+type TimelineEvent = {
+  id: string;
+  dateLocal: string;
+  relativeTime: string;
+  participants: string[];
+  category:
+    | "core_event"
+    | "milestone_execution"
+    | "guest_appearance"
+    | "endurance_challenge"
+    | "scheduled_appearance";
+  description: string;
+  tags: string[];
+};
+```
 
-- `category`: one of `core_event`, `milestone_execution`, `guest_appearance`, `endurance_challenge`, `scheduled_appearance`.
-- `participants`: rendered as the participant list.
-- `tags`: used by free-text search in the UI.
+Notes:
+
+- `dateLocal` is a display label, not a machine timestamp
+- `participants` should stay short and readable
+- `tags` power text search, so include milestone names, guest names, and key phrases
+
+## Patch schema
+
+The API accepts:
+
+```ts
+type SiteDataPatch = {
+  dashboard?: Partial<DashboardState> & {
+    metadata?: Partial<DashboardState["metadata"]>;
+    engagement?: Partial<DashboardState["engagement"]>;
+    velocity?: Partial<DashboardState["velocity"]>;
+  };
+  milestones?: Milestone[];
+  timelineEvents?: TimelineEvent[];
+};
+```
+
+Use `dashboard` for small edits. Replace arrays only when intentionally rewriting them.
+
+Nested object patches merge with the stored object, but array fields are replacement-only.
 
 ## Storage behavior
 
-- Local development: updates are written to `data/site-data.json`.
-- Vercel: updates are written to `tracker/site-data.json` in Vercel Blob when `BLOB_READ_WRITE_TOKEN` is available.
-- If no stored file exists yet, the app falls back to the seed dataset in `lib/site-data.ts`.
+- local development: writes to `data/site-data.json`
+- Vercel with Blob configured: writes to private Blob object `tracker/site-data.json`
+- no stored file yet: falls back to seed data in `lib/site-data.ts`
+
+That means seed data should still be kept current for new environments, previews, or recovery.
