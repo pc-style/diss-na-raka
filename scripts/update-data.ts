@@ -96,7 +96,7 @@ async function main() {
 
   const apiUrl =
     process.env.TRACKER_UPDATE_URL ??
-    "https://diss-na-raka.vercel.app/api/data";
+    "https://latwo-x-cancerfighters.pcstyle.dev/api/data";
   const token = process.env.DATA_UPDATE_TOKEN;
 
   if (!token) {

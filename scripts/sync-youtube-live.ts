@@ -35,7 +35,7 @@ function getSyncUrl() {
 
   const updateUrl =
     process.env.TRACKER_UPDATE_URL ??
-    "https://diss-na-raka.vercel.app/api/data";
+    "https://latwo-x-cancerfighters.pcstyle.dev/api/data";
 
   return updateUrl.replace(/\/api\/data\/?$/, "/api/youtube-sync");
 }
@@ -103,6 +103,8 @@ async function main() {
     getFlag("--interval-ms") ?? "30000",
     "interval",
   );
+
+  console.log(`Sync URL: ${syncUrl}`);
 
   if (!watch) {
     await runOnce(syncUrl, token);

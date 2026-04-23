@@ -105,7 +105,7 @@ Or pass local Warsaw-style tracker time directly:
 bun run update --amount 5800000 --time-gmt2 "2026-04-23 12:30"
 ```
 
-The script uses `DATA_UPDATE_TOKEN` and defaults to `https://diss-na-raka.vercel.app/api/data`.
+The script uses `DATA_UPDATE_TOKEN` and defaults to `https://latwo-x-cancerfighters.pcstyle.dev/api/data`.
 
 ## Vercel deployment
 

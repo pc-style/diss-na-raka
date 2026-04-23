@@ -39,7 +39,7 @@ bun run update --amount 5715000 --time-gmt2 "2026-04-23 09:57"
 The script:
 
 - reads `DATA_UPDATE_TOKEN`
-- sends a `PUT` request to `TRACKER_UPDATE_URL` or `https://diss-na-raka.vercel.app/api/data`
+- sends a `PUT` request to `TRACKER_UPDATE_URL` or `https://latwo-x-cancerfighters.pcstyle.dev/api/data`
 - prints the stored UTC timestamp and the derived `GMT+2` display time
 
 ## YouTube stats sync
