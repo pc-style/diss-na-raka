@@ -1,6 +1,6 @@
 # Manual updates
 
-This tracker is intentionally maintained by hand. The source of truth is the current stored JSON document served by `GET /api/data`.
+This tracker is intentionally maintained by hand for the PLN total. The source of truth is the current stored JSON document served by `GET /api/data`.
 
 ## What to update most often
 
@@ -41,6 +41,28 @@ The script:
 - reads `DATA_UPDATE_TOKEN`
 - sends a `PUT` request to `TRACKER_UPDATE_URL` or `https://diss-na-raka.vercel.app/api/data`
 - prints the stored UTC timestamp and the derived `GMT+2` display time
+
+## YouTube stats sync
+
+If you set `YOUTUBE_API_KEY`, you can also refresh the YouTube-side live stats without touching the PLN total:
+
+```bash
+bun run sync:youtube
+
+# Poll every 30 seconds by default
+bun run sync:youtube --watch
+```
+
+This updates the stored:
+
+- `dashboard.engagement.averageConcurrentViewers`
+- `dashboard.engagement.totalViewsGenerated`
+- `dashboard.hoursElapsed`
+- `dashboard.estimatedTotalLoops`
+- `dashboard.metadata.currentLiveVideo*`
+- `dashboard.metadata.lastYouTubeSyncUtc`
+
+It does not update `dashboard.totalRaisedPln`.
 
 ## When to replace full arrays
 

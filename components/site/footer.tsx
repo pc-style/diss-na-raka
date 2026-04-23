@@ -45,7 +45,10 @@ export function SiteFooter({ dashboard }: { dashboard: DashboardState }) {
           </span>
           <a
             className="font-display uppercase text-base hover:text-accent transition-colors"
-            href={`https://youtube.com/channel/${dashboard.metadata.channelId}`}
+            href={
+              dashboard.metadata.currentLiveVideoUrl ??
+              `https://youtube.com/channel/${dashboard.metadata.channelId}`
+            }
             target="_blank"
             rel="noopener noreferrer"
           >
@@ -96,6 +99,14 @@ export function SiteFooter({ dashboard }: { dashboard: DashboardState }) {
                 {formatDateTimeGmtPlus2(dashboard.metadata.lastUpdatedUtc)}
               </span>
             </li>
+            {dashboard.metadata.lastYouTubeSyncUtc ? (
+              <li>
+                Ostatni sync YouTube API:{" "}
+                <span className="text-paper">
+                  {formatDateTimeGmtPlus2(dashboard.metadata.lastYouTubeSyncUtc)}
+                </span>
+              </li>
+            ) : null}
             <li>
               Start streamu:{" "}
               <span className="text-paper">

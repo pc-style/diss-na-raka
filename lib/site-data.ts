@@ -39,8 +39,12 @@ export interface DashboardState {
     beneficiary: string;
     startTimestampUtc: string;
     lastUpdatedUtc: string;
+    lastYouTubeSyncUtc?: string;
     platform: string;
     channelId: string;
+    currentLiveVideoId?: string;
+    currentLiveVideoTitle?: string;
+    currentLiveVideoUrl?: string;
     donationUrl: string;
     songUrl: string;
     trackTitle: string;
@@ -81,7 +85,10 @@ export interface CounterHistoryPoint {
 }
 
 export interface SiteDataPatch {
-  dashboard?: Partial<DashboardState> & {
+  dashboard?: Omit<
+    Partial<DashboardState>,
+    "metadata" | "engagement" | "velocity"
+  > & {
     metadata?: Partial<DashboardState["metadata"]>;
     engagement?: Partial<DashboardState["engagement"]>;
     velocity?: Partial<DashboardState["velocity"]>;
@@ -133,8 +140,12 @@ export const seedSiteData: SiteData = {
       beneficiary: "Fundacja Cancer Fighters",
       startTimestampUtc: "2026-04-17T00:00:00Z",
       lastUpdatedUtc: "2026-04-23T10:11:24Z",
+      lastYouTubeSyncUtc: "2026-04-23T10:11:24Z",
       platform: "YouTube Live",
       channelId: "UCjpBbH8NmL4XHVUgJurDPZg",
+      currentLiveVideoId: "UNAqqHIPbWA",
+      currentLiveVideoTitle: "9 DNI SŁUCHAMY DISSU NA RAKA",
+      currentLiveVideoUrl: "https://www.youtube.com/live/UNAqqHIPbWA",
       donationUrl: "https://tipply.pl/@latwogang",
       songUrl: "https://www.youtube.com/watch?v=d-kldWAQBzk",
       trackTitle: "Ciągle tutaj jestem (diss na raka)",

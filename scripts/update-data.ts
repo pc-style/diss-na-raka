@@ -1,3 +1,5 @@
+export {};
+
 function getFlag(name: string) {
   const args = process.argv.slice(2);
   const index = args.indexOf(name);
