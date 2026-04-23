@@ -57,8 +57,8 @@ export function TimelineSection({
           </div>
           <div className="col-span-12 md:col-span-4">
             <p className="font-serif text-base text-paper-dim leading-snug">
-              9 dni streamu = ~13 mln sekund VOD-a. Tu masz wyciągnięte momenty
-              z timestampami, gośćmi i tagami, żeby nie scrollować na ślepo.
+              Najważniejsze momenty streamu zebrane w jednym miejscu: kiedy coś
+              się wydarzyło, kto był na miejscu i czego dotyczył dany fragment.
             </p>
           </div>
         </div>
