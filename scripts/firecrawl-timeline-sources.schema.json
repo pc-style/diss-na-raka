@@ -1,0 +1,70 @@
+{
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "events"
+  ],
+  "properties": {
+    "events": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "sourceLabel",
+          "sourceUrl",
+          "sourceType",
+          "confidence",
+          "notes"
+        ],
+        "properties": {
+          "id": {
+            "type": "string",
+            "enum": [
+              "evt_001",
+              "evt_002",
+              "evt_002b",
+              "evt_003",
+              "evt_004",
+              "evt_005",
+              "evt_006",
+              "evt_007",
+              "evt_008",
+              "evt_009",
+              "evt_010"
+            ]
+          },
+          "sourceLabel": {
+            "type": "string"
+          },
+          "sourceUrl": {
+            "type": "string"
+          },
+          "sourceType": {
+            "type": "string",
+            "enum": [
+              "article",
+              "official",
+              "video",
+              "live",
+              "social",
+              "other"
+            ]
+          },
+          "confidence": {
+            "type": "string",
+            "enum": [
+              "high",
+              "medium",
+              "low"
+            ]
+          },
+          "notes": {
+            "type": "string"
+          }
+        }
+      }
+    }
+  }
+}

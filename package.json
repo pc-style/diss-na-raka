@@ -8,7 +8,9 @@
     "start": "next start",
     "lint": "eslint",
     "test": "bun test",
-    "update": "bun run scripts/update-data.ts"
+    "update": "bun run scripts/update-data.ts",
+    "firecrawl:agent": "bun run scripts/firecrawl-agent.ts",
+    "firecrawl:timeline-sources": "bun run scripts/firecrawl-agent.ts --prompt-file scripts/firecrawl-timeline-sources.prompt.md --schema-file scripts/firecrawl-timeline-sources.schema.json --output data/firecrawl-timeline-sources.json --model spark-1-pro --max-credits 1200"
   },
   "dependencies": {
     "@base-ui/react": "^1.4.1",
