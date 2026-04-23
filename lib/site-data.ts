@@ -216,8 +216,8 @@ export const seedSiteData: SiteData = {
       relativeTime: "Dzień 1 — Start",
       sortUtc: "2026-04-17T00:00:00Z",
       zrodlo: {
-        label: "Onet: start 200h streamu i cel 30k",
-        url: "https://www.onet.pl/kultura/onetkultura/w-200-godz-chce-zebrac-30-tys-zl-wszystko-przez-chorobe-11-letniej-mai/r8vww1c,681c1dfa",
+        label: "YouTube Live: 9-dniowy charity stream Łatwoganga",
+        url: "https://www.youtube.com/live/UNAqqHIPbWA",
       },
       participants: ["Bedoes 2115", "Maja Mecan"],
       category: "core_event",
@@ -306,8 +306,8 @@ export const seedSiteData: SiteData = {
       relativeTime: "Dzień 6 — Popołudnie",
       sortUtc: "2026-04-22T16:00:00Z",
       zrodlo: {
-        label: "Świat Gwiazd: Wojciech Gola goli głowę na żywo",
-        url: "https://swiatgwiazd.pl/publicznie-ogolili-glowe-wojtkowi-goli-niewiarygodne-sceny-na-oczach-ludzi-ms-whk-220426",
+        label: "YouTube: Wojtek Gola ścina włosy na zero",
+        url: "https://www.youtube.com/watch?v=033XANLMIpc",
       },
       participants: ["Wojciech Gola"],
       category: "milestone_execution",
@@ -381,8 +381,8 @@ export const seedSiteData: SiteData = {
       relativeTime: "Dzień 7 — 09:57",
       sortUtc: "2026-04-23T09:57:00Z",
       zrodlo: {
-        label: "YouTube Live: manualny snapshot overlayu na streamie",
-        url: "https://www.youtube.com/channel/UCjpBbH8NmL4XHVUgJurDPZg/live",
+        label: "YouTube Live: publiczny stream z licznikiem wpłat",
+        url: "https://www.youtube.com/live/UNAqqHIPbWA",
       },
       participants: ["Łatwogang", "Cancer Fighters"],
       category: "milestone_execution",

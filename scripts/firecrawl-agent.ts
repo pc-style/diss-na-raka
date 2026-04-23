@@ -1,6 +1,6 @@
 #!/usr/bin/env bun
 
-import { mkdir, readFile } from "node:fs/promises";
+import { access, mkdir, readFile, writeFile } from "node:fs/promises";
 import path from "node:path";
 
 type AgentStatus = "processing" | "completed" | "failed";
@@ -158,7 +158,8 @@ function parseArgs(argv: string[]): CliOptions {
 
 async function fileExists(filePath: string) {
   try {
-    return await Bun.file(filePath).exists();
+    await access(filePath);
+    return true;
   } catch {
     return false;
   }
@@ -388,7 +389,11 @@ async function main() {
         raw: status,
       };
 
-      await Bun.write(outputPath, JSON.stringify(payload, null, 2) + "\n");
+      await writeFile(
+        outputPath,
+        JSON.stringify(payload, null, 2) + "\n",
+        "utf8",
+      );
       console.log(`Completed. Credits used: ${status.creditsUsed ?? "unknown"}`);
       console.log(`Saved result to ${outputPath}`);
       return;
