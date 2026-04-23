@@ -10,6 +10,7 @@
     "test": "bun test",
     "update": "bun run scripts/update-data.ts",
     "sync:youtube": "bun run scripts/sync-youtube-live.ts",
+    "sync:youtube:minute": "bun run scripts/sync-youtube-live.ts --watch --interval-ms 60000",
     "firecrawl:agent": "bun run scripts/firecrawl-agent.ts",
     "firecrawl:timeline-sources": "bun run scripts/firecrawl-agent.ts --prompt-file scripts/firecrawl-timeline-sources.prompt.md --schema-file scripts/firecrawl-timeline-sources.schema.json --output data/firecrawl-timeline-sources.json --model spark-1-pro --max-credits 1200"
   },

@@ -81,6 +81,9 @@ Continuous polling:
 
 ```bash
 bun run sync:youtube --watch
+
+# Poll every minute
+bun run sync:youtube:minute
 ```
 
 The default watch interval is 30 seconds. The sync script calls the protected `POST /api/youtube-sync` route using `DATA_UPDATE_TOKEN`, and when Blob is configured those updates are persisted there.

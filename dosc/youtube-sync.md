@@ -57,6 +57,9 @@ Polling loop:
 
 ```bash
 bun run sync:youtube --watch
+
+# One-minute loop
+bun run sync:youtube:minute
 ```
 
 The default polling interval is 30 seconds. Override it when needed:
