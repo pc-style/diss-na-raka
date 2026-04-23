@@ -14,6 +14,7 @@ export function MilestonesSection({
 }) {
   const raised = dashboard.totalRaisedPln;
   const max = Math.max(...milestones.map((m) => m.targetAmount));
+  const progress = Math.min(raised / max, 1);
 
   return (
     <section id="cele" className="hairline-t bg-ink-2 relative">
@@ -27,19 +28,19 @@ export function MilestonesSection({
             aria-hidden
             className="absolute left-5 right-5 md:left-10 md:right-10 top-[52px] h-px bg-[var(--color-hair-strong)]"
           />
-          {/* achieved fill */}
-          <div
-            aria-hidden
-            className="absolute left-5 md:left-10 top-[52px] h-[3px] -mt-[1px] bg-paper"
-            style={{
-              width: `calc((100% - 2.5rem) * ${raised / max})`,
-            }}
-          />
 
           <ol
-            className="flex overflow-x-auto snap-x snap-mandatory scroll-smooth px-5 md:px-10"
+            className="milestones-scrollbar relative flex overflow-x-auto snap-x snap-mandatory scroll-smooth px-5 md:px-10"
             style={{ scrollbarWidth: "thin" }}
           >
+            {/* achieved fill, scaled against the full scroll track rather than just the viewport */}
+            <div
+              aria-hidden
+              className="pointer-events-none absolute left-5 md:left-10 top-[52px] h-[3px] -mt-[1px] bg-paper z-[1]"
+              style={{
+                width: `calc((100% - 2.5rem) * ${progress})`,
+              }}
+            />
             {milestones.map((m, i) => (
               <MilestoneCard
                 key={m.id}

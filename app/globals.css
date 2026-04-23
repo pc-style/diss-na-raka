@@ -249,6 +249,47 @@
   animation: live-pulse 1.6s cubic-bezier(0.4, 0, 0.6, 1) infinite;
 }
 
+.milestones-scrollbar {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(23, 21, 18, 0.72) rgba(23, 21, 18, 0.08);
+  scrollbar-gutter: stable both-edges;
+}
+
+.milestones-scrollbar::-webkit-scrollbar {
+  height: 14px;
+}
+
+.milestones-scrollbar::-webkit-scrollbar-track {
+  background: linear-gradient(
+    to bottom,
+    rgba(23, 21, 18, 0.02),
+    rgba(23, 21, 18, 0.1)
+  );
+  border-top: 1px solid rgba(23, 21, 18, 0.08);
+}
+
+.milestones-scrollbar::-webkit-scrollbar-thumb {
+  background: linear-gradient(
+    to bottom,
+    rgba(23, 21, 18, 0.82),
+    rgba(23, 21, 18, 0.66)
+  );
+  border: 3px solid var(--color-ink-2);
+  border-radius: 999px;
+}
+
+.milestones-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(
+    to bottom,
+    rgba(220, 35, 32, 0.95),
+    rgba(160, 24, 22, 0.92)
+  );
+}
+
+.milestones-scrollbar::-webkit-scrollbar-corner {
+  background: transparent;
+}
+
 /* Slow counter tick-up */
 @keyframes tick-glow {
   0% {
