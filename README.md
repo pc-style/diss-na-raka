@@ -58,6 +58,9 @@ Full docs live in [dosc/README.md](./dosc/README.md).
 Instead of hand-writing `curl`, you can run:
 
 ```bash
+bun run update --amount 5800000
+
+# Optional explicit UTC override
 bun run update --amount 5800000 --time "2026-04-23T10:30:00Z"
 ```
 

@@ -73,14 +73,14 @@ function formatLocalGmtPlus2(iso: string) {
   return `${year}-${month}-${day} ${hours}:${minutes} GMT+2`;
 }
 
+function getCurrentUtcFromGmtPlus2Clock() {
+  return new Date().toISOString();
+}
+
 async function main() {
   const amount = parseAmount(requireFlag("--amount"));
   const utcTimeFlag = getFlag("--time");
   const localTimeFlag = getFlag("--time-gmt2");
-
-  if (!utcTimeFlag && !localTimeFlag) {
-    throw new Error("Provide either --time or --time-gmt2.");
-  }
 
   if (utcTimeFlag && localTimeFlag) {
     throw new Error("Use only one of --time or --time-gmt2.");
@@ -88,7 +88,9 @@ async function main() {
 
   const lastUpdatedUtc = utcTimeFlag
     ? parseUtcTime(utcTimeFlag)
-    : parseGmtPlus2Time(localTimeFlag!);
+    : localTimeFlag
+      ? parseGmtPlus2Time(localTimeFlag)
+      : getCurrentUtcFromGmtPlus2Clock();
 
   const apiUrl =
     process.env.TRACKER_UPDATE_URL ??

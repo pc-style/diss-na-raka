@@ -208,6 +208,15 @@ export const seedSiteData: SiteData = {
       status: "achieved",
       dateAchieved: "2026-04-22T23:22:26Z",
     },
+    {
+      id: "ms_10m_lewandowski_tiktok",
+      targetAmount: 10_000_000,
+      title: "10M · Lewandowski nagrywa TikToka do dissu",
+      description:
+        'Przy 10 milionach PLN ma odpalić się kolejny głośny trigger: Robert Lewandowski nagra TikToka do numeru "Bedoes 2115, Maja Mecan, Cancer Fighters - Ciągle tutaj jestem (diss na raka)".',
+      status: "pending",
+      dateAchieved: null,
+    },
   ],
   timelineEvents: [
     {
@@ -347,9 +356,9 @@ export const seedSiteData: SiteData = {
     },
     {
       id: "evt_009",
-      dateLocal: "2026-04-23",
-      relativeTime: "Dzień 7 — 07:55",
-      sortUtc: "2026-04-23T07:55:00Z",
+      dateLocal: "2026-04-22",
+      relativeTime: "Dzień 6 — Noc",
+      sortUtc: "2026-04-22T22:30:00Z",
       zrodlo: {
         label: "Plejada: 5,5 mln, Doda i top wpłaty Bedoesa oraz Okiego",
         url: "https://plejada.pl/newsy/bedoes-2115-na-zywo-przekazal-pol-miliona-zlotych-wczesniej-nagral-diss-na-raka/l35s0rh",
@@ -359,6 +368,51 @@ export const seedSiteData: SiteData = {
       description:
         "Plejada i GlamRap raportują 5,5 mln PLN po pięciu dniach streamu. Bedoes 2115 ma już 700k+ łącznych wpłat, w tym jednorazowe 500 tys. W czołówce wpłat przewijają się też Oki (180 tys.) i SVM!R (137 tys.), a Doda dalej boostuje finałową fazę streamu.",
       tags: ["5_5m", "bedoes", "doda", "oki", "svmr", "top_donors"],
+    },
+    {
+      id: "evt_012",
+      dateLocal: "2026-04-22",
+      relativeTime: "Dzień 6 — Wieczór",
+      sortUtc: "2026-04-22T21:00:00Z",
+      zrodlo: {
+        label: "CGM.pl: Oki i Kinny Zimmer kończą beef przy progu 4 mln",
+        url: "https://cgm.pl/news/koniec-beefu-oki-i-kinny-zimmer-raperzy-pogodza-sie-dzieki-akcji-charytatywnej/",
+      },
+      participants: ["Oki", "Kinny Zimmer", "Żabson"],
+      category: "milestone_execution",
+      description:
+        "Przy celu 4M PLN stream dorzuca kolejny osobny beat fabularny: Oki i Kinny Zimmer mają zakończyć swój konflikt na oczach widzów. Artykuł wiąże ten moment z realnymi wpłatami Okiego i Żabsona, więc to więcej niż zwykła zapowiedź supportu z wcześniejszych round-upów.",
+      tags: ["oki", "kinny_zimmer", "zabson", "4m", "beef", "reconciliation"],
+    },
+    {
+      id: "evt_013",
+      dateLocal: "2026-04-22",
+      relativeTime: "Dzień 6 — Noc",
+      sortUtc: "2026-04-22T22:45:00Z",
+      zrodlo: {
+        label: "Dzień Dobry TVN: Doda i Magda Gessler godzą się na żywo",
+        url: "https://dziendobry.tvn.pl/gwiazdy/doda-i-magda-gessler-pogodzily-sie-na-zywo-koniec-glosnego-konfliktu-st9012418",
+      },
+      participants: ["Doda", "Magda Gessler"],
+      category: "guest_appearance",
+      description:
+        "Support Dody przeradza się w osobny viralowy moment: na streamie dochodzi do telefonu i publicznego pogodzenia Dody z Magdą Gessler. To nie jest tylko kolejny recap wpłat, ale wyraźny wydarzeniowy punkt wieczoru z własnym medialnym echem.",
+      tags: ["doda", "magda_gessler", "phone_call", "reconciliation", "viral_moment"],
+    },
+    {
+      id: "evt_014",
+      dateLocal: "2026-04-22",
+      relativeTime: "Dzień 6 — Wieczór",
+      sortUtc: "2026-04-22T21:30:00Z",
+      zrodlo: {
+        label: "Nowy Marketing: Pasibus przeprasza i wpłaca 100 tys. bez warunków",
+        url: "https://nowymarketing.pl/9-dni-miliony-zlotych-i-viralowe-momenty-tak-diss-na-raka-urosl-w-polskim-internecie/",
+      },
+      participants: ["Pasibus", "Cancer Fighters"],
+      category: "milestone_execution",
+      description:
+        "Wokół akcji pojawia się też osobny wątek brandowy: po krytyce za niefortunną komunikację Pasibus publikuje przeprosiny i deklaruje bezwarunkową wpłatę 100 tys. PLN dla Cancer Fighters. To odrębny epizod kampanii, a nie kolejna kopia newsroomowego podsumowania gości.",
+      tags: ["pasibus", "brand", "apology", "100k", "donation", "controversy"],
     },
     {
       id: "evt_011",

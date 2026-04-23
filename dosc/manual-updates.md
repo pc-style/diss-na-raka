@@ -24,6 +24,9 @@ Use UTC in the payload. The UI shifts timestamps to `GMT+2` for display.
 Preferred shortcut:
 
 ```bash
+bun run update --amount 5715000
+
+# Optional explicit UTC override
 bun run update --amount 5715000 --time "2026-04-23T07:57:00Z"
 ```
 
@@ -58,6 +61,6 @@ Typical examples:
 ## Practical workflow
 
 1. Check the live amount and exact time.
-2. Run `bun run update ...` for the basic snapshot.
+2. Run `bun run update --amount ...` for the basic snapshot. By default it uses the current tracker-local `GMT+2` time.
 3. If the event history changed, update `lib/site-data.ts` and redeploy so the seed data stays in sync with the stored copy.
 4. Use `GET /api/data` to confirm the server is returning the expected amount and timestamp.
