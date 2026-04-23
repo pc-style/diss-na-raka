@@ -23,20 +23,17 @@ export function MilestonesSection({
 
         {/* Horizontal timeline rail — snap scroller */}
         <div className="mt-16 relative -mx-5 md:-mx-10">
-          {/* base line */}
-          <div
-            aria-hidden
-            className="absolute left-5 right-5 md:left-10 md:right-10 top-[52px] h-px bg-[var(--color-hair-strong)]"
-          />
-
           <ol
-            className="milestones-scrollbar relative flex overflow-x-auto snap-x snap-mandatory scroll-smooth px-5 md:px-10"
+            className="milestones-scrollbar relative flex w-max min-w-full overflow-x-auto snap-x snap-mandatory scroll-smooth px-5 md:px-10"
             style={{ scrollbarWidth: "thin" }}
           >
-            {/* achieved fill, scaled against the full scroll track rather than just the viewport */}
             <div
               aria-hidden
-              className="pointer-events-none absolute left-5 md:left-10 top-[52px] h-[3px] -mt-[1px] bg-paper z-[1]"
+              className="pointer-events-none absolute left-5 right-5 md:left-10 md:right-10 top-[52px] h-px bg-[var(--color-hair-strong)] z-[1]"
+            />
+            <div
+              aria-hidden
+              className="pointer-events-none absolute left-5 md:left-10 top-[52px] h-[3px] -mt-[1px] bg-paper z-[2]"
               style={{
                 width: `calc((100% - 2.5rem) * ${progress})`,
               }}
