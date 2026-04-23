@@ -242,7 +242,7 @@ export const seedSiteData: SiteData = {
       dateAchieved: null,
     },
     {
-      id: "ms_9m_gortat_reconciliation",
+      id: "ms_9_2m_gortat_call",
       targetAmount: 9_200_000,
       title: "9,2M · Telefon do Marcina Gortata i zgoda",
       description:
@@ -260,11 +260,11 @@ export const seedSiteData: SiteData = {
       dateAchieved: null,
     },
     {
-      id: "ms_10m_robert_tiktok",
+      id: "ms_10m_lewandowski_tiktok",
       targetAmount: 10_000_000,
-      title: "10M · Robert wraca z contentem na TikToka",
+      title: "10M · Lewandowski nagrywa TikToka do dissu",
       description:
-        'Przy 10 milionach PLN ma odpalić się kolejny głośny trigger: Robert Lewandowski wraca z contentem na TikToka do numeru "Bedoes 2115, Maja Mecan, Cancer Fighters - Ciągle tutaj jestem (diss na raka)".',
+        'Przy 10 milionach PLN ma odpalić się kolejny głośny trigger: Robert Lewandowski nagra TikToka do numeru "Bedoes 2115, Maja Mecan, Cancer Fighters - Ciągle tutaj jestem (diss na raka)".',
       status: "pending",
       dateAchieved: null,
     },
