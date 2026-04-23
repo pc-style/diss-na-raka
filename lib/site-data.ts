@@ -74,6 +74,12 @@ export interface SiteConfig {
   supportHandle: string;
 }
 
+export interface CounterHistoryPoint {
+  amount: number;
+  atUtc: string;
+  source: string;
+}
+
 export interface SiteDataPatch {
   dashboard?: Partial<DashboardState> & {
     metadata?: Partial<DashboardState["metadata"]>;
@@ -90,6 +96,24 @@ export const siteConfig: SiteConfig = {
   supportUrl: "https://x.com/pcstyle53",
   supportHandle: "@pcstyle53",
 };
+
+export const counterHistory: CounterHistoryPoint[] = [
+  {
+    amount: 5_385_000,
+    atUtc: "2026-04-22T23:22:26Z",
+    source: "initial tracker snapshot",
+  },
+  {
+    amount: 5_715_000,
+    atUtc: "2026-04-23T07:57:00Z",
+    source: "overlay snapshot",
+  },
+  {
+    amount: 6_065_000,
+    atUtc: "2026-04-23T10:11:24Z",
+    source: "live update snapshot",
+  },
+];
 
 export const categoryMeta: Record<
   EventCategory,
@@ -232,6 +256,15 @@ export const seedSiteData: SiteData = {
       title: "10M · Robert wraca z contentem na TikToka",
       description:
         'Przy 10 milionach PLN ma odpalić się kolejny głośny trigger: Robert Lewandowski wraca z contentem na TikToka do numeru "Bedoes 2115, Maja Mecan, Cancer Fighters - Ciągle tutaj jestem (diss na raka)".',
+      status: "pending",
+      dateAchieved: null,
+    },
+    {
+      id: "ms_10m_young_leosia_kacper_b",
+      targetAmount: 10_000_000,
+      title: "10M · Young Leosia dzwoni do Kacpra B. o dziarę",
+      description:
+        "Przy 10 milionach PLN Young Leosia ma zadzwonić do Kacpra B. i zapytać go na streamie, czy chce zrobić dziarę.",
       status: "pending",
       dateAchieved: null,
     },

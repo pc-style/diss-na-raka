@@ -1,5 +1,8 @@
+"use client";
+
 import type { DashboardState, Milestone } from "@/lib/site-data";
 import { formatMilestoneDateGmtPlus2 } from "@/lib/time";
+import { useLiveCounter } from "@/lib/live-counter";
 
 function formatPLN(n: number) {
   return n.toLocaleString("pl-PL");
@@ -12,7 +15,8 @@ export function MilestonesSection({
   dashboard: DashboardState;
   milestones: Milestone[];
 }) {
-  const raised = dashboard.totalRaisedPln;
+  const { estimatedRaisedPln } = useLiveCounter(dashboard);
+  const raised = estimatedRaisedPln;
   const max = Math.max(...milestones.map((m) => m.targetAmount));
   const progress = Math.min(raised / max, 1);
 

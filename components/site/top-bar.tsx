@@ -1,9 +1,15 @@
+"use client";
+
 import type { DashboardState } from "@/lib/site-data";
 import { formatDateTimeGmtPlus2 } from "@/lib/time";
+import { useLiveCounter } from "@/lib/live-counter";
 
 const fillerGlyphs = ["◆", "◇", "✶", "×", "◉", "▲"];
 
-function buildTickerSegmentsFromDashboard(dashboard: DashboardState) {
+function buildTickerSegmentsFromDashboard(
+  dashboard: DashboardState,
+  estimatedRaisedPln: number,
+) {
   const now = formatDateTimeGmtPlus2(dashboard.metadata.lastUpdatedUtc);
   const raw = [
     `NA ŻYWO · ŁATWOGANG × CANCER FIGHTERS`,
@@ -11,14 +17,15 @@ function buildTickerSegmentsFromDashboard(dashboard: DashboardState) {
     `PĘTLA ${dashboard.estimatedTotalLoops.toLocaleString("pl-PL")}`,
     `UTWÓR: ${dashboard.metadata.trackTitle.toUpperCase()}`,
     `BEDOES 2115 × MAJA MECAN`,
-    `ZEBRANE: ${dashboard.totalRaisedPln.toLocaleString("pl-PL")} PLN`,
+    `ZEBRANE: ${estimatedRaisedPln.toLocaleString("pl-PL")} PLN`,
     `OSTATNI SNAPSHOT ${now}`,
   ];
   return raw;
 }
 
 export function TopBar({ dashboard }: { dashboard: DashboardState }) {
-  const segments = buildTickerSegmentsFromDashboard(dashboard);
+  const { estimatedRaisedPln } = useLiveCounter(dashboard);
+  const segments = buildTickerSegmentsFromDashboard(dashboard, estimatedRaisedPln);
   // Duplicate so the -50% keyframe loops seamlessly
   const loop = [...segments, ...segments];
   return (

@@ -5,8 +5,9 @@ import { MilestonesSection } from "@/components/site/milestones";
 import { TimelineSection } from "@/components/site/timeline";
 import { ContextSection } from "@/components/site/context";
 import { SiteFooter } from "@/components/site/footer";
+import { SiteLiveCounterProvider } from "@/components/site/live-counter-provider";
 import { getSiteData } from "@/lib/data-store";
-import { categoryMeta } from "@/lib/site-data";
+import { categoryMeta, counterHistory } from "@/lib/site-data";
 
 export const dynamic = "force-dynamic";
 
@@ -15,21 +16,26 @@ export default async function Home() {
 
   return (
     <div className="flex flex-1 flex-col">
-      <TopBar dashboard={data.dashboard} />
-      <SiteHeader dashboard={data.dashboard} />
-      <main className="flex-1">
-        <HeroDashboard dashboard={data.dashboard} milestones={data.milestones} />
-        <MilestonesSection
-          dashboard={data.dashboard}
-          milestones={data.milestones}
-        />
-        <TimelineSection
-          timelineEvents={data.timelineEvents}
-          categoryMeta={categoryMeta}
-        />
-        <ContextSection />
-      </main>
-      <SiteFooter dashboard={data.dashboard} />
+      <SiteLiveCounterProvider
+        dashboard={data.dashboard}
+        snapshots={counterHistory}
+      >
+        <TopBar dashboard={data.dashboard} />
+        <SiteHeader dashboard={data.dashboard} />
+        <main className="flex-1">
+          <HeroDashboard dashboard={data.dashboard} milestones={data.milestones} />
+          <MilestonesSection
+            dashboard={data.dashboard}
+            milestones={data.milestones}
+          />
+          <TimelineSection
+            timelineEvents={data.timelineEvents}
+            categoryMeta={categoryMeta}
+          />
+          <ContextSection />
+        </main>
+        <SiteFooter dashboard={data.dashboard} />
+      </SiteLiveCounterProvider>
     </div>
   );
 }

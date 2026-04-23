@@ -1,7 +1,10 @@
+"use client";
+
 import type { DashboardState, Milestone } from "@/lib/site-data";
 import { LiveClock } from "./live-clock";
 import { CrabMascot } from "./crab-mascot";
 import { siteConfig } from "@/lib/site-data";
+import { useLiveCounter } from "@/lib/live-counter";
 
 function formatPLN(n: number) {
   return n.toLocaleString("pl-PL");
@@ -14,9 +17,10 @@ export function HeroDashboard({
   dashboard: DashboardState;
   milestones: Milestone[];
 }) {
+  const { estimatedRaisedPln, growthPlnPerSecond } = useLiveCounter(dashboard);
   // Find next pending milestone for mini progress meter
   const nextGoal = milestones.find((m) => m.status === "pending");
-  const raised = dashboard.totalRaisedPln;
+  const raised = estimatedRaisedPln;
   const target = nextGoal?.targetAmount ?? raised;
   const previousTarget =
     [...milestones]
@@ -118,6 +122,10 @@ export function HeroDashboard({
               <span className="font-hand text-accent text-2xl md:text-3xl rotate-[-3deg] inline-block">
                 każda złotówka na raka ↓
               </span>
+            </div>
+            <div className="mt-2 font-mono text-[10px] tracking-[0.2em] text-paper-dim">
+              SZAC. TEMPO: +{growthPlnPerSecond.toFixed(1).replace(".", ",")} PLN/S ·
+              ODPALONE OD OSTATNIEGO SNAPSHOTU
             </div>
             <div className="mt-1 tnum overflow-hidden">
               <div className="font-display leading-[0.82] text-paper whitespace-nowrap tracking-tight text-[clamp(44px,10.5vw,168px)] marker-underline pb-2">
