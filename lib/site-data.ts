@@ -209,20 +209,29 @@ export const seedSiteData: SiteData = {
       dateAchieved: "2026-04-22T23:22:26Z",
     },
     {
-      id: "ms_9_2m_gortat_call",
-      targetAmount: 9_200_000,
-      title: "9,2M · Telefon do Marcina Gortata i zgoda",
+      id: "ms_8_75m_dzinold_tomanek",
+      targetAmount: 8_750_000,
+      title: "8,75M · Dzinold i Tomanek wchodzą do akcji",
       description:
-        "Przy 9,2 miliona PLN Mateusz Bonitka ma zadzwonić do Marcina Gortata i publicznie pogodzić się z nim na streamie.",
+        "Przy 8,75 miliona PLN do streamu ma wejść kolejny duet triggerów: Dzinold i Tomanek odpalają swoją akcję na rzecz zbiórki.",
       status: "pending",
       dateAchieved: null,
     },
     {
-      id: "ms_10m_lewandowski_tiktok",
-      targetAmount: 10_000_000,
-      title: "10M · Lewandowski nagrywa TikToka do dissu",
+      id: "ms_9m_gortat_reconciliation",
+      targetAmount: 9_000_000,
+      title: "9M · Pojednanie z Gortatem",
       description:
-        'Przy 10 milionach PLN ma odpalić się kolejny głośny trigger: Robert Lewandowski nagra TikToka do numeru "Bedoes 2115, Maja Mecan, Cancer Fighters - Ciągle tutaj jestem (diss na raka)".',
+        "Przy 9 milionach PLN ma dojść do publicznego pojednania z Marcinem Gortatem na streamie.",
+      status: "pending",
+      dateAchieved: null,
+    },
+    {
+      id: "ms_10m_robert_tiktok",
+      targetAmount: 10_000_000,
+      title: "10M · Robert wraca z contentem na TikToka",
+      description:
+        'Przy 10 milionach PLN ma odpalić się kolejny głośny trigger: Robert Lewandowski wraca z contentem na TikToka do numeru "Bedoes 2115, Maja Mecan, Cancer Fighters - Ciągle tutaj jestem (diss na raka)".',
       status: "pending",
       dateAchieved: null,
     },
