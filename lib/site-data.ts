@@ -325,9 +325,9 @@ export const seedSiteData: SiteData = {
     {
       id: "ms_10m_young_leosia_kacper_b",
       targetAmount: 10_000_000,
-      title: "10M · Young Leosia dzwoni do Kacpra B. o dziarę",
+      title: "10M · Young Leosia dzwoni do Kacpra B.",
       description:
-        "Przy 10 milionach PLN Young Leosia ma zadzwonić do Kacpra B. i zapytać go na streamie, czy chce zrobić dziarę.",
+        "Po przekroczeniu 10 mln PLN Young Leosia odpaliła zapowiadany telefon do Kacpra B. i zapytała go na streamie o dziarę.",
       status: "achieved",
       dateAchieved: "2026-04-24T00:00:00Z",
     },
