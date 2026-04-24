@@ -126,6 +126,21 @@ export const counterHistory: CounterHistoryPoint[] = [
     source: "Rzeczpospolita / sukces.rp.pl report",
   },
   {
+    amount: 14_000_000,
+    atUtc: "2026-04-24T12:46:00Z",
+    source: "Dzien Dobry TVN report",
+  },
+  {
+    amount: 16_000_000,
+    atUtc: "2026-04-24T13:15:00Z",
+    source: "TVP3 Wroclaw report",
+  },
+  {
+    amount: 19_500_000,
+    atUtc: "2026-04-24T15:55:00Z",
+    source: "Medonet report",
+  },
+  {
     amount: 20_000_000,
     atUtc: "2026-04-24T16:12:00Z",
     source: "Onet / Plejada report",
@@ -136,6 +151,11 @@ export const counterHistory: CounterHistoryPoint[] = [
     source: "Polskie Radio 24 report",
   },
   {
+    amount: 25_000_000,
+    atUtc: "2026-04-24T19:30:00Z",
+    source: "Cancer Fighters Instagram report",
+  },
+  {
     amount: 26_000_000,
     atUtc: "2026-04-24T20:00:00Z",
     source: "Plejada report",
@@ -144,6 +164,11 @@ export const counterHistory: CounterHistoryPoint[] = [
     amount: 28_000_000,
     atUtc: "2026-04-24T20:40:00Z",
     source: "updated Plejada report",
+  },
+  {
+    amount: 30_000_000,
+    atUtc: "2026-04-24T21:55:00Z",
+    source: "TVP3 Wroclaw report",
   },
 ];
 
@@ -164,8 +189,8 @@ export const seedSiteData: SiteData = {
       hostId: "latwogang_official",
       beneficiary: "Fundacja Cancer Fighters",
       startTimestampUtc: "2026-04-17T00:00:00Z",
-      lastUpdatedUtc: "2026-04-24T20:40:00Z",
-      lastYouTubeSyncUtc: "2026-04-24T20:40:00Z",
+      lastUpdatedUtc: "2026-04-24T21:55:00Z",
+      lastYouTubeSyncUtc: "2026-04-24T21:55:00Z",
       platform: "YouTube Live",
       channelId: "UCjpBbH8NmL4XHVUgJurDPZg",
       currentLiveVideoId: "UNAqqHIPbWA",
@@ -177,16 +202,16 @@ export const seedSiteData: SiteData = {
       trackArtists: ["Bedoes 2115", "Maja Mecan", "Cancer Fighters"],
       trackLengthSeconds: 165,
     },
-    totalRaisedPln: 28_000_000,
-    hoursElapsed: 189,
-    estimatedTotalLoops: 4_116,
+    totalRaisedPln: 30_000_000,
+    hoursElapsed: 190,
+    estimatedTotalLoops: 4_145,
     engagement: {
       averageConcurrentViewers: 19_000,
       newSubscribersDuringEvent: 17_000,
       totalViewsGenerated: 2_480_000,
     },
     velocity: {
-      averagePlnPerHour: 148_148.15,
+      averagePlnPerHour: 157_894.74,
       milestoneVelocity: [
         { label: "500 000", hours: 48 },
         { label: "1 000 000", hours: 60 },
@@ -194,10 +219,15 @@ export const seedSiteData: SiteData = {
         { label: "5 000 000", hours: 143 },
         { label: "10 000 000", hours: 167 },
         { label: "13 000 000", hours: 178 },
+        { label: "14 000 000", hours: 181 },
+        { label: "16 000 000", hours: 181 },
+        { label: "19 500 000", hours: 184 },
         { label: "20 000 000", hours: 184 },
         { label: "23 000 000", hours: 186 },
+        { label: "25 000 000", hours: 187 },
         { label: "26 000 000", hours: 188 },
         { label: "28 000 000", hours: 189 },
+        { label: "30 000 000", hours: 190 },
       ],
     },
   },
@@ -315,7 +345,7 @@ export const seedSiteData: SiteData = {
       targetAmount: 10_000_000,
       title: "10M · Lewandowski dołącza do akcji",
       description:
-        "Połączenie z Robertem Lewandowskim staje się jednym z najmocniejszych mainstreamowych momentów streamu. Kapitan reprezentacji Polski zapowiada podpisane koszulki FC Barcelony na licytację i chęć spotkania z dziećmi wspieranymi przez fundację.",
+        "Połączenie z Robertem Lewandowskim staje się jednym z najmocniejszych mainstreamowych momentów streamu. Kapitan reprezentacji Polski zapowiada podpisane koszulki FC Barcelony na licytację, chęć spotkania z dziećmi wspieranymi przez fundację, a po przebiciu 10 mln publikuje obiecany TikTok do utworu.",
       status: "achieved",
       dateAchieved: "2026-04-23T17:18:00Z",
     },
@@ -329,6 +359,33 @@ export const seedSiteData: SiteData = {
       dateAchieved: "2026-04-24T09:40:00Z",
     },
     {
+      id: "ms_14m_midday_surge",
+      targetAmount: 14_000_000,
+      title: "14M · Licznik przyspiesza po Kasix",
+      description:
+        "Po goleniu Kasix licznik szybko idzie dalej: Dzień Dobry TVN raportuje już ponad 14 mln PLN w piątkowe popołudnie.",
+      status: "achieved",
+      dateAchieved: "2026-04-24T12:46:00Z",
+    },
+    {
+      id: "ms_16m_tvp_snapshot",
+      targetAmount: 16_000_000,
+      title: "16M · Snapshot TVP3 Wrocław",
+      description:
+        "TVP3 Wrocław podaje, że 24 kwietnia o 15:15 czasu lokalnego licznik zbiórki wskazywał już 16 mln PLN.",
+      status: "achieved",
+      dateAchieved: "2026-04-24T13:15:00Z",
+    },
+    {
+      id: "ms_19_5m_medonet_snapshot",
+      targetAmount: 19_500_000,
+      title: "19,5M · Popołudniowy screenshot licznika",
+      description:
+        "Medonet opisuje zrzut licznika z 24 kwietnia, godz. 17:55 czasu lokalnego, na którym zbiórka dobija do 19,5 mln PLN.",
+      status: "achieved",
+      dateAchieved: "2026-04-24T15:55:00Z",
+    },
+    {
       id: "ms_20m_evening_surge",
       targetAmount: 20_000_000,
       title: "20M · Wieczorny skok licznika",
@@ -336,6 +393,15 @@ export const seedSiteData: SiteData = {
         "24 kwietnia o 18:12 czasu lokalnego licznik przekracza 20 mln PLN. Wieczorna faza streamu zaczyna gwałtownie przyspieszać.",
       status: "achieved",
       dateAchieved: "2026-04-24T16:12:00Z",
+    },
+    {
+      id: "ms_25m_cancer_fighters",
+      targetAmount: 25_000_000,
+      title: "25M · Potwierdzenie Cancer Fighters",
+      description:
+        "Fundacja Cancer Fighters potwierdza na Instagramie, że zbiórka przekroczyła 25 mln PLN. To ważny oficjalny punkt pośredni między raportami 23M i 26M.",
+      status: "achieved",
+      dateAchieved: "2026-04-24T19:30:00Z",
     },
     {
       id: "ms_23m_evening_surge",
@@ -364,8 +430,32 @@ export const seedSiteData: SiteData = {
       status: "achieved",
       dateAchieved: "2026-04-24T20:40:00Z",
     },
+    {
+      id: "ms_30m_tvp_late_night",
+      targetAmount: 30_000_000,
+      title: "30M · Tuż przed północą",
+      description:
+        "TVP3 Wrocław raportuje, że w piątek 24 kwietnia, kilka minut przed północą, zbiórka osiągnęła 30 mln PLN. To najnowszy punkt danych w seedzie, ale nadal nie finalna kwota streamu.",
+      status: "achieved",
+      dateAchieved: "2026-04-24T21:55:00Z",
+    },
   ],
   timelineEvents: [
+    {
+      id: "evt_022",
+      dateLocal: "2026-04-24",
+      relativeTime: "Dzień 8 — Tuż przed północą",
+      sortUtc: "2026-04-24T21:55:00Z",
+      zrodlo: {
+        label: "TVP3 Wrocław: 30 mln kilka minut przed północą",
+        url: "https://wroclaw.tvp.pl/92870227/tego-jeszcze-nie-bylo-latwogang-prowadzi-9-dniowy-stream-charytatywny-by-pomoc-chorym-na-nowotwor-dzieciom",
+      },
+      participants: ["Łatwogang", "Cancer Fighters"],
+      category: "milestone_execution",
+      description:
+        "Najświeższy checkpoint z pliku researchowego: TVP3 Wrocław raportuje, że kilka minut przed północą 24 kwietnia licznik osiągnął 30 mln PLN. Tracker traktuje to jako nowszy snapshot, nie jako kwotę finałową.",
+      tags: ["30m", "tvp3", "latest_counter", "not_final"],
+    },
     {
       id: "evt_021",
       dateLocal: "2026-04-26",
@@ -395,6 +485,21 @@ export const seedSiteData: SiteData = {
       description:
         "Najnowszy medialny snapshot przebija wcześniejsze raporty: po 22:40 licznik streamu jest już powyżej 28 mln PLN. Plejada zbiera też listę dużych wpłat, m.in. Bedoes 2115, NEBOA i XTB po 1 mln PLN.",
       tags: ["28m", "latest_counter", "top_donors", "plejada"],
+    },
+    {
+      id: "evt_020b",
+      dateLocal: "2026-04-24",
+      relativeTime: "Dzień 8 — Około 21:30",
+      sortUtc: "2026-04-24T19:30:00Z",
+      zrodlo: {
+        label: "Cancer Fighters: oficjalne 25 mln",
+        url: "https://www.instagram.com/p/DXhWmq9DB_Z",
+      },
+      participants: ["Fundacja Cancer Fighters", "Łatwogang"],
+      category: "milestone_execution",
+      description:
+        "Oficjalny profil Fundacji Cancer Fighters potwierdza przekroczenie 25 mln PLN. Ze względu na rozjazd czasu publikacji i późniejsze raporty 23M/26M tracker umieszcza ten punkt orientacyjnie między nimi.",
+      tags: ["25m", "official", "cancer_fighters", "instagram"],
     },
     {
       id: "evt_019",
@@ -442,6 +547,66 @@ export const seedSiteData: SiteData = {
       tags: ["20m", "onet", "plejada", "counter"],
     },
     {
+      id: "evt_019aa",
+      dateLocal: "2026-04-24",
+      relativeTime: "Dzień 8 — 17:55",
+      sortUtc: "2026-04-24T15:55:00Z",
+      zrodlo: {
+        label: "Medonet: screenshot 19,5 mln",
+        url: "https://www.medonet.pl/choroby-od-a-do-z/choroby-nowotworowe,zbiorka-latwoganga-na-chore-dzieci-bije-rekordy-popularnosci--zaczelo-sie-od-piosenki,artykul,35147744.html",
+      },
+      participants: ["Łatwogang", "Cancer Fighters"],
+      category: "milestone_execution",
+      description:
+        "Medonet opisuje popołudniowy zrzut ekranu z licznika: 24 kwietnia o 17:55 czasu lokalnego zbiórka miała już 19,5 mln PLN.",
+      tags: ["19_5m", "medonet", "screenshot", "counter"],
+    },
+    {
+      id: "evt_019z",
+      dateLocal: "2026-04-24",
+      relativeTime: "Dzień 8 — 15:15",
+      sortUtc: "2026-04-24T13:15:00Z",
+      zrodlo: {
+        label: "TVP3 Wrocław: 16 mln o 15:15",
+        url: "https://wroclaw.tvp.pl/92870227/tego-jeszcze-nie-bylo-latwogang-prowadzi-9-dniowy-stream-charytatywny-by-pomoc-chorym-na-nowotwor-dzieciom",
+      },
+      participants: ["Łatwogang", "Cancer Fighters"],
+      category: "milestone_execution",
+      description:
+        "TVP3 Wrocław notuje kolejne popołudniowe przyspieszenie: 24 kwietnia o 15:15 na liczniku jest już 16 mln PLN.",
+      tags: ["16m", "tvp3", "counter"],
+    },
+    {
+      id: "evt_019y",
+      dateLocal: "2026-04-24",
+      relativeTime: "Dzień 8 — Popołudnie",
+      sortUtc: "2026-04-24T12:46:00Z",
+      zrodlo: {
+        label: "Dzień Dobry TVN: ponad 14 mln",
+        url: "https://dziendobry.tvn.pl/gorace-tematy/kasix-ogolila-glowe-na-streamie-latwoganga-wszystko-dla-chorych-dzieci-st9014905",
+      },
+      participants: ["Łatwogang", "Cancer Fighters"],
+      category: "milestone_execution",
+      description:
+        "Po przekroczeniu 13 mln tempo wpłat nie siada: Dzień Dobry TVN raportuje już ponad 14 mln PLN w piątkowe popołudnie.",
+      tags: ["14m", "ddtvn", "counter"],
+    },
+    {
+      id: "evt_019x",
+      dateLocal: "2026-04-24",
+      relativeTime: "Dzień 8 — Południe",
+      sortUtc: "2026-04-24T12:00:00Z",
+      zrodlo: {
+        label: "CześćGiżycko: telefony Dody i pojednanie",
+        url: "https://czescgizycko.pl/polski-internet-slucha-dissu-na-raka-stream-latwoganga-zebral-juz-miliony-dla-dzieci-chorych-onkologicznie/",
+      },
+      participants: ["Doda", "Magda Gessler", "Michał Wiśniewski"],
+      category: "guest_appearance",
+      description:
+        "Kolejne źródło podbija viralowy wątek Dody: telefony do znanych osób, w tym pojednanie z Magdą Gessler i próby angażowania następnych gwiazd.",
+      tags: ["doda", "magda_gessler", "michal_wisniewski", "phone_call"],
+    },
+    {
       id: "evt_018",
       dateLocal: "2026-04-24",
       relativeTime: "Dzień 8 — Po 11:40",
@@ -472,6 +637,21 @@ export const seedSiteData: SiteData = {
       tags: ["kasix", "13_5m", "haircut", "plejada"],
     },
     {
+      id: "evt_018a",
+      dateLocal: "2026-04-24",
+      relativeTime: "Dzień 8 — Przedpołudnie",
+      sortUtc: "2026-04-24T10:42:00Z",
+      zrodlo: {
+        label: "Gol24: Michał Pol ogolony na łyso",
+        url: "https://gol24.pl/michal-pol-spelnil-obietnice-latwogang-ogolil-go-na-lyso-wideo/ar/c2-19133877",
+      },
+      participants: ["Michał Pol", "Łatwogang"],
+      category: "milestone_execution",
+      description:
+        "Dziennikarz sportowy Michał Pol spełnia obietnicę i zostaje ogolony na łyso podczas transmisji. To kolejny medialny moment solidarnościowego golenia głów.",
+      tags: ["michal_pol", "haircut", "gol24", "solidarity"],
+    },
+    {
       id: "evt_017",
       dateLocal: "2026-04-24",
       relativeTime: "Dzień 8 — Poranek",
@@ -485,6 +665,36 @@ export const seedSiteData: SiteData = {
       description:
         "Anglojęzyczne podsumowanie TVP World notuje 11,2 mln PLN o 09:00 w piątek i podaje, że w akcję weszły m.in. Doda, Robert Lewandowski, Mateusz Ponitka, Magda Gessler i Bambi.",
       tags: ["11_2m", "international_summary", "tvp_world"],
+    },
+    {
+      id: "evt_017b",
+      dateLocal: "2026-04-24",
+      relativeTime: "Dzień 8 — Rano",
+      sortUtc: "2026-04-24T09:20:21Z",
+      zrodlo: {
+        label: "Transfery.info: Lewandowski dotrzymał słowa",
+        url: "https://transfery.info/aktualnosci/robert-lewandowski-dotrzymal-slowa-wielki-powrot-w-szczytnym-celu-wideo/271111",
+      },
+      participants: ["Robert Lewandowski"],
+      category: "milestone_execution",
+      description:
+        "Po przebiciu 10 mln PLN Robert Lewandowski publikuje obiecany TikTok do 'Ciągle tutaj jestem (diss na raka)', domykając zapowiedź z wcześniejszego połączenia na streamie.",
+      tags: ["lewandowski", "tiktok", "10m", "promise_fulfilled"],
+    },
+    {
+      id: "evt_017a",
+      dateLocal: "2026-04-24",
+      relativeTime: "Dzień 8 — Rano",
+      sortUtc: "2026-04-24T06:40:00Z",
+      zrodlo: {
+        label: "Gol24: Jan Bednarek wspiera akcję",
+        url: "https://gol24.pl/lewy-wsparl-akcje-latwogang-jestescie-prawdziwymi-bohaterami/ar/c2-19133849",
+      },
+      participants: ["Jan Bednarek", "Fundacja Cancer Fighters"],
+      category: "guest_appearance",
+      description:
+        "Jan Bednarek publicznie wspiera akcję i zaprasza podopiecznych Fundacji Cancer Fighters na mecze reprezentacji Polski.",
+      tags: ["bednarek", "football", "support", "cancer_fighters"],
     },
     {
       id: "evt_016",
@@ -515,6 +725,21 @@ export const seedSiteData: SiteData = {
       description:
         "Bagi organizuje połączenie z Robertem Lewandowskim. Na streamie pojawia się też Anna Lewandowska, a piłkarz zapowiada wsparcie fundacji, podpisane koszulki FC Barcelony na licytację i spotkanie z podopiecznymi.",
       tags: ["lewandowski", "bagi", "auction", "7_5m"],
+    },
+    {
+      id: "evt_015b",
+      dateLocal: "2026-04-24",
+      relativeTime: "Dzień 8 — Podsumowanie darczyńców",
+      sortUtc: "2026-04-24T11:27:00Z",
+      zrodlo: {
+        label: "Polskie Radio 24: najwięksi darczyńcy",
+        url: "https://polskieradio24.pl/artykul/3678438,9-dni-jedna-piosenka-i-miliony-zlotych-latwogang-jednym-streamem-rozpalil-polske",
+      },
+      participants: ["Bedoes 2115", "OKI", "Dawid Podsiadło", "Young Leosia", "InPost", "Omenaa Mensah", "NEBOA"],
+      category: "core_event",
+      description:
+        "Media składają listę dużych wpłat: Bedoes 2115 ok. 720 tys. PLN, OKI 180 tys. PLN, Dawid Podsiadło ok. 200 tys. PLN, Young Leosia ok. 113 tys. PLN, InPost i Omenaa Mensah ok. 300 tys. PLN oraz NEBOA 1 mln PLN.",
+      tags: ["major_donors", "bedoes", "oki", "podsiadlo", "young_leosia", "neboa"],
     },
     {
       id: "evt_001",
