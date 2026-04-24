@@ -249,8 +249,8 @@ export const seedSiteData: SiteData = {
       title: "8,75M · Dzinold i Tomanek wchodzą do akcji",
       description:
         "Przy 8,75 miliona PLN do streamu ma wejść kolejny duet triggerów: Dzinold i Tomanek odpalają swoją akcję na rzecz zbiórki.",
-      status: "pending",
-      dateAchieved: null,
+      status: "achieved",
+      dateAchieved: "2026-04-24T00:00:00Z",
     },
     {
       id: "ms_9_2m_gortat_call",
@@ -267,8 +267,8 @@ export const seedSiteData: SiteData = {
       title: "10M · Young Leosia dzwoni do Kacpra B. o dziarę",
       description:
         "Przy 10 milionach PLN Young Leosia ma zadzwonić do Kacpra B. i zapytać go na streamie, czy chce zrobić dziarę.",
-      status: "pending",
-      dateAchieved: null,
+      status: "achieved",
+      dateAchieved: "2026-04-24T00:00:00Z",
     },
     {
       id: "ms_10m_lewandowski_tiktok",
@@ -276,8 +276,8 @@ export const seedSiteData: SiteData = {
       title: "10M · Lewandowski nagrywa TikToka do dissu",
       description:
         'Przy 10 milionach PLN ma odpalić się kolejny głośny trigger: Robert Lewandowski nagra TikToka do numeru "Bedoes 2115, Maja Mecan, Cancer Fighters - Ciągle tutaj jestem (diss na raka)".',
-      status: "pending",
-      dateAchieved: null,
+      status: "achieved",
+      dateAchieved: "2026-04-24T00:00:00Z",
     },
   ],
   timelineEvents: [
