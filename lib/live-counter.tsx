@@ -88,7 +88,6 @@ export function estimateRaisedAtTime(
 
 export function LiveCounterProvider({
   dashboard,
-  snapshots,
   children,
 }: {
   dashboard: DashboardState;

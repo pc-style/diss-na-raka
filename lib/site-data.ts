@@ -120,6 +120,31 @@ export const counterHistory: CounterHistoryPoint[] = [
     atUtc: "2026-04-23T10:11:24Z",
     source: "live update snapshot",
   },
+  {
+    amount: 13_000_000,
+    atUtc: "2026-04-24T09:40:00Z",
+    source: "Rzeczpospolita / sukces.rp.pl report",
+  },
+  {
+    amount: 20_000_000,
+    atUtc: "2026-04-24T16:12:00Z",
+    source: "Onet / Plejada report",
+  },
+  {
+    amount: 23_000_000,
+    atUtc: "2026-04-24T18:15:00Z",
+    source: "Polskie Radio 24 report",
+  },
+  {
+    amount: 26_000_000,
+    atUtc: "2026-04-24T20:00:00Z",
+    source: "Plejada report",
+  },
+  {
+    amount: 28_000_000,
+    atUtc: "2026-04-24T20:40:00Z",
+    source: "updated Plejada report",
+  },
 ];
 
 export const categoryMeta: Record<
@@ -139,8 +164,8 @@ export const seedSiteData: SiteData = {
       hostId: "latwogang_official",
       beneficiary: "Fundacja Cancer Fighters",
       startTimestampUtc: "2026-04-17T00:00:00Z",
-      lastUpdatedUtc: "2026-04-23T10:11:24Z",
-      lastYouTubeSyncUtc: "2026-04-23T10:11:24Z",
+      lastUpdatedUtc: "2026-04-24T20:40:00Z",
+      lastYouTubeSyncUtc: "2026-04-24T20:40:00Z",
       platform: "YouTube Live",
       channelId: "UCjpBbH8NmL4XHVUgJurDPZg",
       currentLiveVideoId: "UNAqqHIPbWA",
@@ -152,21 +177,27 @@ export const seedSiteData: SiteData = {
       trackArtists: ["Bedoes 2115", "Maja Mecan", "Cancer Fighters"],
       trackLengthSeconds: 165,
     },
-    totalRaisedPln: 6_065_000,
-    hoursElapsed: 151,
-    estimatedTotalLoops: 3_315,
+    totalRaisedPln: 28_000_000,
+    hoursElapsed: 189,
+    estimatedTotalLoops: 4_116,
     engagement: {
       averageConcurrentViewers: 19_000,
       newSubscribersDuringEvent: 17_000,
       totalViewsGenerated: 2_480_000,
     },
     velocity: {
-      averagePlnPerHour: 37_611.06,
+      averagePlnPerHour: 148_148.15,
       milestoneVelocity: [
         { label: "500 000", hours: 48 },
         { label: "1 000 000", hours: 60 },
         { label: "3 000 000", hours: 130 },
         { label: "5 000 000", hours: 143 },
+        { label: "10 000 000", hours: 167 },
+        { label: "13 000 000", hours: 178 },
+        { label: "20 000 000", hours: 184 },
+        { label: "23 000 000", hours: 186 },
+        { label: "26 000 000", hours: 188 },
+        { label: "28 000 000", hours: 189 },
       ],
     },
   },
@@ -271,16 +302,220 @@ export const seedSiteData: SiteData = {
       dateAchieved: "2026-04-24T00:00:00Z",
     },
     {
+      id: "ms_7m_litewka_dedication",
+      targetAmount: 7_000_000,
+      title: "7M · Dedykacja dla Łukasza Litewki",
+      description:
+        "Łatwogang dowiaduje się podczas streamu o śmierci Łukasza Litewki i publicznie dedykuje jego pamięci przekroczenie progu 7 mln PLN.",
+      status: "achieved",
+      dateAchieved: "2026-04-23T14:00:00Z",
+    },
+    {
       id: "ms_10m_lewandowski_tiktok",
       targetAmount: 10_000_000,
-      title: "10M · Lewandowski nagrywa TikToka do dissu",
+      title: "10M · Lewandowski dołącza do akcji",
       description:
-        'Przy 10 milionach PLN ma odpalić się kolejny głośny trigger: Robert Lewandowski nagra TikToka do numeru "Bedoes 2115, Maja Mecan, Cancer Fighters - Ciągle tutaj jestem (diss na raka)".',
+        "Połączenie z Robertem Lewandowskim staje się jednym z najmocniejszych mainstreamowych momentów streamu. Kapitan reprezentacji Polski zapowiada podpisane koszulki FC Barcelony na licytację i chęć spotkania z dziećmi wspieranymi przez fundację.",
       status: "achieved",
-      dateAchieved: "2026-04-24T00:00:00Z",
+      dateAchieved: "2026-04-23T17:18:00Z",
+    },
+    {
+      id: "ms_13m_kasix",
+      targetAmount: 13_000_000,
+      title: "13M · Kasix goli głowę na wizji",
+      description:
+        "Po przekroczeniu progu 13 milionów PLN streamerka Kasix realizuje zapowiedź i ścina włosy na żywo. Rzeczpospolita odnotowała, że cel pękł po 11:40 lokalnego czasu 24 kwietnia.",
+      status: "achieved",
+      dateAchieved: "2026-04-24T09:40:00Z",
+    },
+    {
+      id: "ms_20m_evening_surge",
+      targetAmount: 20_000_000,
+      title: "20M · Wieczorny skok licznika",
+      description:
+        "24 kwietnia o 18:12 czasu lokalnego licznik przekracza 20 mln PLN. Wieczorna faza streamu zaczyna gwałtownie przyspieszać.",
+      status: "achieved",
+      dateAchieved: "2026-04-24T16:12:00Z",
+    },
+    {
+      id: "ms_23m_evening_surge",
+      targetAmount: 23_000_000,
+      title: "23M · Kolejny rekord po 20:15",
+      description:
+        "Polskie Radio 24 raportuje, że 24 kwietnia po 20:15 czasu lokalnego licznik zbiórki przekracza 23 mln PLN.",
+      status: "achieved",
+      dateAchieved: "2026-04-24T18:15:00Z",
+    },
+    {
+      id: "ms_26m_late_evening",
+      targetAmount: 26_000_000,
+      title: "26M · Nocny punkt odniesienia",
+      description:
+        "Plejada raportuje, że 24 kwietnia po 22:00 czasu lokalnego licznik pokazuje już ponad 26 mln PLN. To ostatni mocny snapshot przed późniejszą aktualizacją ponad 28 mln.",
+      status: "achieved",
+      dateAchieved: "2026-04-24T20:00:00Z",
+    },
+    {
+      id: "ms_28m_late_evening",
+      targetAmount: 28_000_000,
+      title: "28M · Licznik eksploduje po 22:40",
+      description:
+        "Plejada aktualizuje wcześniejszy raport o 11 milionach: 24 kwietnia po 22:40 lokalnego czasu licznik pokazuje już ponad 28 milionów PLN. To najnowszy twardy punkt odniesienia w danych trackera.",
+      status: "achieved",
+      dateAchieved: "2026-04-24T20:40:00Z",
     },
   ],
   timelineEvents: [
+    {
+      id: "evt_021",
+      dateLocal: "2026-04-26",
+      relativeTime: "Dzień 10 — Zaplanowany finał",
+      sortUtc: "2026-04-26T14:00:00Z",
+      zrodlo: {
+        label: "TVP3 Wrocław: stream do 26 kwietnia, 16:00",
+        url: "https://wroclaw.tvp.pl/92870227/tego-jeszcze-nie-bylo-latwogang-prowadzi-9-dniowy-stream-charytatywny-by-pomoc-chorym-na-nowotwor-dzieciom",
+      },
+      participants: ["Łatwogang"],
+      category: "core_event",
+      description:
+        "Zaplanowany finał dziewięciodniowego streamu: niedziela 26 kwietnia o 16:00. Finalna kwota zbiórki nie jest jeszcze wpisana do danych, bo publiczne źródła wciąż opisują trwającą akcję.",
+      tags: ["final", "scheduled_end", "26_kwietnia"],
+    },
+    {
+      id: "evt_020",
+      dateLocal: "2026-04-24",
+      relativeTime: "Dzień 8 — 22:40",
+      sortUtc: "2026-04-24T20:40:00Z",
+      zrodlo: {
+        label: "Plejada: ponad 28 mln po 22:40",
+        url: "https://plejada.pl/newsy/latwogang-zebral-juz-ponad-28-mln-zl-na-streamie-tyle-wplacily-gwiazdy/v3z3rtv",
+      },
+      participants: ["Łatwogang", "Cancer Fighters"],
+      category: "milestone_execution",
+      description:
+        "Najnowszy medialny snapshot przebija wcześniejsze raporty: po 22:40 licznik streamu jest już powyżej 28 mln PLN. Plejada zbiera też listę dużych wpłat, m.in. Bedoes 2115, NEBOA i XTB po 1 mln PLN.",
+      tags: ["28m", "latest_counter", "top_donors", "plejada"],
+    },
+    {
+      id: "evt_019",
+      dateLocal: "2026-04-24",
+      relativeTime: "Dzień 8 — 22:00",
+      sortUtc: "2026-04-24T20:00:00Z",
+      zrodlo: {
+        label: "Plejada: ponad 26 mln po 22:00",
+        url: "https://plejada.pl/newsy/latwogang-zebral-juz-ponad-26-mln-zl-na-streamie-tyle-wplacily-gwiazdy/v3z3rtv",
+      },
+      participants: ["Łatwogang", "Cancer Fighters"],
+      category: "milestone_execution",
+      description:
+        "Nocna aktualizacja Plejady potwierdza ponad 26 mln PLN po 22:00. To ostatni punkt z przygotowanego researchu przed późniejszym redirectem Plejady do wersji z wynikiem ponad 28 mln.",
+      tags: ["26m", "media_summary", "final_stretch"],
+    },
+    {
+      id: "evt_019b",
+      dateLocal: "2026-04-24",
+      relativeTime: "Dzień 8 — 20:15",
+      sortUtc: "2026-04-24T18:15:00Z",
+      zrodlo: {
+        label: "Polskie Radio 24: ponad 23 mln po 20:15",
+        url: "https://polskieradio24.pl/artykul/3678438,9-dni-jedna-piosenka-i-miliony-zlotych-latwogang-jednym-streamem-rozpalil-polske",
+      },
+      participants: ["Łatwogang", "Cancer Fighters"],
+      category: "milestone_execution",
+      description:
+        "Polskie Radio 24 podaje kolejny skok: 24 kwietnia po 20:15 licznik streamu jest już powyżej 23 mln PLN.",
+      tags: ["23m", "polskie_radio", "counter"],
+    },
+    {
+      id: "evt_019a",
+      dateLocal: "2026-04-24",
+      relativeTime: "Dzień 8 — 18:12",
+      sortUtc: "2026-04-24T16:12:00Z",
+      zrodlo: {
+        label: "Onet/Plejada: ponad 20 mln o 18:12",
+        url: "https://www.onet.pl/styl-zycia/plejada/latwogang-zebral-juz-ponad-20-mln-zl-na-streamie-tyle-wplacily-gwiazdy/v3z3rtv,0898b825",
+      },
+      participants: ["Łatwogang", "Cancer Fighters"],
+      category: "milestone_execution",
+      description:
+        "Wieczorny rajd zaczyna się od kolejnego okrągłego progu: 24 kwietnia o 18:12 licznik przekracza 20 mln PLN.",
+      tags: ["20m", "onet", "plejada", "counter"],
+    },
+    {
+      id: "evt_018",
+      dateLocal: "2026-04-24",
+      relativeTime: "Dzień 8 — Po 11:40",
+      sortUtc: "2026-04-24T09:40:00Z",
+      zrodlo: {
+        label: "Rzeczpospolita: Kasix goli głowę przy 13 mln",
+        url: "https://sukces.rp.pl/internet/art44229281-13-milionow-zlotych-od-internautow-fenomen-zbiorki-latwoganga-na-walke-z-rakiem",
+      },
+      participants: ["Kasix", "Łatwogang"],
+      category: "milestone_execution",
+      description:
+        "Po przekroczeniu 13 mln PLN Kasix spełnia obietnicę i goli głowę na transmisji. Ten moment domyka kolejny etap solidarnościowych wyzwań związanych z utratą włosów podczas leczenia onkologicznego.",
+      tags: ["13m", "kasix", "haircut", "solidarity"],
+    },
+    {
+      id: "evt_018b",
+      dateLocal: "2026-04-24",
+      relativeTime: "Dzień 8 — Po goleniu",
+      sortUtc: "2026-04-24T10:00:00Z",
+      zrodlo: {
+        label: "Plejada: Kasix ogoliła głowę na streamie",
+        url: "https://plejada.pl/newsy/kasix-ogolila-glowe-na-streamie-latwoganga-przed-laty-dostala-udaru-na-wizji/l2tvyb2",
+      },
+      participants: ["Kasix", "Łatwogang"],
+      category: "milestone_execution",
+      description:
+        "Osobny materiał Plejady opisuje Kasix po wykonaniu wyzwania i dodaje, że po goleniu licznik był już w okolicach 13,5 mln PLN.",
+      tags: ["kasix", "13_5m", "haircut", "plejada"],
+    },
+    {
+      id: "evt_017",
+      dateLocal: "2026-04-24",
+      relativeTime: "Dzień 8 — Poranek",
+      sortUtc: "2026-04-24T07:00:00Z",
+      zrodlo: {
+        label: "TVP World: 11,2 mln o 09:00",
+        url: "https://tvpworld.com/92886782/latwogangs-cancer-fighters-livestream-tops-25-million",
+      },
+      participants: ["Łatwogang", "Cancer Fighters"],
+      category: "milestone_execution",
+      description:
+        "Anglojęzyczne podsumowanie TVP World notuje 11,2 mln PLN o 09:00 w piątek i podaje, że w akcję weszły m.in. Doda, Robert Lewandowski, Mateusz Ponitka, Magda Gessler i Bambi.",
+      tags: ["11_2m", "international_summary", "tvp_world"],
+    },
+    {
+      id: "evt_016",
+      dateLocal: "2026-04-23",
+      relativeTime: "Dzień 7 — Noc",
+      sortUtc: "2026-04-23T21:27:00Z",
+      zrodlo: {
+        label: "wPolsce24: ponad 10 mln i rekordowy stream",
+        url: "https://wpolsce24.tv/rozrywka/latwogang-zebral-10-milionow-zl-na-raka-u-dzieci,75525",
+      },
+      participants: ["Łatwogang", "Bedoes 2115", "Bambi", "Doda", "Robert Lewandowski"],
+      category: "milestone_execution",
+      description:
+        "Media raportują przebicie 10 mln PLN i opisują akcję jako największy stream charytatywny w historii polskiego YouTube. Artykuł notuje też frustrację Łatwoganga po słabym materiale TVP bez kodu QR do zbiórki.",
+      tags: ["10m", "record", "tvp", "media"],
+    },
+    {
+      id: "evt_015",
+      dateLocal: "2026-04-23",
+      relativeTime: "Dzień 7 — Wieczór",
+      sortUtc: "2026-04-23T17:18:00Z",
+      zrodlo: {
+        label: "SportoweFakty: Robert i Anna Lewandowscy na streamie",
+        url: "https://sportowefakty.wp.pl/pilka-nozna/1246870/zebrali-ponad-75-mln-zl-podczas-transmisji-nagle-pojawil-sie-lewandowski",
+      },
+      participants: ["Robert Lewandowski", "Anna Lewandowska", "Mikołaj Bagiński", "Łatwogang"],
+      category: "guest_appearance",
+      description:
+        "Bagi organizuje połączenie z Robertem Lewandowskim. Na streamie pojawia się też Anna Lewandowska, a piłkarz zapowiada wsparcie fundacji, podpisane koszulki FC Barcelony na licytację i spotkanie z podopiecznymi.",
+      tags: ["lewandowski", "bagi", "auction", "7_5m"],
+    },
     {
       id: "evt_001",
       dateLocal: "2026-04-17",
@@ -428,8 +663,8 @@ export const seedSiteData: SiteData = {
       participants: ["Bedoes 2115", "Doda", "Oki", "SVM!R"],
       category: "milestone_execution",
       description:
-        "Plejada i GlamRap raportują 5,5 mln PLN po pięciu dniach streamu. Bedoes 2115 ma już 700k+ łącznych wpłat, w tym jednorazowe 500 tys. W czołówce wpłat przewijają się też Oki (180 tys.) i SVM!R (137 tys.), a Doda dalej boostuje finałową fazę streamu.",
-      tags: ["5_5m", "bedoes", "doda", "oki", "svmr", "top_donors"],
+        "Plejada i GlamRap raportują 5,5 mln PLN po pięciu dniach streamu. Późniejsze podsumowania aktualizują wkład Bedoesa do ok. 720 tys. PLN łącznie, a w czołówce wpłat przewijają się też Oki (180 tys.) i SVM!R (137 tys.).",
+      tags: ["5_5m", "bedoes", "720k", "oki", "180k", "svmr", "top_donors"],
     },
     {
       id: "evt_012",
@@ -452,14 +687,14 @@ export const seedSiteData: SiteData = {
       relativeTime: "Dzień 6 — Noc",
       sortUtc: "2026-04-22T22:45:00Z",
       zrodlo: {
-        label: "Dzień Dobry TVN: Doda i Magda Gessler godzą się na żywo",
-        url: "https://dziendobry.tvn.pl/gwiazdy/doda-i-magda-gessler-pogodzily-sie-na-zywo-koniec-glosnego-konfliktu-st9012418",
+        label: "Nowy Marketing: telefony Dody na streamie",
+        url: "https://nowymarketing.pl/9-dni-miliony-zlotych-i-viralowe-momenty-tak-diss-na-raka-urosl-w-polskim-internecie/",
       },
-      participants: ["Doda", "Magda Gessler"],
+      participants: ["Doda", "Magda Gessler", "Justyna Steczkowska", "Zenek Martyniuk"],
       category: "guest_appearance",
       description:
-        "Support Dody przeradza się w osobny viralowy moment: na streamie dochodzi do telefonu i publicznego pogodzenia Dody z Magdą Gessler. To nie jest tylko kolejny recap wpłat, ale wyraźny wydarzeniowy punkt wieczoru z własnym medialnym echem.",
-      tags: ["doda", "magda_gessler", "phone_call", "reconciliation", "viral_moment"],
+        "Support Dody przeradza się w serię viralowych telefonów: rozmowa z Magdą Gessler, kontakt z Justyną Steczkowską i śpiewanie z Zenkiem Martyniukiem przez telefon. To wyraźny wydarzeniowy punkt wieczoru z własnym medialnym echem.",
+      tags: ["doda", "magda_gessler", "steczkowska", "zenek", "phone_call", "viral_moment"],
     },
     {
       id: "evt_014",
@@ -475,6 +710,21 @@ export const seedSiteData: SiteData = {
       description:
         "Wokół akcji pojawia się też osobny wątek brandowy: po krytyce za niefortunną komunikację Pasibus publikuje przeprosiny i deklaruje bezwarunkową wpłatę 100 tys. PLN dla Cancer Fighters. To odrębny epizod kampanii, a nie kolejna kopia newsroomowego podsumowania gości.",
       tags: ["pasibus", "brand", "apology", "100k", "donation", "controversy"],
+    },
+    {
+      id: "evt_011b",
+      dateLocal: "2026-04-23",
+      relativeTime: "Dzień 7 — Dedykacja",
+      sortUtc: "2026-04-23T14:00:00Z",
+      zrodlo: {
+        label: "Pudelek: 7 mln zadedykowane Łukaszowi Litewce",
+        url: "https://www.pudelek.pl/latwogang-dowiedzial-sie-o-smierci-lukasza-litewki-podczas-streama-wczoraj-ze-soba-rozmawiali-7278439918823840a",
+      },
+      participants: ["Łatwogang", "Łukasz Litewka"],
+      category: "core_event",
+      description:
+        "Podczas streamu Łatwogang dowiaduje się o śmierci Łukasza Litewki, z którym rozmawiał dzień wcześniej. Przekroczenie 7 mln PLN dedykuje jego pamięci.",
+      tags: ["litewka", "dedication", "7m", "emotional_moment"],
     },
     {
       id: "evt_011",
