@@ -206,7 +206,7 @@ export const seedSiteData: SiteData = {
     hoursElapsed: 190,
     estimatedTotalLoops: 4_145,
     engagement: {
-      averageConcurrentViewers: 19_000,
+      averageConcurrentViewers: 180_000,
       newSubscribersDuringEvent: 17_000,
       totalViewsGenerated: 2_480_000,
     },
