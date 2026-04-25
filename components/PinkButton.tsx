@@ -20,7 +20,8 @@ export function PinkButton() {
         type="button"
         onClick={() => setOpen(true)}
         aria-label="Wiadomość dla Wojtka"
-        className="fixed bottom-4 right-4 z-50 rounded-full bg-pink-400 px-4 py-2 text-sm font-semibold text-white shadow-lg shadow-pink-500/40 ring-2 ring-pink-200 transition hover:bg-pink-500 active:scale-95 sm:bottom-6 sm:right-6 sm:px-5 sm:py-2.5"
+        style={{ color: "#ff1493" }}
+        className="fixed bottom-4 right-4 z-50 rounded-full bg-pink-100 px-4 py-2 text-sm font-extrabold shadow-lg shadow-pink-500/40 ring-2 ring-pink-300 transition hover:bg-pink-200 active:scale-95 sm:bottom-6 sm:right-6 sm:px-5 sm:py-2.5"
       >
         :)
       </button>
@@ -44,8 +45,11 @@ export function PinkButton() {
             >
               ×
             </button>
-            <p className="mt-2 text-base font-semibold sm:text-lg">
-              Wojtku Bednarku, ani Adam ani Artur nie klamia :D
+            <p
+              style={{ color: "#ff1493" }}
+              className="mt-2 text-base font-extrabold sm:text-lg"
+            >
+              wojtek bednarek pomaga w walce z rakiem. a adam nie klamie :3
             </p>
           </div>
         </div>
