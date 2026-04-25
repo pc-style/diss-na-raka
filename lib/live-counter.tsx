@@ -103,7 +103,7 @@ export function LiveCounterProvider({
   }, []);
 
   // Disabled live extrapolation for the night
-  const growthPlnPerSecond = 0;
+  const growthPlnPerSecond = 100;
 
   const value = useMemo(
     () => ({
