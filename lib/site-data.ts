@@ -170,6 +170,26 @@ export const counterHistory: CounterHistoryPoint[] = [
     atUtc: "2026-04-24T21:55:00Z",
     source: "TVP3 Wroclaw report",
   },
+  {
+    amount: 31_000_000,
+    atUtc: "2026-04-25T04:00:00Z",
+    source: "TVN24 report",
+  },
+  {
+    amount: 31_000_000,
+    atUtc: "2026-04-25T07:40:00Z",
+    source: "Plotek report",
+  },
+  {
+    amount: 36_000_000,
+    atUtc: "2026-04-25T09:40:00Z",
+    source: "Plejada/Onet report",
+  },
+  {
+    amount: 40_600_000,
+    atUtc: "2026-04-25T12:12:00Z",
+    source: "live counter update",
+  },
 ];
 
 export const categoryMeta: Record<
@@ -189,8 +209,8 @@ export const seedSiteData: SiteData = {
       hostId: "latwogang_official",
       beneficiary: "Fundacja Cancer Fighters",
       startTimestampUtc: "2026-04-17T00:00:00Z",
-      lastUpdatedUtc: "2026-04-24T21:55:00Z",
-      lastYouTubeSyncUtc: "2026-04-24T21:55:00Z",
+      lastUpdatedUtc: "2026-04-25T12:12:00Z",
+      lastYouTubeSyncUtc: "2026-04-25T12:12:00Z",
       platform: "YouTube Live",
       channelId: "UCjpBbH8NmL4XHVUgJurDPZg",
       currentLiveVideoId: "UNAqqHIPbWA",
@@ -202,7 +222,7 @@ export const seedSiteData: SiteData = {
       trackArtists: ["Bedoes 2115", "Maja Mecan", "Cancer Fighters"],
       trackLengthSeconds: 165,
     },
-    totalRaisedPln: 30_000_000,
+    totalRaisedPln: 40_600_000,
     hoursElapsed: 190,
     estimatedTotalLoops: 4_145,
     engagement: {
@@ -211,7 +231,7 @@ export const seedSiteData: SiteData = {
       totalViewsGenerated: 2_480_000,
     },
     velocity: {
-      averagePlnPerHour: 157_894.74,
+      averagePlnPerHour: 201_990.05,
       milestoneVelocity: [
         { label: "500 000", hours: 48 },
         { label: "1 000 000", hours: 60 },
@@ -228,6 +248,9 @@ export const seedSiteData: SiteData = {
         { label: "26 000 000", hours: 188 },
         { label: "28 000 000", hours: 189 },
         { label: "30 000 000", hours: 190 },
+        { label: "31 000 000", hours: 196 },
+        { label: "36 000 000", hours: 201 },
+        { label: "40 600 000", hours: 204 },
       ],
     },
   },
@@ -439,6 +462,33 @@ export const seedSiteData: SiteData = {
       status: "achieved",
       dateAchieved: "2026-04-24T21:55:00Z",
     },
+    {
+      id: "ms_31m_overnight",
+      targetAmount: 31_000_000,
+      title: "31M · Nocny przyspieszenie",
+      description:
+        "TVN24 raportuje, że 25 kwietnia około godziny 06:00 rano licznik przekroczył 31 mln PLN. Wzrost stymulowany przez pojawienie się gości oraz akty solidarności, w szczególności ogolenie głowy na żywo przez influencerkę Kasix.",
+      status: "achieved",
+      dateAchieved: "2026-04-25T04:00:00Z",
+    },
+    {
+      id: "ms_36m_morning_surge",
+      targetAmount: 36_000_000,
+      title: "36M · Poranny skok ponad 35 mln",
+      description:
+        "Plejada/Onet raportuje, że 25 kwietnia około 11:40 licznik przekroczył 36 mln PLN. Ciągły napływ darowizn był efektem obecności licznych gości, dużych wpłat od firm (m.in. XTB, NEBOA 1 mln PLN każda) oraz indywidualnych darczyńców (Bedoes 2115: 1 mln PLN).",
+      status: "achieved",
+      dateAchieved: "2026-04-25T09:40:00Z",
+    },
+    {
+      id: "ms_40_6m_latest",
+      targetAmount: 40_600_000,
+      title: "40,6M · Najnowszy stan licznika",
+      description:
+        "Live counter update shows 40,6 mln PLN as of April 25, 2026, around 12:12 CEST. Campaign continues to accelerate with sustained donor engagement.",
+      status: "achieved",
+      dateAchieved: "2026-04-25T12:12:00Z",
+    },
   ],
   timelineEvents: [
     {
@@ -455,6 +505,126 @@ export const seedSiteData: SiteData = {
       description:
         "Najświeższy checkpoint z pliku researchowego: TVP3 Wrocław raportuje, że kilka minut przed północą 24 kwietnia licznik osiągnął 30 mln PLN. Tracker traktuje to jako nowszy snapshot, nie jako kwotę finałową.",
       tags: ["30m", "tvp3", "latest_counter", "not_final"],
+    },
+    {
+      id: "evt_023",
+      dateLocal: "2026-04-25",
+      relativeTime: "Dzień 9 — Około 06:00",
+      sortUtc: "2026-04-25T04:00:00Z",
+      zrodlo: {
+        label: "TVN24: ponad 31 mln",
+        url: "https://tvn24.pl/polska/latwogang-zbiera-srodki-na-rzecz-podopiecznych-fundacji-cancer-fighters-st9014748",
+      },
+      participants: ["Łatwogang", "Cancer Fighters"],
+      category: "milestone_execution",
+      description:
+        "TVN24 raportuje, że około godziny 06:00 rano licznik przekroczył 31 mln PLN. Wzrost stymulowany przez pojawienie się gości oraz akty solidarności, w szczególności ogolenie głowy na żywo przez influencerkę Kasix.",
+      tags: ["31m", "tvn24", "counter", "overnight"],
+    },
+    {
+      id: "evt_024",
+      dateLocal: "2026-04-25",
+      relativeTime: "Dzień 9 — Około 11:40",
+      sortUtc: "2026-04-25T09:40:00Z",
+      zrodlo: {
+        label: "Plejada/Onet: ponad 36 mln",
+        url: "https://plejada.pl/newsy/latwogang-zebral-juz-ponad-31-mln-zl-wsrod-gosci-sebastian-fabijanski/0hs6hsz",
+      },
+      participants: ["Łatwogang", "Cancer Fighters", "Bedoes 2115", "XTB", "NEBOA"],
+      category: "milestone_execution",
+      description:
+        "Plejada/Onet raportuje, że około 11:40 licznik przekroczył 36 mln PLN. Ciągły napływ darowizn był efektem obecności licznych gości, dużych wpłat od firm (m.in. XTB, NEBOA po 1 mln PLN) oraz indywidualnych darczyńców (Bedoes 2115: 1 mln PLN).",
+      tags: ["36m", "plejada", "onet", "counter", "major_donors"],
+    },
+    {
+      id: "evt_030",
+      dateLocal: "2026-04-25",
+      relativeTime: "Dzień 9 — Około 12:12",
+      sortUtc: "2026-04-25T12:12:00Z",
+      zrodlo: {
+        label: "Live counter: 40,6 mln",
+        url: "https://www.siepomaga.pl/latwogang",
+      },
+      participants: ["Łatwogang", "Cancer Fighters"],
+      category: "milestone_execution",
+      description:
+        "Live counter update shows 40,6 mln PLN. Campaign continues to accelerate with sustained donor engagement.",
+      tags: ["40_6m", "live_counter", "latest"],
+    },
+    {
+      id: "evt_025",
+      dateLocal: "2026-04-25",
+      relativeTime: "Dzień 9 — 09:00-13:00",
+      sortUtc: "2026-04-25T07:00:00Z",
+      zrodlo: {
+        label: "Plejada: Robert Lewandowski cameo",
+        url: "https://plejada.pl/newsy/latwogang-zebral-juz-ponad-31-mln-zl-wsrod-gosci-sebastian-fabijanski/0hs6hsz",
+      },
+      participants: ["Robert Lewandowski", "Łatwogang"],
+      category: "guest_appearance",
+      description:
+        "Niespodziewane pojawienie się najpopularniejszego polskiego piłkarza jako krótkie cameo zdalne, co zapewniło ogromną widoczność i gwałtowny wzrost uwagi oraz darowizn.",
+      tags: ["lewandowski", "celebrity", "remote", "mainstream"],
+    },
+    {
+      id: "evt_026",
+      dateLocal: "2026-04-24",
+      relativeTime: "Dzień 8 — Ranek",
+      sortUtc: "2026-04-24T06:00:00Z",
+      zrodlo: {
+        label: "Eurosport TVN24: Jan Bednarek",
+        url: "https://eurosport.tvn24.pl/pilka-nozna/charytatywny-lajw-latwoganga-dla-podopiecznych-fundacji-cancer-fighters.-jan-bednarek-wsparl-akcje-taka-wiadomosc-wyslal-youtuberowi_sto23293076/story.shtml",
+      },
+      participants: ["Jan Bednarek", "Fundacja Cancer Fighters"],
+      category: "guest_appearance",
+      description:
+        "Piłkarz Jan Bednarek skontaktował się ze streamem zdalnie, obiecując zaproszenie podopiecznych Fundacji Cancer Fighters na mecze reprezentacji Polski.",
+      tags: ["bednarek", "football", "remote", "tickets"],
+    },
+    {
+      id: "evt_027",
+      dateLocal: "2026-04-24",
+      relativeTime: "Dzień 8 — Wieczór",
+      sortUtc: "2026-04-24T20:00:00Z",
+      zrodlo: {
+        label: "Spidersweb: Szpaku w studio",
+        url: "https://rozrywka.spidersweb.pl/bedoes-fundacja-cancer-fighters-zbiorka-pol-miliona-zlotych-diss-na-raka-latwogang",
+      },
+      participants: ["Szpaku", "Natalka"],
+      category: "guest_appearance",
+      description:
+        "Raper Szpaku pojawił się na streamie wieczorem wraz z podopieczną fundacji Natalką, wspierając akcję swoją obecnością.",
+      tags: ["szpaku", "rapper", "in-studio"],
+    },
+    {
+      id: "evt_028",
+      dateLocal: "2026-04-24",
+      relativeTime: "Dzień 8 — 10:00-18:00",
+      sortUtc: "2026-04-24T08:00:00Z",
+      zrodlo: {
+        label: "Moda.pl: Oliwka Brazil",
+        url: "https://moda.pl/kto-byl-dzis-na-streamie-latwogang-dla-fundacji-cancer-fighters-24-04-2026/",
+      },
+      participants: ["Oliwka Brazil"],
+      category: "guest_appearance",
+      description:
+        "Popularna raperka Oliwka Brazil pojawiła się w studio, co przyciągnęło jej fanów i pomogło zwiększyć darowizny.",
+      tags: ["oliwka_brazil", "rapper", "in-studio"],
+    },
+    {
+      id: "evt_029",
+      dateLocal: "2026-04-24",
+      relativeTime: "Dzień 8 — W ciągu dnia",
+      sortUtc: "2026-04-24T12:00:00Z",
+      zrodlo: {
+        label: "Moda.pl: Grupa influencerów",
+        url: "https://moda.pl/kto-byl-dzis-na-streamie-latwogang-dla-fundacji-cancer-fighters-24-04-2026/",
+      },
+      participants: ["Nowciax", "Medusa", "AJ The Polish American"],
+      category: "guest_appearance",
+      description:
+        "Grupa influencerów, dziennikarzy i twórców internetowych pojawiła się na streamie, aby wesprzeć akcję, zwiększyć jej zasięgi i zachęcić do wpłat.",
+      tags: ["influencers", "group", "in-studio"],
     },
     {
       id: "evt_021",
