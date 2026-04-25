@@ -208,13 +208,13 @@ export const seedSiteData: SiteData = {
     metadata: {
       hostId: "latwogang_official",
       beneficiary: "Fundacja Cancer Fighters",
-      startTimestampUtc: "2026-04-17T00:00:00Z",
+      startTimestampUtc: "2026-04-17T14:00:00Z",
       lastUpdatedUtc: "2026-04-25T12:12:00Z",
       lastYouTubeSyncUtc: "2026-04-25T12:12:00Z",
       platform: "YouTube Live",
       channelId: "UCjpBbH8NmL4XHVUgJurDPZg",
       currentLiveVideoId: "UNAqqHIPbWA",
-      currentLiveVideoTitle: "9 DNI SŁUCHAMY DISSU NA RAKA",
+      currentLiveVideoTitle: "Słucham 9 dni dissu na raka żeby pomóc dzieciom z Fundacji Cancer Fighters",
       currentLiveVideoUrl: "https://www.youtube.com/live/UNAqqHIPbWA",
       donationUrl: "https://tipply.pl/@latwogang",
       songUrl: "https://www.youtube.com/watch?v=d-kldWAQBzk",
@@ -226,9 +226,9 @@ export const seedSiteData: SiteData = {
     hoursElapsed: 190,
     estimatedTotalLoops: 4_145,
     engagement: {
-      averageConcurrentViewers: 180_000,
-      newSubscribersDuringEvent: 17_000,
-      totalViewsGenerated: 2_480_000,
+      averageConcurrentViewers: 190_000,
+      newSubscribersDuringEvent: 340_000,
+      totalViewsGenerated: 3_320_833,
     },
     velocity: {
       averagePlnPerHour: 201_990.05,
