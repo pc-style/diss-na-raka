@@ -223,7 +223,7 @@ export const seedSiteData: SiteData = {
       trackLengthSeconds: 165,
     },
     totalRaisedPln: 40_600_000,
-    hoursElapsed: 190,
+    hoursElapsed: 204,
     estimatedTotalLoops: 4_145,
     engagement: {
       averageConcurrentViewers: 190_000,
@@ -262,7 +262,7 @@ export const seedSiteData: SiteData = {
       description:
         "Oficjalny cel na starcie 9-dniowego maratonu — 200 godzin streamu pod utwór w pętli. Przekroczony w kilka godzin.",
       status: "achieved",
-      dateAchieved: "2026-04-17T04:00:00Z",
+      dateAchieved: "2026-04-17T18:00:00Z",
     },
     {
       id: "ms_500k_tattoo",
