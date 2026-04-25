@@ -6,7 +6,6 @@ import {
   Fraunces,
   Caveat,
 } from "next/font/google";
-import { PinkButton } from "@/components/PinkButton";
 import "./globals.css";
 
 const archivoBlack = Archivo_Black({
@@ -86,7 +85,6 @@ export default function RootLayout({
           </defs>
         </svg>
         {children}
-        <PinkButton />
         <Analytics />
       </body>
     </html>
