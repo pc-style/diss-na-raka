@@ -59,7 +59,10 @@ export function HeroDashboard({
 
         {/* Main counter block */}
         <div className="col-span-12 lg:col-span-8 hairline-r px-5 md:px-10 py-10 md:py-16">
-          <div className="flex items-center gap-3 font-mono text-[10px] tracking-[0.28em] text-paper-dim rise" style={{ animationDelay: "40ms" }}>
+          <div
+            className="flex items-center gap-3 font-mono text-[10px] tracking-[0.28em] text-paper-dim rise"
+            style={{ animationDelay: "40ms" }}
+          >
             <span className="live-dot block size-2 rounded-full bg-accent" />
             LIVE · ZBIÓRKA W TOKU · FUNDACJA CANCER FIGHTERS
           </div>
@@ -106,10 +109,7 @@ export function HeroDashboard({
           </p>
 
           {/* Massive total */}
-          <div
-            className="mt-14 rise"
-            style={{ animationDelay: "240ms" }}
-          >
+          <div className="mt-14 rise" style={{ animationDelay: "240ms" }}>
             <div className="flex items-end justify-between gap-4 hairline-b pb-2">
               <span className="font-mono text-[10px] tracking-[0.28em] text-paper-dim">
                 ZEBRANO · ŁĄCZNIE
@@ -124,11 +124,16 @@ export function HeroDashboard({
               </span>
             </div>
             <div className="mt-2 font-mono text-[10px] tracking-[0.2em] text-paper-dim">
-              SZAC. TEMPO: +{growthPlnPerSecond.toFixed(1).replace(".", ",")} PLN/S ·
-              ODPALONE OD OSTATNIEGO SNAPSHOTU
+              SZAC. TEMPO: +{growthPlnPerSecond.toFixed(1).replace(".", ",")}{" "}
+              PLN/S · ODPALONE OD OSTATNIEGO SNAPSHOTU
             </div>
             <div className="mt-1 tnum overflow-hidden">
-              <div className="font-display leading-[0.82] text-paper whitespace-nowrap tracking-tight text-[clamp(44px,9vw,168px)] marker-underline pb-2 w-fit max-w-full" style={{ fontSize: `clamp(44px, ${formatted.length <= 9 ? '10.5vw' : `${95 / formatted.length}vw`}, 168px)` }}>
+              <div
+                className="font-display leading-[0.82] text-paper whitespace-nowrap tracking-tight text-[clamp(44px,9vw,168px)] marker-underline pb-2 w-fit max-w-full"
+                style={{
+                  fontSize: `clamp(44px, ${formatted.length <= 9 ? "10.5vw" : `${95 / formatted.length}vw`}, 168px)`,
+                }}
+              >
                 {formatted}
               </div>
             </div>
@@ -163,9 +168,7 @@ export function HeroDashboard({
                   <div className="mt-2 flex justify-between font-mono text-[10px] tracking-widest text-paper-dim">
                     <span>{formatPLN(previousTarget)} PLN</span>
                     <span>Δ {formatPLN(target - raised)} PLN</span>
-                    <span className="text-paper">
-                      {formatPLN(target)} PLN
-                    </span>
+                    <span className="text-paper">{formatPLN(target)} PLN</span>
                   </div>
                 </div>
                 <div className="col-span-12 md:col-span-2 text-right font-display text-3xl tnum">
