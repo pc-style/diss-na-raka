@@ -578,15 +578,7 @@ export const seedSiteData: SiteData = {
       status: "achieved",
       dateAchieved: "2026-04-25T20:35:00Z",
     },
-    {
-      id: "ms_73m_lipinska",
-      targetAmount: 73_000_000,
-      title: "73M · Blanka Lipińska goli głowę",
-      description:
-        "Author Blanka Lipińska shaved her head as a symbolic stunt once the counter reached approximately 73 million PLN.",
-      status: "achieved",
-      dateAchieved: "2026-04-25T21:00:00Z",
-    },
+    // Duplicate entry removed - see ms_73m_blanka_lipinska below for the full 73M milestone entry for Blanka Lipińska.
     {
       id: "ms_100m_milestone",
       targetAmount: 100_000_000,
