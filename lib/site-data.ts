@@ -254,11 +254,11 @@ export const topSupporters: TopSupporter[] = [
   { rank: 8, name: "Pitbull", amountPln: 1_201_989 },
   { rank: 9, name: "Eveline Cosmetics", amountPln: 1_200_260 },
   { rank: 10, name: "Erste Bank Polska — Wierz w siebie", amountPln: 1_111_111.11 },
-  { rank: 11, name: "OnlyBio & Stars.Space", amountPln: 1_007_777.77 },
-  { rank: 12, name: "Apart", amountPln: 1_002_005.31 },
-  { rank: 13, name: "XTB", amountPln: 1_001_300.99 },
-  { rank: 14, name: "Bedoes 2115", amountPln: 1_001_189.02 },
-  { rank: 15, name: "NEBOA", amountPln: 1_000_455.67 },
+  { rank: 11, name: "ING Bank Śląski", amountPln: 1_111_111.11 },
+  { rank: 12, name: "OnlyBio & Stars.Space", amountPln: 1_007_777.77 },
+  { rank: 13, name: "Apart", amountPln: 1_002_005.31 },
+  { rank: 14, name: "XTB", amountPln: 1_001_300.99 },
+  { rank: 15, name: "Bedoes 2115", amountPln: 1_001_189.02 },
 ];
 
 export const categoryMeta: Record<
