@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { SiteFooter } from "@/components/site/footer";
+import { GalleryGrid } from "@/components/site/gallery-grid";
 import { SiteHeader } from "@/components/site/header";
 import { SiteLiveCounterProvider } from "@/components/site/live-counter-provider";
 import { TopBar } from "@/components/site/top-bar";
@@ -51,61 +52,7 @@ export default async function GalleryPage() {
 
           <section className="bg-ink-2">
             <div className="mx-auto max-w-[1440px] px-5 py-12 md:px-10 md:py-16">
-              <div className="grid grid-cols-1 gap-6 lg:grid-cols-2">
-                {featuredVideoClips.map((clip, index) => (
-                  <article key={clip.id} className="hairline-box bg-ink card-wipe">
-                    <div className="aspect-video bg-paper/10 hairline-b">
-                      <iframe
-                        src={`https://www.youtube-nocookie.com/embed/${clip.videoId}`}
-                        title={clip.title}
-                        className="h-full w-full"
-                        loading={index === 0 ? "eager" : "lazy"}
-                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                        allowFullScreen
-                      />
-                    </div>
-                    <div className="grid grid-cols-12 gap-4 p-5 md:p-6">
-                      <div className="col-span-12 md:col-span-3">
-                        <div className="font-mono text-[10px] tracking-[0.24em] text-paper-dim">
-                          #{String(index + 1).padStart(2, "0")}
-                        </div>
-                        <div className="mt-2 inline-flex hairline-box px-2 py-1 font-mono text-[9px] tracking-[0.2em] uppercase text-paper-dim">
-                          {clip.confidence}
-                        </div>
-                      </div>
-                      <div className="col-span-12 md:col-span-9">
-                        <h2 className="font-display uppercase text-2xl leading-none md:text-3xl">
-                          {clip.title}
-                        </h2>
-                        <p className="mt-3 font-serif text-base leading-snug text-paper-dim">
-                          {clip.description}
-                        </p>
-                        <div className="mt-4 flex flex-wrap gap-2">
-                          {clip.tags.map((tag) => (
-                            <span
-                              key={tag}
-                              className="hairline-box px-2 py-[2px] font-mono text-[10px] tracking-widest text-paper-dim"
-                            >
-                              #{tag}
-                            </span>
-                          ))}
-                        </div>
-                        <div className="mt-5 flex flex-wrap items-center gap-x-5 gap-y-2 font-mono text-[10px] tracking-[0.16em] text-paper-dim">
-                          <span>{clip.channelTitle}</span>
-                          <a
-                            href={clip.sourceUrl}
-                            target="_blank"
-                            rel="noreferrer"
-                            className="text-accent hover:text-paper transition-colors"
-                          >
-                            YOUTUBE ↗
-                          </a>
-                        </div>
-                      </div>
-                    </div>
-                  </article>
-                ))}
-              </div>
+              <GalleryGrid clips={featuredVideoClips} />
             </div>
           </section>
         </main>

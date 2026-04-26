@@ -1,5 +1,6 @@
 export interface VideoClip {
   id: string;
+  type: VideoClipType;
   title: string;
   description: string;
   videoId: string;
@@ -11,9 +12,18 @@ export interface VideoClip {
   confidence: "high" | "medium" | "low";
 }
 
+export type VideoClipType =
+  | "stream"
+  | "utwor"
+  | "reportaz"
+  | "news"
+  | "klip"
+  | "koncert";
+
 export const featuredVideoClips: VideoClip[] = [
   {
     id: "clip_main_livestream",
+    type: "stream",
     title: "Pełny stream: Diss na raka",
     description:
       "Główna transmisja Łatwoganga z licznikiem wpłat i większością wydarzeń opisanych w trackerze.",
@@ -27,6 +37,7 @@ export const featuredVideoClips: VideoClip[] = [
   },
   {
     id: "clip_song_official",
+    type: "utwor",
     title: "Oficjalny utwór: Ciągle tutaj jestem",
     description:
       "Oficjalny upload Fundacji Cancer Fighters: Bedoes 2115, Maja Mecan i hymn całej akcji.",
@@ -40,6 +51,7 @@ export const featuredVideoClips: VideoClip[] = [
   },
   {
     id: "clip_tvn24_reportage",
+    type: "reportaz",
     title: "TVN24: cały reportaż o akcji",
     description:
       "Reportaż TVN24 o Mai, Bedoesie, streamie Łatwoganga i lawinie wpłat dla Cancer Fighters.",
@@ -53,6 +65,7 @@ export const featuredVideoClips: VideoClip[] = [
   },
   {
     id: "clip_tvn24_walczymy_dalej",
+    type: "reportaz",
     title: "TVN24: walczymy dalej",
     description:
       "Nowszy materiał TVN24 pokazujący skalę akcji i podkreślający, że zbiórka trwa dalej.",
@@ -66,6 +79,7 @@ export const featuredVideoClips: VideoClip[] = [
   },
   {
     id: "clip_onet_100m",
+    type: "news",
     title: "Onet: pękło 100 milionów",
     description:
       "Moment medialnego przebicia progu 100 mln PLN w materiale Onetu.",
@@ -79,6 +93,7 @@ export const featuredVideoClips: VideoClip[] = [
   },
   {
     id: "clip_goniec_100m",
+    type: "news",
     title: "Goniec: 100 milionów na streamie",
     description:
       "Krótki newsowy materiał o przekroczeniu 100 mln PLN podczas charytatywnego streamu.",
@@ -92,6 +107,7 @@ export const featuredVideoClips: VideoClip[] = [
   },
   {
     id: "clip_gimper_160m",
+    type: "reportaz",
     title: "Gimper: ponad 160 milionów",
     description:
       "Gimper komentuje niesamowitą skalę akcji i wynik przekraczający 160 mln PLN.",
@@ -105,6 +121,7 @@ export const featuredVideoClips: VideoClip[] = [
   },
   {
     id: "clip_kanal_zero",
+    type: "reportaz",
     title: "Kanał Zero u Łatwo",
     description:
       "Materiał Kanału Zero z wizyty i kontekstu wokół zbiórki, sąsiadów i streamowego zamieszania.",
@@ -118,6 +135,7 @@ export const featuredVideoClips: VideoClip[] = [
   },
   {
     id: "clip_maffashion_hrmn",
+    type: "klip",
     title: "Maffashion goli się na łyso",
     description:
       "Krótki klip z wykonania jednego z najgłośniejszych kobiecych gestów solidarności na streamie.",
@@ -131,6 +149,7 @@ export const featuredVideoClips: VideoClip[] = [
   },
   {
     id: "clip_edyta_pazura",
+    type: "klip",
     title: "Edyta Pazura na zero",
     description:
       "Klip z momentu, w którym Edyta Pazura spełnia obietnicę i goli głowę na streamie.",
@@ -144,6 +163,7 @@ export const featuredVideoClips: VideoClip[] = [
   },
   {
     id: "clip_nosowska_domanska",
+    type: "klip",
     title: "Nosowska i Domańska golą głowy",
     description:
       "Klip z okolic progu 60 mln PLN: Kasia Nosowska i Aleksandra Domańska dołączają do symbolicznych goleń głów.",
@@ -157,6 +177,7 @@ export const featuredVideoClips: VideoClip[] = [
   },
   {
     id: "clip_blachowicz",
+    type: "klip",
     title: "Jan Błachowicz ogolony w szczytnym celu",
     description:
       "Materiał ze sportowego wątku streamu: Jan Błachowicz dołącza do akcji i traci włosy.",
@@ -170,6 +191,7 @@ export const featuredVideoClips: VideoClip[] = [
   },
   {
     id: "clip_wisniewski",
+    type: "klip",
     title: "Michał Wiśniewski śpiewa na streamie",
     description:
       "Goniec pokazuje połączenie z Michałem Wiśniewskim i spontaniczne śpiewanie podczas akcji.",
@@ -183,6 +205,7 @@ export const featuredVideoClips: VideoClip[] = [
   },
   {
     id: "clip_mrozu",
+    type: "koncert",
     title: "Mrozu wpada do Łatwoganga",
     description:
       "Krótki klip z wizyty Mroza i wsparcia zbiórki dla Cancer Fighters.",
@@ -196,6 +219,7 @@ export const featuredVideoClips: VideoClip[] = [
   },
   {
     id: "clip_golec_sciernisko",
+    type: "koncert",
     title: "Golec uOrkiestra — Ściernisko live",
     description:
       "Fragment koncertowego finału w kawalerce: Golec uOrkiestra wykonuje 'Ściernisko'.",
@@ -209,6 +233,7 @@ export const featuredVideoClips: VideoClip[] = [
   },
   {
     id: "clip_big_concert",
+    type: "koncert",
     title: "Koncert: Grubson, Golec, Mrozu, Gromee",
     description:
       "Dłuższy zbiorczy klip z koncertowej części streamu: Grubson, Golec uOrkiestra, Męskie Granie, Mrozu i Gromee.",
@@ -222,6 +247,7 @@ export const featuredVideoClips: VideoClip[] = [
   },
   {
     id: "clip_malysz",
+    type: "klip",
     title: "Adam Małysz, Roxie, Andziaks i Patecki",
     description:
       "Kompilacyjny klip z gośćmi streamu: Roxie Węgiel, Andziaks, Patecki, Adam Małysz i OjWojtek.",
@@ -235,6 +261,7 @@ export const featuredVideoClips: VideoClip[] = [
   },
   {
     id: "clip_kasix",
+    type: "klip",
     title: "Kasix ogoliła głowę dla Cancer Fighters",
     description:
       "Klip z wcześniejszego przełomowego momentu: Kasix goli głowę, co później uruchamia kolejne gesty solidarności.",
@@ -248,6 +275,7 @@ export const featuredVideoClips: VideoClip[] = [
   },
   {
     id: "clip_michal_pol",
+    type: "klip",
     title: "Michał Pol ogolony na łyso",
     description:
       "Krótki materiał z wykonania wyzwania przez Michała Pola podczas streamu.",
@@ -261,6 +289,7 @@ export const featuredVideoClips: VideoClip[] = [
   },
   {
     id: "clip_alicja_szemlinska",
+    type: "koncert",
     title: "Alicja Szemplińska — Pray",
     description:
       "Występ Alicji Szemplińskiej podczas charytatywnego streamu Łatwoganga.",
