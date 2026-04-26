@@ -1,4 +1,4 @@
-export {};
+import { topSupporters } from "../lib/site-data";
 
 function getFlag(name: string) {
   const args = process.argv.slice(2);
@@ -118,6 +118,7 @@ async function main() {
 
   const currentData = (await currentDataResponse.json()) as {
     counterHistory?: { amount: number; atUtc: string; source: string }[];
+    topSupporters?: { rank: number; name: string; amountPln: number }[];
   };
 
   const existingHistory = currentData.counterHistory ?? [];
@@ -137,6 +138,7 @@ async function main() {
         source: "manual update via bun run update",
       },
     ],
+    topSupporters,
   };
 
   const response = await fetch(apiUrl, {
