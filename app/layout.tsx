@@ -46,6 +46,12 @@ export const metadata: Metadata = {
     siteName: "Diss na raka",
     type: "website",
   },
+  twitter: {
+    card: "summary_large_image",
+    title: "DISS NA RAKA · Tablica Streamu",
+    description:
+      "Ręcznie aktualizowany fan tracker dla streamu Łatwogang × Cancer Fighters.",
+  },
 };
 
 export default function RootLayout({
