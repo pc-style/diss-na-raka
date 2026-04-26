@@ -267,7 +267,7 @@ export const seedSiteData: SiteData = {
       trackArtists: ["Bedoes 2115", "Maja Mecan", "Cancer Fighters"],
       trackLengthSeconds: 165,
     },
-    totalRaisedPln: 161_000_000,
+    totalRaisedPln: 188_571_160,
     hoursElapsed: 216,
     estimatedTotalLoops: 4_718,
     engagement: {
@@ -598,22 +598,31 @@ export const seedSiteData: SiteData = {
       dateAchieved: "2026-04-26T10:26:00Z",
     },
     {
-      id: "ms_138m_checkpoint",
-      targetAmount: 138_000_000,
-      title: "138M · Checkpoint finałowy",
+      id: "ms_188m_current",
+      targetAmount: 188_571_160,
+      title: "188,57M · Aktualny stan",
       description:
-        "Wcześniejszy checkpoint finałowy raportowany przez media. Kwota później zaktualizowana do 161 mln PLN.",
+        "Aktualny stan zbiórki: 188 571 160 PLN. Kampania nadal trwa.",
       status: "achieved",
-      dateAchieved: "2026-04-26T12:00:00Z",
+      dateAchieved: "2026-04-26T15:55:00Z",
     },
     {
-      id: "ms_161m_final",
+      id: "ms_161m_checkpoint",
       targetAmount: 161_000_000,
-      title: "161M · Oficjalny finał",
+      title: "161M · Checkpoint",
       description:
-        "Oficjalny końcowy wynik zbiórki: 161 mln PLN. Kampania zakończyła się historycznym sukcesem po 9 dniach streamu. Nowy światowy rekord Guinnessa.",
+        "Checkpoint raportowany przez media. Kwota później zaktualizowana do 188,57 mln PLN.",
       status: "achieved",
       dateAchieved: "2026-04-26T14:00:00Z",
+    },
+    {
+      id: "ms_138m_checkpoint",
+      targetAmount: 138_000_000,
+      title: "138M · Checkpoint",
+      description:
+        "Wcześniejszy checkpoint raportowany przez media.",
+      status: "achieved",
+      dateAchieved: "2026-04-26T12:00:00Z",
     },
     // Note: ms_42m_kubanczyk_tattoo and other 40-80M milestones should be moved
     // to appear before ms_100m_milestone to maintain ascending order by targetAmount.
