@@ -18,6 +18,7 @@ export type VideoClipType =
   | "reportaz"
   | "news"
   | "klip"
+  | "short"
   | "koncert";
 
 export const featuredVideoClips: VideoClip[] = [
@@ -299,6 +300,118 @@ export const featuredVideoClips: VideoClip[] = [
     publishedAt: "2026-04-25T21:12:00Z",
     relatedEventIds: [],
     tags: ["alicja_szemplińska", "występ", "muzyka"],
+    confidence: "medium",
+  },
+  {
+    id: "short_tvn24_miliony",
+    type: "short",
+    title: "TVN24 Shorts: miliony dla dzieci",
+    description:
+      "Krótki pionowy materiał TVN24 o viralowej zbiórce Łatwoganga dla Cancer Fighters.",
+    videoId: "sTb8YJq7Gpw",
+    sourceUrl: "https://www.youtube.com/shorts/sTb8YJq7Gpw",
+    channelTitle: "tvn24",
+    publishedAt: "",
+    relatedEventIds: ["evt_035", "evt_200m_tvn_live"],
+    tags: ["shorts", "tvn24", "viral"],
+    confidence: "high",
+  },
+  {
+    id: "short_lewandowski",
+    type: "short",
+    title: "Lewandowski i Diss na raka",
+    description:
+      "Kanał Sportowy w krótkim formacie o wejściu Roberta Lewandowskiego w akcję.",
+    videoId: "pVEq42rEkjM",
+    sourceUrl: "https://www.youtube.com/shorts/pVEq42rEkjM",
+    channelTitle: "Kanał Sportowy",
+    publishedAt: "",
+    relatedEventIds: ["evt_015", "evt_017b"],
+    tags: ["shorts", "lewandowski", "kanał_sportowy"],
+    confidence: "high",
+  },
+  {
+    id: "short_pol_haircut",
+    type: "short",
+    title: "Łatwogang ogolił Pola na łyso",
+    description:
+      "Viralowy Shorts z momentem golenia Michała Pola podczas charytatywnego streamu.",
+    videoId: "7xmK7XInQxk",
+    sourceUrl: "https://www.youtube.com/shorts/7xmK7XInQxk",
+    channelTitle: "Kanał Sportowy",
+    publishedAt: "",
+    relatedEventIds: ["evt_018a"],
+    tags: ["shorts", "michał_pol", "golenie_głowy"],
+    confidence: "high",
+  },
+  {
+    id: "short_oki_sonic",
+    type: "short",
+    title: "OKI nawija Sonica na helu",
+    description:
+      "Krótki rapowy viral ze streamu: OKI nawija Sonica na helu u Łatwoganga.",
+    videoId: "_0FZpXVWfqQ",
+    sourceUrl: "https://www.youtube.com/shorts/_0FZpXVWfqQ",
+    channelTitle: "raayew",
+    publishedAt: "",
+    relatedEventIds: ["evt_012"],
+    tags: ["shorts", "oki", "viral"],
+    confidence: "medium",
+  },
+  {
+    id: "short_9_days_stream",
+    type: "short",
+    title: "9 dni streamu: Łatwogang i Diss na raka",
+    description:
+      "Krótka pionowa zajawka formatu 9-dniowego streamu i akcji Diss na raka.",
+    videoId: "Je4IJwYq3fg",
+    sourceUrl: "https://www.youtube.com/shorts/Je4IJwYq3fg",
+    channelTitle: "OmenisV",
+    publishedAt: "",
+    relatedEventIds: ["evt_001"],
+    tags: ["shorts", "9_dni", "format"],
+    confidence: "medium",
+  },
+  {
+    id: "short_magda_bereda",
+    type: "short",
+    title: "Magda Bereda śpiewa Diss na raka",
+    description:
+      "Shorts z coverowym wejściem Magdy Beredy i dołączeniem do akcji Cancer Fighters.",
+    videoId: "aqGC0yBTZRc",
+    sourceUrl: "https://www.youtube.com/shorts/aqGC0yBTZRc",
+    channelTitle: "Magda Bereda",
+    publishedAt: "",
+    relatedEventIds: ["evt_001"],
+    tags: ["shorts", "cover", "magda_bereda"],
+    confidence: "high",
+  },
+  {
+    id: "short_sarius",
+    type: "short",
+    title: "Sarius — Diss na raka",
+    description:
+      "Krótki materiał ANTIHYPE z Sariusem w kontekście akcji Fundacji Cancer Fighters.",
+    videoId: "bTBbKf72has",
+    sourceUrl: "https://www.youtube.com/shorts/bTBbKf72has",
+    channelTitle: "ANTIHYPE",
+    publishedAt: "",
+    relatedEventIds: ["evt_001"],
+    tags: ["shorts", "sarius", "antihype"],
+    confidence: "medium",
+  },
+  {
+    id: "short_guinness_50m",
+    type: "short",
+    title: "Rekord Guinnessa i 50M",
+    description:
+      "Pionowy klip o rekordowym streamie, progu 50 mln PLN i kolejnych wyzwaniach.",
+    videoId: "FeuTisDFxDo",
+    sourceUrl: "https://www.youtube.com/shorts/FeuTisDFxDo",
+    channelTitle: "Sz0ts",
+    publishedAt: "",
+    relatedEventIds: ["evt_045"],
+    tags: ["shorts", "50m", "rekord"],
     confidence: "medium",
   },
 ];

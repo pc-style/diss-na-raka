@@ -1,5 +1,4 @@
 import { ImageResponse } from "next/og";
-import { seedSiteData } from "@/lib/site-data";
 
 export const alt = "DISS NA RAKA · Tablica streamu Łatwogang × Cancer Fighters";
 export const size = {
@@ -7,10 +6,6 @@ export const size = {
   height: 630,
 };
 export const contentType = "image/png";
-
-function formatPln(value: number) {
-  return new Intl.NumberFormat("pl-PL").format(value);
-}
 
 function CrabMark() {
   return (
@@ -33,7 +28,7 @@ function CrabMark() {
 }
 
 export default function Image() {
-  const total = formatPln(seedSiteData.dashboard.totalRaisedPln);
+  const total = "202 000 000+";
 
   return new ImageResponse(
     (

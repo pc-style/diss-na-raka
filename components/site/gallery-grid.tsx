@@ -8,6 +8,7 @@ const filterOptions: Array<{ value: VideoClipType | "all"; label: string }> = [
   { value: "reportaz", label: "Reportaż" },
   { value: "news", label: "News" },
   { value: "klip", label: "Klip" },
+  { value: "short", label: "Shorts" },
   { value: "koncert", label: "Koncert" },
   { value: "stream", label: "Stream" },
   { value: "utwor", label: "Utwór" },
