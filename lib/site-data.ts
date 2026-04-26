@@ -267,7 +267,7 @@ export const seedSiteData: SiteData = {
       trackArtists: ["Bedoes 2115", "Maja Mecan", "Cancer Fighters"],
       trackLengthSeconds: 165,
     },
-    totalRaisedPln: 138_000_000,
+    totalRaisedPln: 161_000_000,
     hoursElapsed: 216,
     estimatedTotalLoops: 4_718,
     engagement: {
@@ -606,11 +606,20 @@ export const seedSiteData: SiteData = {
       dateAchieved: "2026-04-26T10:26:00Z",
     },
     {
-      id: "ms_138m_final",
-      targetAmount: 138_000_000,
-      title: "138M · Oficjalny finał",
+      id: "ms_161m_final",
+      targetAmount: 161_000_000,
+      title: "161M · Oficjalny finał",
       description:
-        "Oficjalny końcowy wynik zbiórki: 138 mln PLN. Kampania zakończyła się historycznym sukcesem po 9 dniach streamu.",
+        "Oficjalny końcowy wynik zbiórki: 161 mln PLN. Kampania zakończyła się historycznym sukcesem po 9 dniach streamu. Nowy światowy rekord Guinnessa.",
+      status: "achieved",
+      dateAchieved: "2026-04-26T14:00:00Z",
+    },
+    {
+      id: "ms_138m_checkpoint",
+      targetAmount: 138_000_000,
+      title: "138M · Checkpoint finałowy",
+      description:
+        "Wcześniejszy checkpoint finałowy raportowany przez media. Kwota później zaktualizowana do 161 mln PLN.",
       status: "achieved",
       dateAchieved: "2026-04-26T12:00:00Z",
     },
