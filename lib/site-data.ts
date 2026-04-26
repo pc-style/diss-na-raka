@@ -600,11 +600,11 @@ export const seedSiteData: SiteData = {
     {
       id: "ms_200m_estimated",
       targetAmount: 200_000_000,
-      title: "200M+ · Szacowany wynik",
+      title: "200M · Przebite na żywo",
       description:
-        "Szacunkowy wynik końcowy przekracza 200 mln PLN. To ostrożna estymacja oparta na obserwacji licznika, nie precyzyjny oficjalny komunikat.",
+        "Licznik dobił do 200 mln PLN, gdy akcja była relacjonowana na żywo w TVN. Dalszy wynik traktujemy jako estymację 200M+.",
       status: "achieved",
-      dateAchieved: "2026-04-26T18:00:00Z",
+      dateAchieved: "2026-04-26T17:00:00Z",
     },
     {
       id: "ms_161m_checkpoint",
@@ -737,6 +737,21 @@ export const seedSiteData: SiteData = {
     },
   ],
   timelineEvents: [
+    {
+      id: "evt_200m_tvn_live",
+      dateLocal: "2026-04-26",
+      relativeTime: "Dzień 10 — 19:00 CEST",
+      sortUtc: "2026-04-26T17:00:00Z",
+      zrodlo: {
+        label: "Obserwacja live: 200M i wejście TVN",
+        url: "https://www.youtube.com/live/UNAqqHIPbWA",
+      },
+      participants: ["Łatwogang", "Cancer Fighters", "TVN"],
+      category: "milestone_execution",
+      description:
+        "Licznik przekracza 200 mln PLN w momencie, gdy akcja jest pokazywana na żywo w TVN. Tracker zapisuje to jako user-observed live checkpoint i traktuje dalszy wynik jako estymację 200M+.",
+      tags: ["200m", "tvn", "live_tv", "checkpoint", "estimated"],
+    },
     {
       id: "evt_036",
       dateLocal: "2026-04-26",
