@@ -738,21 +738,6 @@ export const seedSiteData: SiteData = {
   ],
   timelineEvents: [
     {
-      id: "evt_037",
-      dateLocal: "2026-04-26",
-      relativeTime: "Dzień 10 — Finał",
-      sortUtc: "2026-04-26T12:00:00Z",
-      zrodlo: {
-        label: "Oficjalny finał: 138 mln zł",
-        url: "https://www.bankier.pl/wiadomosc/Wyjatkowy-stream-influencera-Latwogang-Zebral-miliony-na-walke-dzieci-z-rakiem-9122911.html",
-      },
-      participants: ["Łatwogang", "Cancer Fighters"],
-      category: "milestone_execution",
-      description:
-        "Oficjalny końcowy wynik zbiórki: 138 mln PLN. Kampania zakończyła się historycznym sukcesem po 9 dniach streamu.",
-      tags: ["138m", "final"],
-    },
-    {
       id: "evt_036",
       dateLocal: "2026-04-26",
       relativeTime: "Dzień 10 — 12:26 CEST",
