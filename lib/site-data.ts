@@ -291,11 +291,11 @@ export const seedSiteData: SiteData = {
       trackArtists: ["Bedoes 2115", "Maja Mecan", "Cancer Fighters"],
       trackLengthSeconds: 165,
     },
-    totalRaisedPln: 200_000_000,
+    totalRaisedPln: 201_300_000,
     hoursElapsed: 216,
     estimatedTotalLoops: 4_718,
     engagement: {
-      averageConcurrentViewers: 1_190_000,
+      averageConcurrentViewers: 497_542,
       newSubscribersDuringEvent: 340_000,
       totalViewsGenerated: 3_320_833,
     },

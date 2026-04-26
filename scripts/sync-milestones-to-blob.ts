@@ -9,7 +9,7 @@ async function syncMilestonesToProduction() {
     process.exit(1);
   }
 
-  console.log(`Syncing milestones to ${siteUrl}/api/data...`);
+  console.log(`Syncing seed data to ${siteUrl}/api/data...`);
   console.log(`Seed data has ${seedSiteData.milestones.length} milestones`);
 
   // Sort milestones by targetAmount
@@ -26,11 +26,9 @@ async function syncMilestonesToProduction() {
       "Authorization": `Bearer ${updateToken}`,
     },
     body: JSON.stringify({
+      dashboard: seedSiteData.dashboard,
       milestones: sortedMilestones,
       timelineEvents: seedSiteData.timelineEvents,
-      dashboard: {
-        totalRaisedPln: seedSiteData.dashboard.totalRaisedPln,
-      },
     }),
   });
 
@@ -43,6 +41,8 @@ async function syncMilestonesToProduction() {
 
   const data = await response.json();
   console.log(`✓ Updated! Production now has ${data.milestones.length} milestones`);
+  console.log(`✓ Dashboard total is ${data.dashboard.totalRaisedPln.toLocaleString("pl-PL")} PLN`);
+  console.log(`✓ Average viewership is ${data.dashboard.engagement.averageConcurrentViewers.toLocaleString("pl-PL")}`);
   console.log(`✓ Milestones are now sorted by targetAmount`);
 }
 
