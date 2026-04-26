@@ -3,11 +3,12 @@ import { SiteHeader } from "@/components/site/header";
 import { HeroDashboard } from "@/components/site/hero-dashboard";
 import { MilestonesSection } from "@/components/site/milestones";
 import { TimelineSection } from "@/components/site/timeline";
+import { TopSupportersSection } from "@/components/site/top-supporters";
 import { ContextSection } from "@/components/site/context";
 import { SiteFooter } from "@/components/site/footer";
 import { SiteLiveCounterProvider } from "@/components/site/live-counter-provider";
 import { getSiteData } from "@/lib/data-store";
-import { categoryMeta, counterHistory } from "@/lib/site-data";
+import { categoryMeta, counterHistory, topSupporters } from "@/lib/site-data";
 
 export const dynamic = "force-dynamic";
 
@@ -28,6 +29,7 @@ export default async function Home() {
             dashboard={data.dashboard}
             milestones={data.milestones}
           />
+          <TopSupportersSection supporters={topSupporters} />
           <TimelineSection
             timelineEvents={data.timelineEvents}
             categoryMeta={categoryMeta}
