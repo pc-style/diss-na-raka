@@ -1,0 +1,7 @@
+rules: []
+memories:
+  - title: Implausible average concurrent viewers
+    description: The diff changes averageConcurrentViewers from 190,000 to 1,190,000. This value is inconsistent with the totalViewsGenerated of 3,320,833. Having an average of 1.19 million concurrent viewers while only generating 3.3 million total views over 216 hours is mathematically implausible — such high concurrent viewership would typically result in far higher total view counts. This appears to be a data entry error where an extra '1' was prepended to the value.
+    file: /Users/pcstyle/projects/01-Web-Apps/diss-na-raka/lib/site-data.ts
+    line: 274
+    comment: Do not report this bug again
