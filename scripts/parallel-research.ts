@@ -16,6 +16,7 @@ interface CliOptions {
   cadence: string;
   frequency?: string;
   monitorId?: string;
+  runId?: string;
   pollMs: number;
   timeoutMs: number;
 }
@@ -57,6 +58,7 @@ Options:
   --cadence hourly|daily       Monitor cadence (default: hourly)
   --frequency 1h|1d|1w         Legacy Monitor API frequency alias if your account uses it
   --monitor-id id              Required for monitor:events
+  --run-id id                  Resume an existing task run instead of creating one
   --poll-ms number             Task polling interval ms (default 10000)
   --timeout-ms number          Task wait budget ms (default 1800000)
   --help                       Show this message
@@ -138,6 +140,10 @@ function parseArgs(argv: string[]): CliOptions {
         break;
       case "--monitor-id":
         options.monitorId = next;
+        i += 1;
+        break;
+      case "--run-id":
+        options.runId = next;
         i += 1;
         break;
       case "--poll-ms":
@@ -259,55 +265,71 @@ async function runTask(apiKey: string, options: CliOptions) {
   const schema = await resolveSchema(options);
   const outputPath = path.resolve(process.cwd(), options.output ?? DEFAULT_TASK_OUTPUT);
 
-  const started = await parallelFetch<TaskRunResponse>(apiKey, "/v1/tasks/runs", {
-    method: "POST",
-    body: JSON.stringify({
-      input: prompt,
-      processor: options.processor,
-      task_spec: {
-        output_schema: {
-          type: "json",
-          json_schema: schema,
-        },
-      },
-    }),
-  });
+  const started = options.runId
+    ? { run_id: options.runId }
+    : await parallelFetch<TaskRunResponse>(apiKey, "/v1/tasks/runs", {
+        method: "POST",
+        body: JSON.stringify({
+          input: prompt,
+          processor: options.processor,
+          task_spec: {
+            output_schema: {
+              type: "json",
+              json_schema: schema,
+            },
+          },
+        }),
+      });
 
-  console.log(`Parallel task started: ${started.run_id}`);
+  console.log(
+    options.runId
+      ? `Checking Parallel task: ${started.run_id}`
+      : `Parallel task started: ${started.run_id}`,
+  );
   const deadline = Date.now() + options.timeoutMs;
   let lastResult: TaskResultResponse | null = null;
 
   while (Date.now() <= deadline) {
-    const result = await parallelFetch<TaskResultResponse>(
-      apiKey,
-      `/v1/tasks/runs/${started.run_id}/result`,
-      { method: "GET" },
-    );
-    lastResult = result;
+    try {
+      const result = await parallelFetch<TaskResultResponse>(
+        apiKey,
+        `/v1/tasks/runs/${started.run_id}/result?timeout=${Math.max(1, Math.ceil(options.pollMs / 1000))}`,
+        { method: "GET" },
+      );
+      lastResult = result;
 
-    if (result.error) {
-      throw new Error(result.error);
+      if (result.error) {
+        throw new Error(result.error);
+      }
+
+      const status = result.status?.toLowerCase();
+      if (!status || ["completed", "complete", "succeeded", "success"].includes(status) || result.output || result.result) {
+        await writeJson(outputPath, {
+          requestedAt: new Date().toISOString(),
+          mode: options.mode,
+          runId: started.run_id,
+          prompt,
+          schema,
+          result,
+        });
+        console.log(`Saved task result to ${outputPath}`);
+        return;
+      }
+
+      if (["failed", "error", "cancelled", "canceled"].includes(status)) {
+        throw new Error(`Parallel task failed with status: ${result.status}`);
+      }
+    } catch (error) {
+      const message = error instanceof Error ? error.message : String(error);
+
+      if (!/timed out|timeout|processing|not yet complete|not complete/i.test(message)) {
+        throw error;
+      }
+
+      console.log(`Task not ready yet: ${message}`);
     }
 
-    const status = result.status?.toLowerCase();
-    if (!status || ["completed", "complete", "succeeded", "success"].includes(status) || result.output || result.result) {
-      await writeJson(outputPath, {
-        requestedAt: new Date().toISOString(),
-        mode: options.mode,
-        runId: started.run_id,
-        prompt,
-        schema,
-        result,
-      });
-      console.log(`Saved task result to ${outputPath}`);
-      return;
-    }
-
-    if (["failed", "error", "cancelled", "canceled"].includes(status)) {
-      throw new Error(`Parallel task failed with status: ${result.status}`);
-    }
-
-    console.log(`Task status: ${result.status}. Waiting ${options.pollMs}ms...`);
+    console.log(`Waiting ${options.pollMs}ms...`);
     await sleep(options.pollMs);
   }
 

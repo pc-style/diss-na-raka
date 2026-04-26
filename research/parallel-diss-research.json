@@ -1,0 +1,1402 @@
+{
+  "requestedAt": "2026-04-26T16:24:44.348Z",
+  "mode": "task",
+  "runId": "trun_0585815ba4b448dca903d8db0a558150",
+  "prompt": "Find public web news, official posts, and sourceable social/media updates about the Polish charity livestream “Diss na raka” / “Łatwogang” / Fundacja Cancer Fighters between Saturday 25 April 2026 18:00 CEST and Sunday 26 April 2026 18:00 CEST.\n\nTrack only source-backed events from this window. Include fundraising counter snapshots, milestone thresholds, celebrity appearances, head-shaving challenges, phone/video calls with public figures, corporate donations, major individual or celebrity donations, media coverage, Guinness/world-record claims, whether the stream/campaign was still ongoing, viral moments, auctions, pledged rewards, foundation updates, and contradictions/corrections between sources.\n\nImportant rules:\n- Do not call any checkpoint “final” unless the source explicitly says the campaign ended and later evidence does not contradict it.\n- If later evidence shows the campaign continued, treat earlier “final” amounts as checkpoints.\n- Prefer Europe/Warsaw local times for human labels and UTC ISO timestamps for machine sorting.\n- Deduplicate syndicated articles and keep the strongest/original source.\n- Every event must include source URLs.\n- Separate confirmed facts from unverified claims.\n- Descriptions should be concise and in Polish, ready to insert into lib/site-data.ts.\n- Use project-compatible field names: targetAmount, dateAchieved, dateLocal, relativeTime, sortUtc, zrodlo, participants, category, description, tags.\n\nKnown user-observed checkpoint to verify:\n- 188,571,160 PLN visible on the YouTube/Tipply stream overlay around 2026-04-26 17:53-17:55 CEST. Treat as user-provided screenshot evidence unless independently verified by another public source.\n\nSearch likely sources including TVN24, Onet, Plejada, Przegląd Sportowy Onet, WP, RMF FM, Polskie Radio, Bankier, Pudelek, GlamRap, Gazeta Wrocławska, TVP, MMA.pl, CGM, NowyMarketing, official Cancer Fighters channels, Łatwogang/YouTube live pages, and public social posts.",
+  "schema": {
+    "type": "object",
+    "properties": {
+      "research_window": {
+        "type": "object",
+        "properties": {
+          "start_local": {
+            "type": "string"
+          },
+          "end_local": {
+            "type": "string"
+          },
+          "timezone": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "start_local",
+          "end_local",
+          "timezone"
+        ],
+        "additionalProperties": false
+      },
+      "summary": {
+        "type": "object",
+        "properties": {
+          "one_sentence": {
+            "type": "string"
+          },
+          "current_or_final_total_pln": {
+            "type": [
+              "number",
+              "null"
+            ]
+          },
+          "status_at_window_end": {
+            "type": "string",
+            "enum": [
+              "ongoing",
+              "ended",
+              "unclear"
+            ]
+          },
+          "highest_verified_total_pln": {
+            "type": [
+              "number",
+              "null"
+            ]
+          },
+          "highest_verified_total_time_local": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "highest_verified_total_time_utc": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "confidence": {
+            "type": "string",
+            "enum": [
+              "high",
+              "medium",
+              "low"
+            ]
+          },
+          "notes": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          }
+        },
+        "required": [
+          "one_sentence",
+          "current_or_final_total_pln",
+          "status_at_window_end",
+          "highest_verified_total_pln",
+          "highest_verified_total_time_local",
+          "highest_verified_total_time_utc",
+          "confidence",
+          "notes"
+        ],
+        "additionalProperties": false
+      },
+      "dashboard_patch": {
+        "type": "object",
+        "properties": {
+          "dashboard": {
+            "type": "object",
+            "properties": {
+              "totalRaisedPln": {
+                "type": [
+                  "number",
+                  "null"
+                ]
+              },
+              "metadata": {
+                "type": "object",
+                "properties": {
+                  "lastUpdatedUtc": {
+                    "type": [
+                      "string",
+                      "null"
+                    ]
+                  }
+                },
+                "required": [
+                  "lastUpdatedUtc"
+                ],
+                "additionalProperties": false
+              }
+            },
+            "required": [
+              "totalRaisedPln",
+              "metadata"
+            ],
+            "additionalProperties": false
+          }
+        },
+        "required": [
+          "dashboard"
+        ],
+        "additionalProperties": false
+      },
+      "milestones": {
+        "type": "array",
+        "items": {
+          "type": "object",
+          "properties": {
+            "id": {
+              "type": "string"
+            },
+            "targetAmount": {
+              "type": "number"
+            },
+            "title": {
+              "type": "string"
+            },
+            "description": {
+              "type": "string"
+            },
+            "status": {
+              "type": "string",
+              "enum": [
+                "achieved",
+                "pending",
+                "failed"
+              ]
+            },
+            "dateAchieved": {
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "confidence": {
+              "type": "string",
+              "enum": [
+                "high",
+                "medium",
+                "low"
+              ]
+            },
+            "sources": {
+              "$ref": "#/$defs/sources"
+            }
+          },
+          "required": [
+            "id",
+            "targetAmount",
+            "title",
+            "description",
+            "status",
+            "dateAchieved",
+            "confidence",
+            "sources"
+          ],
+          "additionalProperties": false
+        }
+      },
+      "timelineEvents": {
+        "type": "array",
+        "items": {
+          "type": "object",
+          "properties": {
+            "id": {
+              "type": "string"
+            },
+            "dateLocal": {
+              "type": "string"
+            },
+            "relativeTime": {
+              "type": "string"
+            },
+            "sortUtc": {
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "zrodlo": {
+              "type": "object",
+              "properties": {
+                "label": {
+                  "type": "string"
+                },
+                "url": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "label",
+                "url"
+              ],
+              "additionalProperties": false
+            },
+            "participants": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "category": {
+              "type": "string",
+              "enum": [
+                "core_event",
+                "milestone_execution",
+                "guest_appearance",
+                "endurance_challenge",
+                "scheduled_appearance"
+              ]
+            },
+            "description": {
+              "type": "string"
+            },
+            "tags": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "confidence": {
+              "type": "string",
+              "enum": [
+                "high",
+                "medium",
+                "low"
+              ]
+            },
+            "sources": {
+              "$ref": "#/$defs/sources"
+            }
+          },
+          "required": [
+            "id",
+            "dateLocal",
+            "relativeTime",
+            "sortUtc",
+            "zrodlo",
+            "participants",
+            "category",
+            "description",
+            "tags",
+            "confidence",
+            "sources"
+          ],
+          "additionalProperties": false
+        }
+      },
+      "counter_snapshots": {
+        "type": "array",
+        "items": {
+          "type": "object",
+          "properties": {
+            "amount_pln": {
+              "type": "number"
+            },
+            "observed_at_local": {
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "observed_at_utc": {
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "source_label": {
+              "type": "string"
+            },
+            "source_url": {
+              "type": "string"
+            },
+            "confidence": {
+              "type": "string",
+              "enum": [
+                "high",
+                "medium",
+                "low"
+              ]
+            },
+            "notes": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "amount_pln",
+            "observed_at_local",
+            "observed_at_utc",
+            "source_label",
+            "source_url",
+            "confidence",
+            "notes"
+          ],
+          "additionalProperties": false
+        }
+      },
+      "donations": {
+        "type": "array",
+        "items": {
+          "type": "object",
+          "properties": {
+            "donor": {
+              "type": "string"
+            },
+            "amount_pln": {
+              "type": [
+                "number",
+                "null"
+              ]
+            },
+            "type": {
+              "type": "string",
+              "enum": [
+                "corporate",
+                "individual",
+                "celebrity",
+                "brand",
+                "unknown"
+              ]
+            },
+            "observed_at_local": {
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "observed_at_utc": {
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "description": {
+              "type": "string"
+            },
+            "sources": {
+              "$ref": "#/$defs/sources"
+            },
+            "confidence": {
+              "type": "string",
+              "enum": [
+                "high",
+                "medium",
+                "low"
+              ]
+            }
+          },
+          "required": [
+            "donor",
+            "amount_pln",
+            "type",
+            "observed_at_local",
+            "observed_at_utc",
+            "description",
+            "sources",
+            "confidence"
+          ],
+          "additionalProperties": false
+        }
+      },
+      "unverified_leads": {
+        "type": "array",
+        "items": {
+          "type": "object",
+          "properties": {
+            "claim": {
+              "type": "string"
+            },
+            "reason_unverified": {
+              "type": "string"
+            },
+            "possible_sources": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "recommended_follow_up": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "claim",
+            "reason_unverified",
+            "possible_sources",
+            "recommended_follow_up"
+          ],
+          "additionalProperties": false
+        }
+      },
+      "source_index": {
+        "type": "array",
+        "items": {
+          "type": "object",
+          "properties": {
+            "label": {
+              "type": "string"
+            },
+            "url": {
+              "type": "string"
+            },
+            "source_type": {
+              "type": "string",
+              "enum": [
+                "news",
+                "official",
+                "social",
+                "youtube",
+                "other"
+              ]
+            },
+            "published_at_local": {
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "published_at_utc": {
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "claims_supported": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "reliability_notes": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "label",
+            "url",
+            "source_type",
+            "published_at_local",
+            "published_at_utc",
+            "claims_supported",
+            "reliability_notes"
+          ],
+          "additionalProperties": false
+        }
+      },
+      "conflicts_or_corrections": {
+        "type": "array",
+        "items": {
+          "type": "object",
+          "properties": {
+            "topic": {
+              "type": "string"
+            },
+            "conflicting_values": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "preferred_value": {
+              "type": "string"
+            },
+            "reasoning": {
+              "type": "string"
+            },
+            "sources": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            }
+          },
+          "required": [
+            "topic",
+            "conflicting_values",
+            "preferred_value",
+            "reasoning",
+            "sources"
+          ],
+          "additionalProperties": false
+        }
+      }
+    },
+    "required": [
+      "research_window",
+      "summary",
+      "dashboard_patch",
+      "milestones",
+      "timelineEvents",
+      "counter_snapshots",
+      "donations",
+      "unverified_leads",
+      "source_index",
+      "conflicts_or_corrections"
+    ],
+    "additionalProperties": false,
+    "$defs": {
+      "sources": {
+        "type": "array",
+        "items": {
+          "type": "object",
+          "properties": {
+            "label": {
+              "type": "string"
+            },
+            "url": {
+              "type": "string"
+            },
+            "source_type": {
+              "type": "string",
+              "enum": [
+                "news",
+                "official",
+                "social",
+                "youtube",
+                "other"
+              ]
+            },
+            "published_at_local": {
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "published_at_utc": {
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "quote": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "label",
+            "url",
+            "source_type",
+            "published_at_local",
+            "published_at_utc",
+            "quote"
+          ],
+          "additionalProperties": false
+        }
+      }
+    }
+  },
+  "result": {
+    "run": {
+      "run_id": "trun_0585815ba4b448dca903d8db0a558150",
+      "interaction_id": "trun_0585815ba4b448dca903d8db0a558150",
+      "status": "completed",
+      "is_active": false,
+      "warnings": [
+        {
+          "type": "spec_validation_warning",
+          "message": "The field 'confidence' is already provided in the FieldBasis object (which includes reasoning, citations, excerpts, confidence). Use FieldBasis in the run output instead of duplicating these fields in your output schema.",
+          "detail": {
+            "path": "properties.summary.properties.confidence",
+            "documentation_url": "https://docs.parallel.ai/task-api/guides/specify-a-task"
+          }
+        },
+        {
+          "type": "spec_validation_warning",
+          "message": "The field 'confidence' is already provided in the FieldBasis object (which includes reasoning, citations, excerpts, confidence). Use FieldBasis in the run output instead of duplicating these fields in your output schema.",
+          "detail": {
+            "path": "properties.milestones.items.properties.confidence",
+            "documentation_url": "https://docs.parallel.ai/task-api/guides/specify-a-task"
+          }
+        },
+        {
+          "type": "spec_validation_warning",
+          "message": "The field 'sources' is already provided in the FieldBasis object (which includes reasoning, citations, excerpts, confidence). Use FieldBasis in the run output instead of duplicating these fields in your output schema.",
+          "detail": {
+            "path": "properties.milestones.items.properties.sources",
+            "documentation_url": "https://docs.parallel.ai/task-api/guides/specify-a-task"
+          }
+        },
+        {
+          "type": "spec_validation_warning",
+          "message": "The field 'confidence' is already provided in the FieldBasis object (which includes reasoning, citations, excerpts, confidence). Use FieldBasis in the run output instead of duplicating these fields in your output schema.",
+          "detail": {
+            "path": "properties.timelineEvents.items.properties.confidence",
+            "documentation_url": "https://docs.parallel.ai/task-api/guides/specify-a-task"
+          }
+        },
+        {
+          "type": "spec_validation_warning",
+          "message": "The field 'sources' is already provided in the FieldBasis object (which includes reasoning, citations, excerpts, confidence). Use FieldBasis in the run output instead of duplicating these fields in your output schema.",
+          "detail": {
+            "path": "properties.timelineEvents.items.properties.sources",
+            "documentation_url": "https://docs.parallel.ai/task-api/guides/specify-a-task"
+          }
+        },
+        {
+          "type": "spec_validation_warning",
+          "message": "The field 'confidence' is already provided in the FieldBasis object (which includes reasoning, citations, excerpts, confidence). Use FieldBasis in the run output instead of duplicating these fields in your output schema.",
+          "detail": {
+            "path": "properties.counter_snapshots.items.properties.confidence",
+            "documentation_url": "https://docs.parallel.ai/task-api/guides/specify-a-task"
+          }
+        },
+        {
+          "type": "spec_validation_warning",
+          "message": "The field 'sources' is already provided in the FieldBasis object (which includes reasoning, citations, excerpts, confidence). Use FieldBasis in the run output instead of duplicating these fields in your output schema.",
+          "detail": {
+            "path": "properties.donations.items.properties.sources",
+            "documentation_url": "https://docs.parallel.ai/task-api/guides/specify-a-task"
+          }
+        },
+        {
+          "type": "spec_validation_warning",
+          "message": "The field 'confidence' is already provided in the FieldBasis object (which includes reasoning, citations, excerpts, confidence). Use FieldBasis in the run output instead of duplicating these fields in your output schema.",
+          "detail": {
+            "path": "properties.donations.items.properties.confidence",
+            "documentation_url": "https://docs.parallel.ai/task-api/guides/specify-a-task"
+          }
+        },
+        {
+          "type": "spec_validation_warning",
+          "message": "The field 'reasoning' is already provided in the FieldBasis object (which includes reasoning, citations, excerpts, confidence). Use FieldBasis in the run output instead of duplicating these fields in your output schema.",
+          "detail": {
+            "path": "properties.conflicts_or_corrections.items.properties.reasoning",
+            "documentation_url": "https://docs.parallel.ai/task-api/guides/specify-a-task"
+          }
+        },
+        {
+          "type": "spec_validation_warning",
+          "message": "The field 'sources' is already provided in the FieldBasis object (which includes reasoning, citations, excerpts, confidence). Use FieldBasis in the run output instead of duplicating these fields in your output schema.",
+          "detail": {
+            "path": "properties.conflicts_or_corrections.items.properties.sources",
+            "documentation_url": "https://docs.parallel.ai/task-api/guides/specify-a-task"
+          }
+        },
+        {
+          "type": "spec_validation_warning",
+          "message": "The field 'sources' is already provided in the FieldBasis object (which includes reasoning, citations, excerpts, confidence). Use FieldBasis in the run output instead of duplicating these fields in your output schema.",
+          "detail": {
+            "path": "$defs.sources",
+            "documentation_url": "https://docs.parallel.ai/task-api/guides/specify-a-task"
+          }
+        },
+        {
+          "type": "spec_validation_warning",
+          "message": "This task may be too complex for core processor. Consider using https://platform.parallel.ai/play to optimize your task schema.",
+          "detail": {
+            "documentation_url": "https://docs.parallel.ai/task-api/guides/specify-a-task",
+            "recommended_max_properties": 10,
+            "total_properties": 77
+          }
+        }
+      ],
+      "processor": "core",
+      "metadata": {},
+      "created_at": "2026-04-26T16:17:20.287078Z",
+      "modified_at": "2026-04-26T16:24:43.164206Z"
+    },
+    "output": {
+      "basis": [
+        {
+          "field": "summary",
+          "citations": [
+            {
+              "title": "Tyle zebrał \"Łatwogang\". Ogromna kwota na Cancer Fighters",
+              "url": "https://kobieta.onet.pl/wiadomosci/koniec-zbiorki-latwoganga-tyle-pieniedzy-zabrano-na-cancer-fighters/s388lhj",
+              "excerpts": []
+            },
+            {
+              "title": "Finał transmisji Łatwoganga. Trwa zbiórka dla Cancer Fighters - rp.pl",
+              "url": "https://sukces.rp.pl/spoleczenstwo/art44237501-final-najwiekszej-zbiorki-w-polskim-internecie-zebrano-ponad-163-miliony-zlotych-na-pomoc-dzieciom-chorym-onkologicznie",
+              "excerpts": []
+            },
+            {
+              "title": "Łatwogang zebrał już ponad 84 miliony złotych! Co wydarzyło ...",
+              "url": "https://www.rmf.fm/rozrywka/news,91154,latwogang-zebral-juz-ponad-84-miliony-zlotych-co-wydarzylo-sie-na-streamie-o-ktorym-mowi-cala-polska.html",
+              "excerpts": []
+            },
+            {
+              "title": "Skarbonka Pomagacza Łatwogang - Łatwogang x Cancer Fighters | Siepomaga.pl",
+              "url": "https://www.siepomaga.pl/latwogang",
+              "excerpts": []
+            }
+          ],
+          "reasoning": "Podsumowanie oparte na nagłówkach i cytatach z ogólnopolskich mediów (Onet, Rzeczpospolita, RMF) oraz na stronie skarbonki Siepomaga i oficjalnej stronie Fundacji Cancer Fighters. Najwyższe zweryfikowane checkpointy o 16:00 CEST podają Onet (163 855 303 PLN) i Rzeczpospolita (163 858 527 PLN); RMF podało wcześniejszy checkpoint rano (>\u000084 mln). RP także raportuje przed\u000142u\u00017czenie streamu (akt. 26.04.2026 17:52) co uzasadnia oznaczenie statusu jako trwaj\u0005cy w oknie badawczym.",
+          "confidence": "medium"
+        },
+        {
+          "field": "counter_snapshots",
+          "citations": [
+            {
+              "title": "Tyle zebrał \"Łatwogang\". Ogromna kwota na Cancer Fighters",
+              "url": "https://kobieta.onet.pl/wiadomosci/koniec-zbiorki-latwoganga-tyle-pieniedzy-zabrano-na-cancer-fighters/s388lhj",
+              "excerpts": []
+            },
+            {
+              "title": "Finał transmisji Łatwoganga. Trwa zbiórka dla Cancer Fighters - rp.pl",
+              "url": "https://sukces.rp.pl/spoleczenstwo/art44237501-final-najwiekszej-zbiorki-w-polskim-internecie-zebrano-ponad-163-miliony-zlotych-na-pomoc-dzieciom-chorym-onkologicznie",
+              "excerpts": [
+                "t:\nKwota zebrana podczas transmisji do godziny 16.00 26 kwietnia wyniosła ponad 163 858 527 zł."
+              ]
+            },
+            {
+              "title": "Łatwogang zebrał już ponad 84 miliony złotych! Co wydarzyło ...",
+              "url": "https://www.rmf.fm/rozrywka/news,91154,latwogang-zebral-juz-ponad-84-miliony-zlotych-co-wydarzylo-sie-na-streamie-o-ktorym-mowi-cala-polska.html",
+              "excerpts": []
+            },
+            {
+              "title": "Skarbonka Pomagacza Łatwogang - Łatwogang x Cancer Fighters | Siepomaga.pl",
+              "url": "https://www.siepomaga.pl/latwogang",
+              "excerpts": []
+            }
+          ],
+          "reasoning": "Wybrane snapshoty pochodz\u000105 z cytat\u0000f3w medialnych (Onet, RP, RMF), oficjalnej skarbonki Siepomaga (snapshot strony) oraz z zg\u000142oszonego przez u\u00017cytkownika zrzutu ekranu. Dla ka\u00017cdego wpisu zachowa\u000142em czas lokalny (CEST) i UTC tam, gdzie by\u000142 podany.",
+          "confidence": "medium"
+        },
+        {
+          "field": "donations",
+          "citations": [],
+          "reasoning": "Zestawienie darowizn i pledg\u0000f3w oparte na artykule Rzeczpospolitej oraz og\u0000f3lnopolnych relacjach; tam, gdzie podano kwoty, u\u00017cyto ich, w przypadkach deklaracji/pledgy pozostawiono amount_pln jako null i opisano w polu description.",
+          "confidence": "medium"
+        },
+        {
+          "field": "conflicts_or_corrections",
+          "citations": [
+            {
+              "title": "Tyle zebrał \"Łatwogang\". Ogromna kwota na Cancer Fighters",
+              "url": "https://kobieta.onet.pl/wiadomosci/koniec-zbiorki-latwoganga-tyle-pieniedzy-zabrano-na-cancer-fighters/s388lhj",
+              "excerpts": []
+            },
+            {
+              "title": "Finał transmisji Łatwoganga. Trwa zbiórka dla Cancer Fighters - rp.pl",
+              "url": "https://sukces.rp.pl/spoleczenstwo/art44237501-final-najwiekszej-zbiorki-w-polskim-internecie-zebrano-ponad-163-miliony-zlotych-na-pomoc-dzieciom-chorym-onkologicznie",
+              "excerpts": [
+                "t:\nKwota zebrana podczas transmisji do godziny 16.00 26 kwietnia wyniosła ponad 163 858 527 zł."
+              ]
+            },
+            {
+              "title": "Skarbonka Pomagacza Łatwogang - Łatwogang x Cancer Fighters | Siepomaga.pl",
+              "url": "https://www.siepomaga.pl/latwogang",
+              "excerpts": []
+            }
+          ],
+          "reasoning": "Zidentyfikowano rozbie\u00017cno\u00015bci mi\u000119dzy checkpointami raportowanymi przez Onet i Rzeczpospolit\u000105 oraz obecno\u00015b\u000107 niezweryfikowanego screenu u\u00017cytkownika. Prawdopodobne przyczyny to moment pobrania danych, zaokr\u000105glenia, oraz wp\u00142aty poza oficjaln\u000105 skarbonk\u000105.",
+          "confidence": "medium"
+        },
+        {
+          "field": "research_window",
+          "citations": [
+            {
+              "title": "Finał transmisji Łatwoganga. Trwa zbiórka dla Cancer Fighters - rp.pl",
+              "url": "https://sukces.rp.pl/spoleczenstwo/art44237501-final-najwiekszej-zbiorki-w-polskim-internecie-zebrano-ponad-163-miliony-zlotych-na-pomoc-dzieciom-chorym-onkologicznie",
+              "excerpts": []
+            }
+          ],
+          "reasoning": "U\u00017cyto lokalnych znacznik\u0000f3w czasu podanych przez u\u00017cytkownika: okno od 25.04.2026 18:00 CEST do 26.04.2026 18:00 CEST. Potwierdzaj\u000105 to artyku\u00142y publikowane w trakcie tego okresu, w tym aktualizacja RP z 26.04.2026 17:52 dotycz\u000105ca przed\u000142u\u00017cenia streamu.",
+          "confidence": "medium"
+        },
+        {
+          "field": "source_index",
+          "citations": [
+            {
+              "title": "Tyle zebrał \"Łatwogang\". Ogromna kwota na Cancer Fighters",
+              "url": "https://kobieta.onet.pl/wiadomosci/koniec-zbiorki-latwoganga-tyle-pieniedzy-zabrano-na-cancer-fighters/s388lhj",
+              "excerpts": []
+            },
+            {
+              "title": "Finał transmisji Łatwoganga. Trwa zbiórka dla Cancer Fighters - rp.pl",
+              "url": "https://sukces.rp.pl/spoleczenstwo/art44237501-final-najwiekszej-zbiorki-w-polskim-internecie-zebrano-ponad-163-miliony-zlotych-na-pomoc-dzieciom-chorym-onkologicznie",
+              "excerpts": [
+                "t:\nKwota zebrana podczas transmisji do godziny 16.00 26 kwietnia wyniosła ponad 163 858 527 zł."
+              ]
+            },
+            {
+              "title": "Łatwogang zebrał już ponad 84 miliony złotych! Co wydarzyło ...",
+              "url": "https://www.rmf.fm/rozrywka/news,91154,latwogang-zebral-juz-ponad-84-miliony-zlotych-co-wydarzylo-sie-na-streamie-o-ktorym-mowi-cala-polska.html",
+              "excerpts": []
+            },
+            {
+              "title": "Skarbonka Pomagacza Łatwogang - Łatwogang x Cancer Fighters | Siepomaga.pl",
+              "url": "https://www.siepomaga.pl/latwogang",
+              "excerpts": []
+            },
+            {
+              "title": "Maja i Bedoes rapują, Łatwogang słucha, a ludzie wpłacają ...",
+              "url": "https://www.youtube.com/live/Oqvs7tLguPY",
+              "excerpts": []
+            }
+          ],
+          "reasoning": "Zestawienie g\u000142\u0000f3wnych wykorzystanych zewn\u000119trznych publikacji i stron: Onet i Rzeczpospolita dostarczaj\u000105 checkpoint\u0000f3w ~16:00 CEST; RMF dostarcza porannego checkpointu; Siepomaga jest oficjaln\u000105 skarbonk\u000105; TVN24 i materia\u000142y YouTube dokumentuj\u000105 przebieg i go\u00015bci wydarzenia.",
+          "confidence": "medium"
+        },
+        {
+          "field": "unverified_leads",
+          "citations": [
+            {
+              "title": "Maja i Bedoes rapują, Łatwogang słucha, a ludzie wpłacają ...",
+              "url": "https://www.youtube.com/live/Oqvs7tLguPY",
+              "excerpts": []
+            }
+          ],
+          "reasoning": "Zidentyfikowano kilka w\u000105tk\u0000f3w wymagaj\u000105cych dalszej weryfikacji: screenshot u\u00017cytkownika z overlayem, szczeg\u0000f3\u00142y licytacji i ostateczne kwoty z aukcji oraz brak bezpo\u00015brednich wpis\u0000f3w celebryt\u0000f3w potwierdzaj\u000105cych kwoty.",
+          "confidence": "medium"
+        },
+        {
+          "field": "timelineEvents",
+          "citations": [
+            {
+              "title": "Łatwogang zebrał już ponad 84 miliony złotych! Co wydarzyło ...",
+              "url": "https://www.rmf.fm/rozrywka/news,91154,latwogang-zebral-juz-ponad-84-miliony-zlotych-co-wydarzylo-sie-na-streamie-o-ktorym-mowi-cala-polska.html",
+              "excerpts": []
+            },
+            {
+              "title": "Tyle zebrał \"Łatwogang\". Ogromna kwota na Cancer Fighters",
+              "url": "https://kobieta.onet.pl/wiadomosci/koniec-zbiorki-latwoganga-tyle-pieniedzy-zabrano-na-cancer-fighters/s388lhj",
+              "excerpts": []
+            },
+            {
+              "title": "Skarbonka Pomagacza Łatwogang - Łatwogang x Cancer Fighters | Siepomaga.pl",
+              "url": "https://www.siepomaga.pl/latwogang",
+              "excerpts": []
+            },
+            {
+              "title": "Maja i Bedoes rapują, Łatwogang słucha, a ludzie wpłacają ...",
+              "url": "https://www.youtube.com/live/Oqvs7tLguPY",
+              "excerpts": []
+            }
+          ],
+          "reasoning": "Wydarzenia wybrane z artyku\u00142w RMF, Onet, RP oraz oficjalnej skarbonki i reporta\u00017c\u0000f3w TVN24; ka\u00017cde zdarzenie ma kr\u0000f3tki opis, uczestnik\u0000f3w (je\u00017celi dotyczy) i odwo\u000142anie do pierwotnego \u00017ar\u0000f3d\u00142a.",
+          "confidence": "medium"
+        },
+        {
+          "field": "milestones",
+          "citations": [
+            {
+              "title": "Łatwogang zebrał już ponad 84 miliony złotych! Co wydarzyło ...",
+              "url": "https://www.rmf.fm/rozrywka/news,91154,latwogang-zebral-juz-ponad-84-miliony-zlotych-co-wydarzylo-sie-na-streamie-o-ktorym-mowi-cala-polska.html",
+              "excerpts": []
+            },
+            {
+              "title": "Tyle zebrał \"Łatwogang\". Ogromna kwota na Cancer Fighters",
+              "url": "https://kobieta.onet.pl/wiadomosci/koniec-zbiorki-latwoganga-tyle-pieniedzy-zabrano-na-cancer-fighters/s388lhj",
+              "excerpts": []
+            },
+            {
+              "title": "Skarbonka Pomagacza Łatwogang - Łatwogang x Cancer Fighters | Siepomaga.pl",
+              "url": "https://www.siepomaga.pl/latwogang",
+              "excerpts": []
+            }
+          ],
+          "reasoning": "Wybrane milestone'y opieraj\u000105 si\u000119 na publicznie raportowanych checkpointach i komunikatach medialnych: poranne >84 mln (RMF), skarbonka 111,694,349 (snapshot), oraz ~163.8 mln (Onet/RP) o 16:00 CEST.",
+          "confidence": "medium"
+        },
+        {
+          "field": "dashboard_patch",
+          "citations": [
+            {
+              "title": "Finał transmisji Łatwoganga. Trwa zbiórka dla Cancer Fighters - rp.pl",
+              "url": "https://sukces.rp.pl/spoleczenstwo/art44237501-final-najwiekszej-zbiorki-w-polskim-internecie-zebrano-ponad-163-miliony-zlotych-na-pomoc-dzieciom-chorym-onkologicznie",
+              "excerpts": []
+            }
+          ],
+          "reasoning": "Na potrzeby patcha dashboardu przyj\u000119to ostatni wysoki zweryfikowany checkpoint medialny (RP) jako totalRaisedPln i dat\u000119 ostatniej aktualizacji artyku\u00142u jako lastUpdatedUtc.",
+          "confidence": "medium"
+        }
+      ],
+      "type": "json",
+      "content": {
+        "summary": {
+          "highest_verified_total_time_utc": "2026-04-26T14:00:00Z",
+          "one_sentence": "W oknie 25\u0000\u00026 IV 2026 transmisja charytatywna \u000141atwoganga dla Fundacji Cancer Fighters zebra\u000142a setki milion\u0000f3w PLN; do 26.04.2026 16:00 oficjalne media raportowa\u000142y ~163,855\u0000\u000163,858 mln PLN, transmisja zosta\u000142a przed\u000142u\u00017cona i (wed\u000142ug \u00017ar\u0000f3de\u000142) trwa\u000142a dalej po 18:00 CEST.",
+          "current_or_final_total_pln": 163858527,
+          "highest_verified_total_pln": 163858527,
+          "status_at_window_end": "ongoing",
+          "confidence": "medium",
+          "highest_verified_total_time_local": "2026-04-26T16:00:00+02:00",
+          "notes": [
+            "Najwy\u00017cej zweryfikowane checkpointy: RP 163 858 527 PLN (26.04.2026 ~16:00 CEST), Onet 163 855 303 PLN (26.04.2026 16:00 CEST).",
+            "RMF raportowa\u000142o >84 mln rano 26.04.2026 (wcze\u00015bniejszy checkpoint).",
+            "Skarbonka Siepomaga wskazywa\u000142a ~111,694,349 PLN w snapshotcie strony (stan ekstrakcji).",
+            "U\u00017cytkownikowy screenshot 188,571,160 PLN (ok. 17:53-17:55 CEST) pozostaje niezweryfikowany publicznie i wymaga follow-up (VOD/archiwa)."
+          ]
+        },
+        "counter_snapshots": [
+          {
+            "observed_at_local": "2026-04-26T16:00:00+02:00",
+            "amount_pln": 163855303,
+            "source_label": "Onet (Kobieta.Onet.pl)",
+            "source_url": "https://kobieta.onet.pl/wiadomosci/koniec-zbiorki-latwoganga-tyle-pieniedzy-zabrano-na-cancer-fighters/s388lhj",
+            "observed_at_utc": "2026-04-26T14:00:00Z",
+            "confidence": "high",
+            "notes": "Onet raportuje 163 855 303 PLN jako stan o 16:00 CEST; redakcyjny raport/informacja publiczna."
+          },
+          {
+            "observed_at_local": "2026-04-26T16:00:00+02:00",
+            "amount_pln": 163858527,
+            "source_label": "Rzeczpospolita (rp.pl)",
+            "source_url": "https://sukces.rp.pl/spoleczenstwo/art44237501-final-najwiekszej-zbiorki-w-polskim-internecie-zebrano-ponad-163-miliony-zlotych-na-pomoc-dzieciom-chorym-onkologicznie",
+            "observed_at_utc": "2026-04-26T14:00:00Z",
+            "confidence": "high",
+            "notes": "RP podaje 163 858 527 PLN jako stan ~ godz.16:00; artyku\u00142 wskazuje tak\u00017cze na przed\u000142u\u00017czenie streamu."
+          },
+          {
+            "observed_at_local": "2026-04-26T08:24:00+02:00",
+            "amount_pln": 84000000,
+            "source_label": "RMF.fm",
+            "source_url": "https://www.rmf.fm/rozrywka/news,91154,latwogang-zebral-juz-ponad-84-miliony-zlotych-co-wydarzylo-sie-na-streamie-o-ktorym-mowi-cala-polska.html",
+            "observed_at_utc": "2026-04-26T06:24:00Z",
+            "confidence": "high",
+            "notes": "RMF raportuje >84 mln rano 26 IV (wcze\u00015bniejszy checkpoint)."
+          },
+          {
+            "observed_at_local": "siebie strony skarbonki, bez precyzyjnego czasu na stronie",
+            "amount_pln": 111694349,
+            "source_label": "Siepomaga (skarbonka)",
+            "source_url": "https://www.siepomaga.pl/latwogang",
+            "observed_at_utc": null,
+            "confidence": "medium",
+            "notes": "Snapshot strony skarbonki pokazuj\u000105cy ~111,694,349 PLN (stan w momencie pobrania strony przez ekstrakcj\u000119)."
+          },
+          {
+            "observed_at_local": "2026-04-26T17:53-17:55 CEST (user)",
+            "amount_pln": 188571160,
+            "source_label": "User-provided screenshot (YouTube/Tipply overlay)",
+            "source_url": "user_screenshot_provided",
+            "observed_at_utc": "2026-04-26T15:53-15:55Z",
+            "confidence": "low",
+            "notes": "U\u00017cytkownik poda\u000142 zrzut ekranu z overlayem ~17:53\u00017317:55 CEST; brak publicznego potwierdzenia w artyku\u00142ach i na stronie skarbonki w dost\u000119pnym indeksie."
+          }
+        ],
+        "donations": [
+          {
+            "observed_at_local": "2026-04-24/2026-04-26 (w trakcie akcji)",
+            "description": "Bedoes przekaza\u00142 ponad milion z\u00142 na rzecz akcji (darowizna celebrycka potwierdzona przez media).",
+            "type": "celebrity",
+            "amount_pln": null,
+            "sources": [
+              {
+                "published_at_utc": null,
+                "source_type": "news",
+                "quote": "sam Bedoes przekaza\u000142 ponad milion z\u00142.",
+                "published_at_local": "2026-04-26",
+                "url": "https://sukces.rp.pl/internet/art44229281-ponad-160-milionow-zlotych-od-internautow-youtuber-latwogang-zbiera-pieniadzy-na-chore-dzieci",
+                "label": "Rzeczpospolita"
+              }
+            ],
+            "donor": "Bedoes 2115",
+            "observed_at_utc": null,
+            "confidence": "high"
+          },
+          {
+            "observed_at_local": "during stream (reported by media)",
+            "description": "Robert Lewandowski zadeklarowa\u00142 przekazanie przedmiot\u0000f3w na licytacj\u000119 (podpisane koszulki) oraz ch\u000119\u000107 spotkania z dzie\u000107mi (pledge zg\u000142oszony przez media).",
+            "type": "celebrity",
+            "amount_pln": null,
+            "sources": [
+              {
+                "published_at_utc": null,
+                "source_type": "news",
+                "quote": "Robert Lewandowski zadeklarowa\u000142 przekazanie na licytacj\u000119 podpisanych koszulek FC Barcelony oraz wyrazi\u000142 ch\u000119\u000107 osobistego spotkania z dzie\u000107mi",
+                "published_at_local": "2026-04-26",
+                "url": "https://sukces.rp.pl/internet/art44229281-ponad-160-milionow-zlotych-od-internautow-youtuber-latwogang-zbiera-pieniadzy-na-chore-dzieci",
+                "label": "Rzeczpospolita"
+              }
+            ],
+            "donor": "Robert Lewandowski",
+            "observed_at_utc": null,
+            "confidence": "high"
+          },
+          {
+            "observed_at_local": "during stream (reported by media)",
+            "description": "W\u00142adimir Semirunnij (w artykule: W\u00142adimir Semirunnij) przekaza\u00142 srebrny medal z igrzysk na cele licytacji (zg\u000142oszone w mediach).",
+            "type": "celebrity",
+            "amount_pln": null,
+            "sources": [
+              {
+                "published_at_utc": null,
+                "source_type": "news",
+                "quote": "Sw\u0000f3j srebrny medal z zimowych igrzysk olimpijskich we W\u00142oszech przekaza\u00142 W\u00142adimir Semirunnij.",
+                "published_at_local": "2026-04-26",
+                "url": "https://sukces.rp.pl/internet/art44229281-ponad-160-milionow-zlotych-od-internautow-youtuber-latwogang-zbiera-pieniadzy-na-chore-dzieci",
+                "label": "Rzeczpospolita"
+              }
+            ],
+            "donor": "W\u00142adimir Semirunnij",
+            "observed_at_utc": null,
+            "confidence": "high"
+          }
+        ],
+        "conflicts_or_corrections": [
+          {
+            "conflicting_values": [
+              "Onet: 163,855,303 PLN (26.04.2026 16:00 CEST)",
+              "Rzeczpospolita: 163,858,527 PLN (26.04.2026 ~16:00 CEST)"
+            ],
+            "sources": [
+              "https://kobieta.onet.pl/wiadomosci/koniec-zbiorki-latwoganga-tyle-pieniedzy-zabrano-na-cancer-fighters/s388lhj",
+              "https://sukces.rp.pl/spoleczenstwo/art44237501-final-najwiekszej-zbiorki-w-polskim-internecie-zebrano-ponad-163-miliony-zlotych-na-pomoc-dzieciom-chorym-onkologicznie"
+            ],
+            "preferred_value": "163,858,527 PLN (Rzeczpospolita)",
+            "reasoning": "R\u0000f3\u00017cnica ~3,224 PLN jest niewielka i najpewniej wynika z momentu pobrania danych lub zliczania wp\u00142at poza skarbonk\u000105; RP podaje tak\u00017cze informacje o przed\u000142u\u00017czeniu streamu co czyni ich aktualizacj\u000119 bardziej komplet\u000105 w kontek\u000119cie dalszego trwania akcji.",
+            "topic": "R\u0000f3\u00017cne raportowane checkpointy o 16:00 CEST"
+          },
+          {
+            "conflicting_values": [
+              "User screenshot overlay: 188,571,160 PLN (ok. 17:53-17:55 CEST)",
+              "Brak potwierdzenia w artyku\u00142ach i na stronie skarbonki"
+            ],
+            "sources": [
+              "user_screenshot_provided",
+              "https://www.siepomaga.pl/latwogang"
+            ],
+            "preferred_value": "Brak preferowanej (wymaga weryfikacji)",
+            "reasoning": "Screenshot dostarczony przez u\u00017cytkownika nie ma publicznego potwierdzenia; wymagana weryfikacja w VOD/archiwach Tipply/YouTube lub oficjalnych statystykach skarbonki.",
+            "topic": "Niezweryfikowany checkpoint z overlayu streamu"
+          }
+        ],
+        "research_window": {
+          "timezone": "CEST",
+          "start_local": "2026-04-25T18:00:00+02:00",
+          "end_local": "2026-04-26T18:00:00+02:00"
+        },
+        "source_index": [
+          {
+            "published_at_utc": null,
+            "source_type": "news",
+            "claims_supported": [
+              "Checkpoint ~16:00 CEST: 163,855,303 PLN",
+              "Informacja o kontynuacji/przed\u000142u\u00017czeniu akcji"
+            ],
+            "url": "https://kobieta.onet.pl/wiadomosci/koniec-zbiorki-latwoganga-tyle-pieniedzy-zabrano-na-cancer-fighters/s388lhj",
+            "reliability_notes": "Onet - du\u00017ce medium informacyjne, cytuje stan o 16:00.",
+            "published_at_local": "2026-04-26T16:00:00+02:00",
+            "label": "Onet (Kobieta.Onet.pl)"
+          },
+          {
+            "published_at_utc": null,
+            "source_type": "news",
+            "claims_supported": [
+              "Checkpoint ~16:00 CEST: 163,858,527 PLN",
+              "Przed\u000142u\u00017czenie streamu do 20:00 (aktualizacja 17:52)"
+            ],
+            "url": "https://sukces.rp.pl/spoleczenstwo/art44237501-final-najwiekszej-zbiorki-w-polskim-internecie-zebrano-ponad-163-miliony-zlotych-na-pomoc-dzieciom-chorym-onkologicznie",
+            "reliability_notes": "Rzeczpospolita - og\u0000f3lnopolski dziennik; zawiera aktualizacj\u000119 i cytaty organizator\u0000f3w.",
+            "published_at_local": "2026-04-26T17:52:00+02:00",
+            "label": "Rzeczpospolita"
+          },
+          {
+            "published_at_utc": null,
+            "source_type": "news",
+            "claims_supported": [
+              "Wczesny checkpoint 26.04.2026 rano: >84 mln PLN",
+              "Lista go\u00015bci i opis wydarze\u000144 towarzysz\u000105cych"
+            ],
+            "url": "https://www.rmf.fm/rozrywka/news,91154,latwogang-zebral-juz-ponad-84-miliony-zlotych-co-wydarzylo-sie-na-streamie-o-ktorym-mowi-cala-polska.html",
+            "reliability_notes": "RMF - du\u00017ce radio informacyjne, wiarygodne dla wczesnych raport\u0000f3w.",
+            "published_at_local": "2026-04-26T08:24:00+02:00",
+            "label": "RMF"
+          },
+          {
+            "published_at_utc": null,
+            "source_type": "other",
+            "claims_supported": [
+              "Stan skarbonki widoczny na stronie: 111,694,349 PLN (snapshot)"
+            ],
+            "url": "https://www.siepomaga.pl/latwogang",
+            "reliability_notes": "Oficjalna skarbonka — wiarygodne source dla wp\u00142at, ale wymaga potwierdzenia timestamp\u0000f3w i pe\u000142nych log\u0000f3w wp\u00142at.",
+            "published_at_local": null,
+            "label": "Siepomaga (skarbonka)"
+          },
+          {
+            "published_at_utc": null,
+            "source_type": "youtube",
+            "claims_supported": [
+              "Reporta\u00017c TVN24 potwierdzaj\u000105cy obecno\u00015b\u000107 mediów i linki do zb\u0000f3rki; materia\u00142 VOD mo\u00017ce by\u000107 wykorzystany do weryfikacji overlayu"
+            ],
+            "url": "https://www.youtube.com/live/Oqvs7tLguPY",
+            "reliability_notes": "YouTube (TVN24) - wideo reporterskie, pomocne do weryfikacji przebiegu i fragment\u0000f3w streamu.",
+            "published_at_local": "2026-04-26",
+            "label": "TVN24 (YouTube)"
+          }
+        ],
+        "unverified_leads": [
+          {
+            "recommended_follow_up": "Poprosi\u000107 u\u00017cytkownika o oryginalny zrzut ekranu (plik z metadanymi) lub link do VOD YouTube w czasie 17:53\u00017317:55 CEST; przeszuka\u000107 chat i komentarze w tym przedziale czasowym.",
+            "possible_sources": [
+              "YouTube VOD kana\u00142u \u000141atwogang",
+              "archiwa Tipply (je\u00017celi overlay pochodzi z tej platformy)",
+              "archiwum wp\u00142at w Siepomaga (historie wp\u00142at)"
+            ],
+            "claim": "Screenshot: 188,571,160 PLN na overlayu streamu ok. 2026-04-26 17:53-17:55 CEST.",
+            "reason_unverified": "Brak potwierdzenia tej liczby w publicznych artyku\u00142ach (Onet, RP, RMF) i brak natychmiastowego zapisu tej kwoty na stronie skarbonki w dost\u000119pnym indeksie."
+          },
+          {
+            "recommended_follow_up": "Sprawdzi\u000107 oficjalne konta social (X/Instagram/Facebook) organizator\u0000f3w i kluczowych celebryt\u0000f3w (Bedoes, Lewandowski, Doda) pod katem wpis\u0000f3w o przekazanych kwotach i linkach do licytacji.",
+            "possible_sources": [
+              "Konta X/Instagram: @latwogang, @fundacja_cancerfighters, profile Bedoes, Robert Lewandowski, Doda",
+              "Strony organizator\u0000f3w aukcji / platformy licytacyjnej"
+            ],
+            "claim": "Szczeg\u0000f3\u00142y kwot licytacji celebryckich i ostateczne wyniki aukcji.",
+            "reason_unverified": "Media raportuj\u000105 deklaracje/pledgy, ale brak szczeg\u0000f3\u00142owych potwierdze\u000144 sum po zamkni\u000119ciu aukcji; wymagane sprawdzenie u organizatora."
+          }
+        ],
+        "timelineEvents": [
+          {
+            "zrodlo": {
+              "url": "https://www.rmf.fm/rozrywka/news,91154,latwogang-zebral-juz-ponad-84-miliony-zlotych-co-wydarzylo-sie-na-streamie-o-ktorym-mowi-cala-polska.html",
+              "label": "RMF"
+            },
+            "description": "Poranny checkpoint: liczba wp\u00142at przekroczy\u000142a 84 mln PLN (raport RMF).",
+            "tags": [
+              "checkpoint",
+              "milestone",
+              "media"
+            ],
+            "sortUtc": "2026-04-26T06:24:00Z",
+            "id": "cs-rmf-20260426-0824",
+            "category": "milestone_execution",
+            "participants": [],
+            "sources": [
+              {
+                "published_at_utc": "2026-04-26T06:24:00Z",
+                "source_type": "news",
+                "quote": "liczba wp\u00142at dla Fundacji Cancer Fighters 26 kwietnia przekroczy\u000142a ju\u00017c 84 miliony!",
+                "published_at_local": "2026-04-26T08:24:00+02:00",
+                "url": "https://www.rmf.fm/rozrywka/news,91154,latwogang-zebral-juz-ponad-84-miliony-zlotych-co-wydarzylo-sie-na-streamie-o-ktorym-mowi-cala-polska.html",
+                "label": "RMF"
+              }
+            ],
+            "confidence": "high",
+            "dateLocal": "2026-04-26T08:24:00+02:00",
+            "relativeTime": "poranek 26.04.2026"
+          },
+          {
+            "zrodlo": {
+              "url": "https://kobieta.onet.pl/wiadomosci/koniec-zbiorki-latwoganga-tyle-pieniedzy-zabrano-na-cancer-fighters/s388lhj",
+              "label": "Onet (Kobieta.Onet.pl)"
+            },
+            "description": "Checkpoint medialny 16:00 CEST: Onet raportuje 163 855 303 PLN.",
+            "tags": [
+              "checkpoint",
+              "media"
+            ],
+            "sortUtc": "2026-04-26T14:00:00Z",
+            "id": "cs-onet-20260426-1600",
+            "category": "milestone_execution",
+            "participants": [],
+            "sources": [
+              {
+                "published_at_utc": "2026-04-26T14:00:00Z",
+                "source_type": "news",
+                "quote": "163 mln 855 tys. 303 z\u00142 uda\u000142o si\u000119 zebra\u000107 do godz. 16.00 podczas charytatywnej transmisji...",
+                "published_at_local": "2026-04-26T16:00:00+02:00",
+                "url": "https://kobieta.onet.pl/wiadomosci/koniec-zbiorki-latwoganga-tyle-pieniedzy-zabrano-na-cancer-fighters/s388lhj",
+                "label": "Onet"
+              }
+            ],
+            "confidence": "high",
+            "dateLocal": "2026-04-26T16:00:00+02:00",
+            "relativeTime": "16:00 CEST"
+          },
+          {
+            "zrodlo": {
+              "url": "https://sukces.rp.pl/spoleczenstwo/art44237501-final-najwiekszej-zbiorki-w-polskim-internecie-zebrano-ponad-163-miliony-zlotych-na-pomoc-dzieciom-chorym-onkologicznie",
+              "label": "Rzeczpospolita"
+            },
+            "description": "RP: checkpoint ~16:00 CEST 163 858 527 PLN; artyku\u00142 zawiera aktualizacj\u000119 informuj\u000105c\u000105 o przed\u000142u\u00017czeniu streamu do 20:00 (akt. 17:52).",
+            "tags": [
+              "checkpoint",
+              "media",
+              "status"
+            ],
+            "sortUtc": "2026-04-26T14:00:00Z",
+            "id": "cs-rp-20260426-1600",
+            "category": "core_event",
+            "participants": [
+              "organizatorzy",
+              "Łatwogang"
+            ],
+            "sources": [
+              {
+                "published_at_utc": "2026-04-26T15:52:00Z",
+                "source_type": "news",
+                "quote": "Kwota zebrana podczas transmisji do godziny 16.00 26 kwietnia wynios\u000142a ponad 163 858 527 z\u00142. ... Zako\u000144czymy go o godzinie 20.00.",
+                "published_at_local": "2026-04-26T17:52:00+02:00",
+                "url": "https://sukces.rp.pl/spoleczenstwo/art44237501-final-najwiekszej-zbiorki-w-polskim-internecie-zebrano-ponad-163-miliony-zlotych-na-pomoc-dzieciom-chorych-onkologicznie",
+                "label": "Rzeczpospolita"
+              }
+            ],
+            "confidence": "high",
+            "dateLocal": "2026-04-26T16:00:00+02:00",
+            "relativeTime": "~16:00 CEST; aktualizacja 17:52"
+          },
+          {
+            "zrodlo": {
+              "url": "https://www.siepomaga.pl/latwogang",
+              "label": "Siepomaga (skarbonka)"
+            },
+            "description": "Snapshot skarbonki pokazuj\u000105cy ~111,694,349 PLN (stan widoczny w trakcie ekstrakcji strony).",
+            "tags": [
+              "skarbonka",
+              "checkpoint"
+            ],
+            "sortUtc": null,
+            "id": "cs-siepomaga-111694349-20260426",
+            "category": "milestone_execution",
+            "participants": [],
+            "sources": [
+              {
+                "published_at_utc": null,
+                "source_type": "other",
+                "quote": "Skarbonka: \u00014atwogang x Cancer Fighters \u00142 111 694 349 z\u00142 (stan widoczny na stronie skarbonki w momencie ekstrakcji).",
+                "published_at_local": null,
+                "url": "https://www.siepomaga.pl/latwogang",
+                "label": "Siepomaga"
+              }
+            ],
+            "confidence": "medium",
+            "dateLocal": "2026-04-26 (snapshot)",
+            "relativeTime": "snapshot strony"
+          },
+          {
+            "zrodlo": {
+              "url": "https://www.youtube.com/live/Oqvs7tLguPY",
+              "label": "TVN24 / YouTube (reporta\u00017c)"
+            },
+            "description": "Reporta\u00017c TVN24 z opisem akcji, listy go\u00015bci i linkami do zbi\u0000f3rek; wideo mo\u00017ce s\u000142u\u00017cy\u000107 do weryfikacji overlay\u0000f3w i fragment\u0000f3w streamu.",
+            "tags": [
+              "media",
+              "video",
+              "verification"
+            ],
+            "sortUtc": "2026-04-26T00:00:00Z",
+            "id": "tvn24-reportaz-20260426",
+            "category": "scheduled_appearance",
+            "participants": [
+              "TVN24"
+            ],
+            "sources": [
+              {
+                "published_at_utc": null,
+                "source_type": "youtube",
+                "quote": "TVN24 reporta\u00017c (YouTube live/video) z opisem akcji i linkami do stron zbi\u0000f3rek",
+                "published_at_local": "2026-04-26",
+                "url": "https://www.youtube.com/live/Oqvs7tLguPY",
+                "label": "TVN24 (YouTube)"
+              }
+            ],
+            "confidence": "high",
+            "dateLocal": "2026-04-26",
+            "relativeTime": "reporta\u00017c"
+          },
+          {
+            "zrodlo": {
+              "url": "https://sukces.rp.pl/internet/art44229281-ponad-160-milionow-zlotych-od-internautow-youtuber-latwogang-zbiera-pieniadzy-na-chore-dzieci",
+              "label": "Rzeczpospolita (go\u00015bcie/donacje)"
+            },
+            "description": "Lista potwierdzonych go\u00015bci i opis akcji: wyst\u000119py, golenia g\u00142\u0000f3w i pledgi celebryt\u0000f3w (Bedoes, Nosowska, Doda etc.).",
+            "tags": [
+              "guests",
+              "celebrity",
+              "event"
+            ],
+            "sortUtc": "2026-04-24T00:00:00Z",
+            "id": "rp-guests-20260424-26",
+            "category": "guest_appearance",
+            "participants": [
+              "Bedoes 2115",
+              "Doda",
+              "Katarzyna Nosowska",
+              "Agata Kulesza",
+              "Julia Wieniawa",
+              "Wersow",
+              "OKI",
+              "Mata",
+              "Young Leosia"
+            ],
+            "sources": [
+              {
+                "published_at_utc": null,
+                "source_type": "news",
+                "quote": "Sam Bedoes przekaza\u000142 ponad milion z\u00142. ... Katarzyna Nosowska, kt\u0000f3rej g\u00142ow\u000119 zgoli\u000142a Agata Kulesza.",
+                "published_at_local": "2026-04-26",
+                "url": "https://sukces.rp.pl/internet/art44229281-ponad-160-milionow-zlotych-od-internautow-youtuber-latwogang-zbiera-pieniadzy-na-chore-dzieci",
+                "label": "Rzeczpospolita"
+              }
+            ],
+            "confidence": "high",
+            "dateLocal": "2026-04-24/2026-04-26",
+            "relativeTime": "w trakcie akcji"
+          }
+        ],
+        "milestones": [
+          {
+            "description": "Poranny checkpoint: przekroczenie 84 000 000 PLN (RMF).",
+            "id": "ms-84m-rmf-20260426",
+            "dateAchieved": "2026-04-26T08:24:00+02:00",
+            "title": ">84 mln PLN (RMF, poranek 26.04.2026)",
+            "sources": [
+              {
+                "published_at_utc": "2026-04-26T06:24:00Z",
+                "source_type": "news",
+                "quote": "liczba wp\u00142at dla Fundacji Cancer Fighters 26 kwietnia przekroczy\u000142a ju\u00017c 84 miliony!",
+                "published_at_local": "2026-04-26T08:24:00+02:00",
+                "url": "https://www.rmf.fm/rozrywka/news,91154,latwogang-zebral-juz-ponad-84-miliony-zlotych-co-wydarzylo-sie-na-streamie-o-ktorym-mowi-cala-polska.html",
+                "label": "RMF"
+              }
+            ],
+            "status": "achieved",
+            "confidence": "high",
+            "targetAmount": 84000000
+          },
+          {
+            "description": "Skarbonka Siepomaga snapshot: widoczny stan ~111,694,349 PLN (stan na stronie w momencie ekstrakcji).",
+            "id": "ms-siepomaga-111694349-20260426",
+            "dateAchieved": "2026-04-26",
+            "title": "111,694,349 PLN (Siepomaga snapshot)",
+            "sources": [
+              {
+                "published_at_utc": null,
+                "source_type": "other",
+                "quote": "Skarbonka: \u00014atwogang x Cancer Fighters \u00142 111 694 349 z\u00142 (stan widoczny na stronie skarbonki w momencie ekstrakcji).",
+                "published_at_local": null,
+                "url": "https://www.siepomaga.pl/latwogang",
+                "label": "Siepomaga"
+              }
+            ],
+            "status": "achieved",
+            "confidence": "medium",
+            "targetAmount": 111694349
+          },
+          {
+            "description": "Checkpoint ~16:00 CEST: media raportuj\u000105 powy\u00017cej 163 milion\u0000f3w PLN (Onet, RP).",
+            "id": "ms-163m-20260426-1600",
+            "dateAchieved": "2026-04-26T16:00:00+02:00",
+            "title": "~163,8 mln PLN (Onet/RP, 16:00 CEST)",
+            "sources": [
+              {
+                "published_at_utc": "2026-04-26T14:00:00Z",
+                "source_type": "news",
+                "quote": "163 mln 855 tys. 303 z\u00142 uda\u000142o si\u000119 zebra\u000107 do godz. 16.00 podczas charytatywnej transmisji...",
+                "published_at_local": "2026-04-26T16:00:00+02:00",
+                "url": "https://kobieta.onet.pl/wiadomosci/koniec-zbiorki-latwoganga-tyle-pieniedzy-zabrano-na-cancer-fighters/s388lhj",
+                "label": "Onet"
+              },
+              {
+                "published_at_utc": "2026-04-26T14:00:00Z",
+                "source_type": "news",
+                "quote": "Kwota zebrana podczas transmisji do godziny 16.00 26 kwietnia wynios\u000142a ponad 163 858 527 z\u00142.",
+                "published_at_local": "2026-04-26T16:00:00+02:00",
+                "url": "https://sukces.rp.pl/spoleczenstwo/art44237501-final-najwiekszej-zbiorki-w-polskim-internecie-zebrano-ponad-163-miliony-zlotych-na-pomoc-dzieciom-chorych-onkologicznie",
+                "label": "Rzeczpospolita"
+              }
+            ],
+            "status": "achieved",
+            "confidence": "high",
+            "targetAmount": 163858527
+          }
+        ],
+        "dashboard_patch": {
+          "dashboard": {
+            "metadata": {
+              "lastUpdatedUtc": "2026-04-26T15:52:00Z"
+            },
+            "totalRaisedPln": 163858527
+          }
+        }
+      }
+    }
+  }
+}

@@ -27,6 +27,10 @@ async function syncMilestonesToProduction() {
     },
     body: JSON.stringify({
       milestones: sortedMilestones,
+      timelineEvents: seedSiteData.timelineEvents,
+      dashboard: {
+        totalRaisedPln: seedSiteData.dashboard.totalRaisedPln,
+      },
     }),
   });
 

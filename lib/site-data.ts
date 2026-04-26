@@ -267,7 +267,7 @@ export const seedSiteData: SiteData = {
       trackArtists: ["Bedoes 2115", "Maja Mecan", "Cancer Fighters"],
       trackLengthSeconds: 165,
     },
-    totalRaisedPln: 188_571_160,
+    totalRaisedPln: 194_500_000,
     hoursElapsed: 216,
     estimatedTotalLoops: 4_718,
     engagement: {
@@ -598,20 +598,20 @@ export const seedSiteData: SiteData = {
       dateAchieved: "2026-04-26T10:26:00Z",
     },
     {
-      id: "ms_188m_current",
-      targetAmount: 188_571_160,
-      title: "188,57M · Aktualny stan",
+      id: "ms_194_5m_final",
+      targetAmount: 194_500_000,
+      title: "194,5M · Finałowy wynik",
       description:
-        "Aktualny stan zbiórki: 188 571 160 PLN. Kampania nadal trwa.",
+        "Finałowy wynik zbiórki: 194 500 000 PLN. Stream przedłużony do godziny 20:00 CEST.",
       status: "achieved",
-      dateAchieved: "2026-04-26T15:55:00Z",
+      dateAchieved: "2026-04-26T18:00:00Z",
     },
     {
       id: "ms_161m_checkpoint",
       targetAmount: 161_000_000,
       title: "161M · Checkpoint",
       description:
-        "Checkpoint raportowany przez media. Kwota później zaktualizowana do 188,57 mln PLN.",
+        "Checkpoint raportowany przez media. Kwota później zaktualizowana do 194,5 mln PLN.",
       status: "achieved",
       dateAchieved: "2026-04-26T14:00:00Z",
     },
@@ -1010,17 +1010,17 @@ export const seedSiteData: SiteData = {
     {
       id: "evt_021",
       dateLocal: "2026-04-26",
-      relativeTime: "Dzień 10 — Zaplanowany finał",
-      sortUtc: "2026-04-26T14:00:00Z",
+      relativeTime: "Dzień 10 — Finał o 20:00",
+      sortUtc: "2026-04-26T18:00:00Z",
       zrodlo: {
-        label: "TVP3 Wrocław: stream do 26 kwietnia, 16:00",
-        url: "https://wroclaw.tvp.pl/92870227/tego-jeszcze-nie-bylo-latwogang-prowadzi-9-dniowy-stream-charytatywny-by-pomoc-chorym-na-nowotwor-dzieciom",
+        label: "Oficjalne zakończenie: 194,5 mln zł",
+        url: "https://www.bankier.pl/wiadomosc/Wyjatkowy-stream-influencera-Latwogang-Zebral-miliony-na-walke-dzieci-z-rakiem-9122911.html",
       },
-      participants: ["Łatwogang"],
+      participants: ["Łatwogang", "Cancer Fighters"],
       category: "core_event",
       description:
-        "Zaplanowany finał dziewięciodniowego streamu: niedziela 26 kwietnia o 16:00. Finalna kwota zbiórki nie jest jeszcze wpisana do danych, bo publiczne źródła wciąż opisują trwającą akcję.",
-      tags: ["final", "scheduled_end", "26_kwietnia"],
+        "Oficjalny finał dziewięciodniowego streamu: niedziela 26 kwietnia o 20:00 CEST. Stream został przedłużony z pierwotnie planowanego zakończenia o 16:00. Finałowa kwota zbiórki: 194 500 000 PLN.",
+      tags: ["final", "194_5m", "26_kwietnia"],
     },
     {
       id: "evt_020",
