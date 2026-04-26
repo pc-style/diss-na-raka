@@ -24,6 +24,8 @@ interface LiveCounterValue {
 const LiveCounterContext = createContext<LiveCounterValue | null>(null);
 
 const MAX_HISTORY_POINTS = 4;
+const MAX_GROWTH_PLN_PER_SECOND = 120;
+const RECENT_GROWTH_DAMPING = 0.15;
 
 function toMillis(utc: string) {
   return new Date(utc).getTime();
@@ -67,10 +69,16 @@ export function estimateGrowthPlnPerSecond(
     .filter((rate): rate is number => rate !== null);
 
   if (intervals.length > 0) {
-    return intervals[intervals.length - 1] ?? 0;
+    return Math.min(
+      (intervals[intervals.length - 1] ?? 0) * RECENT_GROWTH_DAMPING,
+      MAX_GROWTH_PLN_PER_SECOND,
+    );
   }
 
-  return dashboard.velocity.averagePlnPerHour / 3600;
+  return Math.min(
+    dashboard.velocity.averagePlnPerHour / 3600,
+    MAX_GROWTH_PLN_PER_SECOND,
+  );
 }
 
 export function estimateRaisedAtTime(
@@ -125,7 +133,10 @@ export function useLiveCounter(dashboard: DashboardState) {
   if (!context) {
     return {
       estimatedRaisedPln: dashboard.totalRaisedPln,
-      growthPlnPerSecond: dashboard.velocity.averagePlnPerHour / 3600,
+      growthPlnPerSecond: Math.min(
+        dashboard.velocity.averagePlnPerHour / 3600,
+        MAX_GROWTH_PLN_PER_SECOND,
+      ),
     };
   }
 
