@@ -88,6 +88,7 @@ export function estimateRaisedAtTime(
 
 export function LiveCounterProvider({
   dashboard,
+  snapshots,
   children,
 }: {
   dashboard: DashboardState;
@@ -102,8 +103,7 @@ export function LiveCounterProvider({
     return () => window.clearInterval(id);
   }, []);
 
-  // Disabled live extrapolation for the night
-  const growthPlnPerSecond = 100;
+  const growthPlnPerSecond = estimateGrowthPlnPerSecond(dashboard, snapshots);
 
   const value = useMemo(
     () => ({

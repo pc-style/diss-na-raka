@@ -190,6 +190,46 @@ export const counterHistory: CounterHistoryPoint[] = [
     atUtc: "2026-04-25T12:12:00Z",
     source: "live counter update",
   },
+  {
+    amount: 41_000_000,
+    atUtc: "2026-04-25T12:19:00Z",
+    source: "Plejada report",
+  },
+  {
+    amount: 41_800_000,
+    atUtc: "2026-04-25T13:29:00Z",
+    source: "unverified live stream counter",
+  },
+  {
+    amount: 42_200_000,
+    atUtc: "2026-04-25T13:31:00Z",
+    source: "live counter update",
+  },
+  {
+    amount: 71_000_000,
+    atUtc: "2026-04-25T20:35:00Z",
+    source: "Plejada report",
+  },
+  {
+    amount: 73_000_000,
+    atUtc: "2026-04-25T21:00:00Z",
+    source: "Plejada report",
+  },
+  {
+    amount: 84_000_000,
+    atUtc: "2026-04-26T06:00:00Z",
+    source: "RMF FM report",
+  },
+  {
+    amount: 100_000_000,
+    atUtc: "2026-04-26T08:00:00Z",
+    source: "TVN24 report",
+  },
+  {
+    amount: 122_000_000,
+    atUtc: "2026-04-26T10:26:00Z",
+    source: "Bankier.pl (verified peak)",
+  },
 ];
 
 export const categoryMeta: Record<
@@ -209,8 +249,8 @@ export const seedSiteData: SiteData = {
       hostId: "latwogang_official",
       beneficiary: "Fundacja Cancer Fighters",
       startTimestampUtc: "2026-04-17T14:00:00Z",
-      lastUpdatedUtc: "2026-04-25T12:12:00Z",
-      lastYouTubeSyncUtc: "2026-04-25T12:12:00Z",
+      lastUpdatedUtc: "2026-04-26T10:26:00Z",
+      lastYouTubeSyncUtc: "2026-04-26T10:26:00Z",
       platform: "YouTube Live",
       channelId: "UCjpBbH8NmL4XHVUgJurDPZg",
       currentLiveVideoId: "UNAqqHIPbWA",
@@ -222,16 +262,16 @@ export const seedSiteData: SiteData = {
       trackArtists: ["Bedoes 2115", "Maja Mecan", "Cancer Fighters"],
       trackLengthSeconds: 165,
     },
-    totalRaisedPln: 40_600_000,
-    hoursElapsed: 204,
-    estimatedTotalLoops: 4_145,
+    totalRaisedPln: 122_000_000,
+    hoursElapsed: 216,
+    estimatedTotalLoops: 4_718,
     engagement: {
       averageConcurrentViewers: 190_000,
       newSubscribersDuringEvent: 340_000,
       totalViewsGenerated: 3_320_833,
     },
     velocity: {
-      averagePlnPerHour: 201_990.05,
+      averagePlnPerHour: 564_814.81,
       milestoneVelocity: [
         { label: "500 000", hours: 48 },
         { label: "1 000 000", hours: 60 },
@@ -251,6 +291,13 @@ export const seedSiteData: SiteData = {
         { label: "31 000 000", hours: 196 },
         { label: "36 000 000", hours: 201 },
         { label: "40 600 000", hours: 204 },
+        { label: "41 000 000", hours: 204 },
+        { label: "41 800 000", hours: 207 },
+        { label: "42 200 000", hours: 207 },
+        { label: "71 000 000", hours: 212 },
+        { label: "73 000 000", hours: 213 },
+        { label: "100 000 000", hours: 215 },
+        { label: "122 000 000", hours: 216 },
       ],
     },
   },
@@ -489,8 +536,191 @@ export const seedSiteData: SiteData = {
       status: "achieved",
       dateAchieved: "2026-04-25T12:12:00Z",
     },
+    {
+      id: "ms_41m_plejada",
+      targetAmount: 41_000_000,
+      title: "41M · Plejada raportuje kolejny próg",
+      description:
+        "Plejada raportuje, że 25 kwietnia około 14:19 CEST licznik streamu przekroczył 41 mln PLN. Raport traktuje tę kwotę jako medialny snapshot licznika na żywo, nie jako finalną kwotę rozliczoną przez fundację.",
+      status: "achieved",
+      dateAchieved: "2026-04-25T12:19:00Z",
+    },
+    {
+      id: "ms_41_8m_live_unverified",
+      targetAmount: 41_800_000,
+      title: "41,8M · Niepotwierdzony licznik live",
+      description:
+        "Research wskazuje 41,8 mln PLN jako wartość widoczną na liczniku podczas transmisji. Kwota pozostaje niepotwierdzona przez Siepomaga.pl lub oficjalny komunikat Fundacji Cancer Fighters i może obejmować zagregowane kanały wpłat brutto.",
+      status: "achieved",
+      dateAchieved: "2026-04-25T13:29:00Z",
+    },
+    {
+      id: "ms_42_2m_latest",
+      targetAmount: 42_200_000,
+      title: "42,2M · Najnowszy stan licznika",
+      description:
+        "Licznik streamu pokazuje 42,2 mln PLN w sobotę 25 kwietnia około 15:31 CEST.",
+      status: "achieved",
+      dateAchieved: "2026-04-25T13:31:00Z",
+    },
+    {
+      id: "ms_71m_celebrity_wave",
+      targetAmount: 71_000_000,
+      title: "71M · Fala celebrytów i golenie głów",
+      description:
+        "Significant surge linked to a wave of celebrity visits and head-shaving gestures by figures such as Julia 'Maffashion' Kuczyńska, Edyta Pazura, Katarzyna Nosowska, and Aleksandra Domańska, plus high-value corporate donations.",
+      status: "achieved",
+      dateAchieved: "2026-04-25T20:35:00Z",
+    },
+    {
+      id: "ms_73m_lipinska",
+      targetAmount: 73_000_000,
+      title: "73M · Blanka Lipińska goli głowę",
+      description:
+        "Author Blanka Lipińska shaved her head as a symbolic stunt once the counter reached approximately 73 million PLN.",
+      status: "achieved",
+      dateAchieved: "2026-04-25T21:00:00Z",
+    },
+    {
+      id: "ms_100m_milestone",
+      targetAmount: 100_000_000,
+      title: "100M · Przekroczenie 100 milionów",
+      description:
+        "This major threshold was crossed as a result of the campaign's peak momentum, fueled by a continuous cascade of celebrity acts, reconciliations, and significant corporate donations from companies like Budimex, Tymbark, and XTB.",
+      status: "achieved",
+      dateAchieved: "2026-04-26T08:00:00Z",
+    },
+    {
+      id: "ms_122m_peak",
+      targetAmount: 122_000_000,
+      title: "122M · Szczyt zbiórki",
+      description:
+        "The reported peak of the fundraiser, achieved near the campaign's conclusion on April 26, 2026 at 12:26 CEST. This was the culmination of all previous events, including numerous high-profile guests, multiple celebrity head shaves, and substantial corporate gifts from donors like zen.com, Wydawnictwo Niezwykłe, and Allegro. Note: The 124M figure circulating on social media remains unverified.",
+      status: "achieved",
+      dateAchieved: "2026-04-26T10:26:00Z",
+    },
   ],
   timelineEvents: [
+    {
+      id: "evt_036",
+      dateLocal: "2026-04-26",
+      relativeTime: "Dzień 10 — 12:26 CEST",
+      sortUtc: "2026-04-26T10:26:00Z",
+      zrodlo: {
+        label: "Bankier.pl: 122 mln zł",
+        url: "https://www.bankier.pl/wiadomosc/Wyjatkowy-stream-influencera-Latwogang-Zebral-miliony-na-walke-dzieci-z-rakiem-9122911.html",
+      },
+      participants: ["Łatwogang", "Cancer Fighters"],
+      category: "milestone_execution",
+      description:
+        "Bankier.pl raportuje szczytową kwotę zbiórki: 122 mln PLN. To najwyższy zweryfikowany medialnie wynik. Kwota 124 mln PLN krążąca w social media pozostaje niepotwierdzona.",
+      tags: ["122m", "peak", "bankier", "final"],
+    },
+    {
+      id: "evt_035",
+      dateLocal: "2026-04-26",
+      relativeTime: "Dzień 10 — Przed południem",
+      sortUtc: "2026-04-26T08:00:00Z",
+      zrodlo: {
+        label: "TVN24: ponad 100 mln zł",
+        url: "https://tvn24.pl/polska/dziewieciodniowy-stream-zebrane-ponad-100-milionow-zlotych-i-rekord-guinnessa-to-jest-jeden-wielki-cud-st9017459",
+      },
+      participants: ["Łatwogang", "Cancer Fighters"],
+      category: "milestone_execution",
+      description:
+        "TVN24 raportuje przekroczenie 100 mln PLN. To historyczny kamień milowy polskiego charytatywnego streamingu.",
+      tags: ["100m", "tvn24", "milestone"],
+    },
+    {
+      id: "evt_034",
+      dateLocal: "2026-04-25",
+      relativeTime: "Dzień 9 — Wieczór",
+      sortUtc: "2026-04-25T21:00:00Z",
+      zrodlo: {
+        label: "Plejada: Blanka Lipińska ogolona",
+        url: "https://www.onet.pl/styl-zycie/plejada/latwogang-zebral-juz-ponad-100-mln-zl-nie-tylko-blanka-lipinska-ogolila-glowe/xj15p9c,0898b825",
+      },
+      participants: ["Blanka Lipińska", "Łatwogang"],
+      category: "milestone_execution",
+      description:
+        "Blanka Lipińska goli głowę na wizji przy około 73 mln PLN. To kolejny symboliczny gest solidarności.",
+      tags: ["73m", "lipinska", "haircut"],
+    },
+    {
+      id: "evt_033",
+      dateLocal: "2026-04-25",
+      relativeTime: "Dzień 9 — Wieczór",
+      sortUtc: "2026-04-25T20:35:00Z",
+      zrodlo: {
+        label: "Plejada: Fala celebrytów",
+        url: "https://plejada.pl/newsy/latwogang-zebral-juz-ponad-71-mln-zl/0hs6hsz",
+      },
+      participants: ["Maffashion", "Edyta Pazura", "Katarzyna Nosowska", "Aleksandra Domańska"],
+      category: "guest_appearance",
+      description:
+        "Fala celebrytów goli głowy w geście solidarności przy około 71 mln PLN. Do akcji dołączają Maffashion, Edyta Pazura, Katarzyna Nosowska i Aleksandra Domańska.",
+      tags: ["71m", "celebrities", "haircut", "solidarity"],
+    },
+    {
+      id: "evt_031",
+      dateLocal: "2026-04-25",
+      relativeTime: "Dzień 9 — Około 14:19",
+      sortUtc: "2026-04-25T12:19:00Z",
+      zrodlo: {
+        label: "Plejada: ponad 41 mln zł",
+        url: "https://plejada.pl/newsy/latwogang-zebral-juz-ponad-41-mln-zl-kubanczyk-wyciagnal-gitare/0hs6hsz",
+      },
+      participants: ["Łatwogang", "Cancer Fighters"],
+      category: "milestone_execution",
+      description:
+        "Plejada raportuje przekroczenie 41 mln PLN na liczniku streamu. To szybki medialny snapshot aktualizowany niemal na żywo, przy utrzymującej się wysokiej dynamice ostatnich godzin transmisji.",
+      tags: ["41m", "plejada", "live_counter", "media_snapshot"],
+    },
+    {
+      id: "evt_032",
+      dateLocal: "2026-04-25",
+      relativeTime: "Dzień 9 — Późny ranek",
+      sortUtc: "2026-04-25T09:59:00Z",
+      zrodlo: {
+        label: "Pudelek: Friz, Wardęga i Wersow",
+        url: "https://www.pudelek.pl/friz-i-wardega-pogodzili-sie-na-streamie-u-latwoganga-chwile-pozniej-wersow-ogolila-bylemu-nemezis-glowe-wideo-7278996588222464a",
+      },
+      participants: ["Sylwester Wardęga", "Friz", "Wersow"],
+      category: "guest_appearance",
+      description:
+        "Na streamie dochodzi do publicznego pojednania Wardęgi, Friza i Wersow. Wersow symbolicznie goli głowę Wardędze na żywo, łącząc wiralowy moment pojednania z gestem solidarnościowym kampanii.",
+      tags: ["wardega", "friz", "wersow", "reconciliation", "haircut"],
+    },
+    {
+      id: "evt_033",
+      dateLocal: "2026-04-25",
+      relativeTime: "Dzień 9 — Rano",
+      sortUtc: "2026-04-25T08:54:00Z",
+      zrodlo: {
+        label: "Eska: obsada Rodzinki.pl na streamie",
+        url: "https://www.eska.pl/rozrywka/gwiazdy/aktorzy-z-serialu-rodzinkapl-na-streamie-latwoganga-karolak-zdrojkowski-i-pawlowski-zaskoczyli-widzow-aa-Lz9g-6n1c-hhck.html",
+      },
+      participants: ["Tomasz Karolak", "Mateusz Pawłowski", "Adam Zdrójkowski", "Julia Wieniawa"],
+      category: "guest_appearance",
+      description:
+        "Aktorzy znani z serialu Rodzinka.pl pojawiają się na streamie i wykonują akustyczną wersję piosenki przewodniej. Wątek dodatkowo wzmacnia szeroki, mainstreamowy zasięg akcji.",
+      tags: ["rodzinka_pl", "karolak", "zdrojkowski", "pawlowski", "wieniawa"],
+    },
+    {
+      id: "evt_034",
+      dateLocal: "2026-04-25",
+      relativeTime: "Dzień 9 — W ciągu dnia",
+      sortUtc: "2026-04-25T10:30:00Z",
+      zrodlo: {
+        label: "Plejada/Onet: Fabijański i Quebonafide",
+        url: "https://plejada.pl/newsy/latwogang-zebral-juz-ponad-31-mln-zl-wsrod-gosci-sebastian-fabijanski/0hs6hsz",
+      },
+      participants: ["Sebastian Fabijański", "Quebonafide"],
+      category: "guest_appearance",
+      description:
+        "W ramach serii publicznych pojednań Sebastian Fabijański i Quebonafide kończą medialny spór, utrzymując uwagę widzów wokół streamu i jego charytatywnego celu.",
+      tags: ["fabijanski", "quebonafide", "reconciliation"],
+    },
     {
       id: "evt_022",
       dateLocal: "2026-04-24",
