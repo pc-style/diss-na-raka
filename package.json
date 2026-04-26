@@ -16,7 +16,8 @@
     "parallel:monitor:create": "bun run scripts/parallel-research.ts monitor:create",
     "parallel:monitor:events": "bun run scripts/parallel-research.ts monitor:events",
     "firecrawl:agent": "bun run scripts/firecrawl-agent.ts",
-    "firecrawl:timeline-sources": "bun run scripts/firecrawl-agent.ts --prompt-file scripts/firecrawl-timeline-sources.prompt.md --schema-file scripts/firecrawl-timeline-sources.schema.json --output data/firecrawl-timeline-sources.json --model spark-1-pro --max-credits 1200"
+    "firecrawl:timeline-sources": "bun run scripts/firecrawl-agent.ts --prompt-file scripts/firecrawl-timeline-sources.prompt.md --schema-file scripts/firecrawl-timeline-sources.schema.json --output data/firecrawl-timeline-sources.json --model spark-1-pro --max-credits 1200",
+    "fundraiser:clicks": "bun run scripts/check-fundraiser-clicks.ts"
   },
   "dependencies": {
     "@base-ui/react": "^1.4.1",

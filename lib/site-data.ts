@@ -244,21 +244,21 @@ export const counterHistory: CounterHistoryPoint[] = [
 ];
 
 export const topSupporters: TopSupporter[] = [
-  { rank: 1, name: "Budimex", amountPln: 2_563_174.13 },
-  { rank: 2, name: "Dobro wraca Zen.com", amountPln: 2_555_570.15 },
-  { rank: 3, name: "Tymbark", amountPln: 2_510_159.68 },
-  { rank: 4, name: "Kuchnia Vikinga", amountPln: 1_870_020.67 },
-  { rank: 5, name: "Wizi", amountPln: 1_410_061.37 },
-  { rank: 6, name: "Wydawnictwo Niezwykłe", amountPln: 1_300_021.37 },
-  { rank: 7, name: "Pitbull", amountPln: 1_201_989 },
-  { rank: 8, name: "Eveline Cosmetics", amountPln: 1_200_260 },
-  { rank: 9, name: "Erste Bank Polska — Wierz w siebie", amountPln: 1_111_111.11 },
-  { rank: 10, name: "OnlyBio & Stars.Space", amountPln: 1_007_777.77 },
-  { rank: 11, name: "Apart", amountPln: 1_002_005.31 },
-  { rank: 12, name: "XTB", amountPln: 1_001_300.99 },
-  { rank: 13, name: "Bedoes 2115", amountPln: 1_001_189.02 },
-  { rank: 14, name: "NEBOA", amountPln: 1_000_455.67 },
-  { rank: 15, name: "Anna i Robert Lewandowscy", amountPln: 1_000_037.69 },
+  { rank: 1, name: "WK Dzik", amountPln: 5_000_225.67 },
+  { rank: 2, name: "Budimex", amountPln: 3_011_174.13 },
+  { rank: 3, name: "Dobro wraca Zen.com", amountPln: 2_797_995.49 },
+  { rank: 4, name: "Tymbark", amountPln: 2_510_159.68 },
+  { rank: 5, name: "Kuchnia Vikinga", amountPln: 1_870_020.67 },
+  { rank: 6, name: "Wizi", amountPln: 1_410_061.37 },
+  { rank: 7, name: "Wydawnictwo Niezwykłe", amountPln: 1_300_021.37 },
+  { rank: 8, name: "Pitbull", amountPln: 1_201_989 },
+  { rank: 9, name: "Eveline Cosmetics", amountPln: 1_200_260 },
+  { rank: 10, name: "Erste Bank Polska — Wierz w siebie", amountPln: 1_111_111.11 },
+  { rank: 11, name: "OnlyBio & Stars.Space", amountPln: 1_007_777.77 },
+  { rank: 12, name: "Apart", amountPln: 1_002_005.31 },
+  { rank: 13, name: "XTB", amountPln: 1_001_300.99 },
+  { rank: 14, name: "Bedoes 2115", amountPln: 1_001_189.02 },
+  { rank: 15, name: "NEBOA", amountPln: 1_000_455.67 },
 ];
 
 export const categoryMeta: Record<
