@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import Link from "next/link";
 import { SiteFooter } from "@/components/site/footer";
 import { GalleryGrid } from "@/components/site/gallery-grid";
@@ -10,11 +11,58 @@ import { featuredVideoClips } from "@/lib/video-clips";
 
 export const dynamic = "force-dynamic";
 
+export const metadata: Metadata = {
+  title: "Galeria klipów",
+  description:
+    "Najlepsze klipy ze streamu Łatwogang × Cancer Fighters. Osadzone materiały z YouTube, ręcznie przefiltrowane pod wydarzenia z osi czasu.",
+  alternates: {
+    canonical: "/gallery",
+  },
+  openGraph: {
+    title: "Galeria klipów · DISS NA RAKA",
+    description:
+      "Najlepsze klipy ze streamu Łatwogang × Cancer Fighters dopasowane do osi czasu.",
+    url: "/gallery",
+    type: "website",
+    locale: "pl_PL",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Galeria klipów · DISS NA RAKA",
+    description:
+      "Najlepsze klipy ze streamu Łatwogang × Cancer Fighters dopasowane do osi czasu.",
+  },
+};
+
+const breadcrumbJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  itemListElement: [
+    {
+      "@type": "ListItem",
+      position: 1,
+      name: "Tablica streamu",
+      item: "https://latwo-x-cancerfighters.pcstyle.dev/",
+    },
+    {
+      "@type": "ListItem",
+      position: 2,
+      name: "Galeria klipów",
+      item: "https://latwo-x-cancerfighters.pcstyle.dev/gallery",
+    },
+  ],
+};
+
 export default async function GalleryPage() {
   const data = await getSiteData();
 
   return (
     <div className="flex flex-1 flex-col">
+      <script
+        type="application/ld+json"
+        // eslint-disable-next-line react/no-danger
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
+      />
       <SiteLiveCounterProvider dashboard={data.dashboard} snapshots={counterHistory}>
         <TopBar dashboard={data.dashboard} />
         <SiteHeader dashboard={data.dashboard} />

@@ -30,20 +30,43 @@ const caveat = Caveat({
   subsets: ["latin", "latin-ext"],
 });
 
+const SITE_URL = "https://latwo-x-cancerfighters.pcstyle.dev";
+
 export const metadata: Metadata = {
-  metadataBase: new URL("https://latwo-x-cancerfighters.pcstyle.dev"),
-  title: "DISS NA RAKA · Tablica Streamu",
+  metadataBase: new URL(SITE_URL),
+  title: {
+    default: "DISS NA RAKA · Tablica Streamu",
+    template: "%s · DISS NA RAKA",
+  },
   description:
     "Nieoficjalna tablica sterownicza streamu Łatwogang × Cancer Fighters. Ręcznie zbierane snapshoty zbiórki, harmonogram kamieni milowych i oś czasu gości.",
+  applicationName: "DISS NA RAKA",
+  authors: [{ name: "pcstyle", url: "https://pcstyle.dev" }],
+  creator: "pcstyle",
+  publisher: "pcstyle",
+  keywords: [
+    "Łatwogang",
+    "Cancer Fighters",
+    "DISS NA RAKA",
+    "stream charytatywny",
+    "zbiórka",
+    "Siepomaga",
+    "fan tracker",
+    "tablica streamu",
+    "Latwogang x Cancer Fighters",
+    "diss na raka",
+  ],
+  category: "charity",
   alternates: {
-    canonical: "https://latwo-x-cancerfighters.pcstyle.dev",
+    canonical: "/",
   },
   openGraph: {
     title: "DISS NA RAKA · Tablica Streamu",
     description:
       "Ręcznie aktualizowany fan tracker dla streamu Łatwogang × Cancer Fighters.",
-    url: "https://latwo-x-cancerfighters.pcstyle.dev",
-    siteName: "Diss na raka",
+    url: SITE_URL,
+    siteName: "DISS NA RAKA",
+    locale: "pl_PL",
     type: "website",
   },
   twitter: {
@@ -51,8 +74,69 @@ export const metadata: Metadata = {
     title: "DISS NA RAKA · Tablica Streamu",
     description:
       "Ręcznie aktualizowany fan tracker dla streamu Łatwogang × Cancer Fighters.",
+    creator: "@pcstyle",
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+      "max-video-preview": -1,
+    },
+  },
+  formatDetection: {
+    telephone: false,
+    email: false,
+    address: false,
   },
 };
+
+const jsonLd = [
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    name: "DISS NA RAKA",
+    alternateName: "Łatwogang × Cancer Fighters Tracker",
+    url: SITE_URL,
+    logo: `${SITE_URL}/icon.svg`,
+    description:
+      "Nieoficjalny fan tracker streamu charytatywnego Łatwogang × Cancer Fighters.",
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    name: "DISS NA RAKA · Tablica Streamu",
+    url: SITE_URL,
+    inLanguage: "pl-PL",
+    description:
+      "Ręcznie aktualizowany fan tracker streamu Łatwogang × Cancer Fighters: snapshoty zbiórki, kamienie milowe i oś czasu gości.",
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "BroadcastEvent",
+    name: "Łatwogang × Cancer Fighters · DISS NA RAKA",
+    description:
+      "Charytatywny stream Łatwogang × Cancer Fighters wspierający walkę z rakiem.",
+    startDate: "2026-04-22T22:00:00+02:00",
+    endDate: "2026-04-26T00:00:00+02:00",
+    eventStatus: "https://schema.org/EventScheduled",
+    eventAttendanceMode: "https://schema.org/OnlineEventAttendanceMode",
+    isAccessibleForFree: true,
+    inLanguage: "pl-PL",
+    location: {
+      "@type": "VirtualLocation",
+      url: SITE_URL,
+    },
+    organizer: {
+      "@type": "Organization",
+      name: "Łatwogang × Cancer Fighters",
+    },
+    about: "Zbiórka charytatywna na rzecz walki z rakiem.",
+  },
+];
 
 export default function RootLayout({
   children,
@@ -91,6 +175,11 @@ export default function RootLayout({
           </defs>
         </svg>
         {children}
+        <script
+          type="application/ld+json"
+          // eslint-disable-next-line react/no-danger
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        />
         <Analytics />
       </body>
     </html>
