@@ -84,6 +84,12 @@ export interface CounterHistoryPoint {
   source: string;
 }
 
+export interface TopSupporter {
+  rank: number;
+  name: string;
+  amountPln: number;
+}
+
 export interface SiteDataPatch {
   dashboard?: Omit<
     Partial<DashboardState>,
