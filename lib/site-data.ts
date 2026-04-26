@@ -761,16 +761,6 @@ export const seedSiteData: SiteData = {
       dateAchieved: "2026-04-26T08:00:00Z",
     },
     {
-      id: "ms_130m_koncert",
-      targetAmount: 130_000_000,
-      title: "130M · Festiwal muzyczny w kawalerce",
-      description:
-        "Po wybiciu 130 mln PLN na żywo wystąpili Mrozu ('Jak nie my to kto') oraz zespół Golec uOrkiestra ('Ściernisko').",
-      status: "achieved",
-      dateAchieved: "2026-04-26T11:00:00Z",
-    },
-
-    {
       id: "ms_119m_szczesny",
       targetAmount: 119_000_000,
       title: "119M · Wojciech Szczęsny w drużynie Maty",
@@ -778,6 +768,15 @@ export const seedSiteData: SiteData = {
         "Przy 119 mln PLN Wojciech Szczęsny zadeklarował udział w meczu w drużynie Maty - poranek finałowej niedzieli.",
       status: "achieved",
       dateAchieved: "2026-04-26T08:00:00Z",
+    },
+    {
+      id: "ms_130m_koncert",
+      targetAmount: 130_000_000,
+      title: "130M · Festiwal muzyczny w kawalerce",
+      description:
+        "Po wybiciu 130 mln PLN na żywo wystąpili Mrozu ('Jak nie my to kto') oraz zespół Golec uOrkiestra ('Ściernisko').",
+      status: "achieved",
+      dateAchieved: "2026-04-26T11:00:00Z",
     },
     {
       id: "ms_164m_tede_peja",
