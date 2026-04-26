@@ -47,11 +47,11 @@ export function SiteHeader({ dashboard }: { dashboard: DashboardState }) {
         {/* Mobile Klipy link */}
         <Link
           href="/gallery"
-          className="md:hidden col-span-1 hairline-r flex items-center justify-center text-center px-3 py-5 hover:bg-ink-2 transition-colors"
+          className="md:hidden col-span-2 hairline-r flex items-center justify-center text-center px-3 py-5 hover:bg-ink-2 transition-colors"
           title="Klipy"
         >
           <span className="font-display uppercase text-sm tracking-wide">
-            04
+            Klipy
           </span>
         </Link>
 
