@@ -24,7 +24,7 @@ interface LiveCounterValue {
 const LiveCounterContext = createContext<LiveCounterValue | null>(null);
 
 const MAX_HISTORY_POINTS = 4;
-const MAX_GROWTH_PLN_PER_SECOND = 120;
+const MAX_GROWTH_PLN_PER_SECOND = 0;
 const RECENT_GROWTH_DAMPING = 0.15;
 
 function toMillis(utc: string) {
