@@ -13,6 +13,8 @@
     "sync:youtube:minute": "bun run scripts/sync-youtube-live.ts --watch --interval-ms 60000",
     "youtube:clips": "bun run scripts/search-youtube-clips.ts",
     "parallel:research": "bun run scripts/parallel-research.ts task",
+    "parallel:postevent": "bun run scripts/parallel-postevent.ts",
+    "parallel:postevent:resume": "bun run scripts/parallel-postevent.ts --resume",
     "parallel:monitor:create": "bun run scripts/parallel-research.ts monitor:create",
     "parallel:monitor:events": "bun run scripts/parallel-research.ts monitor:events",
     "firecrawl:agent": "bun run scripts/firecrawl-agent.ts",

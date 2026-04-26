@@ -103,6 +103,25 @@ async function main() {
     throw new Error("DATA_UPDATE_TOKEN is missing in the environment.");
   }
 
+  // Fetch current data to get existing counterHistory
+  const currentDataResponse = await fetch(apiUrl, {
+    headers: {
+      Authorization: `Bearer ${token}`,
+    },
+  });
+
+  if (!currentDataResponse.ok) {
+    throw new Error(
+      `Failed to fetch current data: ${currentDataResponse.status} ${currentDataResponse.statusText}`,
+    );
+  }
+
+  const currentData = (await currentDataResponse.json()) as {
+    counterHistory?: { amount: number; atUtc: string; source: string }[];
+  };
+
+  const existingHistory = currentData.counterHistory ?? [];
+
   const payload = {
     dashboard: {
       totalRaisedPln: amount,
@@ -110,6 +129,14 @@ async function main() {
         lastUpdatedUtc,
       },
     },
+    counterHistory: [
+      ...existingHistory,
+      {
+        amount,
+        atUtc: lastUpdatedUtc,
+        source: "manual update via bun run update",
+      },
+    ],
   };
 
   const response = await fetch(apiUrl, {

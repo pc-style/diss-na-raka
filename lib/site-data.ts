@@ -69,6 +69,8 @@ export interface SiteData {
   dashboard: DashboardState;
   milestones: Milestone[];
   timelineEvents: TimelineEvent[];
+  counterHistory: CounterHistoryPoint[];
+  topSupporters: TopSupporter[];
 }
 
 export interface SiteConfig {
@@ -101,6 +103,8 @@ export interface SiteDataPatch {
   };
   milestones?: Milestone[];
   timelineEvents?: TimelineEvent[];
+  counterHistory?: CounterHistoryPoint[];
+  topSupporters?: TopSupporter[];
 }
 
 export const siteConfig: SiteConfig = {
@@ -244,21 +248,21 @@ export const counterHistory: CounterHistoryPoint[] = [
 ];
 
 export const topSupporters: TopSupporter[] = [
-  { rank: 1, name: "WK Dzik", amountPln: 5_000_225.67 },
-  { rank: 2, name: "Budimex", amountPln: 3_011_174.13 },
-  { rank: 3, name: "Dobro wraca Zen.com", amountPln: 2_797_995.49 },
-  { rank: 4, name: "Tymbark", amountPln: 2_510_159.68 },
-  { rank: 5, name: "Kuchnia Vikinga", amountPln: 1_870_020.67 },
-  { rank: 6, name: "Wizi", amountPln: 1_410_061.37 },
-  { rank: 7, name: "Wydawnictwo Niezwykłe", amountPln: 1_300_021.37 },
-  { rank: 8, name: "Pitbull", amountPln: 1_201_989 },
-  { rank: 9, name: "Eveline Cosmetics", amountPln: 1_200_260 },
-  { rank: 10, name: "Erste Bank Polska — Wierz w siebie", amountPln: 1_111_111.11 },
-  { rank: 11, name: "ING Bank Śląski", amountPln: 1_111_111.11 },
-  { rank: 12, name: "OnlyBio & Stars.Space", amountPln: 1_007_777.77 },
-  { rank: 13, name: "Apart", amountPln: 1_002_005.31 },
-  { rank: 14, name: "XTB", amountPln: 1_001_300.99 },
-  { rank: 15, name: "Bedoes 2115", amountPln: 1_001_189.02 },
+  { rank: 1, name: "XTB", amountPln: 6_251_321.37 },
+  { rank: 2, name: "DOBRO WRACA ZEN.COM", amountPln: 5_555_581.15 },
+  { rank: 3, name: "KUCHNIA VIKINGA", amountPln: 5_100_000.00 },
+  { rank: 4, name: "WK DZIK", amountPln: 5_000_230.67 },
+  { rank: 5, name: "BUDIMEX", amountPln: 3_011_174.13 },
+  { rank: 6, name: "InPost + Rafał + Omenaa", amountPln: 3_000_021.37 },
+  { rank: 7, name: "TYMBARK", amountPln: 2_510_159.68 },
+  { rank: 8, name: "Wizi", amountPln: 1_410_061.37 },
+  { rank: 9, name: "WYDAWNICTWO NIEZWYKŁE", amountPln: 1_300_021.37 },
+  { rank: 10, name: "PITBULL", amountPln: 1_201_989.00 },
+  { rank: 11, name: "Eveline Cosmetics", amountPln: 1_200_267.00 },
+  { rank: 12, name: "ING BANK ŚLĄSKI", amountPln: 1_111_116.11 },
+  { rank: 13, name: "ERSTE BANK POLSKA - Wierz w siebie", amountPln: 1_111_111.11 },
+  { rank: 14, name: "ONLYBIO & STARS.SPACE", amountPln: 1_007_777.77 },
+  { rank: 15, name: "APART", amountPln: 1_002_021.36 },
 ];
 
 export const categoryMeta: Record<
@@ -331,6 +335,8 @@ export const seedSiteData: SiteData = {
       ],
     },
   },
+  counterHistory,
+  topSupporters,
   milestones: [
     {
       id: "ms_30k_launch",
@@ -1803,6 +1809,8 @@ export function mergeSiteDataPatch(
     timelineEvents: normalizeTimelineEvents(
       patch.timelineEvents ?? current.timelineEvents,
     ),
+    counterHistory: patch.counterHistory ?? current.counterHistory,
+    topSupporters: patch.topSupporters ?? current.topSupporters,
   };
 }
 
