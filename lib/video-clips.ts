@@ -230,7 +230,7 @@ export const featuredVideoClips: VideoClip[] = [
     channelTitle: "Kcrt",
     publishedAt: "2026-04-25T19:36:50Z",
     relatedEventIds: ["evt_046"],
-    tags: ["adam_małysz", "roxie", "patec"],
+    tags: ["adam_małysz", "roxie", "patecki"],
     confidence: "medium",
   },
   {
