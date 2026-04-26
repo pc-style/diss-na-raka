@@ -20,7 +20,7 @@ export function SiteHeader({ dashboard }: { dashboard: DashboardState }) {
           </span>
         </Link>
 
-        {/* Nav */}
+        {/* Nav - Hidden on mobile, but Klipy is accessible via mobile menu */}
         <nav className="hidden md:flex col-span-5 hairline-r items-stretch divide-x divide-[var(--color-hair)]">
           {[
             { n: "01", href: "/#tablica", label: "Tablica" },
@@ -43,6 +43,17 @@ export function SiteHeader({ dashboard }: { dashboard: DashboardState }) {
             </Link>
           ))}
         </nav>
+
+        {/* Mobile Klipy link */}
+        <Link
+          href="/gallery"
+          className="md:hidden col-span-1 hairline-r flex items-center justify-center text-center px-3 py-5 hover:bg-ink-2 transition-colors"
+          title="Klipy"
+        >
+          <span className="font-display uppercase text-sm tracking-wide">
+            04
+          </span>
+        </Link>
 
         {/* CTA */}
         <div className="col-span-6 md:col-span-2 flex items-stretch">
