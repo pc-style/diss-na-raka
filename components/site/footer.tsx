@@ -1,3 +1,4 @@
+import { buildFundraiserClickUrl } from "@/lib/fundraiser-clicks";
 import { siteConfig, type DashboardState } from "@/lib/site-data";
 import { formatDateOnlyGmtPlus2, formatDateTimeGmtPlus2 } from "@/lib/time";
 
@@ -64,11 +65,11 @@ export function SiteFooter({ dashboard }: { dashboard: DashboardState }) {
           </a>
           <a
             className="font-display uppercase text-base hover:text-accent transition-colors"
-            href={dashboard.metadata.donationUrl}
+            href={buildFundraiserClickUrl("footer")}
             target="_blank"
             rel="noopener noreferrer"
           >
-            Tipply · Donejt ↗
+            Siepomaga · Donejt ↗
           </a>
           <a
             className="font-display uppercase text-base hover:text-accent transition-colors"

@@ -285,7 +285,7 @@ export const seedSiteData: SiteData = {
       currentLiveVideoId: "UNAqqHIPbWA",
       currentLiveVideoTitle: "Słucham 9 dni dissu na raka żeby pomóc dzieciom z Fundacji Cancer Fighters",
       currentLiveVideoUrl: "https://www.youtube.com/live/UNAqqHIPbWA",
-      donationUrl: "https://tipply.pl/@latwogang",
+      donationUrl: "https://www.siepomaga.pl/latwogang",
       songUrl: "https://www.youtube.com/watch?v=d-kldWAQBzk",
       trackTitle: "Ciągle tutaj jestem (diss na raka)",
       trackArtists: ["Bedoes 2115", "Maja Mecan", "Cancer Fighters"],

@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { buildFundraiserClickUrl } from "@/lib/fundraiser-clicks";
 import type { DashboardState } from "@/lib/site-data";
 
 export function SiteHeader({ dashboard }: { dashboard: DashboardState }) {
@@ -46,7 +47,7 @@ export function SiteHeader({ dashboard }: { dashboard: DashboardState }) {
         {/* CTA */}
         <div className="col-span-6 md:col-span-2 flex items-stretch">
           <a
-            href={dashboard.metadata.donationUrl}
+            href={buildFundraiserClickUrl("header")}
             target="_blank"
             rel="noopener noreferrer"
             className="group relative flex-1 flex items-center justify-between gap-3 px-4 py-5 bg-accent text-ink hover:bg-paper hover:text-ink transition-colors"
