@@ -19,3 +19,9 @@ Dispatching 8 Parallel tasks concurrently:
 [media-coverage] saved -> /Users/pcstyle/projects/01-Web-Apps/diss-na-raka/research/postevent/media-coverage.json
 [final-recap] saved -> /Users/pcstyle/projects/01-Web-Apps/diss-na-raka/research/postevent/final-recap.json
 [donations] saved -> /Users/pcstyle/projects/01-Web-Apps/diss-na-raka/research/postevent/donations.json
+[engagement-records] saved -> /Users/pcstyle/projects/01-Web-Apps/diss-na-raka/research/postevent/engagement-records.json
+[timeline-events] saved -> /Users/pcstyle/projects/01-Web-Apps/diss-na-raka/research/postevent/timeline-events.json
+[celebrity-guests] saved -> /Users/pcstyle/projects/01-Web-Apps/diss-na-raka/research/postevent/celebrity-guests.json
+[milestones] saved -> /Users/pcstyle/projects/01-Web-Apps/diss-na-raka/research/postevent/milestones.json
+
+Done. 8 completed, 0 not completed. Index: /Users/pcstyle/projects/01-Web-Apps/diss-na-raka/research/postevent/_index.json

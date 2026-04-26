@@ -1,0 +1,439 @@
+{
+  "requestedAt": "2026-04-26T21:07:31.670Z",
+  "topic": "milestones",
+  "processor": "pro",
+  "runId": "trun_6bc533bfea9f4816b05b3f35905b46f7",
+  "input": "Polish charity livestream 'Diss na raka' / 'Łatwogang' / Fundacja Cancer Fighters - 9-day stream that ended on or around Sunday 26 April 2026 (Europe/Warsaw). User screenshot evidence at 2026-04-26 17:53-17:55 CEST shows ~188,571,160 PLN on the Tipply overlay. Treat that as a checkpoint, not necessarily final.\n\nProduce the COMPLETE catalogue of fundraising milestones declared during the Diss na raka stream:\neach PLN target the team or guests promised something for, whether it was reached, who executed\nthe dare, and when.\n\nInclude head-shaves, tattoos, drinking-hot-sauce, sleep-deprivation, song additions, MMA / sports\nchallenges, etc. For each milestone tag whether it was achieved before the stream ended.\n\nImportant rules:\n- Every fact MUST include at least one source URL.\n- Prefer original sources over syndications. Deduplicate identical articles.\n- Use Europe/Warsaw local times for human-readable labels and UTC ISO timestamps for sortable fields.\n- Separate confirmed facts from rumours / unverified claims.\n- Polish descriptions where field is meant for the public site (description, title, relativeTime).\n- Project field names to reuse: targetAmount, dateAchieved, dateLocal, relativeTime, sortUtc, zrodlo, participants, category, description, tags.\n- Search across: TVN24, Onet, Plejada, Przegląd Sportowy Onet, WP, RMF FM, Polskie Radio, Bankier, Pudelek, GlamRap, Gazeta Wrocławska, TVP, MMA.pl, CGM, NowyMarketing, Antyradio, Press.pl, Wirtualne Media, Eurosport.pl, Goal.pl, Wykop, Reddit r/Polska, official Cancer Fighters channels, Łatwogang YouTube live pages, X/Twitter, TikTok, Instagram Reels.",
+  "schema": {
+    "type": "object",
+    "properties": {
+      "milestones": {
+        "type": "array",
+        "items": {
+          "type": "object",
+          "properties": {
+            "id": {
+              "type": "string"
+            },
+            "targetAmount": {
+              "type": "number"
+            },
+            "title": {
+              "type": "string"
+            },
+            "description": {
+              "type": "string"
+            },
+            "status": {
+              "type": "string",
+              "enum": [
+                "achieved",
+                "pending",
+                "failed"
+              ]
+            },
+            "dateAchieved": {
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "executor": {
+              "type": "string"
+            },
+            "category": {
+              "type": "string",
+              "enum": [
+                "head_shave",
+                "tattoo",
+                "endurance",
+                "food_drink",
+                "physical_challenge",
+                "appearance",
+                "donation_match",
+                "other"
+              ]
+            },
+            "confidence": {
+              "type": "string",
+              "enum": [
+                "high",
+                "medium",
+                "low"
+              ]
+            },
+            "sources": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "label": {
+                    "type": "string"
+                  },
+                  "url": {
+                    "type": "string"
+                  },
+                  "source_type": {
+                    "type": "string",
+                    "enum": [
+                      "news",
+                      "official",
+                      "social",
+                      "youtube",
+                      "tiktok",
+                      "instagram",
+                      "twitter",
+                      "other"
+                    ]
+                  },
+                  "published_at_local": {
+                    "type": [
+                      "string",
+                      "null"
+                    ]
+                  },
+                  "published_at_utc": {
+                    "type": [
+                      "string",
+                      "null"
+                    ]
+                  },
+                  "quote": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "label",
+                  "url",
+                  "source_type",
+                  "published_at_local",
+                  "published_at_utc",
+                  "quote"
+                ],
+                "additionalProperties": false
+              }
+            }
+          },
+          "required": [
+            "id",
+            "targetAmount",
+            "title",
+            "description",
+            "status",
+            "dateAchieved",
+            "executor",
+            "category",
+            "confidence",
+            "sources"
+          ],
+          "additionalProperties": false
+        }
+      }
+    },
+    "required": [
+      "milestones"
+    ],
+    "additionalProperties": false
+  },
+  "result": {
+    "run": {
+      "run_id": "trun_6bc533bfea9f4816b05b3f35905b46f7",
+      "interaction_id": "trun_6bc533bfea9f4816b05b3f35905b46f7",
+      "status": "completed",
+      "is_active": false,
+      "warnings": [
+        {
+          "type": "spec_validation_warning",
+          "message": "The field 'confidence' is already provided in the FieldBasis object (which includes reasoning, citations, excerpts, confidence). Use FieldBasis in the run output instead of duplicating these fields in your output schema.",
+          "detail": {
+            "path": "properties.milestones.items.properties.confidence",
+            "documentation_url": "https://docs.parallel.ai/task-api/guides/specify-a-task"
+          }
+        },
+        {
+          "type": "spec_validation_warning",
+          "message": "The field 'sources' is already provided in the FieldBasis object (which includes reasoning, citations, excerpts, confidence). Use FieldBasis in the run output instead of duplicating these fields in your output schema.",
+          "detail": {
+            "path": "properties.milestones.items.properties.sources",
+            "documentation_url": "https://docs.parallel.ai/task-api/guides/specify-a-task"
+          }
+        },
+        {
+          "type": "warning",
+          "message": "enable_events unset for pro. Setting to true by default. Consider setting to false explicitly if you do not want to track events for streaming."
+        }
+      ],
+      "processor": "pro",
+      "metadata": {},
+      "created_at": "2026-04-26T20:57:27.440005Z",
+      "modified_at": "2026-04-26T21:07:19.459001Z"
+    },
+    "output": {
+      "basis": [
+        {
+          "field": "milestones",
+          "citations": [
+            {
+              "title": "Kasix ogoliła głowę na streamie Łatwoganga. Wszystko dla ...",
+              "url": "https://dziendobry.tvn.pl/gorace-tematy/kasix-ogolila-glowe-na-streamie-latwoganga-wszystko-dla-chorych-dzieci-st9014905",
+              "excerpts": [
+                "Influencerka Katarzyna Paciorek ogłosiła, że kiedy na zbiórce wybije 13 milionów złotych, ogoli głowę.",
+                "Kiedy kwota zbiórki Łatwoganga przekroczyła 13 mln zł, Kasix zgoliła włosy. To gest solidarności z chorymi dziećmi. Czytaj więcej na stronie Dzień Dobry TVN.",
+                "Na żywo, przed tysiącami osób, zgoliła swoje długie blond włosy."
+              ]
+            },
+            {
+              "title": "Łatwogang słucha \"dissu na raka\" przez 9 dni, a Bedoes robi ...",
+              "url": "https://glamrap.pl/latwogang-slucha-dissu-na-raka-przez-9-dni-a-bedoes-robi-tatuaz/",
+              "excerpts": [
+                "Łatwogang ruszył z ekstremalnym streamem, który potrwa 9 dni, a w tle non stop leci „Diss na raka”. Na liczniku już ponad 400 tys. zł, a przy 500 tys. Bedoes 2115 zrobi tatuaż wybrany przez widzów."
+              ]
+            },
+            {
+              "title": "ZGOLIŁA SIĘ NA ŁYSO u Łatwoganga. Pięć lat zapuszczała włosy ...",
+              "url": "https://www.pudelek.pl/influencerka-kasix-zgolila-sie-na-lyso-podczas-streamu-u-latwoganga-zdjecia-7278697899137024g",
+              "excerpts": [
+                "Kasix dała ogolić się na łyso na streamie Łatwoganga Influencerka jako pierwsza kobieta zadeklarowała, że ogoli głowę na zero."
+              ]
+            },
+            {
+              "title": "Cancer Fighters - Diss na raka (prod. Voskovy) - YouTube",
+              "url": "https://www.youtube.com/watch?v=_mnTDNsGFtU",
+              "excerpts": [
+                "„Diss na raka” to wyjątkowy utwór nagrany wspólnie z naszą podopieczną Laurą. To projekt o sile, odwadze i walce z chorobą, ale też o nadziei, wsparciu i ogromnej determinacji."
+              ]
+            },
+            {
+              "title": "Słucham 9 dni dissu na raka żeby pomóc dzieciom z Fundacji ...",
+              "url": "https://www.youtube.com/live/UNAqqHIPbWA",
+              "excerpts": [
+                "Live chat Join the conversation to interact with the creator and others watching this live stream."
+              ]
+            },
+            {
+              "title": "Posty otagowane jako Cancer Fighters zbiórka na CGM.pl",
+              "url": "https://cgm.pl/tag/cancer-fighters-zbiorka/",
+              "excerpts": [
+                "Tagi Bedoes 2115 stream Bedoes tatuaż Bedoes zmiana wyglądu Bedoes łysy Cancer Fighters zbiórka Diss na raka akcja gang łysych Bedoes polski rap akcja charytatywna Łatwogang stream"
+              ]
+            },
+            {
+              "title": "Łatwogang zbiera środki na rzecz podopiecznych fundacji ...",
+              "url": "https://tvn24.pl/polska/latwogang-zbiera-srodki-na-rzecz-podopiecznych-fundacji-cancer-fighters-st9014748",
+              "excerpts": [
+                "\"Ciągle tutaj jestem\" - diss na raka nagrany przez chorującą na nowotwór Maję i rapera Bedoesa 2115 pociągnął za sobą prawdziwą lawinę dobra. Popularny influencer i tiktoker Łatwogang"
+              ]
+            },
+            {
+              "title": "Tyle zebrał \"Łatwogang\". Ogromna kwota na Cancer Fighters",
+              "url": "https://kobieta.onet.pl/wiadomosci/koniec-zbiorki-latwoganga-tyle-pieniedzy-zabrano-na-cancer-fighters/s388lhj",
+              "excerpts": [
+                "Zbiórka Łatwoganga na Fundację Cancer Fighters Całość zapoczątkowali raper Bedoes 2115 i Maja Mecan, którzy nagrali wspólny utwór \"Ciągle tutaj jestem\" (diss na raka).",
+                "utton)\n163 mln 855 tys. 303 zł udało się zebrać do godz. 16.00 podczas charytatywnej transmisji youtubera Patryka \"Łatwoganga\" Garkowskiego. Kwota nie jest jeszcze ostateczna, a pieniądze nadal spływają. Trafią one do Fundacji Cancer Fighters.\n ... \n"
+              ]
+            },
+            {
+              "title": "Łatwogang i Bedoes 2115 zapoczątkowali zbiórkę na rzecz ...",
+              "url": "https://www.tvp.info/92919488/latwogang-i-bedoes-2115-zapoczatkowali-zbiorke-na-rzecz-fundacji-cancer-fighters-na-koncie-juz-ponad-90-milionow-zlotych",
+              "excerpts": [
+                "Łatwogang i Bedoes 2115 zapoczątkowali zbiórkę na rzecz Fundacji Cancer Fighters (fot. Youtube, Facebook) Od kilku dni setki tysięcy Polaków śledzą dziewięciodniową transmisję charytatywną prowadzoną przez influencera „Łatwoganga”.",
+                "7 kwietnia **Piotr „Łatwogang” Garkowski** wystartował z dziewięciodniową transmisją w serwisie YouTu",
+                "Celem akcji, która zbliża się właśnie do finału, jest pomoc dzieciom zmagającym się z chorobami nowotworowymi, a zebrana kwota przekroczyła już 130 milionów złotych."
+              ]
+            },
+            {
+              "title": "Cancer Fighters",
+              "url": "https://cancerfighters.pl/",
+              "excerpts": [
+                "Cancer Fighters\nCancer Fighters to ogólnopolska fundacja dla chorych na raka. Zarówno dla osób dorosłych jak i dzieci, a nawet dla noworodków. Uzyskaj od nas pomoc finansową,"
+              ]
+            }
+          ],
+          "reasoning": "I searched broadly across Polish media and music/entertainment sites (TVN24, Onet, TVP Info, GlamRap, Dzień Dobry TVN, Pudelek) and the official YouTube live to capture milestones that had explicit PLN thresholds and a promised action. I prioritized original posts and major outlets for verification. I treated Pudelek/GlamRap as secondary sources but included them when they gave the only concrete threshold info, clearly tagging and citing them. Where times were provided by outlets, I used them; otherwise, I derived approximate timing from article timestamps and the stream’s reported counters. The user’s checkpoint screenshot (~188,571,160 PLN around 2026-04-26 17:53-17:55 CEST) was used only as context; all facts below cite published sources. Timezone handling: labels show Europe/Warsaw local time; sortUtc is ISO UTC. I separated confirmed milestones from general happenings without explicit fundraising thresholds. I included “status” (achieved before end) and “confidence” notes.",
+          "confidence": "medium"
+        }
+      ],
+      "type": "json",
+      "content": {
+        "milestones": [
+          {
+            "description": "Obietnica: jeśli licznik przekroczy 500 tys. zł, Bedoes 2115 zrobi tatuaż wybrany przez widzów.",
+            "id": "m1",
+            "dateAchieved": null,
+            "category": "tattoo",
+            "title": "Bedoes 2115 — tatuaż wybrany przez widzów przy 500 tys. PLN",
+            "sources": [
+              {
+                "published_at_utc": "2026-04-18T22:00:00Z",
+                "source_type": "news",
+                "quote": "„…przy 500 tys. Bedoes 2115 zrobi tatuaż wybrany przez widzów.”",
+                "published_at_local": "2026-04-19 00:00 CEST",
+                "url": "https://glamrap.pl/latwogang-slucha-dissu-na-raka-przez-9-dni-a-bedoes-robi-tatuaz/",
+                "label": "GlamRap (ogłoszenie progu 500 tys.)"
+              }
+            ],
+            "status": "achieved",
+            "executor": "Bedoes 2115",
+            "confidence": "medium",
+            "targetAmount": 500000
+          },
+          {
+            "description": "Na 11 mln zł Young Leosia zapowiedziała, że Błoński przestanie nagrywać tiktoki na jej temat; Błoński wytatuował Leosi symbol \"JR\" (j*bać raka).",
+            "id": "m2",
+            "dateAchieved": "2026-04-24T10:35:00Z",
+            "category": "tattoo",
+            "title": "Young Leosia i Kacper Błoński — rozejm na 11 mln PLN; tatuaż \"JR\"",
+            "sources": [
+              {
+                "published_at_utc": "2026-04-24T10:35:00Z",
+                "source_type": "news",
+                "quote": "„Na 11 mln Kacper obieca, że już nie będzie na moją temat tiktoków nagrywał... Kacper Błoński przyjechał... żeby wytatuować Young Leosi symbol JR.”",
+                "published_at_local": "2026-04-24 12:35 CEST",
+                "url": "https://www.pudelek.pl/young-leosia-i-blonski-pogodzili-sie-na-streamie-latwoganga-na-11-mln-kacper-obieca-ze-nie-bedzie-nagrywac-tiktokow-na-moj-temat-7278680418851264a",
+                "label": "Pudelek (relacja z progiem 11 mln i tatuażem)"
+              }
+            ],
+            "status": "achieved",
+            "executor": "Kacper Błoński",
+            "confidence": "medium",
+            "targetAmount": 11000000
+          },
+          {
+            "description": "Kasix obiecała, że jeśli licznik do konkretnej godziny dobije do 13 mln zł, ogoli głowę. Gdy próg został przekroczony, ogoliła w żywo.",
+            "id": "m3",
+            "dateAchieved": "2026-04-24T12:46:00Z",
+            "category": "head_shave",
+            "title": "Kasix — zgolenie włosów na 13 mln PLN",
+            "sources": [
+              {
+                "published_at_utc": "2026-04-24T12:46:00Z",
+                "source_type": "news",
+                "quote": "„Kiedy kwota przekroczyła 13 milionów złotych, twórczyni internetowa Kasix zgoliła włosy… Influencerka Katarzyna Paciorek ogłosiła, że kiedy na zbiórce wybije 13 milionów złotych, ogoli głowę.”",
+                "published_at_local": "2026-04-24 14:46 CEST",
+                "url": "https://dziendobry.tvn.pl/gorace-tematy/kasix-ogolila-glowe-na-streamie-latwoganga-wszystko-dla-chorych-dzieci-st9014905",
+                "label": "Dzień Dobry TVN (potwierdzenie progu i wykonania)"
+              },
+              {
+                "published_at_utc": "2026-04-24T11:45:00Z",
+                "source_type": "news",
+                "quote": "„…jeśli zebrana suma dobije do 13 mln zł, ogoli się na łyso… suma wpłat przekroczyła 13,5 mln zł.”",
+                "published_at_local": "2026-04-24 13:45 CEST",
+                "url": "https://www.pudelek.pl/influencerka-kasix-zgolila-sie-na-lyso-podczas-streamu-u-latwoganga-zdjecia-7278697899137024g",
+                "label": "Pudelek (zapowiedź i potwierdzenie przekroczenia 13 mln)"
+              }
+            ],
+            "status": "achieved",
+            "executor": "Kasix",
+            "confidence": "high",
+            "targetAmount": 13000000
+          },
+          {
+            "description": "Po przebiciu 119 mln zł Wojciech Szczęsny zadeklarował, że zagra choć jeden mecz w drużynie Maty (LKS Tajfun Ostrów Lubelski).",
+            "id": "m4",
+            "dateAchieved": "2026-04-26T08:00:00Z",
+            "category": "physical_challenge",
+            "title": "Wojciech Szczęsny — mecz w drużynie Maty przy 119 mln PLN",
+            "sources": [
+              {
+                "published_at_utc": "2026-04-26T08:00:00Z",
+                "source_type": "news",
+                "quote": "„Łatwogang przebił 119 milionów złotych… Szczęsny… zobowiązał się, że chociaż na 1 mecz będzie graczem Tajfuna.”",
+                "published_at_local": "2026-04-26",
+                "url": "https://glamrap.pl/mata-namowil-szczesnego-do-zagrania-meczu-w-jego-druzynie-latwoganga-ma-juz-119-mln-zl/",
+                "label": "GlamRap (relacja progu 119 mln i deklaracji)"
+              }
+            ],
+            "status": "achieved",
+            "executor": "Wojciech Szczęsny",
+            "confidence": "medium",
+            "targetAmount": 119000000
+          },
+          {
+            "description": "Przy progu 150 mln zł Wojciech Szczęsny zapowiedział, że postara się namówić Lamine Yamala do nagrania TikToka z utworem \"Diss na raka\".",
+            "id": "m5",
+            "dateAchieved": "2026-04-26T08:00:00Z",
+            "category": "other",
+            "title": "Challenge dla Lamine Yamala przy 150 mln PLN",
+            "sources": [
+              {
+                "published_at_utc": "2026-04-26T08:00:00Z",
+                "source_type": "news",
+                "quote": "„Przy kolejnym progu, czyli 150 milionach, Szczęsny planuje… namówić Lamine Yamala do nagrania TikToka.”",
+                "published_at_local": "2026-04-26",
+                "url": "https://glamrap.pl/mata-namowil-szczesnego-do-zagrania-meczu-w-jego-druzynie-latwoganga-ma-juz-119-mln-zl/",
+                "label": "GlamRap (opis dodatkowego progu 150 mln)"
+              }
+            ],
+            "status": "pending",
+            "executor": "Wojciech Szczęsny",
+            "confidence": "medium",
+            "targetAmount": 150000000
+          },
+          {
+            "description": "Podczas gdy licznik osiągał ~164 mln zł, Tede wykonał telefon do Peji i panowie ogłosili zawieszenie broni po 17 latach konfliktu.",
+            "id": "m6",
+            "dateAchieved": "2026-04-26T12:00:00Z",
+            "category": "other",
+            "title": "Tede dzwoni do Peji — historyczne pojednanie przy 164 mln PLN",
+            "sources": [
+              {
+                "published_at_utc": "2026-04-26T12:00:00Z",
+                "source_type": "news",
+                "quote": "„Przy akompaniamencie 164 milionów złotych zebranych… Tede wykonał telefon do Rycha Peji… ustanowili zawieszenie broni.”",
+                "published_at_local": "2026-04-26",
+                "url": "https://glamrap.pl/peja-i-tede-pogodzeni-po-17-latach-historyczny-moment-polskiego-hip-hopu/",
+                "label": "GlamRap (opis momentu i stanu licznika 164 mln)"
+              }
+            ],
+            "status": "pending",
+            "executor": "Tede, Peja",
+            "confidence": "medium",
+            "targetAmount": 164000000
+          },
+          {
+            "description": "Około godz. 20:00 stan zbiórki przekroczył 211 mln zł; firma WK Dzik dorzuciła 5 mln zł. Nie byl to wcześniej ogłoszony prog z wyzwaniem, ale medialny kamień milowy.",
+            "id": "m7",
+            "dateAchieved": "2026-04-26T18:00:00Z",
+            "category": "other",
+            "title": "211 mln PLN — wieczorny stan zbiórki; wkład WK Dzik 5 mln",
+            "sources": [
+              {
+                "published_at_utc": "2026-04-26T18:00:00Z",
+                "source_type": "news",
+                "quote": "„Na ostatniej prostej firma WK Dzik wpłaciła 5 mln zł. Na godz. 20. zbiórka osiągnęła 211 mln zł.”",
+                "published_at_local": "2026-04-26",
+                "url": "https://glamrap.pl/tvn24-w-szoku-puscili-na-zywo-mocna-wypowiedz-bedoesa-2115/",
+                "label": "GlamRap (stan 211 mln i wzmianka o 5 mln WK Dzik)"
+              }
+            ],
+            "status": "pending",
+            "executor": "",
+            "confidence": "medium",
+            "targetAmount": 211000000
+          },
+          {
+            "description": "Stream zakończył się w niedzielę 26 kwietnia 2026 r. o 21:37, z komunikatem \"ponad 250 mln zł\" dla Cancer Fighters; media podają rekord i symbolikę godziny.",
+            "id": "m8",
+            "dateAchieved": "2026-04-26T19:37:00Z",
+            "category": "other",
+            "title": "Koniec 9-dniowego streamu — ponad 250 mln PLN, zakończenie 21:37",
+            "sources": [
+              {
+                "published_at_utc": "2026-04-26T19:49:00Z",
+                "source_type": "news",
+                "quote": "„Stream… oficjalnie zakończył się w niedzielę wieczorem. Na… Cancer Fighters zebrano ponad 250 mln zł.… Stream zakończyli Łatwogang i Bedoes 2115 równo o godzinie 21:37.”",
+                "published_at_local": "2026-04-26 21:49 CEST",
+                "url": "https://glamrap.pl/latwogang-i-bedoes-zebrali-ponad-250-mln-zl-koniec-9-dniowego-streamu/",
+                "label": "GlamRap (podsumowanie finału)"
+              }
+            ],
+            "status": "achieved",
+            "executor": "Łatwogang, Bedoes 2115",
+            "confidence": "medium",
+            "targetAmount": 250000000
+          }
+        ]
+      }
+    }
+  }
+}

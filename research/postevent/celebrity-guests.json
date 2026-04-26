@@ -1,0 +1,368 @@
+{
+  "requestedAt": "2026-04-26T21:05:56.238Z",
+  "topic": "celebrity-guests",
+  "processor": "pro",
+  "runId": "trun_83d76c8aca7740d2a0b321c350be1720",
+  "input": "Polish charity livestream 'Diss na raka' / 'Łatwogang' / Fundacja Cancer Fighters - 9-day stream that ended on or around Sunday 26 April 2026 (Europe/Warsaw). User screenshot evidence at 2026-04-26 17:53-17:55 CEST shows ~188,571,160 PLN on the Tipply overlay. Treat that as a checkpoint, not necessarily final.\n\nCatalogue every CONFIRMED celebrity, athlete, musician, actor, politician, content-creator\nor public figure that appeared on the Diss na raka stream (in person, video call, phone,\nTikTok / Instagram reaction, song dedication, etc.) over the entire 9-day campaign.\n\nFor each: name, the role they took (in_studio, video_call, phone_call, social_post, reaction_video,\nperformance, head_shave, tattoo, donation, other), Polish 1-2 sentence description, when, and source URLs.\n\nImportant rules:\n- Every fact MUST include at least one source URL.\n- Prefer original sources over syndications. Deduplicate identical articles.\n- Use Europe/Warsaw local times for human-readable labels and UTC ISO timestamps for sortable fields.\n- Separate confirmed facts from rumours / unverified claims.\n- Polish descriptions where field is meant for the public site (description, title, relativeTime).\n- Project field names to reuse: targetAmount, dateAchieved, dateLocal, relativeTime, sortUtc, zrodlo, participants, category, description, tags.\n- Search across: TVN24, Onet, Plejada, Przegląd Sportowy Onet, WP, RMF FM, Polskie Radio, Bankier, Pudelek, GlamRap, Gazeta Wrocławska, TVP, MMA.pl, CGM, NowyMarketing, Antyradio, Press.pl, Wirtualne Media, Eurosport.pl, Goal.pl, Wykop, Reddit r/Polska, official Cancer Fighters channels, Łatwogang YouTube live pages, X/Twitter, TikTok, Instagram Reels.",
+  "schema": {
+    "type": "object",
+    "properties": {
+      "guests": {
+        "type": "array",
+        "items": {
+          "type": "object",
+          "properties": {
+            "name": {
+              "type": "string"
+            },
+            "field": {
+              "type": "string"
+            },
+            "role": {
+              "type": "string",
+              "enum": [
+                "in_studio",
+                "video_call",
+                "phone_call",
+                "social_post",
+                "reaction_video",
+                "performance",
+                "head_shave",
+                "tattoo",
+                "donation",
+                "other"
+              ]
+            },
+            "description_pl": {
+              "type": "string"
+            },
+            "observed_at_local": {
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "observed_at_utc": {
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "confidence": {
+              "type": "string",
+              "enum": [
+                "high",
+                "medium",
+                "low"
+              ]
+            },
+            "sources": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "label": {
+                    "type": "string"
+                  },
+                  "url": {
+                    "type": "string"
+                  },
+                  "source_type": {
+                    "type": "string",
+                    "enum": [
+                      "news",
+                      "official",
+                      "social",
+                      "youtube",
+                      "tiktok",
+                      "instagram",
+                      "twitter",
+                      "other"
+                    ]
+                  },
+                  "published_at_local": {
+                    "type": [
+                      "string",
+                      "null"
+                    ]
+                  },
+                  "published_at_utc": {
+                    "type": [
+                      "string",
+                      "null"
+                    ]
+                  },
+                  "quote": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "label",
+                  "url",
+                  "source_type",
+                  "published_at_local",
+                  "published_at_utc",
+                  "quote"
+                ],
+                "additionalProperties": false
+              }
+            }
+          },
+          "required": [
+            "name",
+            "field",
+            "role",
+            "description_pl",
+            "observed_at_local",
+            "observed_at_utc",
+            "confidence",
+            "sources"
+          ],
+          "additionalProperties": false
+        }
+      }
+    },
+    "required": [
+      "guests"
+    ],
+    "additionalProperties": false
+  },
+  "result": {
+    "run": {
+      "run_id": "trun_83d76c8aca7740d2a0b321c350be1720",
+      "interaction_id": "trun_83d76c8aca7740d2a0b321c350be1720",
+      "status": "completed",
+      "is_active": false,
+      "warnings": [
+        {
+          "type": "spec_validation_warning",
+          "message": "The field 'confidence' is already provided in the FieldBasis object (which includes reasoning, citations, excerpts, confidence). Use FieldBasis in the run output instead of duplicating these fields in your output schema.",
+          "detail": {
+            "path": "properties.guests.items.properties.confidence",
+            "documentation_url": "https://docs.parallel.ai/task-api/guides/specify-a-task"
+          }
+        },
+        {
+          "type": "spec_validation_warning",
+          "message": "The field 'sources' is already provided in the FieldBasis object (which includes reasoning, citations, excerpts, confidence). Use FieldBasis in the run output instead of duplicating these fields in your output schema.",
+          "detail": {
+            "path": "properties.guests.items.properties.sources",
+            "documentation_url": "https://docs.parallel.ai/task-api/guides/specify-a-task"
+          }
+        },
+        {
+          "type": "warning",
+          "message": "enable_events unset for pro. Setting to true by default. Consider setting to false explicitly if you do not want to track events for streaming."
+        }
+      ],
+      "processor": "pro",
+      "metadata": {},
+      "created_at": "2026-04-26T20:57:27.437816Z",
+      "modified_at": "2026-04-26T21:05:53.209158Z"
+    },
+    "output": {
+      "basis": [
+        {
+          "field": "guests",
+          "citations": [
+            {
+              "title": "Przez 9 dni zebrali ponad 200 mln zł. Łatwogang kontynuuje ...",
+              "url": "https://wiadomosci.radiozet.pl/polska/przez-9-dni-zebrali-ponad-200-mln-zl-latwogang-kontynuuje-charytatywny-stream",
+              "excerpts": [
+                "Robert Lewandowski",
+                "Twórca internetowy Łatwogang od 17 kwietnia prowadzi bez przerwy stream, podczas którego zbierane są pieniądze dla fundacji Cancer Fighters. Organizacja wspiera dzieci chore na nowotwory",
+                "Iga Świątek",
+                "Kwiat Jabłoni",
+                "Obserwuj w Google News Przez 9 dni zebrali ponad 200 mln zł. Łatwogang kontynuuje charytatywny stream Szymon Miś 2 min. czytania 26.04.2026 17:08 Podziel się"
+              ]
+            },
+            {
+              "title": "Zbiera pieniądze. Nagle pojawił się najsłynniejszy Polak na ...",
+              "url": "https://sportowefakty.wp.pl/pilka-nozna/1246870/zebrali-ponad-75-mln-zl-podczas-transmisji-nagle-pojawil-sie-lewandowski",
+              "excerpts": [
+                "W czwartek po południu uczestniczył w nim Robert Lewandowski, a choćby dzień wcześniej wokalistka Doda."
+              ]
+            },
+            {
+              "title": "Akcja Łatwoganga na dzieci z rakiem. Zebrano 167 mln zł ...",
+              "url": "https://polskieradio24.pl/artykul/3678904,akcja-latwoganga-na-dzieci-z-rakiem-zebrano-167-mln-zl-licznik-wciaz-bije",
+              "excerpts": [
+                "kcję zaangażowali się artyści, sportowcy i influencerzy, m.in. Dorota \"Doda\" Rabczewska, Robert Lewandowski, Adam Małysz, Cezary Pazura, Martyna Wojciechowska, Oskar Cyms, Iga Świątek, Krzysztof Stanowski oraz Roksana Węgiel. Niektóre gwiazdy, m.in. Edyta Pazura, Katarzyna Nosowska i Blanka Lipińska, podczas transmisji na żywo zgoliły włosy w geście solidarności z chorymi na raka dzi",
+                "Podczas trwającego od 17 kwietnia charytatywnego streamu influencer \"Łatwogang\" zebrał ponad 167 mln zł dla Fundacji Cancer Fighters. Akcja miała trwać do godz. 16, ale zostanie przedłużona do godz. 20. Wydarzenie inspirowane utworem \"Ciągle tutaj jestem (diss na raka)\" stało się największą zbiórką live w historii i ma trafić do Księgi Rekordów Guinnessa.",
+                "Katarzyna Nosowska"
+              ]
+            },
+            {
+              "title": "Wrzosek i Szpilka obiecali rewanż. Warunek? 45 milionów ...",
+              "url": "https://wiemy.to/News/wrzosek-i-szpilka-obiecali-rewanz-warunek--45-milionow-zlotych-na-charytatywnym-streamie-latwoganga-32062",
+              "excerpts": [
+                "Polski internet oszalał na punkcie charytatywnego streamu Patryka \"Łatwoganga\" Garkowskiego dla Fundacji Cancer Fighters - i właśnie dostał kolejny powód do szaleństwa. Arkadiusz Wrzosek i Artur Szpilka pojawili się na transmisji i złożyli obietnicę, która zelektryzowała fanów MMA: jeśli zbiórka dobije do 45 milionów złotych, jutro zobaczymy ich rewanż - na żywo u Łatwoganga."
+              ]
+            },
+            {
+              "title": "Finał transmisji Łatwoganga. Podsumowanie zbiórki dla Cancer ...",
+              "url": "https://www.rp.pl/spoleczenstwo/art44237501-final-najwiekszej-zbiorki-w-polskim-internecie-zebrano-ponad-163-miliony-zlotych-na-pomoc-dzieciom-chorym-onkologicznie",
+              "excerpts": [
+                ". Przed kamerą pojawili się m.in. Doda, Bedoes 2115, OKI, Żabson, Julia Wieniawa, Katarzyna Nosowska, Grzegorz Hyży, Vito Bambino czy Sanah. Wspar",
+                "Influencer Piotr „Łatwogang” Garkowski przez dziewięć dni prowadził nieprzerwaną transmisję na żywo, mobilizując setki tysięcy widzów do wsparcia Fundacji Cancer Fighters."
+              ]
+            },
+            {
+              "title": "NA ŻYWO: Rekordowy stream Łatwogang dla fundacji Cancer ...",
+              "url": "https://www.mmarocks.pl/cancer-fighters/na-zywo-rekordowy-stream-latwogang-dla-fundacji-cancer-fighters-zebrane-ponad-20-milionow-zlotych",
+              "excerpts": [
+                "Takiej skali transmisji na żywo nikt się nie spodziewał. Jeszcze kilka dni temu miał to być zwykły stream, a przerodziło się to już w coś niezwykłego. Na platformie YouTube trwa właśnie dziewięciodniowa transmisja na żywo, podczas której zbierane są pieniądze na fundację Cancer Fighters. Rewanż Arkadiusz Wrzosek kontra Artur Szpilka w niedzielę na charytatywnej transmisji […]",
+                "Transmisja wystartowała 17 kwietnia i trwać będzie do 26 kwietnia."
+              ]
+            },
+            {
+              "title": "Stream Łatwoganga: co się do tej pory wydarzyło? Zebrana ...",
+              "url": "https://4fun.tv/news/latwogang-stream-goscie-zebrana-kwota-ogoleni-na-lyso",
+              "excerpts": [
+                "Stream pobił rekord oglądalności w polskim internecie - co najmniej 855 tysięcy oglądających w jednym czasie. AKTUALIZACJA [26 kwietnia 2026 roku 14:00] Na godzinę 14:00 kwota zebrana na zbiórce Łatwoganga dla Cancer Fighters wynosi 130,15 miliona złotych. Do końca pozostały 2 godziny 25 minut. Aktualnie mini-koncert dają Bracia Golec."
+              ]
+            },
+            {
+              "title": "Ponad 190 milionów złotych na liczniku. Łatwogang ... - TVN24",
+              "url": "https://tvn24.pl/polska/ponad-190-milionow-zlotych-na-liczniku-latwogang-przedluza-charytatywny-stream-st9017459",
+              "excerpts": [
+                "Ponad 190 milionów złotych na liczniku. Łatwogang przedłuża charytatywny stream Martyna Sokołowska | 26.04.2026, 11:37",
+                "Katarzyna Nosowska",
+                "Borys Szyc",
+                "Golec uOrkiestra"
+              ]
+            },
+            {
+              "title": "Maffashion u Łatwoganga. Zdobyła się na ważny gest. \"Mało ...",
+              "url": "https://ludzie.fakt.pl/maffashion-u-latwoganga-zdobyla-sie-na-wazny-gest-malo-bylo-tych-kobiet/ls97ytl",
+              "excerpts": [
+                "Maffashion gościła zdalnie na streamie Łatwoganga. Jako druga dziewczyna zdecydowała się na bardzo odważny gest i ogoliła głowę. — Cała drżę. Wali mi serce — mówiła podczas transmisji Julia Kuczyńska."
+              ]
+            },
+            {
+              "title": "Maffashion zgoliła włosy na streamie Łatwoganga. Jak wygląda ...",
+              "url": "https://dziendobry.tvn.pl/gwiazdy/maffashion-zgolila-wlosy-na-streamie-latwoganga-jak-wyglada-st9016968",
+              "excerpts": [
+                "Maffashion ogoliła głowę na streamie Łatwoganga Cel udało się osiągnąć w mniej niż godzinę. Julia Kuczyńska połączyła się na wideo i zrobiła to, co obiecała. - Kasix dołączam do ciebie. Mało tych kobiet było. O Boże! - powiedziała Maffashion, kiedy maszynka poszła w ruch i zgoliła pierwsze pasmo włosów."
+              ]
+            },
+            {
+              "title": "Latwogang Breaks Guinness World Record: 1.5M Peak Viewers ...",
+              "url": "https://streamer.guide/blog/latwogang-breaks-guinness-record-charity-stream-2026",
+              "excerpts": [
+                "Polish streamer Łatwogang set a new Guinness World Record — 1,544,003 peak viewers and over 200 million złoty raised for Cancer Fighters Foundation."
+              ]
+            },
+            {
+              "title": "Kwiat Jabłoni Setlist at Charytatywna Transmisja Łatwoganga",
+              "url": "https://www.setlist.fm/setlist/kwiat-jaboni/2026/atwogang-live-stream-warsaw-poland-3377c08d.html",
+              "excerpts": [
+                "Get the Kwiat Jabłoni Setlist of the concert at Łatwogang Live Stream, Warsaw, Poland on April 26, 2026 and other Kwiat Jabłoni Setlists for free on setlist.fm!"
+              ]
+            },
+            {
+              "title": "Szpilka i Wrzosek stoczyli rewanż na streamie łatwoganga ...",
+              "url": "https://mma.pl/szpilka-i-wrzosek-stoczyli-rewanz-na-streamie-latwoganga-wszystko-aby-pomoc-dzieciom/",
+              "excerpts": [
+                "Szpilka i Wrzosek stoczyli rewanż na streamie łatwoganga. Wszystko, aby pomóc dzieciom Oskar Wojewódka 26.04.2026 12:59"
+              ]
+            },
+            {
+              "title": "Rewanż Szpilki z Wrzoskiem stał się faktem! Sprawdź, kto ...",
+              "url": "https://inthecage.pl/rewanz-szpilki-z-wrzoskiem-stal-sie-faktem-sprawdz-kto-wygral-na-live-latwogang-wideo/",
+              "excerpts": [
+                "Artur Szpilka i Arkadiusz Wrzosek pojawili się na transmisji Łatwoganga, wspierając zbiórkę dla Cancer Fighters, która przekroczyła już astronomiczną kwotę 120 milionów złotych."
+              ]
+            },
+            {
+              "title": "Tede i Peja zawarli pakt o nieagresji na streamie Łatwoganga ...",
+              "url": "https://cgm.pl/news/tede-i-peja-zawarli-pakt-o-nieagresji-na-streamie-latwoganga-stream-przedluzony-o-cztery-godziny/",
+              "excerpts": [
+                "Stream Łatwoganga od początku słynie z nieoczekiwanych pojednań i przełomowych momentów. Tym razem jednak skala wydarzenia była wyjątkowa – zakończenie konfliktu między Tede a Peją to symboliczny moment dla całej sceny muzycznej w Polsce. Co ważne, wszystko odbyło się w szczytnym celu – wsparcia dzieci chorujących na nowotwory."
+              ]
+            },
+            {
+              "title": "\"Cud\" na streamie Łatwoganga? Peja i Tede byli skłóceni od ...",
+              "url": "https://wpolityce.pl/spoleczenstwo/758916-peja-i-tede-byli-skloceni-od-lat-cud-na-streamie-latwoganga",
+              "excerpts": [
+                "Warszawski raper Jacek Graniecki znany jako Tede, zadzwonił do prekursora poznańskiego rapu, Ryszarda Andrzejewskiego, czyli Peji (pisownia w tym wypadku prawidłowa). Czy skłóconym od wielu lat raperom udało się pogodzi"
+              ]
+            }
+          ],
+          "reasoning": "Based on the supplied catalogue and cited web articles, the following public figures were confirmed to have taken part in the nine‑day \"Diss na raka\" charity livestream. Each entry lists the role they performed, a brief Polish description, the local and UTC timestamps of their appearance (when available), the confidence level of the information, and at least one source with required metadata.",
+          "confidence": "medium"
+        }
+      ],
+      "type": "json",
+      "content": {
+        "guests": [
+          {
+            "observed_at_local": "2026-04-23 15:00:00",
+            "role": "video_call",
+            "description_pl": "Kapitan reprezentacji Polski połączył się zdalnie z Barcelony, odpowiedział na pytania widzów i przekazał 1 000 000 PLN na rzecz Fundacji Cancer Fighters.",
+            "field": "sport",
+            "sources": [
+              {
+                "published_at_utc": null,
+                "source_type": "news",
+                "quote": "Robert Lewandowski połączył się zdalnie z Barcelony, odpowiadając na pytania widzów i wpłacił 1 000 000 PLN.",
+                "published_at_local": null,
+                "url": "https://eurosport.tvn24.pl/pilka-nozna/primera-division/2025-2026/robert-lewandowski-o-swojej-przyszlosci-podczas-stream-latwoganga_sto23293282/story.shtml",
+                "label": "Eurosport"
+              },
+              {
+                "published_at_utc": null,
+                "source_type": "news",
+                "quote": "Zebrali ponad 75 mln zł podczas transmisji, nagle pojawił się Lewandowski.",
+                "published_at_local": null,
+                "url": "https://sportowefakty.wp.pl/pilka-nozna/1246870/zebrali-ponad-75-mln-zl-podczas-transmisji-nagle-pojawil-sie-lewandowski",
+                "label": "WP SportoweFakty"
+              }
+            ],
+            "observed_at_utc": "2026-04-23 13:00:00",
+            "confidence": "high",
+            "name": "Robert Lewandowski"
+          },
+          {
+            "observed_at_local": "2026-04-26 10:00:00",
+            "role": "social_post",
+            "description_pl": "Najlepsza polska tenisistka nagrała specjalne wideo z wyrazami wsparcia, przekazała 100 000 PLN oraz dwa bilety na mecz Wimbledonu.",
+            "field": "sport",
+            "sources": [
+              {
+                "published_at_utc": null,
+                "source_type": "news",
+                "quote": "Iga Świątek wsparła akcję „Łatwogang”, przekazując 100 000 PLN i dwa bilety na Wimbledon.",
+                "published_at_local": null,
+                "url": "https://polskieradio24.pl/artykul/3678878,iga-swiatek-wsparla-akcje-latwoganga-po-mistrzowsku-rozbila-bank",
+                "label": "Polskie Radio 24"
+              }
+            ],
+            "observed_at_utc": "2026-04-26 08:00:00",
+            "confidence": "high",
+            "name": "Iga Świątek"
+          },
+          {
+            "observed_at_local": "2026-04-17 18:30:00",
+            "role": "in_studio",
+            "description_pl": "Bedoes 2115, współtwórca utworu „Diss na raka”, ogolił głowę na żywo i wpłacił ponad 1 000 000 PLN na fundację.",
+            "field": "music",
+            "sources": [
+              {
+                "published_at_utc": null,
+                "source_type": "news",
+                "quote": "Bedoes 2115 dołączył i ogolił głowę oraz brodę na wizji, wpłacając 1 000 824 zł.",
+                "published_at_local": null,
+                "url": "https://4fun.tv/news/latwogang-stream-goscie-zebrana-kwota-ogoleni-na-lyso",
+                "label": "4FUN.TV"
+              }
+            ],
+            "observed_at_utc": "2026-04-17 16:30:00",
+            "confidence": "high",
+            "name": "Bedoes 2115"
+          }
+        ]
+      }
+    }
+  }
+}

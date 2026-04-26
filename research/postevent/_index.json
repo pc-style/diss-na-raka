@@ -1,0 +1,61 @@
+{
+  "generatedAt": "2026-04-26T21:07:31.672Z",
+  "entries": [
+    {
+      "topic": "final-recap",
+      "runId": "trun_a5e367f560604eb2b24203940c51a9ed",
+      "status": "completed",
+      "outputPath": "/Users/pcstyle/projects/01-Web-Apps/diss-na-raka/research/postevent/final-recap.json",
+      "durationMs": 352855
+    },
+    {
+      "topic": "milestones",
+      "runId": "trun_6bc533bfea9f4816b05b3f35905b46f7",
+      "status": "completed",
+      "outputPath": "/Users/pcstyle/projects/01-Web-Apps/diss-na-raka/research/postevent/milestones.json",
+      "durationMs": 604426
+    },
+    {
+      "topic": "timeline-events",
+      "runId": "trun_6f7b030719d84cc8ba767e2cb4a90c42",
+      "status": "completed",
+      "outputPath": "/Users/pcstyle/projects/01-Web-Apps/diss-na-raka/research/postevent/timeline-events.json",
+      "durationMs": 478624
+    },
+    {
+      "topic": "donations",
+      "runId": "trun_3ae4f8fe2eaf4ba7814333c561e6eddc",
+      "status": "completed",
+      "outputPath": "/Users/pcstyle/projects/01-Web-Apps/diss-na-raka/research/postevent/donations.json",
+      "durationMs": 377960
+    },
+    {
+      "topic": "celebrity-guests",
+      "runId": "trun_83d76c8aca7740d2a0b321c350be1720",
+      "status": "completed",
+      "outputPath": "/Users/pcstyle/projects/01-Web-Apps/diss-na-raka/research/postevent/celebrity-guests.json",
+      "durationMs": 508992
+    },
+    {
+      "topic": "media-coverage",
+      "runId": "trun_be2f5e833f4c497c95c3edb6d4a309c4",
+      "status": "completed",
+      "outputPath": "/Users/pcstyle/projects/01-Web-Apps/diss-na-raka/research/postevent/media-coverage.json",
+      "durationMs": 201810
+    },
+    {
+      "topic": "shorts-clips",
+      "runId": "trun_58bb06cf315340e09ff594fa8bda5143",
+      "status": "completed",
+      "outputPath": "/Users/pcstyle/projects/01-Web-Apps/diss-na-raka/research/postevent/shorts-clips.json",
+      "durationMs": 176668
+    },
+    {
+      "topic": "engagement-records",
+      "runId": "trun_f520201f6d8943b78ac2fbac95d05fcc",
+      "status": "completed",
+      "outputPath": "/Users/pcstyle/projects/01-Web-Apps/diss-na-raka/research/postevent/engagement-records.json",
+      "durationMs": 453631
+    }
+  ]
+}

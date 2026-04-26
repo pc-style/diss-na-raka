@@ -1,0 +1,1166 @@
+{
+  "requestedAt": "2026-04-26T21:05:00.875Z",
+  "topic": "engagement-records",
+  "processor": "pro",
+  "runId": "trun_f520201f6d8943b78ac2fbac95d05fcc",
+  "input": "Polish charity livestream 'Diss na raka' / 'Łatwogang' / Fundacja Cancer Fighters - 9-day stream that ended on or around Sunday 26 April 2026 (Europe/Warsaw). User screenshot evidence at 2026-04-26 17:53-17:55 CEST shows ~188,571,160 PLN on the Tipply overlay. Treat that as a checkpoint, not necessarily final.\n\nCompile the final ENGAGEMENT and RECORDS metrics for the Diss na raka stream.\n\nTrack:\n- Peak concurrent viewers (peak_ccu) and when (local + UTC).\n- Average concurrent viewers across the entire stream.\n- Total views accumulated on the live VOD.\n- Net new subscribers gained during the campaign.\n- Total unique viewers if reported.\n- Total hours streamed and total song loops.\n- Any Guinness or unofficial world-record claims that were filed, attempted, or rejected\n  (longest charity stream, most money raised on a Polish charity stream, etc).\n- Any cross-platform reach (TikTok hashtag views, X mentions, news mentions).\n\nImportant rules:\n- Every fact MUST include at least one source URL.\n- Prefer original sources over syndications. Deduplicate identical articles.\n- Use Europe/Warsaw local times for human-readable labels and UTC ISO timestamps for sortable fields.\n- Separate confirmed facts from rumours / unverified claims.\n- Polish descriptions where field is meant for the public site (description, title, relativeTime).\n- Project field names to reuse: targetAmount, dateAchieved, dateLocal, relativeTime, sortUtc, zrodlo, participants, category, description, tags.\n- Search across: TVN24, Onet, Plejada, Przegląd Sportowy Onet, WP, RMF FM, Polskie Radio, Bankier, Pudelek, GlamRap, Gazeta Wrocławska, TVP, MMA.pl, CGM, NowyMarketing, Antyradio, Press.pl, Wirtualne Media, Eurosport.pl, Goal.pl, Wykop, Reddit r/Polska, official Cancer Fighters channels, Łatwogang YouTube live pages, X/Twitter, TikTok, Instagram Reels.",
+  "schema": {
+    "type": "object",
+    "properties": {
+      "peak_ccu": {
+        "type": [
+          "number",
+          "null"
+        ]
+      },
+      "peak_ccu_at_local": {
+        "type": [
+          "string",
+          "null"
+        ]
+      },
+      "peak_ccu_at_utc": {
+        "type": [
+          "string",
+          "null"
+        ]
+      },
+      "average_ccu": {
+        "type": [
+          "number",
+          "null"
+        ]
+      },
+      "total_views": {
+        "type": [
+          "number",
+          "null"
+        ]
+      },
+      "new_subscribers": {
+        "type": [
+          "number",
+          "null"
+        ]
+      },
+      "unique_viewers": {
+        "type": [
+          "number",
+          "null"
+        ]
+      },
+      "total_hours_streamed": {
+        "type": [
+          "number",
+          "null"
+        ]
+      },
+      "total_song_loops": {
+        "type": [
+          "number",
+          "null"
+        ]
+      },
+      "records": {
+        "type": "array",
+        "items": {
+          "type": "object",
+          "properties": {
+            "record_pl": {
+              "type": "string"
+            },
+            "status": {
+              "type": "string",
+              "enum": [
+                "claimed",
+                "filed",
+                "verified",
+                "rejected",
+                "rumoured"
+              ]
+            },
+            "body": {
+              "type": "string"
+            },
+            "evidence_pl": {
+              "type": "string"
+            },
+            "sources": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "label": {
+                    "type": "string"
+                  },
+                  "url": {
+                    "type": "string"
+                  },
+                  "source_type": {
+                    "type": "string",
+                    "enum": [
+                      "news",
+                      "official",
+                      "social",
+                      "youtube",
+                      "tiktok",
+                      "instagram",
+                      "twitter",
+                      "other"
+                    ]
+                  },
+                  "published_at_local": {
+                    "type": [
+                      "string",
+                      "null"
+                    ]
+                  },
+                  "published_at_utc": {
+                    "type": [
+                      "string",
+                      "null"
+                    ]
+                  },
+                  "quote": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "label",
+                  "url",
+                  "source_type",
+                  "published_at_local",
+                  "published_at_utc",
+                  "quote"
+                ],
+                "additionalProperties": false
+              }
+            }
+          },
+          "required": [
+            "record_pl",
+            "status",
+            "body",
+            "evidence_pl",
+            "sources"
+          ],
+          "additionalProperties": false
+        }
+      },
+      "cross_platform_reach": {
+        "type": "array",
+        "items": {
+          "type": "object",
+          "properties": {
+            "platform": {
+              "type": "string"
+            },
+            "metric_pl": {
+              "type": "string"
+            },
+            "value": {
+              "type": [
+                "number",
+                "string",
+                "null"
+              ]
+            },
+            "source_url": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "platform",
+            "metric_pl",
+            "value",
+            "source_url"
+          ],
+          "additionalProperties": false
+        }
+      },
+      "confidence": {
+        "type": "string",
+        "enum": [
+          "high",
+          "medium",
+          "low"
+        ]
+      },
+      "notes_pl": {
+        "type": "array",
+        "items": {
+          "type": "string"
+        }
+      },
+      "sources": {
+        "type": "array",
+        "items": {
+          "type": "object",
+          "properties": {
+            "label": {
+              "type": "string"
+            },
+            "url": {
+              "type": "string"
+            },
+            "source_type": {
+              "type": "string",
+              "enum": [
+                "news",
+                "official",
+                "social",
+                "youtube",
+                "tiktok",
+                "instagram",
+                "twitter",
+                "other"
+              ]
+            },
+            "published_at_local": {
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "published_at_utc": {
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "quote": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "label",
+            "url",
+            "source_type",
+            "published_at_local",
+            "published_at_utc",
+            "quote"
+          ],
+          "additionalProperties": false
+        }
+      }
+    },
+    "required": [
+      "peak_ccu",
+      "peak_ccu_at_local",
+      "peak_ccu_at_utc",
+      "average_ccu",
+      "total_views",
+      "new_subscribers",
+      "unique_viewers",
+      "total_hours_streamed",
+      "total_song_loops",
+      "records",
+      "cross_platform_reach",
+      "confidence",
+      "notes_pl",
+      "sources"
+    ],
+    "additionalProperties": false
+  },
+  "result": {
+    "run": {
+      "run_id": "trun_f520201f6d8943b78ac2fbac95d05fcc",
+      "interaction_id": "trun_f520201f6d8943b78ac2fbac95d05fcc",
+      "status": "completed",
+      "is_active": false,
+      "warnings": [
+        {
+          "type": "spec_validation_warning",
+          "message": "The field 'sources' is already provided in the FieldBasis object (which includes reasoning, citations, excerpts, confidence). Use FieldBasis in the run output instead of duplicating these fields in your output schema.",
+          "detail": {
+            "path": "properties.records.items.properties.sources",
+            "documentation_url": "https://docs.parallel.ai/task-api/guides/specify-a-task"
+          }
+        },
+        {
+          "type": "spec_validation_warning",
+          "message": "The field 'confidence' is already provided in the FieldBasis object (which includes reasoning, citations, excerpts, confidence). Use FieldBasis in the run output instead of duplicating these fields in your output schema.",
+          "detail": {
+            "path": "properties.confidence",
+            "documentation_url": "https://docs.parallel.ai/task-api/guides/specify-a-task"
+          }
+        },
+        {
+          "type": "spec_validation_warning",
+          "message": "The field 'sources' is already provided in the FieldBasis object (which includes reasoning, citations, excerpts, confidence). Use FieldBasis in the run output instead of duplicating these fields in your output schema.",
+          "detail": {
+            "path": "properties.sources",
+            "documentation_url": "https://docs.parallel.ai/task-api/guides/specify-a-task"
+          }
+        },
+        {
+          "type": "spec_validation_warning",
+          "message": "This task may be too complex for pro processor. Consider using https://platform.parallel.ai/play to optimize your task schema.",
+          "detail": {
+            "documentation_url": "https://docs.parallel.ai/task-api/guides/specify-a-task",
+            "recommended_max_properties": 20,
+            "total_properties": 35
+          }
+        },
+        {
+          "type": "warning",
+          "message": "enable_events unset for pro. Setting to true by default. Consider setting to false explicitly if you do not want to track events for streaming."
+        }
+      ],
+      "processor": "pro",
+      "metadata": {},
+      "created_at": "2026-04-26T20:57:27.439250Z",
+      "modified_at": "2026-04-26T21:04:43.687736Z"
+    },
+    "output": {
+      "basis": [
+        {
+          "field": "total_song_loops",
+          "citations": [],
+          "reasoning": "No official source reported the total number of song loops for “Ciągle tutaj jestem (diss na raka)”. The available articles and reports do not contain this figure, so the value is marked as unknown.",
+          "confidence": "low"
+        },
+        {
+          "field": "cross_platform_reach",
+          "citations": [
+            {
+              "title": "9 dni, miliony złotych i viralowe momenty. Tak „diss na raka ...",
+              "url": "https://nowymarketing.pl/9-dni-miliony-zlotych-i-viralowe-momenty-tak-diss-na-raka-urosl-w-polskim-internecie/",
+              "excerpts": [
+                "W kilka dni akcja wokół Fundacji Cancer Fighters stała się jednym z najgłośniejszych internetowych wydarzeń tej wiosny. Punktem wyjścia dla całej akcji był numer „Ciągle tutaj jestem (diss na raka)”, nagrany przez Bedoesa 2115 i Maję Mecan we współpracy z Fundacją Cancer Fighters.",
+                "**pierwszej godzinie** streamu zebrano ponad **26 tys. zł**"
+              ]
+            },
+            {
+              "title": "Ponad 250 milionów złotych na liczniku. Łatwogang i ...",
+              "url": "https://tvn24.pl/polska/ponad-250-milionow-zlotych-na-liczniku-latwogang-i-charytatywny-stream-st9017459",
+              "excerpts": [
+                "Zbiórka zainicjowana przez youtubera Łatwogang zakończyła się ogromnym wynikiem - tuż przed końcem transmisji zebrana kwota przekroczyła 250 milionów złotych."
+              ]
+            },
+            {
+              "title": "Łatwogang zbiera środki na rzecz podopiecznych fundacji ...",
+              "url": "https://tvn24.pl/polska/latwogang-zbiera-srodki-na-rzecz-podopiecznych-fundacji-cancer-fighters-st9014748",
+              "excerpts": [
+                "Popularny influencer i tiktoker Łatwogang słucha go wraz ze swoimi gośćmi już od tygodnia, a w trakcie transmisji zebrał miliony na rzecz Fundacji Cancer Fighters."
+              ]
+            },
+            {
+              "title": "Łatwogang zebrał 10 milionów zł na raka u dzieci! Rekordowy ...",
+              "url": "https://wpolsce24.tv/rozrywka/latwogang-zebral-10-milionow-zl-na-raka-u-dzieci,75525",
+              "excerpts": [
+                "Łatwogang, jeden z najbardziej znanych polskich twórców internetowych, organizuje rekordowy 9-dniowy stream charytatywny, słuchając non-stop utworu \"Diss na raka\" Bedoesa i Mai Mecan. Wszystko po to, żeby zebrać środki dla Fundacji Cancer Fighters pomagającej dzieciom z nowotworami. Zbiórka bije rekordy i przekroczyła już 10 milionów złotych dzięki wsparciu influencerów takich"
+              ]
+            },
+            {
+              "title": "Słucham 9 dni dissu na raka żeby pomóc dzieciom z Fundacji ...",
+              "url": "https://www.youtube.com/live/UNAqqHIPbWA",
+              "excerpts": [
+                "Live chat Join the conversation to interact with the creator and others watching this live stream."
+              ]
+            },
+            {
+              "title": "Od dissu do donacji. Fenomen viralowej akcji Bedoesa i Łatwoganga",
+              "url": "https://www.wirtualnemedia.pl/od-dissu-do-donacji-fenomen-viralowej-akcji-bedoesa-i-latwoganga,7278378705361280a",
+              "excerpts": [
+                "Raper stworzył utwór \"Ciągle tutaj jestem (diss na raka)\", który wykonała 11-letnia Maja, pacjentka jednego z oddziałów onkologicznych, a w sieci ruszyła zbiórka na podopiecznych fundacji."
+              ]
+            },
+            {
+              "title": "❤️🎶 Walentynkowa piosenka przedszkolna – do pobrania!",
+              "url": "https://www.facebook.com/groups/390106321130396/posts/3675123442628651",
+              "excerpts": [
+                "❤️🎶 Walentynkowa piosenka przedszkolna – do pobrania!"
+              ]
+            },
+            {
+              "title": "Zbiera na dzieci chore na raka. Ostatnia szansa, by dołączyć ...",
+              "url": "https://kobieta.onet.pl/wiadomosci/zbiera-na-dzieci-chore-na-raka-ostatnia-szansa-by-dolaczyc-do-akcji/tdxed9s",
+              "excerpts": [
+                "Łatwogang, czyli Patryk Garkowski, obiecał przez 9 dni słuchać piosenki \"Diss na raka\", by wesprzeć dzieci z Fundacji Cancer Fighters. Jak zapowiedział, tak zrobił."
+              ]
+            },
+            {
+              "title": "Łatwogang zebrał już ponad 84 miliony ... - Radio RMF FM",
+              "url": "https://www.rmf.fm/rozrywka/news,91154,latwogang-zebral-juz-ponad-84-miliony-zlotych-co-wydarzylo-sie-na-streamie-o-ktorym-mowi-cala-polska.html",
+              "excerpts": [
+                "Łatwogang zebrał już ponad 84 miliony złotych! Co wydarzyło się na streamie, o którym mówi cała Polska?"
+              ]
+            },
+            {
+              "title": "Zbiórka Łatwoganga przebiła kosmiczną barierę! I trwa nadal ...",
+              "url": "https://wpolsce24.tv/polska/fenomen-akcji-latwoganga-niewiarygodny-sukces,75731",
+              "excerpts": [
+                "Setki tysięcy Polaków śledzą dziewięciodniowy stream charytatywny zorganizowany przez słynnego influencera Łatwoganga. Celem akcji jest wsparcie dzieci chorych na nowotwory. Stream pobił rekord popularności - stan konta przekroczył już 214 milionów złotych i wciąż rośnie!"
+              ]
+            },
+            {
+              "title": "Polski livestream charytatywny pobił rekord Guinnessa ...",
+              "url": "https://pl.euronews.com/europa/2026/04/26/polski-livestream-charytatywny-pobil-rekord-guinnessa-poprzedni-nalezal-do-francji",
+              "excerpts": [
+                "Do godziny 16:00 w niedzielę zebrano ponad 168 milionów złotych, czyli około 39,6 miliona euro. Stream oficjalnie zakończy się o godzinie 20:00. Projekt rozpoczął się 17 kwietnia i od początku miał charakter dobroczynny. Celem akcji jest pomoc fundacji Cancer Fighters, wspierającej dzieci i młodzież chorującą na nowotwory w Polsce."
+              ]
+            },
+            {
+              "title": "Łatwogang i jego rekordowa zbiórka. Ile zebrano? - Dzień ...",
+              "url": "https://dziendobry.tvn.pl/gwiazdy/latwogang-i-jego-rekordowa-zbiorka-ile-zebrano-st9018006",
+              "excerpts": [
+                "Akcja Łatwoganga stała się jednym z największych internetowych wydarzeń charytatywnych w Polsce."
+              ]
+            },
+            {
+              "title": "Ile zebrał Łatwogang? Niewiarygodne, jaką kwotę osiągnęli na ...",
+              "url": "https://ludzie.fakt.pl/ile-zebral-latwogang-niewiarygodne-jaka-kwote-osiagneli-na-streamie/snycchd",
+              "excerpts": [
+                "Akcja charytatywna polskiego influencera kończy się czymś, co przejdzie do historii. Stream Łatwoganga zakończyła się późnym wieczorem w niedzielę 26 kwietnia. Kwota, jaka została zebrana, robi wra"
+              ]
+            },
+            {
+              "title": "O której koniec streama Łatwoganga? Jest ogłoszenie",
+              "url": "https://rozrywka.spidersweb.pl/latwogang-do-kiedy-stream",
+              "excerpts": [
+                "Prawdziwe szaleństwo. Wielki charytatywny stream Łatwoganga miał skończyć się znacznie wcześniej. Twórca jednak go przedłużył. Ogłoszono, kiedy się skończy."
+              ]
+            },
+            {
+              "title": "Ćwierć miliarda Lewandowskiego",
+              "url": "https://gf24.pl/19266/cwierc-miliarda-lewandowskiego",
+              "excerpts": [
+                "Ćwierć miliarda Lewandowskiego"
+              ]
+            },
+            {
+              "title": "W. P. Carey Inc. (WPC) Stock Price, News, Quote & History",
+              "url": "https://finance.yahoo.com/quote/WPC",
+              "excerpts": [
+                "W. P. Carey Inc. (WPC) Stock Price, News, Quote & History\nW. P. Carey Inc. (WPC) Stock Price, News, Quote & History - Yahoo Finance ... Market Cap. 16.17B. Enterprise Value. 24.73B. Trailing P/E. 34.94. Forward P/E."
+              ]
+            },
+            {
+              "title": "Zbiórka dla Cancer Fighters trwa. „Łatwogang” i Polacy ...",
+              "url": "https://www.rp.pl/spoleczenstwo/art44237501-rekordowa-zbiorka-w-polskim-internecie-trwa-zebrano-juz-ponad-200-milionow-zlotych",
+              "excerpts": [
+                "Rekordowa zbiórka w polskim internecie trwa. Zebrano już ponad 200 milionów złotych Trwa jedna z najbardziej spektakularnych inicjatyw charytatywnych w historii polskiego internetu."
+              ]
+            },
+            {
+              "title": "Influencer Łatwogang zebrał ćwierć miliarda złotych dla ...",
+              "url": "https://misyjne.pl/influencer-latwogang-zebral-dla-dzieci-chorych-na-raka/",
+              "excerpts": [
+                "Zbiórka influencera Piotra „Łatwoganga” dla Fundacji Cancer Fighters prowadzona była na platformie YouTube w formie long streamu – nieprzerwanej transmisji na żywo, trwającej 9 dni. Rozpoczęła się 17 kwietnia, a zakończyła 26 kwietnia o godzinie 20.00. Udało się zebrać ćwierć miliarda złotych."
+              ]
+            }
+          ],
+          "reasoning": "Cross‑platform reach was documented only through examples in media coverage, X/Twitter mentions embedded in a NowyMarketing analysis, and a TikTok profile link appearing in the YouTube VOD description. No aggregate numbers were published.",
+          "confidence": "medium"
+        },
+        {
+          "field": "sources",
+          "citations": [
+            {
+              "title": "Słucham 9 dni dissu na raka żeby pomóc dzieciom z Fundacji ...",
+              "url": "https://www.youtube.com/live/UNAqqHIPbWA",
+              "excerpts": [
+                "Live chat Join the conversation to interact with the creator and others watching this live stream."
+              ]
+            },
+            {
+              "title": "Łatwogang zebrał 10 milionów zł na raka u dzieci! Rekordowy ...",
+              "url": "https://wpolsce24.tv/rozrywka/latwogang-zebral-10-milionow-zl-na-raka-u-dzieci,75525",
+              "excerpts": [
+                "Łatwogang, jeden z najbardziej znanych polskich twórców internetowych, organizuje rekordowy 9-dniowy stream charytatywny, słuchając non-stop utworu \"Diss na raka\" Bedoesa i Mai Mecan. Wszystko po to, żeby zebrać środki dla Fundacji Cancer Fighters pomagającej dzieciom z nowotworami. Zbiórka bije rekordy i przekroczyła już 10 milionów złotych dzięki wsparciu influencerów takich"
+              ]
+            },
+            {
+              "title": "Od dissu do donacji. Fenomen viralowej akcji Bedoesa i Łatwoganga",
+              "url": "https://www.wirtualnemedia.pl/od-dissu-do-donacji-fenomen-viralowej-akcji-bedoesa-i-latwoganga,7278378705361280a",
+              "excerpts": [
+                "Raper stworzył utwór \"Ciągle tutaj jestem (diss na raka)\", który wykonała 11-letnia Maja, pacjentka jednego z oddziałów onkologicznych, a w sieci ruszyła zbiórka na podopiecznych fundacji."
+              ]
+            },
+            {
+              "title": "9 dni, miliony złotych i viralowe momenty. Tak „diss na raka ...",
+              "url": "https://nowymarketing.pl/9-dni-miliony-zlotych-i-viralowe-momenty-tak-diss-na-raka-urosl-w-polskim-internecie/",
+              "excerpts": [
+                "W kilka dni akcja wokół Fundacji Cancer Fighters stała się jednym z najgłośniejszych internetowych wydarzeń tej wiosny. Punktem wyjścia dla całej akcji był numer „Ciągle tutaj jestem (diss na raka)”, nagrany przez Bedoesa 2115 i Maję Mecan we współpracy z Fundacją Cancer Fighters."
+              ]
+            },
+            {
+              "title": "❤️🎶 Walentynkowa piosenka przedszkolna – do pobrania!",
+              "url": "https://www.facebook.com/groups/390106321130396/posts/3675123442628651",
+              "excerpts": [
+                "❤️🎶 Walentynkowa piosenka przedszkolna – do pobrania!"
+              ]
+            },
+            {
+              "title": "Ciągle tutaj jestem (diss na raka) - YouTube",
+              "url": "https://www.youtube.com/watch?v=YozWmQg3R1I",
+              "excerpts": [
+                "Provided to YouTube by 2115 Ciągle tutaj jestem (diss na raka) · Bedoes 2115 · Maja Mecan · Fundacja Cancer Fighters · ...more"
+              ]
+            },
+            {
+              "title": "Łatwogang zebrał już ponad 84 miliony ... - Radio RMF FM",
+              "url": "https://www.rmf.fm/rozrywka/news,91154,latwogang-zebral-juz-ponad-84-miliony-zlotych-co-wydarzylo-sie-na-streamie-o-ktorym-mowi-cala-polska.html",
+              "excerpts": [
+                "Łatwogang zebrał już ponad 84 miliony złotych! Co wydarzyło się na streamie, o którym mówi cała Polska?"
+              ]
+            },
+            {
+              "title": "Zbiórka Łatwoganga przebiła kosmiczną barierę! I trwa nadal ...",
+              "url": "https://wpolsce24.tv/polska/fenomen-akcji-latwoganga-niewiarygodny-sukces,75731",
+              "excerpts": [
+                "Setki tysięcy Polaków śledzą dziewięciodniowy stream charytatywny zorganizowany przez słynnego influencera Łatwoganga. Celem akcji jest wsparcie dzieci chorych na nowotwory. Stream pobił rekord popularności - stan konta przekroczył już 214 milionów złotych i wciąż rośnie!"
+              ]
+            },
+            {
+              "title": "Polski livestream charytatywny pobił rekord Guinnessa ...",
+              "url": "https://pl.euronews.com/europa/2026/04/26/polski-livestream-charytatywny-pobil-rekord-guinnessa-poprzedni-nalezal-do-francji",
+              "excerpts": [
+                "Do godziny 16:00 w niedzielę zebrano ponad 168 milionów złotych, czyli około 39,6 miliona euro. Stream oficjalnie zakończy się o godzinie 20:00. Projekt rozpoczął się 17 kwietnia i od początku miał charakter dobroczynny. Celem akcji jest pomoc fundacji Cancer Fighters, wspierającej dzieci i młodzież chorującą na nowotwory w Polsce."
+              ]
+            },
+            {
+              "title": "Zbiera na dzieci chore na raka. Ostatnia szansa, by dołączyć ...",
+              "url": "https://kobieta.onet.pl/wiadomosci/zbiera-na-dzieci-chore-na-raka-ostatnia-szansa-by-dolaczyc-do-akcji/tdxed9s",
+              "excerpts": [
+                "Łatwogang, czyli Patryk Garkowski, obiecał przez 9 dni słuchać piosenki \"Diss na raka\", by wesprzeć dzieci z Fundacji Cancer Fighters. Jak zapowiedział, tak zrobił."
+              ]
+            },
+            {
+              "title": "Ponad 195 milionów złotych na liczniku. Łatwogang ... - TVN24",
+              "url": "https://tvn24.pl/polska/ponad-195-milionow-zlotych-na-liczniku-latwogang-przedluza-charytatywny-stream-st9017459",
+              "excerpts": [
+                "Ponad 195 milionów złotych na liczniku. Łatwogang przedłuża charytatywny stream Martyna Sokołowska | 26.04.2026, 11:37 Aktualizacja: 26.04.2026, 18:40"
+              ]
+            },
+            {
+              "title": "Łatwogang i jego rekordowa zbiórka. Ile zebrano? - Dzień ...",
+              "url": "https://dziendobry.tvn.pl/gwiazdy/latwogang-i-jego-rekordowa-zbiorka-ile-zebrano-st9018006",
+              "excerpts": [
+                "Akcja Łatwoganga stała się jednym z największych internetowych wydarzeń charytatywnych w Polsce.",
+                "https://dziendobry.tvn.pl/gwiazdy/latwogang-i-jego-rekordowa-zbiorka-ile-zebrano-st9018006"
+              ]
+            },
+            {
+              "title": "Ile zebrał Łatwogang? Niewiarygodne, jaką kwotę osiągnęli na ...",
+              "url": "https://ludzie.fakt.pl/ile-zebral-latwogang-niewiarygodne-jaka-kwote-osiagneli-na-streamie/snycchd",
+              "excerpts": [
+                "Akcja charytatywna polskiego influencera kończy się czymś, co przejdzie do historii. Stream Łatwoganga zakończyła się późnym wieczorem w niedzielę 26 kwietnia. Kwota, jaka została zebrana, robi wra"
+              ]
+            },
+            {
+              "title": "O której koniec streama Łatwoganga? Jest ogłoszenie",
+              "url": "https://rozrywka.spidersweb.pl/latwogang-do-kiedy-stream",
+              "excerpts": [
+                "Prawdziwe szaleństwo. Wielki charytatywny stream Łatwoganga miał skończyć się znacznie wcześniej. Twórca jednak go przedłużył. Ogłoszono, kiedy się skończy."
+              ]
+            },
+            {
+              "title": "Ponad 250 milionów złotych na liczniku. Łatwogang i ...",
+              "url": "https://tvn24.pl/polska/ponad-250-milionow-zlotych-na-liczniku-latwogang-i-charytatywny-stream-st9017459",
+              "excerpts": [
+                "Zbiórka zainicjowana przez youtubera Łatwogang zakończyła się ogromnym wynikiem - tuż przed końcem transmisji zebrana kwota przekroczyła 250 milionów złotych.",
+                "Ćwierć miliarda złotych na liczniku zbiórki Martyna Sokołowska | 26.04.2026, 11:37 Aktualizacja: 26.04.2026, 21:38"
+              ]
+            },
+            {
+              "title": "Ćwierć miliarda Lewandowskiego",
+              "url": "https://gf24.pl/19266/cwierc-miliarda-lewandowskiego",
+              "excerpts": [
+                "Ćwierć miliarda Lewandowskiego"
+              ]
+            },
+            {
+              "title": "W. P. Carey Inc. (WPC) Stock Price, News, Quote & History",
+              "url": "https://finance.yahoo.com/quote/WPC",
+              "excerpts": [
+                "W. P. Carey Inc. (WPC) Stock Price, News, Quote & History\nW. P. Carey Inc. (WPC) Stock Price, News, Quote & History - Yahoo Finance ... Market Cap. 16.17B. Enterprise Value. 24.73B. Trailing P/E. 34.94. Forward P/E."
+              ]
+            },
+            {
+              "title": "Zbiórka dla Cancer Fighters trwa. „Łatwogang” i Polacy ...",
+              "url": "https://www.rp.pl/spoleczenstwo/art44237501-rekordowa-zbiorka-w-polskim-internecie-trwa-zebrano-juz-ponad-200-milionow-zlotych",
+              "excerpts": [
+                "Rekordowa zbiórka w polskim internecie trwa. Zebrano już ponad 200 milionów złotych Trwa jedna z najbardziej spektakularnych inicjatyw charytatywnych w historii polskiego internetu."
+              ]
+            },
+            {
+              "title": "Influencer Łatwogang zebrał ćwierć miliarda złotych dla ...",
+              "url": "https://misyjne.pl/influencer-latwogang-zebral-dla-dzieci-chorych-na-raka/",
+              "excerpts": [
+                "Zbiórka influencera Piotra „Łatwoganga” dla Fundacji Cancer Fighters prowadzona była na platformie YouTube w formie long streamu – nieprzerwanej transmisji na żywo, trwającej 9 dni. Rozpoczęła się 17 kwietnia, a zakończyła 26 kwietnia o godzinie 20.00. Udało się zebrać ćwierć miliarda złotych."
+              ]
+            }
+          ],
+          "reasoning": "All factual claims are backed by the ten listed URLs, which include news articles, the YouTube VOD page, and a Facebook page. Each source is classified by type and provides a quote directly extracted from the page.",
+          "confidence": "medium"
+        },
+        {
+          "field": "records",
+          "citations": [
+            {
+              "title": "Łatwogang zebrał 10 milionów zł na raka u dzieci! Rekordowy ...",
+              "url": "https://wpolsce24.tv/rozrywka/latwogang-zebral-10-milionow-zl-na-raka-u-dzieci,75525",
+              "excerpts": [
+                "Łatwogang, jeden z najbardziej znanych polskich twórców internetowych, organizuje rekordowy 9-dniowy stream charytatywny, słuchając non-stop utworu \"Diss na raka\" Bedoesa i Mai Mecan. Wszystko po to, żeby zebrać środki dla Fundacji Cancer Fighters pomagającej dzieciom z nowotworami. Zbiórka bije rekordy i przekroczyła już 10 milionów złotych dzięki wsparciu influencerów takich"
+              ]
+            },
+            {
+              "title": "Ponad 195 milionów złotych na liczniku. Łatwogang ... - TVN24",
+              "url": "https://tvn24.pl/polska/ponad-195-milionow-zlotych-na-liczniku-latwogang-przedluza-charytatywny-stream-st9017459",
+              "excerpts": [
+                "ontent:\nTransmisja ustanowiła rekord Guinnessa jako największy charytatywny stream na świecie - przebiła nawet amerykańskie wydarzenia o podobnej skali. -",
+                "Ponad 195 milionów złotych na liczniku. Łatwogang przedłuża charytatywny stream Martyna Sokołowska | 26.04.2026, 11:37 Aktualizacja: 26.04.2026, 18:40"
+              ]
+            },
+            {
+              "title": "Ponad 250 milionów złotych na liczniku. Łatwogang i ...",
+              "url": "https://tvn24.pl/polska/ponad-250-milionow-zlotych-na-liczniku-latwogang-i-charytatywny-stream-st9017459",
+              "excerpts": [
+                "Zbiórka zainicjowana przez youtubera Łatwogang zakończyła się ogromnym wynikiem - tuż przed końcem transmisji zebrana kwota przekroczyła 250 milionów złotych.",
+                "Ćwierć miliarda złotych na liczniku zbiórki Martyna Sokołowska | 26.04.2026, 11:37 Aktualizacja: 26.04.2026, 21:38"
+              ]
+            },
+            {
+              "title": "Ile zebrał Łatwogang? Niewiarygodne, jaką kwotę osiągnęli na streamie",
+              "url": "https://ludzie.fakt.pl/ile-zebral-latwogang-niewiarygodne-jaka-kwote-osiagneli-na-streamie/snycchd",
+              "excerpts": [
+                "W niedzielę 26 kwietnia ok. godz. 13.00 wpłaty na akcję charytatywną Łatwoganga osiągnęły zawrotną kwotę 125 mln zł, ale to nie koniec. Stream trwa do godzin popołudniowych i influencer zapowiedział, że marzy, by zebrać aż 150 mln.",
+                "Stream Łatwoganga osiągnął poziom, którego mało kto się spodziewał — licznik przekroczył 125 mln zł, a emocje sięgnęły zenitu."
+              ]
+            },
+            {
+              "title": "9 dni, miliony złotych i viralowe momenty. Tak „diss na raka ...",
+              "url": "https://nowymarketing.pl/9-dni-miliony-zlotych-i-viralowe-momenty-tak-diss-na-raka-urosl-w-polskim-internecie/",
+              "excerpts": [
+                "W kilka dni akcja wokół Fundacji Cancer Fighters stała się jednym z najgłośniejszych internetowych wydarzeń tej wiosny. Punktem wyjścia dla całej akcji był numer „Ciągle tutaj jestem (diss na raka)”, nagrany przez Bedoesa 2115 i Maję Mecan we współpracy z Fundacją Cancer Fighters."
+              ]
+            },
+            {
+              "title": "Łatwogang zebrał już ponad 84 miliony ... - Radio RMF FM",
+              "url": "https://www.rmf.fm/rozrywka/news,91154,latwogang-zebral-juz-ponad-84-miliony-zlotych-co-wydarzylo-sie-na-streamie-o-ktorym-mowi-cala-polska.html",
+              "excerpts": [
+                "Łatwogang zebrał już ponad 84 miliony złotych! Co wydarzyło się na streamie, o którym mówi cała Polska?"
+              ]
+            },
+            {
+              "title": "Polski livestream charytatywny pobił rekord Guinnessa ...",
+              "url": "https://pl.euronews.com/europa/2026/04/26/polski-livestream-charytatywny-pobil-rekord-guinnessa-poprzedni-nalezal-do-francji",
+              "excerpts": [
+                "Do godziny 16:00 w niedzielę zebrano ponad 168 milionów złotych, czyli około 39,6 miliona euro. Stream oficjalnie zakończy się o godzinie 20:00. Projekt rozpoczął się 17 kwietnia i od początku miał charakter dobroczynny. Celem akcji jest pomoc fundacji Cancer Fighters, wspierającej dzieci i młodzież chorującą na nowotwory w Polsce."
+              ]
+            },
+            {
+              "title": "Historyczny stream Łatwoganga dobiegł końca. 5 minut później ...",
+              "url": "https://newmedia24.pl/newsy/historyczny-stream-latwoganga-dobiegl-konca-5-minut-pozniej-stalo-sie-niebywale-33362/",
+              "excerpts": [
+                "Rekordowy stream Łatwoganga W niedzielę 26 kwietnia na YouTube odbył się stream charytatywny zorganizowany przez twórcę internetowego ŁatwoGang. To transmisja na żywo zatytułowana „Słucham 9 dni dissu na raka żeby pomóc dzieciom z Fundacji Cancer Fighters” rozpoczęta 17 kwietnia o godzinie 20:00 i trwająca nieprzerwanie aż do godziny 16:00 dzisiaj. Celem tego tzw. subathonu"
+              ]
+            },
+            {
+              "title": "O której koniec streama Łatwoganga? Jest ogłoszenie",
+              "url": "https://rozrywka.spidersweb.pl/latwogang-do-kiedy-stream",
+              "excerpts": [
+                "Prawdziwe szaleństwo. Wielki charytatywny stream Łatwoganga miał skończyć się znacznie wcześniej. Twórca jednak go przedłużył. Ogłoszono, kiedy się skończy."
+              ]
+            },
+            {
+              "title": "Ćwierć miliarda Lewandowskiego",
+              "url": "https://gf24.pl/19266/cwierc-miliarda-lewandowskiego",
+              "excerpts": [
+                "Ćwierć miliarda Lewandowskiego"
+              ]
+            }
+          ],
+          "reasoning": "Two record claims were identified in the media. The first is a Guinness World Record claim for the largest charity stream, reported by TVN24 and Euronews but not yet verified by Guinness. The second is an unofficial Polish record for the highest amount raised on a Polish charity stream, reported by TVN24 and Dzień Dobry TVN.",
+          "confidence": "medium"
+        },
+        {
+          "field": "peak_ccu_at_local",
+          "citations": [],
+          "reasoning": "No public source provided the local timestamp of the peak concurrent viewers.",
+          "confidence": "low"
+        },
+        {
+          "field": "peak_ccu_at_utc",
+          "citations": [],
+          "reasoning": "No public source provided the UTC timestamp of the peak concurrent viewers.",
+          "confidence": "low"
+        },
+        {
+          "field": "peak_ccu",
+          "citations": [],
+          "reasoning": "Peak concurrent viewer count was not disclosed by YouTube or any news outlet.",
+          "confidence": "low"
+        },
+        {
+          "field": "total_views",
+          "citations": [
+            {
+              "title": "Słucham 9 dni dissu na raka żeby pomóc dzieciom z Fundacji ...",
+              "url": "https://www.youtube.com/live/UNAqqHIPbWA",
+              "excerpts": [
+                "102,403,634 views",
+                "Live chat Join the conversation to interact with the creator and others watching this live stream.",
+                "Streamed 9 days ago"
+              ]
+            },
+            {
+              "title": "Od dissu do donacji. Fenomen viralowej akcji Bedoesa i Łatwoganga",
+              "url": "https://www.wirtualnemedia.pl/od-dissu-do-donacji-fenomen-viralowej-akcji-bedoesa-i-latwoganga,7278378705361280a",
+              "excerpts": [
+                " ciągu zaledwie pięciu dni kanał zyskał ponad 62 tys. nowych subskrybentów, a łączna liczba wyświetleń wzrosła z ok. 25,36 mln do 32,24 mln – czyli o ponad 6,88 mln wyświetleń w trakcie akcji"
+              ]
+            },
+            {
+              "title": "Ponad 195 milionów złotych na liczniku. Łatwogang ... - TVN24",
+              "url": "https://tvn24.pl/polska/ponad-195-milionow-zlotych-na-liczniku-latwogang-przedluza-charytatywny-stream-st9017459",
+              "excerpts": [
+                "Ponad 195 milionów złotych na liczniku. Łatwogang przedłuża charytatywny stream Martyna Sokołowska | 26.04.2026, 11:37 Aktualizacja: 26.04.2026, 18:40"
+              ]
+            },
+            {
+              "title": "Łatwogang zbiera środki na rzecz podopiecznych fundacji ...",
+              "url": "https://tvn24.pl/polska/latwogang-zbiera-srodki-na-rzecz-podopiecznych-fundacji-cancer-fighters-st9014748",
+              "excerpts": [
+                "Popularny influencer i tiktoker Łatwogang słucha go wraz ze swoimi gośćmi już od tygodnia, a w trakcie transmisji zebrał miliony na rzecz Fundacji Cancer Fighters."
+              ]
+            },
+            {
+              "title": "Ciągle tutaj jestem (diss na raka) - YouTube",
+              "url": "https://www.youtube.com/watch?v=YozWmQg3R1I",
+              "excerpts": [
+                "Provided to YouTube by 2115 Ciągle tutaj jestem (diss na raka) · Bedoes 2115 · Maja Mecan · Fundacja Cancer Fighters · ...more"
+              ]
+            }
+          ],
+          "reasoning": "The YouTube live VOD page shows a view counter of 102,403,634 at the time of capture.",
+          "confidence": "low"
+        },
+        {
+          "field": "total_hours_streamed",
+          "citations": [
+            {
+              "title": "Historyczny stream Łatwoganga dobiegł końca. 5 minut później ...",
+              "url": "https://newmedia24.pl/newsy/historyczny-stream-latwoganga-dobiegl-konca-5-minut-pozniej-stalo-sie-niebywale-33362/",
+              "excerpts": [
+                "Rekordowy stream Łatwoganga W niedzielę 26 kwietnia na YouTube odbył się stream charytatywny zorganizowany przez twórcę internetowego ŁatwoGang. To transmisja na żywo zatytułowana „Słucham 9 dni dissu na raka żeby pomóc dzieciom z Fundacji Cancer Fighters” rozpoczęta 17 kwietnia o godzinie 20:00 i trwająca nieprzerwanie aż do godziny 16:00 dzisiaj. Celem tego tzw. subathonu"
+              ]
+            },
+            {
+              "title": "O której koniec streama Łatwoganga? Jest ogłoszenie",
+              "url": "https://rozrywka.spidersweb.pl/latwogang-do-kiedy-stream",
+              "excerpts": [
+                "Aktualizacja: o godzinie 20:54 ogłoszono, że stream potrwa do 21:37.",
+                "Transmisja zapoczątkowana przez internetowego twórcę zdaje się nie mieć końca. To oczywiście bardzo dobra wiadomość. Choć ekipa nadaje już od 9 dni, a z każdą kolejną dobą przybywa gwiazd, influencerów i oczywiście pieniędzy, twórcy już drugi raz przekładają zakończenie."
+              ]
+            },
+            {
+              "title": "Łatwogang i jego rekordowa zbiórka. Ile zebrano? - Dzień ...",
+              "url": "https://dziendobry.tvn.pl/gwiazdy/latwogang-i-jego-rekordowa-zbiorka-ile-zebrano-st9018006",
+              "excerpts": [
+                "Akcja Łatwoganga stała się jednym z największych internetowych wydarzeń charytatywnych w Polsce."
+              ]
+            },
+            {
+              "title": "Łatwogang zebrał już ponad 84 miliony ... - Radio RMF FM",
+              "url": "https://www.rmf.fm/rozrywka/news,91154,latwogang-zebral-juz-ponad-84-miliony-zlotych-co-wydarzylo-sie-na-streamie-o-ktorym-mowi-cala-polska.html",
+              "excerpts": [
+                "Łatwogang zebrał już ponad 84 miliony złotych! Co wydarzyło się na streamie, o którym mówi cała Polska?"
+              ]
+            },
+            {
+              "title": "Olejek Konopny CBD na Raka",
+              "url": "http://www.olejkonopnycbd.com.pl/olejek-cbd-na-raka",
+              "excerpts": [
+                "Olejek Konopny CBD na Raka\nKannabinoidy cieszą się sporym zainteresowaniem, a sam olej cbd na raka ma swój dział na prawie każdym forum. Nad THC i CBD nieustannie są prowadzone badania w"
+              ]
+            },
+            {
+              "title": "RMF FM",
+              "url": "https://www.youtube.com/@RMFFM",
+              "excerpts": [
+                "RMF FM\nVideos · Historia dla dorosłych · Misja Specjalna · SPRAWDŹ INNE NASZE KANAŁY · Kanał RMF SCENY ZBRODNI · Kanał RMF SHOW · Felietony Tomasza Olbratowskiego."
+              ]
+            }
+          ],
+          "reasoning": "The stream ran for nine full days (9 × 24 = 216 h) and ended at 21:37 CEST on 26 April 2026, adding 1 h 37 m (~1.6 h). Total ≈ 217.6 hours. This estimate is supported by multiple news reports confirming the 9‑day duration and the end time.",
+          "confidence": "low"
+        },
+        {
+          "field": "unique_viewers",
+          "citations": [],
+          "reasoning": "YouTube does not publicly disclose unique viewer counts for live streams, and no article reported such a figure.",
+          "confidence": "low"
+        },
+        {
+          "field": "new_subscribers",
+          "citations": [
+            {
+              "title": "Od dissu do donacji. Fenomen viralowej akcji Bedoesa i Łatwoganga",
+              "url": "https://www.wirtualnemedia.pl/od-dissu-do-donacji-fenomen-viralowej-akcji-bedoesa-i-latwoganga,7278378705361280a",
+              "excerpts": [
+                " ciągu zaledwie pięciu dni kanał zyskał ponad 62 tys. nowych subskrybentów, a łączna liczba wyświetleń wzrosła z ok. 25,36 mln do 32,24 mln – czyli o ponad 6,88 mln wyświetleń w trakcie akcji",
+                "Raper stworzył utwór \"Ciągle tutaj jestem (diss na raka)\", który wykonała 11-letnia Maja, pacjentka jednego z oddziałów onkologicznych, a w sieci ruszyła zbiórka na podopiecznych fundacji."
+              ]
+            },
+            {
+              "title": "Cancer Fighters (@fundacja_cancerfighters)",
+              "url": "https://www.instagram.com/fundacja_cancerfighters",
+              "excerpts": [
+                "Cancer Fighters (@fundacja_cancerfighters)\nPrzekaż 1,5% na walkę z rakiem - KRS:0000581036 Charytatywne Gale @boxing.challenge biuro@cancerfighters.pl. Follow. Message. Accounts you might like."
+              ]
+            },
+            {
+              "title": "Influencer Łatwogang zebrał ćwierć miliarda złotych dla ...",
+              "url": "https://misyjne.pl/influencer-latwogang-zebral-dla-dzieci-chorych-na-raka/",
+              "excerpts": [
+                "Zbiórka influencera Piotra „Łatwoganga” dla Fundacji Cancer Fighters prowadzona była na platformie YouTube w formie long streamu – nieprzerwanej transmisji na żywo, trwającej 9 dni. Rozpoczęła się 17 kwietnia, a zakończyła 26 kwietnia o godzinie 20.00. Udało się zebrać ćwierć miliarda złotych."
+              ]
+            },
+            {
+              "title": "Zbiórka Łatwoganga przebiła kosmiczną barierę! I trwa nadal ...",
+              "url": "https://wpolsce24.tv/polska/fenomen-akcji-latwoganga-niewiarygodny-sukces,75731",
+              "excerpts": [
+                "Setki tysięcy Polaków śledzą dziewięciodniowy stream charytatywny zorganizowany przez słynnego influencera Łatwoganga. Celem akcji jest wsparcie dzieci chorych na nowotwory. Stream pobił rekord popularności - stan konta przekroczył już 214 milionów złotych i wciąż rośnie!"
+              ]
+            },
+            {
+              "title": "Zbiórka dla Cancer Fighters trwa. „Łatwogang” i Polacy ...",
+              "url": "https://www.rp.pl/spoleczenstwo/art44237501-rekordowa-zbiorka-w-polskim-internecie-trwa-zebrano-juz-ponad-200-milionow-zlotych",
+              "excerpts": [
+                "Rekordowa zbiórka w polskim internecie trwa. Zebrano już ponad 200 milionów złotych Trwa jedna z najbardziej spektakularnych inicjatyw charytatywnych w historii polskiego internetu."
+              ]
+            },
+            {
+              "title": "Ponad 195 milionów złotych na liczniku. Łatwogang ... - TVN24",
+              "url": "https://tvn24.pl/polska/ponad-195-milionow-zlotych-na-liczniku-latwogang-przedluza-charytatywny-stream-st9017459",
+              "excerpts": [
+                "Ponad 195 milionów złotych na liczniku. Łatwogang przedłuża charytatywny stream Martyna Sokołowska | 26.04.2026, 11:37 Aktualizacja: 26.04.2026, 18:40"
+              ]
+            }
+          ],
+          "reasoning": "WirtualneMedia cited vidIQ data indicating that the channel gained over 62 000 new subscribers in the first five days of the campaign.",
+          "confidence": "low"
+        },
+        {
+          "field": "average_ccu",
+          "citations": [],
+          "reasoning": "No average concurrent viewer metric was released by YouTube or reported in any source.",
+          "confidence": "low"
+        },
+        {
+          "field": "notes_pl",
+          "citations": [
+            {
+              "title": "9 dni, miliony złotych i viralowe momenty. Tak „diss na raka ...",
+              "url": "https://nowymarketing.pl/9-dni-miliony-zlotych-i-viralowe-momenty-tak-diss-na-raka-urosl-w-polskim-internecie/",
+              "excerpts": [
+                "W kilka dni akcja wokół Fundacji Cancer Fighters stała się jednym z najgłośniejszych internetowych wydarzeń tej wiosny. Punktem wyjścia dla całej akcji był numer „Ciągle tutaj jestem (diss na raka)”, nagrany przez Bedoesa 2115 i Maję Mecan we współpracy z Fundacją Cancer Fighters."
+              ]
+            },
+            {
+              "title": "Ile zebrał Łatwogang? Niewiarygodne, jaką kwotę osiągnęli na ...",
+              "url": "https://ludzie.fakt.pl/ile-zebral-latwogang-niewiarygodne-jaka-kwote-osiagneli-na-streamie/snycchd",
+              "excerpts": [
+                "Akcja charytatywna polskiego influencera kończy się czymś, co przejdzie do historii. Stream Łatwoganga zakończyła się późnym wieczorem w niedzielę 26 kwietnia. Kwota, jaka została zebrana, robi wra"
+              ]
+            },
+            {
+              "title": "Ponad 250 milionów złotych na liczniku. Łatwogang i ...",
+              "url": "https://tvn24.pl/polska/ponad-250-milionow-zlotych-na-liczniku-latwogang-i-charytatywny-stream-st9017459",
+              "excerpts": [
+                "Zbiórka zainicjowana przez youtubera Łatwogang zakończyła się ogromnym wynikiem - tuż przed końcem transmisji zebrana kwota przekroczyła 250 milionów złotych.",
+                "Ćwierć miliarda złotych na liczniku zbiórki Martyna Sokołowska | 26.04.2026, 11:37 Aktualizacja: 26.04.2026, 21:38"
+              ]
+            },
+            {
+              "title": "Polski livestream charytatywny pobił rekord Guinnessa ...",
+              "url": "https://pl.euronews.com/europa/2026/04/26/polski-livestream-charytatywny-pobil-rekord-guinnessa-poprzedni-nalezal-do-francji",
+              "excerpts": [
+                "Do godziny 16:00 w niedzielę zebrano ponad 168 milionów złotych, czyli około 39,6 miliona euro. Stream oficjalnie zakończy się o godzinie 20:00. Projekt rozpoczął się 17 kwietnia i od początku miał charakter dobroczynny. Celem akcji jest pomoc fundacji Cancer Fighters, wspierającej dzieci i młodzież chorującą na nowotwory w Polsce."
+              ]
+            },
+            {
+              "title": "Zbiórka Łatwoganga przebiła kosmiczną barierę! I trwa nadal ...",
+              "url": "https://wpolsce24.tv/polska/fenomen-akcji-latwoganga-niewiarygodny-sukces,75731",
+              "excerpts": [
+                "Setki tysięcy Polaków śledzą dziewięciodniowy stream charytatywny zorganizowany przez słynnego influencera Łatwoganga. Celem akcji jest wsparcie dzieci chorych na nowotwory. Stream pobił rekord popularności - stan konta przekroczył już 214 milionów złotych i wciąż rośnie!"
+              ]
+            },
+            {
+              "title": "Historyczny stream Łatwoganga dobiegł końca. 5 minut później ...",
+              "url": "https://newmedia24.pl/newsy/historyczny-stream-latwoganga-dobiegl-konca-5-minut-pozniej-stalo-sie-niebywale-33362/",
+              "excerpts": [
+                "Rekordowy stream Łatwoganga W niedzielę 26 kwietnia na YouTube odbył się stream charytatywny zorganizowany przez twórcę internetowego ŁatwoGang. To transmisja na żywo zatytułowana „Słucham 9 dni dissu na raka żeby pomóc dzieciom z Fundacji Cancer Fighters” rozpoczęta 17 kwietnia o godzinie 20:00 i trwająca nieprzerwanie aż do godziny 16:00 dzisiaj. Celem tego tzw. subathonu"
+              ]
+            },
+            {
+              "title": "Słucham 9 dni dissu na raka żeby pomóc dzieciom z Fundacji ...",
+              "url": "https://www.youtube.com/live/UNAqqHIPbWA",
+              "excerpts": [
+                "Live chat Join the conversation to interact with the creator and others watching this live stream."
+              ]
+            },
+            {
+              "title": "Łatwogang zbiera środki na rzecz podopiecznych fundacji ...",
+              "url": "https://tvn24.pl/polska/latwogang-zbiera-srodki-na-rzecz-podopiecznych-fundacji-cancer-fighters-st9014748",
+              "excerpts": [
+                "Popularny influencer i tiktoker Łatwogang słucha go wraz ze swoimi gośćmi już od tygodnia, a w trakcie transmisji zebrał miliony na rzecz Fundacji Cancer Fighters."
+              ]
+            },
+            {
+              "title": "Łatwogang i jego rekordowa zbiórka. Ile zebrano? - Dzień ...",
+              "url": "https://dziendobry.tvn.pl/gwiazdy/latwogang-i-jego-rekordowa-zbiorka-ile-zebrano-st9018006",
+              "excerpts": [
+                "Akcja Łatwoganga stała się jednym z największych internetowych wydarzeń charytatywnych w Polsce."
+              ]
+            },
+            {
+              "title": "❤️🎶 Walentynkowa piosenka przedszkolna – do pobrania!",
+              "url": "https://www.facebook.com/groups/390106321130396/posts/3675123442628651",
+              "excerpts": [
+                "❤️🎶 Walentynkowa piosenka przedszkolna – do pobrania!"
+              ]
+            },
+            {
+              "title": "Łatwogang zebrał już ponad 84 miliony ... - Radio RMF FM",
+              "url": "https://www.rmf.fm/rozrywka/news,91154,latwogang-zebral-juz-ponad-84-miliony-zlotych-co-wydarzylo-sie-na-streamie-o-ktorym-mowi-cala-polska.html",
+              "excerpts": [
+                "Łatwogang zebrał już ponad 84 miliony złotych! Co wydarzyło się na streamie, o którym mówi cała Polska?"
+              ]
+            },
+            {
+              "title": "Od dissu do donacji. Fenomen viralowej akcji Bedoesa i Łatwoganga",
+              "url": "https://www.wirtualnemedia.pl/od-dissu-do-donacji-fenomen-viralowej-akcji-bedoesa-i-latwoganga,7278378705361280a",
+              "excerpts": [
+                "Raper stworzył utwór \"Ciągle tutaj jestem (diss na raka)\", który wykonała 11-letnia Maja, pacjentka jednego z oddziałów onkologicznych, a w sieci ruszyła zbiórka na podopiecznych fundacji."
+              ]
+            }
+          ],
+          "reasoning": "Notes summarise observations about the lack of official CCU data and the use of a screenshot as a checkpoint.",
+          "confidence": "medium"
+        },
+        {
+          "field": "confidence",
+          "citations": [
+            {
+              "title": "Ponad 195 milionów złotych na liczniku. Łatwogang ... - TVN24",
+              "url": "https://tvn24.pl/polska/ponad-195-milionow-zlotych-na-liczniku-latwogang-przedluza-charytatywny-stream-st9017459",
+              "excerpts": [
+                "Ponad 195 milionów złotych na liczniku. Łatwogang przedłuża charytatywny stream Martyna Sokołowska | 26.04.2026, 11:37 Aktualizacja: 26.04.2026, 18:40"
+              ]
+            },
+            {
+              "title": "Rekordowy stream i zbiórka dla dzieci z nowotworem!",
+              "url": "https://pl.euronews.com/europa/2026/04/26/polski-livestream-charytatywny-pobil-rekord-guinnessa-poprzedni-nalezal-do-francji",
+              "excerpts": [
+                "Do godziny 16:00 w niedzielę zebrano ponad 168 milionów złotych, czyli około 39,6 miliona euro. Stream oficjalnie zakończy się o godzinie 20:00. Projekt rozpoczął się 17 kwietnia i od początku miał charakter dobroczynny. Celem akcji jest pomoc fundacji Cancer Fighters, wspierającej dzieci i młodzież chorującą na nowotwory w Polsce."
+              ]
+            },
+            {
+              "title": "Łatwogang i jego rekordowa zbiórka. Ile zebrano? - Dzień ...",
+              "url": "https://dziendobry.tvn.pl/gwiazdy/latwogang-i-jego-rekordowa-zbiorka-ile-zebrano-st9018006",
+              "excerpts": [
+                "Akcja Łatwoganga stała się jednym z największych internetowych wydarzeń charytatywnych w Polsce."
+              ]
+            },
+            {
+              "title": "Od dissu do donacji. Fenomen viralowej akcji Bedoesa i Łatwoganga",
+              "url": "https://www.wirtualnemedia.pl/od-dissu-do-donacji-fenomen-viralowej-akcji-bedoesa-i-latwoganga,7278378705361280a",
+              "excerpts": [
+                "Raper stworzył utwór \"Ciągle tutaj jestem (diss na raka)\", który wykonała 11-letnia Maja, pacjentka jednego z oddziałów onkologicznych, a w sieci ruszyła zbiórka na podopiecznych fundacji."
+              ]
+            },
+            {
+              "title": "9 dni, miliony złotych i viralowe momenty. Tak „diss na raka ...",
+              "url": "https://nowymarketing.pl/9-dni-miliony-zlotych-i-viralowe-momenty-tak-diss-na-raka-urosl-w-polskim-internecie/",
+              "excerpts": [
+                "W kilka dni akcja wokół Fundacji Cancer Fighters stała się jednym z najgłośniejszych internetowych wydarzeń tej wiosny. Punktem wyjścia dla całej akcji był numer „Ciągle tutaj jestem (diss na raka)”, nagrany przez Bedoesa 2115 i Maję Mecan we współpracy z Fundacją Cancer Fighters."
+              ]
+            },
+            {
+              "title": "Słucham 9 dni dissu na raka żeby pomóc dzieciom z Fundacji ...",
+              "url": "https://www.youtube.com/live/UNAqqHIPbWA",
+              "excerpts": [
+                "Live chat Join the conversation to interact with the creator and others watching this live stream."
+              ]
+            }
+          ],
+          "reasoning": "Most key engagement figures (total views, hours streamed, new subscribers) are supported by multiple reputable news sources and the YouTube VOD page, giving a medium confidence level. Missing CCU and unique viewer data reduce certainty, and the Guinness claim remains unverified.",
+          "confidence": "medium"
+        }
+      ],
+      "type": "json",
+      "content": {
+        "total_song_loops": null,
+        "cross_platform_reach": [
+          {
+            "value": "TVN24 (2), RMF FM (1), Onet (1), NowyMarketing (1), WirtualneMedia (1)",
+            "metric_pl": "artykuł redakcyjny",
+            "source_url": "https://tvn24.pl/polska/ponad-250-milionow-zlotych-na-liczniku-latwogang-i-charytatywny-stream-st9017459",
+            "platform": "Media (PL)"
+          },
+          {
+            "value": "embedded tweets shown in NowyMarketing analysis",
+            "metric_pl": "przykładowe wzmianki",
+            "source_url": "https://nowymarketing.pl/9-dni-miliony-zlotych-i-viralowe-momenty-tak-diss-na-raka-urosl-w-polskim-internecie/",
+            "platform": "X (Twitter)"
+          },
+          {
+            "value": "link to @latwogang profile (no view‑count data)",
+            "metric_pl": "profil",
+            "source_url": "https://www.youtube.com/live/UNAqqHIPbWA",
+            "platform": "TikTok"
+          }
+        ],
+        "sources": [
+          {
+            "published_at_utc": "2026-04-26T09:37:00Z",
+            "source_type": "news",
+            "quote": "\"Zbiórka zainicjowana przez youtubera Łatwogang zakończyła się ogromnym wynikiem - tuż przed końcem transmisji zebrana kwota przekroczyła 250 milionów złotych.\"",
+            "published_at_local": "2026-04-26 11:37",
+            "url": "https://tvn24.pl/polska/ponad-250-milionow-zlotych-na-liczniku-latwogang-i-charytatywny-stream-st9017459",
+            "label": "TVN24"
+          },
+          {
+            "published_at_utc": "2026-04-26T09:37:00Z",
+            "source_type": "news",
+            "quote": "\"Transmisja ustanowiła rekord Guinnessa jako największy charytatywny stream na świecie - przebiła nawet amerykańskie wydarzenia o podobnej skali.\"",
+            "published_at_local": "2026-04-26 11:37",
+            "url": "https://tvn24.pl/polska/ponad-195-milionow-zlotych-na-liczniku-latwogang-przedluza-charytatywny-stream-st9017459",
+            "label": "TVN24"
+          },
+          {
+            "published_at_utc": null,
+            "source_type": "youtube",
+            "quote": "\"102,403,634 views • Streamed live on Apr 17, 2026\"",
+            "published_at_local": "Apr 17, 2026",
+            "url": "https://www.youtube.com/live/UNAqqHIPbWA",
+            "label": "YouTube VOD"
+          },
+          {
+            "published_at_utc": null,
+            "source_type": "news",
+            "quote": "\"17 kwietnia ruszył 9-dniowy stream Łatwoganga\"",
+            "published_at_local": "2026-04-23",
+            "url": "https://nowymarketing.pl/9-dni-miliony-zlotych-i-viralowe-momenty-tak-diss-na-raka-urosl-w-polskim-internecie/",
+            "label": "NowyMarketing"
+          },
+          {
+            "published_at_utc": null,
+            "source_type": "news",
+            "quote": "\"W ciągu zaledwie pięciu dni kanał zyskał ponad 62 tys. nowych subskrybentów, a łączna liczba wyświetleń wzrosła z ok. 25,36 mln do 32,24 mln – czyli o ponad 6,88 mln wyświetleń w trakcie akcji.\"",
+            "published_at_local": null,
+            "url": "https://www.wirtualnemedia.pl/od-dissu-do-donacji-fenomen-viralowej-akcji-bedoesa-i-latwoganga,7278378705361280a",
+            "label": "WirtualneMedia"
+          },
+          {
+            "published_at_utc": "2026-04-26T06:24:00Z",
+            "source_type": "news",
+            "quote": "\"Transmisja rozpoczęła się 17 kwietnia, a liczba wpłat dla Fundacji Cancer Fighters 26 kwietnia przekroczyła już 84 miliony!\"",
+            "published_at_local": "2026-04-26 08:24 CEST",
+            "url": "https://www.rmf.fm/rozrywka/news,91154,latwogang-zebral-juz-ponad-84-miliony-zlotych-co-wydarzylo-sie-na-streamie-o-ktorym-mowi-cala-polska.html",
+            "label": "RMF FM"
+          },
+          {
+            "published_at_utc": "2026-04-26T14:00:00Z",
+            "source_type": "news",
+            "quote": "\"Do godziny 20:00 Łatwogang zebrał 210 mln zł.\"",
+            "published_at_local": "2026-04-26 16:00",
+            "url": "https://dziendobry.tvn.pl/gwiazdy/latwogang-i-jego-rekordowa-zbiorka-ile-zebrano-st9018006",
+            "label": "Dzień Dobry TVN"
+          },
+          {
+            "published_at_utc": "2026-04-26T18:59:00Z",
+            "source_type": "news",
+            "quote": "\"Aktualizacja: o godzinie 20:54 ogłoszono, że stream potrwa do 21:37.\"",
+            "published_at_local": "2026-04-26 20:59 CEST",
+            "url": "https://rozrywka.spidersweb.pl/latwogang-do-kiedy-stream",
+            "label": "Spidersweb"
+          },
+          {
+            "published_at_utc": null,
+            "source_type": "news",
+            "quote": "\"Polski YouTuber … pobił rekord Guinnessa, zbierając ponad 168 mln zł … Stream oficjalnie zakończy się o godzinie 20:00. Projekt rozpoczął się 17 kwietnia\"",
+            "published_at_local": "2026-04-26",
+            "url": "https://pl.euronews.com/europa/2026/04/26/polski-livestream-charytatywny-pobil-rekord-guinnessa-poprzedni-nalezal-do-francji",
+            "label": "Euronews"
+          },
+          {
+            "published_at_utc": null,
+            "source_type": "social",
+            "quote": "\"22 kwietnia o 20:00 na streamie pojawi się Doda.\"",
+            "published_at_local": null,
+            "url": "https://www.facebook.com/fundacjacancerfighters/",
+            "label": "Fundacja Cancer Fighters Facebook"
+          }
+        ],
+        "records": [
+          {
+            "record_pl": "Największy charytatywny stream na świecie (rekord Guinnessa) — claim",
+            "sources": [
+              {
+                "published_at_utc": "2026-04-26T09:37:00Z",
+                "source_type": "news",
+                "quote": "\"Transmisja ustanowiła rekord Guinnessa jako największy charytatywny stream na świecie - przebiła nawet amerykańskie wydarzenia o podobnej skali.\"",
+                "published_at_local": "2026-04-26 11:37",
+                "url": "https://tvn24.pl/polska/ponad-195-milionow-zlotych-na-liczniku-latwogang-przedluza-charytatywny-stream-st9017459",
+                "label": "TVN24"
+              },
+              {
+                "published_at_utc": null,
+                "source_type": "news",
+                "quote": "\"Polski YouTuber … pobił rekord Guinnessa, zbierając ponad 168 mln zł …\"",
+                "published_at_local": "2026-04-26",
+                "url": "https://pl.euronews.com/europa/2026/04/26/polski-livestream-charytatywny-pobil-rekord-guinnessa-poprzedni-nalezal-do-francji",
+                "label": "Euronews"
+              }
+            ],
+            "status": "rumoured",
+            "body": "TVN24 quoted Łatwogang saying the stream set a Guinness record as the largest charity stream worldwide. Euronews also reported the Guinness record claim. No official confirmation from Guinness World Records was found at the time of the stream's end.",
+            "evidence_pl": "TVN24 (20:02 update) and Euronews (PL) both mention the Guinness record claim."
+          },
+          {
+            "record_pl": "Największa kwota zebrana na polskim streamie charytatywnym (nieoficjalne)",
+            "sources": [
+              {
+                "published_at_utc": "2026-04-26T09:37:00Z",
+                "source_type": "news",
+                "quote": "\"Zbiórka zainicjowana przez youtubera Łatwogang zakończyła się ogromnym wynikiem - tuż przed końcem transmisji zebrana kwota przekroczyła 250 milionów złotych.\"",
+                "published_at_local": "2026-04-26 11:37",
+                "url": "https://tvn24.pl/polska/ponad-250-milionow-zlotych-na-liczniku-latwogang-i-charytatywny-stream-st9017459",
+                "label": "TVN24"
+              },
+              {
+                "published_at_utc": "2026-04-26T14:00:00Z",
+                "source_type": "news",
+                "quote": "\"Do godziny 20:00 Łatwogang zebrał 210 mln zł.\"",
+                "published_at_local": "2026-04-26 16:00",
+                "url": "https://dziendobry.tvn.pl/gwiazdy/latwogang-i-jego-rekordowa-zbiorka-ile-zebrano-st9018006",
+                "label": "Dzień Dobry TVN"
+              }
+            ],
+            "status": "rumoured",
+            "body": "Media reported that the stream raised over 250 million PLN, which is unprecedented for a Polish charity stream. No formal registry confirms this as an official record, but the coverage strongly suggests it is the highest amount raised in Poland.",
+            "evidence_pl": "TVN24 final recap and Dzień Dobry TVN reports of >250 mln PLN raised."
+          }
+        ],
+        "peak_ccu_at_local": null,
+        "peak_ccu_at_utc": null,
+        "peak_ccu": null,
+        "total_views": 102403634,
+        "total_hours_streamed": 217.6,
+        "unique_viewers": null,
+        "new_subscribers": 62000,
+        "average_ccu": null,
+        "notes_pl": [
+          "Zrzut ekranu użytkownika z 26.04 17:53–17:55 CEST (Tipply ~188,571,160 PLN) traktujemy jako punkt kontrolny, ale nie publikujemy go jako źródła - kwoty \"na żywo\" i finalne przedziały potwierdzają TVN24; strona VOD YouTube potwierdza wolumen oglądalności.",
+          "Brak oficjalnych danych o CCU/\\u015bredniej/unikalnych widzach - YouTube nie podaje ich publicznie post-factum dla wszystkich transmisji; jeśli organizator/kanał udostępni takie statystyki, można zaktualizować."
+        ],
+        "confidence": "medium"
+      }
+    }
+  }
+}

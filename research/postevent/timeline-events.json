@@ -1,0 +1,715 @@
+{
+  "requestedAt": "2026-04-26T21:05:25.869Z",
+  "topic": "timeline-events",
+  "processor": "pro",
+  "runId": "trun_6f7b030719d84cc8ba767e2cb4a90c42",
+  "input": "Polish charity livestream 'Diss na raka' / 'Łatwogang' / Fundacja Cancer Fighters - 9-day stream that ended on or around Sunday 26 April 2026 (Europe/Warsaw). User screenshot evidence at 2026-04-26 17:53-17:55 CEST shows ~188,571,160 PLN on the Tipply overlay. Treat that as a checkpoint, not necessarily final.\n\nProduce a TIMELINE of source-backed events from 2026-04-25 18:00 CEST through the end of the stream.\n\nCategories: core_event, milestone_execution, guest_appearance, endurance_challenge, scheduled_appearance.\n\nPolish 1-2 sentence description per event. Use the exact field names below so the JSON can be merged\ndirectly into lib/site-data.ts.\n\nImportant rules:\n- Every fact MUST include at least one source URL.\n- Prefer original sources over syndications. Deduplicate identical articles.\n- Use Europe/Warsaw local times for human-readable labels and UTC ISO timestamps for sortable fields.\n- Separate confirmed facts from rumours / unverified claims.\n- Polish descriptions where field is meant for the public site (description, title, relativeTime).\n- Project field names to reuse: targetAmount, dateAchieved, dateLocal, relativeTime, sortUtc, zrodlo, participants, category, description, tags.\n- Search across: TVN24, Onet, Plejada, Przegląd Sportowy Onet, WP, RMF FM, Polskie Radio, Bankier, Pudelek, GlamRap, Gazeta Wrocławska, TVP, MMA.pl, CGM, NowyMarketing, Antyradio, Press.pl, Wirtualne Media, Eurosport.pl, Goal.pl, Wykop, Reddit r/Polska, official Cancer Fighters channels, Łatwogang YouTube live pages, X/Twitter, TikTok, Instagram Reels.",
+  "schema": {
+    "type": "object",
+    "properties": {
+      "timelineEvents": {
+        "type": "array",
+        "items": {
+          "type": "object",
+          "properties": {
+            "id": {
+              "type": "string"
+            },
+            "dateLocal": {
+              "type": "string"
+            },
+            "relativeTime": {
+              "type": "string"
+            },
+            "sortUtc": {
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "zrodlo": {
+              "type": "object",
+              "properties": {
+                "label": {
+                  "type": "string"
+                },
+                "url": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "label",
+                "url"
+              ],
+              "additionalProperties": false
+            },
+            "participants": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "category": {
+              "type": "string",
+              "enum": [
+                "core_event",
+                "milestone_execution",
+                "guest_appearance",
+                "endurance_challenge",
+                "scheduled_appearance"
+              ]
+            },
+            "description": {
+              "type": "string"
+            },
+            "tags": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "confidence": {
+              "type": "string",
+              "enum": [
+                "high",
+                "medium",
+                "low"
+              ]
+            },
+            "sources": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "label": {
+                    "type": "string"
+                  },
+                  "url": {
+                    "type": "string"
+                  },
+                  "source_type": {
+                    "type": "string",
+                    "enum": [
+                      "news",
+                      "official",
+                      "social",
+                      "youtube",
+                      "tiktok",
+                      "instagram",
+                      "twitter",
+                      "other"
+                    ]
+                  },
+                  "published_at_local": {
+                    "type": [
+                      "string",
+                      "null"
+                    ]
+                  },
+                  "published_at_utc": {
+                    "type": [
+                      "string",
+                      "null"
+                    ]
+                  },
+                  "quote": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "label",
+                  "url",
+                  "source_type",
+                  "published_at_local",
+                  "published_at_utc",
+                  "quote"
+                ],
+                "additionalProperties": false
+              }
+            }
+          },
+          "required": [
+            "id",
+            "dateLocal",
+            "relativeTime",
+            "sortUtc",
+            "zrodlo",
+            "participants",
+            "category",
+            "description",
+            "tags",
+            "confidence",
+            "sources"
+          ],
+          "additionalProperties": false
+        }
+      }
+    },
+    "required": [
+      "timelineEvents"
+    ],
+    "additionalProperties": false
+  },
+  "result": {
+    "run": {
+      "run_id": "trun_6f7b030719d84cc8ba767e2cb4a90c42",
+      "interaction_id": "trun_6f7b030719d84cc8ba767e2cb4a90c42",
+      "status": "completed",
+      "is_active": false,
+      "warnings": [
+        {
+          "type": "spec_validation_warning",
+          "message": "The field 'confidence' is already provided in the FieldBasis object (which includes reasoning, citations, excerpts, confidence). Use FieldBasis in the run output instead of duplicating these fields in your output schema.",
+          "detail": {
+            "path": "properties.timelineEvents.items.properties.confidence",
+            "documentation_url": "https://docs.parallel.ai/task-api/guides/specify-a-task"
+          }
+        },
+        {
+          "type": "spec_validation_warning",
+          "message": "The field 'sources' is already provided in the FieldBasis object (which includes reasoning, citations, excerpts, confidence). Use FieldBasis in the run output instead of duplicating these fields in your output schema.",
+          "detail": {
+            "path": "properties.timelineEvents.items.properties.sources",
+            "documentation_url": "https://docs.parallel.ai/task-api/guides/specify-a-task"
+          }
+        },
+        {
+          "type": "warning",
+          "message": "enable_events unset for pro. Setting to true by default. Consider setting to false explicitly if you do not want to track events for streaming."
+        }
+      ],
+      "processor": "pro",
+      "metadata": {},
+      "created_at": "2026-04-26T20:57:27.437116Z",
+      "modified_at": "2026-04-26T21:05:24.165497Z"
+    },
+    "output": {
+      "basis": [
+        {
+          "field": "timelineEvents",
+          "citations": [
+            {
+              "title": "Tego jeszcze nie było! Łatwogang prowadzi 9-dniowy stream ...",
+              "url": "https://wroclaw.tvp.pl/92870227/tego-jeszcze-nie-bylo-latwogang-prowadzi-9-dniowy-stream-charytatywny-by-pomoc-chorym-na-nowotwor-dzieciom",
+              "excerpts": [
+                "Takiej akcji charytatywnej w polskim internecie chyba jeszcze nie było! Łatwogang – popularny polski influencer – zorganizował 9-dniowy stream, na którym zbierane są środki dla Fundacji Cancer Fighters. W czwartek do godziny 14:30 udało się zebrać ponad 6 mln zł, a wskaźnik zbiórki"
+              ]
+            },
+            {
+              "title": "Bedoes i Łatwogang zebrali półtora miliona złotych na Cancer ...",
+              "url": "https://cgm.pl/news/bedoes-i-latwogang-zebrali-poltora-miliona-zlotych-na-cancer-fighters-bedoes-ogolil-glowe-wasy-i-zrobil-tatuaz-podczas-streamu/",
+              "excerpts": [
+                "Łatwogang rozpoczął wielodniowy stream, podczas którego non stop odtwarzany jest utwór „Diss na raka”. Celem akcji było zbieranie pieniędzy na wsparcie fundacji walczącej z chorobami nowotworowymi. Efekt przerósł oczekiwania – w krótkim czasie udało się zebrać ogromną kwotę, sięgającą niemal 1,5 miliona złotych."
+              ]
+            },
+            {
+              "title": "Ponad 250 milionów złotych na liczniku. Łatwogang ... - TVN24",
+              "url": "https://tvn24.pl/polska/ponad-250-milionow-zlotych-na-liczniku-latwogang-i-charytatywny-stream-st9017459",
+              "excerpts": [
+                "To, co zaczęło się od piosenki Bedoesa \"Ciągle tutaj jestem (diss na raka)\", przerodziło się w ogólnopolskie poruszenie i jedną z największych charytatywnych akcji internetowych w historii. Zbiórka zainicjowana przez youtubera Łatwogang zakończyła się ogromnym wynikiem - tuż przed końcem transmisji zebrana kwota przekroczyła 250 milionów złotych.",
+                "Tempo zbierania pieniędzy było niesamowite. Kwota zbiórki przekroczyła przed niedzielnym południem 100 milionów złotych, o godzinie 19 - 200 milionów złotych, a po godzinie 21 - tuż przed końcem transmisji - 250 milionów złotych.",
+                "Transmisja ustanowiła rekord Guinnessa jako największy charytatywny stream na świecie - przebiła nawet amerykańskie wydarzenia o podobnej skali.",
+                "twogang zakończyła się ogromnym wynikiem - tuż przed końcem transmisji zebrana kwota przekroczyła 250 milionów złotych."
+              ]
+            },
+            {
+              "title": "Cancer Fighters - Diss na raka (prod. Voskovy) - YouTube",
+              "url": "https://www.youtube.com/watch?v=_mnTDNsGFtU",
+              "excerpts": [
+                "„Diss na raka” to wyjątkowy utwór nagrany wspólnie z naszą podopieczną Laurą. To projekt o sile, odwadze i walce z chorobą, ale też o nadziei, wsparciu i ogromnej determinacji."
+              ]
+            },
+            {
+              "title": "Przez 9 dni zebrali ponad 200 mln zł. Łatwogang kontynuuje ...",
+              "url": "https://wiadomosci.radiozet.pl/polska/przez-9-dni-zebrali-ponad-200-mln-zl-latwogang-kontynuuje-charytatywny-stream",
+              "excerpts": [
+                "Obserwuj w Google News Przez 9 dni zebrali ponad 200 mln zł. Łatwogang kontynuuje charytatywny stream Szymon Miś 2 min. czytania 26.04.2026 17:08 Podziel się",
+                "Twórca internetowy Łatwogang od 17 kwietnia prowadzi bez przerwy stream, podczas którego zbierane są pieniądze dla fundacji Cancer Fighters. Organizacja wspiera dzieci chore na nowotwory",
+                "Jak dotąd na streamie pojawili się m.in.: zespół Kwiat Jabłoni, Dariusz Szpakowski, Cezary Pazura czy Doda.",
+                "*Swoje wsparcie dla fundacji zadeklarowali również m.in. Robert Lewandowski czy Iga Świątek"
+              ]
+            },
+            {
+              "title": "Cancer Fighters",
+              "url": "https://cancerfighters.pl/",
+              "excerpts": [
+                "Cancer Fighters\nCancer Fighters to ogólnopolska fundacja dla chorych na raka. Zarówno dla osób dorosłych jak i dzieci, a nawet dla noworodków. Uzyskaj od nas pomoc finansową,"
+              ]
+            },
+            {
+              "title": "Ponad 190 milionów złotych na liczniku. Łatwogang ... - TVN24",
+              "url": "https://tvn24.pl/polska/ponad-190-milionow-zlotych-na-liczniku-latwogang-przedluza-charytatywny-stream-st9017459",
+              "excerpts": [
+                "To, co zaczęło się od piosenki Bedoesa \"Ciągle tutaj jestem (diss na raka)\", przerodziło się w ogólnopolskie poruszenie i jedną z największych charytatywnych akcji internetowych w"
+              ]
+            },
+            {
+              "title": "Łatwogang stream. Gdzie oglądać? Link do zbiórki na żywo",
+              "url": "https://wiadomosci.radiozet.pl/polska/latwogang-stream-gdzie-ogladac-link-do-zbiorki-na-zywo",
+              "excerpts": [
+                "Łatwogang prowadzi stream ze zbiórką na Fundację Cancer Fighters już od 9 dni. Gdzie oglądać finał? Zbiórka zakończy się na kanale YouTube. Ile zebrano?"
+              ]
+            },
+            {
+              "title": "\"Diss na raka\" podbija internet. Bedoes i Łatwogang zebrali ...",
+              "url": "https://deon.pl/wiadomosci/diss-na-raka-podbija-internet-bedoes-i-latwogang-zebrali-juz-miliony-dla-dzieci,3424362",
+              "excerpts": [
+                "Kluczowym momentem dla skali akcji okazało się zaangażowanie influencera Łatwogang. 17 kwietnia rozpoczął on wielodniową transmisję na żywo, której formuła opiera się na ciągłym odtwarzaniu utworu \"Diss na raka\"."
+              ]
+            },
+            {
+              "title": "Ostateczny koniec streamu Łatwoganga. Nieprawdopodobne, ile ...",
+              "url": "https://newmedia24.pl/wydarzenia/ostateczny-koniec-streamu-latwoganga-nieprawdopodobne-ile-pieniedzy-udalo-sie-zebrac-33431/",
+              "excerpts": [
+                "Oficjalnie zakończył się 9-dniowy stream Łatwogangu. Podczas charytatywnej transmisji na żywo zebrano aż ponad 250 mln zł na pomoc dzieciom."
+              ]
+            },
+            {
+              "title": "Olejek Konopny CBD na Raka",
+              "url": "http://www.olejkonopnycbd.com.pl/olejek-cbd-na-raka",
+              "excerpts": [
+                "Olejek Konopny CBD na Raka\nKannabinoidy cieszą się sporym zainteresowaniem, a sam olej cbd na raka ma swój dział na prawie każdym forum. Nad THC i CBD nieustannie są prowadzone badania w"
+              ]
+            },
+            {
+              "title": "Bedoes 2115, Maja Mecan, Cancer Fighters - YouTube",
+              "url": "https://www.youtube.com/watch?v=d-kldWAQBzk",
+              "excerpts": [
+                "Cały dochód z utworu zostanie przeznaczony na Fundację Cancer Fighters. Wesprzyj Fundację Cancer Fighters i pomóż podopiecznym poczuć, że w najtrudniejszej walce nie są sami."
+              ]
+            },
+            {
+              "title": "Łatwogang zebrał 250 mln zł. Zbiórka trwała podczas ...",
+              "url": "https://wiadomosci.radiozet.pl/polska/latwogang-zebral-250-mln-zl-zbiorka-trwala-podczas-transmisji-online",
+              "excerpts": [
+                "Łatwogang zebrał ponad 250 mln zł na dzieci chore na raka 17 kwietnia 2026 roku rozpoczęła się historyczna akcja charytatywna streamera internetowego Łatwoganga."
+              ]
+            },
+            {
+              "title": "️ Łatwogang zakończył 9-dniowy stream z ... - Facebook",
+              "url": "https://www.facebook.com/konflikty2020/videos/%EF%B8%8F-%C5%82atwogang-zako%C5%84czy%C5%82-9-dniowy-stream-z-wynikiem-ponad-250-mln-z%C5%82-%C5%82atwogang-ofic/1588215252239785/",
+              "excerpts": [
+                "🎗️ Łatwogang zakończył 9-dniowy stream z wynikiem ponad 250 mln zł 🔴 Łatwogang oficjalnie zakończył 9-dniowy stream charytatywny na rzecz Fundacji Cancer Fighters. Według najnowszych informacji zebrano ponad 250 mln zł na pomoc dzieciom walczącym z chorobami nowotworowymi. 🟡 Transmisja zakończyła się 26 kwietnia o godzinie 21:37. Akcja była wcześniej przedłużana, bo"
+              ]
+            },
+            {
+              "title": "Cancer Fighters (@fundacja_cancerfighters) - Instagram",
+              "url": "https://www.instagram.com/fundacja_cancerfighters/",
+              "excerpts": [
+                "292K Followers, 3,234 Following, 3,365 Posts - Cancer Fighters (@fundacja_cancerfighters) on Instagram: \" ️ Przekaż 1,5% na walkę z rakiem - KRS:0000581036 🥊 Charytatywne Gale @boxing.challenge 💌 biuro@cancerfighters.pl\""
+              ]
+            },
+            {
+              "title": "Bedoes 2115 / Maja Mecan - Ciągle Tutaj Jestem (Diss Na Raka ...",
+              "url": "https://radiospis.pl/piosenka/bedoes-2115-maja-mecan-ciagle-tutaj-jestem-diss-na-raka-1",
+              "excerpts": [
+                "Piosenka Bedoes 2115 / Maja Mecan - Ciągle Tutaj Jestem (Diss Na Raka) grana w radiu, zobacz kiedy i gdzie posłuchasz, w jakim dniu i o której godzinie odtwarzano muzykę"
+              ]
+            }
+          ],
+          "reasoning": "Zidentyfikowano wszystkie istotne wydarzenia od 25 kwietnia 2026 18:00 CEST do zakończenia streamu 26 kwietnia 2026 21:37 CEST w podanych źródłach (Radio ZET, TVN24). Powtórzone artykuły zostały zduplikowane, a pola dopasowano do wymaganego schematu (usunięto nieobsługiwane pola, przemapowano typy źródeł na dozwolone wartości).",
+          "confidence": "medium"
+        }
+      ],
+      "type": "json",
+      "content": {
+        "timelineEvents": [
+          {
+            "zrodlo": {
+              "url": "https://wiadomosci.radiozet.pl/polska/przez-9-dni-zebrali-ponad-200-mln-zl-latwogang-kontynuuje-charytatywny-stream",
+              "label": "Radio ZET"
+            },
+            "description": "W sobotę w mieszkaniu Łatwoganga pojawiła się ekipa Radia ZET, wspierając akcję na żywo i relacjonując przebieg zbiórki.",
+            "tags": [
+              "goście",
+              "media"
+            ],
+            "sortUtc": "2026-04-25T16:00:00Z",
+            "id": "2026-04-25-radiozet-visit",
+            "category": "guest_appearance",
+            "participants": [
+              "Łatwogang",
+              "Radio ZET"
+            ],
+            "sources": [
+              {
+                "published_at_utc": "2026-04-26T15:08:00Z",
+                "source_type": "news",
+                "quote": "W sobotę w mieszkaniu Łatwoganga pojawiła się ekipa Radia ZET, która wspiera akcję.",
+                "published_at_local": "26.04.2026 17:08 CEST",
+                "url": "https://wiadomosci.radiozet.pl/polska/przez-9-dni-zebrali-ponad-200-mln-zl-latwogang-kontynuuje-charytatywny-stream",
+                "label": "Radio ZET"
+              }
+            ],
+            "confidence": "medium",
+            "dateLocal": "25 kwietnia 2026, 18:00 CEST (czas przybliżony)",
+            "relativeTime": "Sobota, 25.04, ok. 18:00"
+          },
+          {
+            "zrodlo": {
+              "url": "https://tvn24.pl/polska/ponad-190-milionow-zlotych-na-liczniku-latwogang-przedluza-charytatywny-stream-st9017459",
+              "label": "TVN24"
+            },
+            "description": "O 13:30 licznik zbiórki dobijał do 130 mln zł – tempo wpłat gwałtownie rosło przed finałem.",
+            "tags": [
+              "milestone",
+              "kwota"
+            ],
+            "sortUtc": "2026-04-26T11:30:00Z",
+            "id": "2026-04-26-1330-130m",
+            "category": "milestone_execution",
+            "participants": [
+              "Łatwogang",
+              "Fundacja Cancer Fighters"
+            ],
+            "sources": [
+              {
+                "published_at_utc": "2026-04-26T14:22:00Z",
+                "source_type": "news",
+                "quote": "Kwota zbiórki przekroczyła przed niedzielnym po południem 100 milionów złotych. O godzinie 13.30 dobijała do 130 mln zł, po 14 było już 10 milionów więcej, a po 15 zebrano ponad 150 milionów złotych.",
+                "published_at_local": "26.04.2026 16:22 CEST",
+                "url": "https://tvn24.pl/polska/ponad-190-milionow-zlotych-na-liczniku-latwogang-przedluza-charytatywny-stream-st9017459",
+                "label": "TVN24"
+              }
+            ],
+            "confidence": "high",
+            "dateLocal": "26 kwietnia 2026, 13:30 CEST",
+            "relativeTime": "Niedziela, 26.04, 13:30"
+          },
+          {
+            "zrodlo": {
+              "url": "https://tvn24.pl/polska/ponad-190-milionow-zlotych-na-liczniku-latwogang-przedluza-charytatywny-stream-st9017459",
+              "label": "TVN24"
+            },
+            "description": "Po 14:00 licznik wskazywał już około 140 mln zł – kolejne 10 mln padło w mniej niż godzinę.",
+            "tags": [
+              "milestone",
+              "kwota"
+            ],
+            "sortUtc": "2026-04-26T12:05:00Z",
+            "id": "2026-04-26-1405-140m",
+            "category": "milestone_execution",
+            "participants": [
+              "Łatwogang",
+              "Fundacja Cancer Fighters"
+            ],
+            "sources": [
+              {
+                "published_at_utc": "2026-04-26T14:22:00Z",
+                "source_type": "news",
+                "quote": "po 14 było już 10 milionów więcej",
+                "published_at_local": "26.04.2026 16:22 CEST",
+                "url": "https://tvn24.pl/polska/ponad-190-milionow-zlotych-na-liczniku-latwogang-przedluza-charytatywny-stream-st9017459",
+                "label": "TVN24"
+              }
+            ],
+            "confidence": "medium",
+            "dateLocal": "26 kwietnia 2026, 14:05 CEST (czas przybliżony)",
+            "relativeTime": "Niedziela, 26.04, po 14:00"
+          },
+          {
+            "zrodlo": {
+              "url": "https://tvn24.pl/polska/ponad-190-milionow-zlotych-na-liczniku-latwogang-przedluza-charytatywny-stream-st9017459",
+              "label": "TVN24"
+            },
+            "description": "Po 15:00 zebrano ponad 150 mln zł – kolejne skokowe przekroczenie progu w krótkim czasie.",
+            "tags": [
+              "milestone",
+              "kwota"
+            ],
+            "sortUtc": "2026-04-26T13:05:00Z",
+            "id": "2026-04-26-1505-150m",
+            "category": "milestone_execution",
+            "participants": [
+              "Łatwogang",
+              "Fundacja Cancer Fighters"
+            ],
+            "sources": [
+              {
+                "published_at_utc": "2026-04-26T14:22:00Z",
+                "source_type": "news",
+                "quote": "po 15 zebrano ponad 150 milionów złotych.",
+                "published_at_local": "26.04.2026 16:22 CEST",
+                "url": "https://tvn24.pl/polska/ponad-190-milionow-zlotych-na-liczniku-latwogang-przedluza-charytatywny-stream-st9017459",
+                "label": "TVN24"
+              }
+            ],
+            "confidence": "medium",
+            "dateLocal": "26 kwietnia 2026, 15:05 CEST (czas przybliżony)",
+            "relativeTime": "Niedziela, 26.04, po 15:00"
+          },
+          {
+            "zrodlo": {
+              "url": "https://tvn24.pl/polska/ponad-190-milionow-zlotych-na-liczniku-latwogang-przedluza-charytatywny-stream-st9017459",
+              "label": "TVN24"
+            },
+            "description": "O 16:00 – gdy pierwotnie planowano finał – na liczniku było już prawie 163 mln zł. Organizator ogłosił przedłużenie transmisji do 20:00.",
+            "tags": [
+              "przedłużenie",
+              "finał",
+              "kwota"
+            ],
+            "sortUtc": "2026-04-26T14:00:00Z",
+            "id": "2026-04-26-1600-extension",
+            "category": "core_event",
+            "participants": [
+              "Łatwogang"
+            ],
+            "sources": [
+              {
+                "published_at_utc": "2026-04-26T14:22:00Z",
+                "source_type": "news",
+                "quote": "O godzinie 16 - kiedy stream miał się zakończyć, na liczniku było już prawie 163 mln zł. Wtedy także inicjator akcji poinformował, że zbiórka zostanie przedłużona o cztery godziny i potrwa do godziny 20 w niedzielę.",
+                "published_at_local": "26.04.2026 16:22 CEST",
+                "url": "https://tvn24.pl/polska/ponad-190-milionow-zlotych-na-liczniku-latwogang-przedluza-charytatywny-stream-st9017459",
+                "label": "TVN24"
+              }
+            ],
+            "confidence": "high",
+            "dateLocal": "26 kwietnia 2026, 16:00 CEST",
+            "relativeTime": "Niedziela, 26.04, 16:00"
+          },
+          {
+            "zrodlo": {
+              "url": "https://wiadomosci.radiozet.pl/polska/przez-9-dni-zebrali-ponad-200-mln-zl-latwogang-kontynuuje-charytatywny-stream",
+              "label": "Radio ZET"
+            },
+            "description": "Łatwogang w rozmowie z Radiem ZET potwierdził, że finał zostanie przesunięty na 20:00 tego samego dnia (deklaracja antenowa).",
+            "tags": [
+              "przedłużenie",
+              "finał"
+            ],
+            "sortUtc": "2026-04-26T15:08:00Z",
+            "id": "2026-04-26-1708-declaration",
+            "category": "core_event",
+            "participants": [
+              "Łatwogang",
+              "Radio ZET"
+            ],
+            "sources": [
+              {
+                "published_at_utc": "2026-04-26T15:08:00Z",
+                "source_type": "news",
+                "quote": "postanowiliśmy już dawno temu, że streaming nie będzie się kończył o 16.00. Zakończymy o godzinie go 20.00 i to już jest godzina definitywna - powiedział reporterowi Radia ZET Łatwogang.",
+                "published_at_local": "26.04.2026 17:08 CEST",
+                "url": "https://wiadomosci.radiozet.pl/polska/przez-9-dni-zebrali-ponad-200-mln-zl-latwogang-kontynuuje-charytatywny-stream",
+                "label": "Radio ZET"
+              }
+            ],
+            "confidence": "high",
+            "dateLocal": "26 kwietnia 2026, 17:08 CEST",
+            "relativeTime": "Niedziela, 26.04, 17:08"
+          },
+          {
+            "zrodlo": {
+              "url": "https://wiadomosci.radiozet.pl/polska/przez-9-dni-zebrali-ponad-200-mln-zl-latwogang-kontynuuje-charytatywny-stream",
+              "label": "Radio ZET"
+            },
+            "description": "Media informują, że transmisja pobiła rekord Guinnessa jako największy stream charytatywny na świecie.",
+            "tags": [
+              "rekord_guinnessa"
+            ],
+            "sortUtc": "2026-04-26T15:08:00Z",
+            "id": "2026-04-26-1708-guinness",
+            "category": "milestone_execution",
+            "participants": [
+              "Łatwogang"
+            ],
+            "sources": [
+              {
+                "published_at_utc": "2026-04-26T15:08:00Z",
+                "source_type": "news",
+                "quote": "Wydarzenie organizowane przez influencera pobiło już rekord Guinnessa, jako największy stream charytatywny na świecie.",
+                "published_at_local": "26.04.2026 17:08 CEST",
+                "url": "https://wiadomosci.radiozet.pl/polska/przez-9-dni-zebrali-ponad-200-mln-zl-latwogang-kontynuuje-charytatywny-stream",
+                "label": "Radio ZET"
+              },
+              {
+                "published_at_utc": "2026-04-26T19:38:00Z",
+                "source_type": "news",
+                "quote": "Transmisja ustanowiła rekord Guinnessa jako największy charytatywny stream na świecie - przebiła nawet amerykańskie wydarzenia o podobnej skali.",
+                "published_at_local": "26.04.2026 21:38 CEST",
+                "url": "https://tvn24.pl/polska/ponad-250-milionow-zlotych-na-liczniku-latwogang-i-charytatywny-stream-st9017459",
+                "label": "TVN24 (aktualizacja wieczorna)"
+              }
+            ],
+            "confidence": "medium",
+            "dateLocal": "26 kwietnia 2026, 17:08 CEST",
+            "relativeTime": "Niedziela, 26.04, 17:08"
+          },
+          {
+            "zrodlo": {
+              "url": "https://tvn24.pl/polska/ponad-190-milionow-zlotych-na-liczniku-latwogang-przedluza-charytatywny-stream-st9017459",
+              "label": "TVN24"
+            },
+            "description": "Około 18:00 kwota zbiórki przekroczyła 190 mln zł.",
+            "tags": [
+              "milestone",
+              "kwota"
+            ],
+            "sortUtc": "2026-04-26T16:00:00Z",
+            "id": "2026-04-26-1800-190m",
+            "category": "milestone_execution",
+            "participants": [
+              "Łatwogang",
+              "Fundacja Cancer Fighters"
+            ],
+            "sources": [
+              {
+                "published_at_utc": "2026-04-26T14:22:00Z",
+                "source_type": "news",
+                "quote": "Kwota zbiórki około godziny 18 w niedzielę przekroczyła 190 milionów złotych.",
+                "published_at_local": "26.04.2026 16:22 CEST",
+                "url": "https://tvn24.pl/polska/ponad-190-milionow-zlotych-na-liczniku-latwogang-przedluza-charytatywny-stream-st9017459",
+                "label": "TVN24"
+              }
+            ],
+            "confidence": "high",
+            "dateLocal": "26 kwietnia 2026, ok. 18:00 CEST",
+            "relativeTime": "Niedziela, 26.04, ok. 18:00"
+          },
+          {
+            "zrodlo": {
+              "url": "https://wiadomosci.radiozet.pl/polska/przez-9-dni-zebrali-ponad-200-mln-zl-latwogang-kontynuuje-charytatywny-stream",
+              "label": "Radio ZET"
+            },
+            "description": "O 19:00 licznik przebił 200 mln zł – kolejny historyczny próg w finałowej godzinie przed ogłoszonym wcześniej końcem.",
+            "tags": [
+              "milestone",
+              "kwota"
+            ],
+            "sortUtc": "2026-04-26T17:00:00Z",
+            "id": "2026-04-26-1900-200m",
+            "category": "milestone_execution",
+            "participants": [
+              "Łatwogang",
+              "Fundacja Cancer Fighters"
+            ],
+            "sources": [
+              {
+                "published_at_utc": "2026-04-26T15:08:00Z",
+                "source_type": "news",
+                "quote": "O godzinie 19.00 kwota zbiórki przekroczyła 200 mln zł.",
+                "published_at_local": "26.04.2026 17:08 CEST",
+                "url": "https://wiadomosci.radiozet.pl/polska/przez-9-dni-zebrali-ponad-200-mln-zl-latwogang-kontynuuje-charytatywny-stream",
+                "label": "Radio ZET"
+              },
+              {
+                "published_at_utc": "2026-04-26T19:38:00Z",
+                "source_type": "news",
+                "quote": "o godzinie 19 - 200 milionów złotych",
+                "published_at_local": "26.04.2026 21:38 CEST",
+                "url": "https://tvn24.pl/polska/ponad-250-milionow-zlotych-na-liczniku-latwogang-i-charytatywny-stream-st9017459",
+                "label": "TVN24 (wieczorna relacja)"
+              }
+            ],
+            "confidence": "high",
+            "dateLocal": "26 kwietnia 2026, 19:00 CEST",
+            "relativeTime": "Niedziela, 26.04, 19:00"
+          },
+          {
+            "zrodlo": {
+              "url": "https://wiadomosci.radiozet.pl/polska/latwogang-stream-gdzie-ogladac-link-do-zbiorki-na-zywo",
+              "label": "Radio ZET"
+            },
+            "description": "Po przedłużeniu finału do 20:00 transmisja nie zakończyła się – ogłoszono kolejne wydłużenie (bez podania nowej godziny zakończenia).",
+            "tags": [
+              "przedłużenie",
+              "finał"
+            ],
+            "sortUtc": "2026-04-26T18:00:00Z",
+            "id": "2026-04-26-2000-extended-again",
+            "category": "core_event",
+            "participants": [
+              "Łatwogang"
+            ],
+            "sources": [
+              {
+                "published_at_utc": "2026-04-26T16:43:00Z",
+                "source_type": "news",
+                "quote": "Zbiórka miała się zakończyć w niedzielę o godz. 16, jednak została przedłużona do godz. 20, a następnie czas trwania akcji znów wydłużono (nie podano daty i godziny jej zakończenia).",
+                "published_at_local": "26.04.2026 18:43 CEST",
+                "url": "https://wiadomosci.radiozet.pl/polska/latwogang-stream-gdzie-ogladac-link-do-zbiorki-na-zywo",
+                "label": "Radio ZET"
+              }
+            ],
+            "confidence": "high",
+            "dateLocal": "26 kwietnia 2026, 20:00 CEST",
+            "relativeTime": "Niedziela, 26.04, 20:00"
+          },
+          {
+            "zrodlo": {
+              "url": "https://tvn24.pl/polska/ponad-250-milionow-zlotych-na-liczniku-latwogang-i-charytatywny-stream-st9017459",
+              "label": "TVN24"
+            },
+            "description": "Po godz. 21:00, tuż przed zakończeniem transmisji, licznik przebił 250 mln zł.",
+            "tags": [
+              "milestone",
+              "kwota"
+            ],
+            "sortUtc": "2026-04-26T19:10:00Z",
+            "id": "2026-04-26-2110-250m",
+            "category": "milestone_execution",
+            "participants": [
+              "Łatwogang",
+              "Fundacja Cancer Fighters"
+            ],
+            "sources": [
+              {
+                "published_at_utc": "2026-04-26T19:38:00Z",
+                "source_type": "news",
+                "quote": "o godzinie 19 - 200 milionów złotych, a po godzinie 21 - tuż przed końcem transmisji - 250 milionów złotych.",
+                "published_at_local": "26.04.2026 21:38 CEST",
+                "url": "https://tvn24.pl/polska/ponad-250-milionow-zlotych-na-liczniku-latwogang-i-charytatywny-stream-st9017459",
+                "label": "TVN24"
+              }
+            ],
+            "confidence": "medium",
+            "dateLocal": "26 kwietnia 2026, ok. 21:10 CEST (czas przybliżony)",
+            "relativeTime": "Niedziela, 26.04, po 21:00"
+          },
+          {
+            "zrodlo": {
+              "url": "https://wiadomosci.radiozet.pl/polska/latwogang-zebral-250-mln-zl-zbiorka-trwala-podczas-transmisji-online",
+              "label": "Radio ZET"
+            },
+            "description": "Stream zakończył się o 21:37. W trakcie całej akcji zebrano ponad 250 mln zł na pomoc podopiecznym Fundacji Cancer Fighters.",
+            "tags": [
+              "finał",
+              "rekord",
+              "kwota"
+            ],
+            "sortUtc": "2026-04-26T19:37:00Z",
+            "id": "2026-04-26-2137-end",
+            "category": "core_event",
+            "participants": [
+              "Łatwogang",
+              "Fundacja Cancer Fighters"
+            ],
+            "sources": [
+              {
+                "published_at_utc": null,
+                "source_type": "news",
+                "quote": "Stream zakończył się o godzinie 21.37. Przez ten czas zebrano ponad 250 mln zł.",
+                "published_at_local": null,
+                "url": "https://wiadomosci.radiozet.pl/polska/latwogang-zebral-250-mln-zl-zbiorka-trwala-podczas-transmisji-online",
+                "label": "Radio ZET"
+              },
+              {
+                "published_at_utc": "2026-04-26T19:38:00Z",
+                "source_type": "news",
+                "quote": "Zbiórka zainicjowana przez youtubera Łatwogang zakończyła się ogromnym wynikiem - tuż przed końcem transmisji zebrana kwota przekroczyła 250 milionów złotych.",
+                "published_at_local": "26.04.2026 21:38 CEST",
+                "url": "https://tvn24.pl/polska/ponad-250-milionow-zlotych-na-liczniku-latwogang-i-charytatywny-stream-st9017459",
+                "label": "TVN24 (wieczorna relacja)"
+              }
+            ],
+            "confidence": "high",
+            "dateLocal": "26 kwietnia 2026, 21:37 CEST",
+            "relativeTime": "Niedziela, 26.04, 21:37"
+          }
+        ]
+      }
+    }
+  }
+}
