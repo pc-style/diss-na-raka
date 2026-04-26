@@ -606,15 +606,6 @@ export const seedSiteData: SiteData = {
       dateAchieved: "2026-04-26T10:26:00Z",
     },
     {
-      id: "ms_161m_final",
-      targetAmount: 161_000_000,
-      title: "161M · Oficjalny finał",
-      description:
-        "Oficjalny końcowy wynik zbiórki: 161 mln PLN. Kampania zakończyła się historycznym sukcesem po 9 dniach streamu. Nowy światowy rekord Guinnessa.",
-      status: "achieved",
-      dateAchieved: "2026-04-26T14:00:00Z",
-    },
-    {
       id: "ms_138m_checkpoint",
       targetAmount: 138_000_000,
       title: "138M · Checkpoint finałowy",
@@ -623,6 +614,18 @@ export const seedSiteData: SiteData = {
       status: "achieved",
       dateAchieved: "2026-04-26T12:00:00Z",
     },
+    {
+      id: "ms_161m_final",
+      targetAmount: 161_000_000,
+      title: "161M · Oficjalny finał",
+      description:
+        "Oficjalny końcowy wynik zbiórki: 161 mln PLN. Kampania zakończyła się historycznym sukcesem po 9 dniach streamu. Nowy światowy rekord Guinnessa.",
+      status: "achieved",
+      dateAchieved: "2026-04-26T14:00:00Z",
+    },
+    // Note: ms_42m_kubanczyk_tattoo and other 40-80M milestones should be moved
+    // to appear before ms_100m_milestone to maintain ascending order by targetAmount.
+    // This is a larger reorganization that may be needed separately.
     {
       id: "ms_42m_kubanczyk_tattoo",
       targetAmount: 42_000_000,
