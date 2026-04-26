@@ -769,6 +769,7 @@ export const seedSiteData: SiteData = {
       status: "achieved",
       dateAchieved: "2026-04-26T11:00:00Z",
     },
+
     {
       id: "ms_119m_szczesny",
       targetAmount: 119_000_000,
