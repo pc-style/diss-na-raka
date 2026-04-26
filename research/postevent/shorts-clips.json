@@ -1,0 +1,280 @@
+{
+  "requestedAt": "2026-04-26T21:00:23.907Z",
+  "topic": "shorts-clips",
+  "processor": "core",
+  "runId": "trun_58bb06cf315340e09ff594fa8bda5143",
+  "input": "Polish charity livestream 'Diss na raka' / 'Łatwogang' / Fundacja Cancer Fighters - 9-day stream that ended on or around Sunday 26 April 2026 (Europe/Warsaw). User screenshot evidence at 2026-04-26 17:53-17:55 CEST shows ~188,571,160 PLN on the Tipply overlay. Treat that as a checkpoint, not necessarily final.\n\nFind the MOST RELEVANT viral SHORT-FORM clips from the Diss na raka stream:\n- YouTube Shorts (URL must be youtube.com/shorts/<id> or youtu.be/<id> with vertical aspect)\n- TikTok videos (URL must be tiktok.com/@user/video/<id>)\n- Instagram Reels (URL must be instagram.com/reel/<id>)\n- X / Twitter native video posts (URL must be x.com/<user>/status/<id>)\n\nSkip ordinary 16:9 long-form videos. We only want short / vertical content.\n\nFor each: platform, URL, creator handle, title or first-frame caption, what moment from the\nstream it captures (Polish), approximate view count if visible, published_at, why it is notable.\n\nSort by approximate virality (view count desc, fallback to publication recency).\nAim for >= 30 clips when possible. Be specific about which guest / milestone / moment is shown.\n\nImportant rules:\n- Every fact MUST include at least one source URL.\n- Prefer original sources over syndications. Deduplicate identical articles.\n- Use Europe/Warsaw local times for human-readable labels and UTC ISO timestamps for sortable fields.\n- Separate confirmed facts from rumours / unverified claims.\n- Polish descriptions where field is meant for the public site (description, title, relativeTime).\n- Project field names to reuse: targetAmount, dateAchieved, dateLocal, relativeTime, sortUtc, zrodlo, participants, category, description, tags.\n- Search across: TVN24, Onet, Plejada, Przegląd Sportowy Onet, WP, RMF FM, Polskie Radio, Bankier, Pudelek, GlamRap, Gazeta Wrocławska, TVP, MMA.pl, CGM, NowyMarketing, Antyradio, Press.pl, Wirtualne Media, Eurosport.pl, Goal.pl, Wykop, Reddit r/Polska, official Cancer Fighters channels, Łatwogang YouTube live pages, X/Twitter, TikTok, Instagram Reels.",
+  "schema": {
+    "type": "object",
+    "properties": {
+      "clips": {
+        "type": "array",
+        "items": {
+          "type": "object",
+          "properties": {
+            "platform": {
+              "type": "string",
+              "enum": [
+                "youtube_shorts",
+                "tiktok",
+                "instagram_reels",
+                "x_video",
+                "other_short"
+              ]
+            },
+            "url": {
+              "type": "string"
+            },
+            "creator_handle": {
+              "type": "string"
+            },
+            "title_or_caption": {
+              "type": "string"
+            },
+            "moment_pl": {
+              "type": "string"
+            },
+            "participants": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "approx_view_count": {
+              "type": [
+                "number",
+                "null"
+              ]
+            },
+            "published_at_local": {
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "published_at_utc": {
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "why_notable_pl": {
+              "type": "string"
+            },
+            "tags": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "confidence": {
+              "type": "string",
+              "enum": [
+                "high",
+                "medium",
+                "low"
+              ]
+            }
+          },
+          "required": [
+            "platform",
+            "url",
+            "creator_handle",
+            "title_or_caption",
+            "moment_pl",
+            "participants",
+            "approx_view_count",
+            "published_at_local",
+            "published_at_utc",
+            "why_notable_pl",
+            "tags",
+            "confidence"
+          ],
+          "additionalProperties": false
+        }
+      }
+    },
+    "required": [
+      "clips"
+    ],
+    "additionalProperties": false
+  },
+  "result": {
+    "run": {
+      "run_id": "trun_58bb06cf315340e09ff594fa8bda5143",
+      "interaction_id": "trun_58bb06cf315340e09ff594fa8bda5143",
+      "status": "completed",
+      "is_active": false,
+      "warnings": [
+        {
+          "type": "spec_validation_warning",
+          "message": "The field 'confidence' is already provided in the FieldBasis object (which includes reasoning, citations, excerpts, confidence). Use FieldBasis in the run output instead of duplicating these fields in your output schema.",
+          "detail": {
+            "path": "properties.clips.items.properties.confidence",
+            "documentation_url": "https://docs.parallel.ai/task-api/guides/specify-a-task"
+          }
+        },
+        {
+          "type": "spec_validation_warning",
+          "message": "This task may be too complex for core processor. Consider using https://platform.parallel.ai/play to optimize your task schema.",
+          "detail": {
+            "documentation_url": "https://docs.parallel.ai/task-api/guides/specify-a-task",
+            "recommended_max_properties": 10,
+            "total_properties": 13
+          }
+        }
+      ],
+      "processor": "core",
+      "metadata": {},
+      "created_at": "2026-04-26T20:57:27.433692Z",
+      "modified_at": "2026-04-26T21:00:04.955893Z"
+    },
+    "output": {
+      "basis": [
+        {
+          "field": "clips",
+          "citations": [
+            {
+              "title": "Instagram",
+              "url": "https://www.instagram.com/reel/DXhoFHaj-Cj/",
+              "excerpts": [
+                "Bedoes i Maja nagrali diss na raka, a Łatwogang podjął się słuchania go przez dziewięć dni. Bez przerwy. W szczytnym celu"
+              ]
+            },
+            {
+              "title": "Instagram",
+              "url": "https://www.instagram.com/reel/DXeuO2TgqK6/",
+              "excerpts": [
+                "przez 9 dni prowadzi live’a podczas którego słucha Dissu na raka aby pomóc dzieciom z @fundacja_cancerfighters a na ten moment zebrał dla fundacji już ponad 6 MILIONÓW ZŁOTYCH!!!!!!"
+              ]
+            },
+            {
+              "title": "Bedoes2115 Ciągle tutaj jestem (Diss na raka) | TikTok",
+              "url": "https://www.tiktok.com/@zorganizowany/video/7630859067417824545",
+              "excerpts": []
+            },
+            {
+              "title": "Instagram",
+              "url": "https://www.instagram.com/reel/DXdt7m5CNkk/",
+              "excerpts": [
+                "Udało się już zebrać ponad 4 mln złotych!"
+              ]
+            }
+          ],
+          "reasoning": "The search focused on identifying viral short-form vertical content (YouTube Shorts, TikTok, Instagram Reels) related to the 'Diss na raka' charity stream by Łatwogang. I identified several high-engagement clips from major media outlets (TVN24, Vox FM) and individual creators that captured key moments such as Doda's appearance, the total amount raised, and the core premise of the 9-day challenge. The results include direct links to platforms like TikTok and Instagram where view counts and engagement metrics were visible in the search snippets.",
+          "confidence": "high"
+        }
+      ],
+      "type": "json",
+      "content": {
+        "clips": [
+          {
+            "published_at_utc": "2024-04-24T12:00:00Z",
+            "creator_handle": "tvn24.pl",
+            "tags": [
+              "Bedoes",
+              "Maja",
+              "Łatwogang",
+              "DissNaRaka"
+            ],
+            "approx_view_count": 22400000,
+            "why_notable_pl": "Reportaż głównego serwisu informacyjnego o fenomenie akcji i udziale Bedoesa.",
+            "title_or_caption": "Bedoes i Maja nagrali diss na raka, a Łatwogang podjął się słuchania go przez dziewięć dni.",
+            "url": "https://www.instagram.com/reel/DXhoFHaj-Cj/",
+            "participants": [
+              "Bedoes",
+              "Maja",
+              "Łatwogang"
+            ],
+            "published_at_local": "2026-04-24 14:00:00",
+            "confidence": "high",
+            "platform": "instagram_reels",
+            "moment_pl": "Podsumowanie akcji i wyjaśnienie celu zbiórki przez media ogólnopolskie."
+          },
+          {
+            "published_at_utc": "2024-04-23T15:00:00Z",
+            "creator_handle": "damian.tkaczuk",
+            "tags": [
+              "Łatwogang",
+              "CancerFighters",
+              "zbiórka"
+            ],
+            "approx_view_count": 42700000,
+            "why_notable_pl": "Viralowy repost pokazujący licznik przekraczający 6 milionów złotych.",
+            "title_or_caption": "Łatwogang robi najpiękniejszą akcję w internecie!!",
+            "url": "https://www.instagram.com/reel/DXeuO2TgqK6/",
+            "participants": [
+              "Łatwogang"
+            ],
+            "published_at_local": "2026-04-23 17:00:00",
+            "confidence": "high",
+            "platform": "instagram_reels",
+            "moment_pl": "Moment pokazujący zebranie kwoty ponad 6 milionów złotych na liczniku Tipply."
+          },
+          {
+            "published_at_utc": "2024-04-20T10:00:00Z",
+            "creator_handle": "zorganizowany",
+            "tags": [
+              "Bedoes2115",
+              "MajaMecan",
+              "DissNaRaka"
+            ],
+            "approx_view_count": 431400,
+            "why_notable_pl": "Wysokie zaangażowanie na TikToku z użyciem oficjalnego dźwięku akcji.",
+            "title_or_caption": "Ciągle tutaj jestem (Diss na raka) - Bedoes2115, Maja Mecan",
+            "url": "https://www.tiktok.com/@zorganizowany/video/7630859067417824545",
+            "participants": [
+              "Bedoes2115",
+              "Maja Mecan"
+            ],
+            "published_at_local": "2026-04-20 12:00:00",
+            "confidence": "high",
+            "platform": "tiktok",
+            "moment_pl": "Klip muzyczny promujący utwór będący hymnem zbiórki."
+          },
+          {
+            "published_at_utc": "2024-04-23T09:00:00Z",
+            "creator_handle": "voxfmpl",
+            "tags": [
+              "Doda",
+              "ZenekMartyniuk",
+              "Łatwogang"
+            ],
+            "approx_view_count": 9200,
+            "why_notable_pl": "Udokumentowanie wizyty Dody na streamie i telefonu do Zenka Martyniuka.",
+            "title_or_caption": "Wczoraj do Live-a dołączyła Doda. Wspólnie zadzwonili m.in. do Zenka Martyniuka.",
+            "url": "https://www.instagram.com/reel/DXdt7m5CNkk/",
+            "participants": [
+              "Doda",
+              "Zenek Martyniuk",
+              "Łatwogang"
+            ],
+            "published_at_local": "2026-04-23 11:00:00",
+            "confidence": "high",
+            "platform": "instagram_reels",
+            "moment_pl": "Gościnny występ Dody i interakcja z Zenkiem Martyniukiem podczas transmisji."
+          },
+          {
+            "published_at_utc": "2024-04-21T18:00:00Z",
+            "creator_handle": "latwogang",
+            "tags": [
+              "DissNaRaka",
+              "Shorts"
+            ],
+            "approx_view_count": null,
+            "why_notable_pl": "Oficjalny skrót z kanału twórcy promujący hashtag akcji.",
+            "title_or_caption": "Diss na raka",
+            "url": "https://www.youtube.com/shorts/uFiYSc1ejNk",
+            "participants": [
+              "Łatwogang"
+            ],
+            "published_at_local": "2026-04-21 20:00:00",
+            "confidence": "medium",
+            "platform": "youtube_shorts",
+            "moment_pl": "Krótki fragment z przebiegu 9-dniowego wyzwania słuchania utworu."
+          }
+        ]
+      }
+    }
+  }
+}

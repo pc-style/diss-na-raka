@@ -1,0 +1,510 @@
+{
+  "requestedAt": "2026-04-26T21:03:45.204Z",
+  "topic": "donations",
+  "processor": "pro",
+  "runId": "trun_3ae4f8fe2eaf4ba7814333c561e6eddc",
+  "input": "Polish charity livestream 'Diss na raka' / 'Łatwogang' / Fundacja Cancer Fighters - 9-day stream that ended on or around Sunday 26 April 2026 (Europe/Warsaw). User screenshot evidence at 2026-04-26 17:53-17:55 CEST shows ~188,571,160 PLN on the Tipply overlay. Treat that as a checkpoint, not necessarily final.\n\nFind every NOTABLE single donation publicly attributed to a corporate sponsor, brand, celebrity,\npublic figure, content-creator, sports team, club or significant individual. Sort highest amount first.\n\nInclude the donor name, donation amount in PLN (null if undisclosed), donor type, when they donated\n(local + UTC), and a 1-sentence Polish description suitable for site copy.\n\nImportant rules:\n- Every fact MUST include at least one source URL.\n- Prefer original sources over syndications. Deduplicate identical articles.\n- Use Europe/Warsaw local times for human-readable labels and UTC ISO timestamps for sortable fields.\n- Separate confirmed facts from rumours / unverified claims.\n- Polish descriptions where field is meant for the public site (description, title, relativeTime).\n- Project field names to reuse: targetAmount, dateAchieved, dateLocal, relativeTime, sortUtc, zrodlo, participants, category, description, tags.\n- Search across: TVN24, Onet, Plejada, Przegląd Sportowy Onet, WP, RMF FM, Polskie Radio, Bankier, Pudelek, GlamRap, Gazeta Wrocławska, TVP, MMA.pl, CGM, NowyMarketing, Antyradio, Press.pl, Wirtualne Media, Eurosport.pl, Goal.pl, Wykop, Reddit r/Polska, official Cancer Fighters channels, Łatwogang YouTube live pages, X/Twitter, TikTok, Instagram Reels.",
+  "schema": {
+    "type": "object",
+    "properties": {
+      "donations": {
+        "type": "array",
+        "items": {
+          "type": "object",
+          "properties": {
+            "donor": {
+              "type": "string"
+            },
+            "amount_pln": {
+              "type": [
+                "number",
+                "null"
+              ]
+            },
+            "type": {
+              "type": "string",
+              "enum": [
+                "corporate",
+                "individual",
+                "celebrity",
+                "creator",
+                "sports_club",
+                "brand",
+                "unknown"
+              ]
+            },
+            "observed_at_local": {
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "observed_at_utc": {
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "description_pl": {
+              "type": "string"
+            },
+            "confidence": {
+              "type": "string",
+              "enum": [
+                "high",
+                "medium",
+                "low"
+              ]
+            },
+            "sources": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "label": {
+                    "type": "string"
+                  },
+                  "url": {
+                    "type": "string"
+                  },
+                  "source_type": {
+                    "type": "string",
+                    "enum": [
+                      "news",
+                      "official",
+                      "social",
+                      "youtube",
+                      "tiktok",
+                      "instagram",
+                      "twitter",
+                      "other"
+                    ]
+                  },
+                  "published_at_local": {
+                    "type": [
+                      "string",
+                      "null"
+                    ]
+                  },
+                  "published_at_utc": {
+                    "type": [
+                      "string",
+                      "null"
+                    ]
+                  },
+                  "quote": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "label",
+                  "url",
+                  "source_type",
+                  "published_at_local",
+                  "published_at_utc",
+                  "quote"
+                ],
+                "additionalProperties": false
+              }
+            }
+          },
+          "required": [
+            "donor",
+            "amount_pln",
+            "type",
+            "observed_at_local",
+            "observed_at_utc",
+            "description_pl",
+            "confidence",
+            "sources"
+          ],
+          "additionalProperties": false
+        }
+      }
+    },
+    "required": [
+      "donations"
+    ],
+    "additionalProperties": false
+  },
+  "result": {
+    "run": {
+      "run_id": "trun_3ae4f8fe2eaf4ba7814333c561e6eddc",
+      "interaction_id": "trun_3ae4f8fe2eaf4ba7814333c561e6eddc",
+      "status": "completed",
+      "is_active": false,
+      "warnings": [
+        {
+          "type": "spec_validation_warning",
+          "message": "The field 'confidence' is already provided in the FieldBasis object (which includes reasoning, citations, excerpts, confidence). Use FieldBasis in the run output instead of duplicating these fields in your output schema.",
+          "detail": {
+            "path": "properties.donations.items.properties.confidence",
+            "documentation_url": "https://docs.parallel.ai/task-api/guides/specify-a-task"
+          }
+        },
+        {
+          "type": "spec_validation_warning",
+          "message": "The field 'sources' is already provided in the FieldBasis object (which includes reasoning, citations, excerpts, confidence). Use FieldBasis in the run output instead of duplicating these fields in your output schema.",
+          "detail": {
+            "path": "properties.donations.items.properties.sources",
+            "documentation_url": "https://docs.parallel.ai/task-api/guides/specify-a-task"
+          }
+        },
+        {
+          "type": "warning",
+          "message": "enable_events unset for pro. Setting to true by default. Consider setting to false explicitly if you do not want to track events for streaming."
+        }
+      ],
+      "processor": "pro",
+      "metadata": {},
+      "created_at": "2026-04-26T20:57:27.437406Z",
+      "modified_at": "2026-04-26T21:03:42.922922Z"
+    },
+    "output": {
+      "basis": [
+        {
+          "field": "donations",
+          "citations": [
+            {
+              "title": "Łatwogang zebrał już ponad 251 mln zł. Licznik zbiórki wciąż ...",
+              "url": "https://polskieradio24.pl/artykul/3678904,latwogang-zebral-juz-ponad-251-mln-zl-licznik-zbiorki-wciaz-bije",
+              "excerpts": [
+                "Łatwogang zebrał już ponad 251 mln zł. Licznik zbiórki wciąż bije Ponad 251 milionów złotych udało się do tej pory zebrać w czasie internetowej zbiórki zorganizowanej przez influencera Łatwoganga. Youtuber przez 9 dni prowadził transmisję na żywo, żeby pomóc dzieciom chorym na raka. Akcja zakończyła się w niedzielę o godz. 21.37",
+                "ł\nKuchnia Vikinga - 5,1 mln zł",
+                "\nEveline Cosmetics - 1 mln zł\n"
+              ]
+            },
+            {
+              "title": "Zbiórka „Łatwoganga” i „Bedoesa”. Celem 250 mln zł | TVP INFO",
+              "url": "https://www.tvp.info/92925516/zbiorka-latwoganga-i-bedoesa-celem-250-mln-zl",
+              "excerpts": [
+                "„Łatwogang” i „Bedoes” zwracali się do widzów, że każda złotówka realnie może pomóc w uratowaniu życia. W czasie tej rozmowy firma WK Dzik przekazała jednorazowo 5 mln zł, co wywołało dużą ekscytację, bo w ten sposób okazała się – jak dotąd – najhojniejszym darczyńcą."
+              ]
+            },
+            {
+              "title": "Łatwogang zebrał 10 milionów zł na raka u dzieci! Rekordowy ...",
+              "url": "https://wpolsce24.tv/rozrywka/latwogang-zebral-10-milionow-zl-na-raka-u-dzieci,75525",
+              "excerpts": [
+                "Łatwogang, jeden z najbardziej znanych polskich twórców internetowych, organizuje rekordowy 9-dniowy stream charytatywny, słuchając non-stop utworu \"Diss na raka\" Bedoesa i Mai Mecan. Wszystko po to, żeby zebrać środki dla Fundacji Cancer Fighters pomagającej dzieciom z nowotworami."
+              ]
+            },
+            {
+              "title": "Cancer Fighters",
+              "url": "https://cancerfighters.pl/",
+              "excerpts": [
+                "Cancer Fighters\nCancer Fighters to ogólnopolska fundacja dla chorych na raka. Zarówno dla osób dorosłych jak i dzieci, a nawet dla noworodków. Uzyskaj od nas pomoc finansową,"
+              ]
+            },
+            {
+              "title": "Wyjątkowy stream influencera Łatwogang ... - Bankier.pl",
+              "url": "https://www.bankier.pl/wiadomosc/Wyjatkowy-stream-influencera-Latwogang-Zebral-miliony-na-walke-dzieci-z-rakiem-9122911.html",
+              "excerpts": [
+                "Alldeynn&SFD - 150 tys. zł",
+                "\nmati gibbs + DH - 150 tys. zł\n",
+                "Inpost + Rafał Brzoska + Omena Mensah - 300 tys. zł\n47 ",
+                "Wyjątkowy stream influencera. Łatwogang zebrał 250 mln zł na walkę dzieci z rakiem publikacja 2026-04-25 09:05 aktualizacja 2026-04-26 21:46"
+              ]
+            },
+            {
+              "title": "Tego jeszcze nie było! Łatwogang prowadzi 9-dniowy stream ...",
+              "url": "https://wroclaw.tvp.pl/92870227/tego-jeszcze-nie-bylo-latwogang-prowadzi-9-dniowy-stream-charytatywny-by-pomoc-chorym-na-nowotwor-dzieciom",
+              "excerpts": [
+                "Łatwogang – popularny polski influencer – zorganizował 9-dniowy stream, na którym zbierane są środki dla Fundacji Cancer Fighters. W czwartek do godziny 14:30 udało się zebrać ponad 6 mln zł, a wskaźnik zbiórki rósł z każdą minutą."
+              ]
+            },
+            {
+              "title": "NA ŻYWO: Spektakularna akcja Łatwoganga. Są kolejne gwiazdy ...",
+              "url": "https://przegladsportowy.onet.pl/esportmania/influencerzy/na-zywo-spektakularna-akcja-latwoganga-sa-kolejne-gwiazdy-relacja-live/ppymzyx",
+              "excerpts": [
+                "NA ŻYWO Spektakularna akcja Łatwoganga. Pojawiają się kolejne gwiazdy [RELACJA NA ŻYWO] 25 kwietnia 2026, 13:36"
+              ]
+            },
+            {
+              "title": "Łatwogang zebrał ponad 200 milionów złotych. Finał zbiórki ...",
+              "url": "https://sukces.rp.pl/internet/art44229281-ponad-200-milionow-zlotych-od-internautow-youtuber-latwogang-zbiera-pieniadze-na-chore-dzieci",
+              "excerpts": [
+                "Influencer Piotr „Łatwogang” Garkowski przez niemal dziewięć dni zebrał ponad 200 mln zł dla fundacji Cancer Fighters. W projekt zaangażowali się czołowi artyści, sportowcy oraz tysiące tysięcy darczyńców. Aktualizacja: 26.04.2026 14:47 Publikacja: 24.04.2026 12:36",
+                "dzieci\nContent:\nTrwa jedna z najgłośniejszych akcji charytatywnych w historii polskiego Internetu. Influencer Piotr „Łatwogang” Garkowski przez niemal dziewięć dni zebrał ponad 200 mln zł dla fundacji Cancer Fighters."
+              ]
+            },
+            {
+              "title": "Robert Lewandowski Surprises Fans During Charity Stream ...",
+              "url": "https://www.memesita.com/robert-lewandowski-surprises-fans-during-charity-stream-raises-over-7-5-million-zloty-for-cancer-fighters-foundation/",
+              "excerpts": [
+                "WARSAW — When Łatwogang fired up his livestream on April 17 with a modest goal of raising 1 million złoty for the Cancer Fighters Foundation, few expected it to become a national phenomenon."
+              ]
+            },
+            {
+              "title": "Łatwogang wspiera Fundację Cancer Fighters. Ile pieniędzy ...",
+              "url": "https://dziendobry.tvn.pl/newsy/latwogang-wspiera-fundacje-cancer-fighters-ile-pieniedzy-udalo-sie-zebrac-st9012379",
+              "excerpts": [
+                "Łatwogang należy do jednych z najbardziej znanych polskich youtuberów. Mężczyzna przez dziewięć dni będzie słuchał jednego utworu, aby zebrać pieniądze dla Fundacji Cancer Fighters, która pomaga dzieciom chorym na raka. Jaką kwotę udało się uzbierać?"
+              ]
+            },
+            {
+              "title": "cancer FIGHTERS | Wroclaw - Facebook",
+              "url": "https://www.facebook.com/fundacjacancerfighters/",
+              "excerpts": [
+                "Każda zbiórka naszych podopiecznych jest nagłaśniana w mediach społecznościowych Fundacji, dzięki czemu dociera do szerokiego grona potencjalnych darczyńców."
+              ]
+            },
+            {
+              "title": "Newsroom | ZEN.COM",
+              "url": "https://www.zen.com/pl/newsroom/",
+              "excerpts": [
+                "ZEN.COM został wybrany do przejęcia PIN Bank w Ukrainie. Transakcja ma zostać sfinalizowana w kwietniu 2026 roku i stanowi kolejny krok w międzynarodowej ekspansji spółki."
+              ]
+            },
+            {
+              "title": "Rekordowy stream Łatwogang dla fundacji Cancer Fighters. Zebrane ponad 200 milionów złotych! | MMAROCKS",
+              "url": "https://www.mmarocks.pl/cancer-fighters/na-zywo-rekordowy-stream-latwogang-dla-fundacji-cancer-fighters-zebrane-ponad-20-milionow-zlotych",
+              "excerpts": [
+                " Section Title: Rekordowy stream Łatwogang dla fundacji Cancer Fighters. Zebrane ponad 200 milionów złotych!"
+              ]
+            }
+          ],
+          "reasoning": "The answer was assembled by extracting all publicly reported single donations that were explicitly attributed to corporate sponsors, brands, celebrities or other notable entities in the Polskie Radio 24 summary article and the TVP Info report covering the final stage of the 9‑day livestream. Each entry was matched to the required schema fields, donor types were mapped to the allowed enum values, timestamps were filled when provided (WK DZIK) and left null otherwise, and confidence was set based on the source reporting. Duplicate source entries were deduplicated and the URLs were collected for the citations list.",
+          "confidence": "medium"
+        }
+      ],
+      "type": "json",
+      "content": {
+        "donations": [
+          {
+            "observed_at_local": null,
+            "amount_pln": 6250000,
+            "type": "corporate",
+            "description_pl": "XTB wsparło zbiórkę rekordową wpłatą 6,25 mln zł na rzecz dzieci chorych na raka.",
+            "sources": [
+              {
+                "published_at_utc": "2026-04-26T19:37:00Z",
+                "source_type": "news",
+                "quote": "Wśród darczyńców ... Największego wsparcia finansowego udzielili: XTB - 6,25 mln ...",
+                "published_at_local": "2026-04-26 21:37 CEST",
+                "url": "https://polskieradio24.pl/artykul/3678904,latwogang-zebral-juz-ponad-251-mln-zl-licznik-zbiorki-wciaz-bije",
+                "label": "Polskie Radio 24"
+              }
+            ],
+            "donor": "XTB",
+            "observed_at_utc": null,
+            "confidence": "high"
+          },
+          {
+            "observed_at_local": null,
+            "amount_pln": 5550000,
+            "type": "corporate",
+            "description_pl": "ZEN.com przekazał 5,55 mln zł, wspierając finał akcji dla podopiecznych Fundacji Cancer Fighters.",
+            "sources": [
+              {
+                "published_at_utc": "2026-04-26T19:37:00Z",
+                "source_type": "news",
+                "quote": "... ZEN.com - 5,55 mln zł ...",
+                "published_at_local": "2026-04-26 21:37 CEST",
+                "url": "https://polskieradio24.pl/artykul/3678904,latwogang-zebral-juz-ponad-251-mln-zl-licznik-zbiorki-wciaz-bije",
+                "label": "Polskie Radio 24"
+              }
+            ],
+            "donor": "ZEN.com",
+            "observed_at_utc": null,
+            "confidence": "high"
+          },
+          {
+            "observed_at_local": null,
+            "amount_pln": 5100000,
+            "type": "brand",
+            "description_pl": "Kuchnia Vikinga zasiliła zbiórkę kwotą 5,1 mln zł, by przyspieszyć pomoc dla dzieci walczących z rakiem.",
+            "sources": [
+              {
+                "published_at_utc": "2026-04-26T19:37:00Z",
+                "source_type": "news",
+                "quote": "... Kuchnia Vikinga - 5,1 mln zł ...",
+                "published_at_local": "2026-04-26 21:37 CEST",
+                "url": "https://polskieradio24.pl/artykul/3678904,latwogang-zebral-juz-ponad-251-mln-zl-licznik-zbiorki-wciaz-bije",
+                "label": "Polskie Radio 24"
+              }
+            ],
+            "donor": "Kuchnia Vikinga",
+            "observed_at_utc": null,
+            "confidence": "high"
+          },
+          {
+            "observed_at_local": "2026-04-26 20:30 CEST (około)",
+            "amount_pln": 5000000,
+            "type": "brand",
+            "description_pl": "WK DZIK złożył jednorazową wpłatę 5 mln zł podczas finału, podbijając licznik w ostatnich minutach akcji.",
+            "sources": [
+              {
+                "published_at_utc": null,
+                "source_type": "news",
+                "quote": "Gdy dochodziła 20.30 licznik pokazywał blisko 215 mln zł. ... firma WK Dzik przekazała jednorazowo 5 mln zł ...",
+                "published_at_local": "2026-04-26 (wieczór)",
+                "url": "https://www.tvp.info/92925516/zbiorka-latwoganga-i-bedoesa-celem-250-mln-zl",
+                "label": "TVP Info"
+              },
+              {
+                "published_at_utc": "2026-04-26T19:37:00Z",
+                "source_type": "news",
+                "quote": "... WK DZIK - 5 mln zł ...",
+                "published_at_local": "2026-04-26 21:37 CEST",
+                "url": "https://polskieradio24.pl/artykul/3678904,latwogang-zebral-juz-ponad-251-mln-zl-licznik-zbiorki-wciaz-bije",
+                "label": "Polskie Radio 24"
+              }
+            ],
+            "donor": "WK DZIK",
+            "observed_at_utc": "2026-04-26T18:30:00Z",
+            "confidence": "medium"
+          },
+          {
+            "observed_at_local": null,
+            "amount_pln": 3010000,
+            "type": "corporate",
+            "description_pl": "Budimex dołożył 3,01 mln zł, wzmacniając wsparcie dla onkologii dziecięcej.",
+            "sources": [
+              {
+                "published_at_utc": "2026-04-26T19:37:00Z",
+                "source_type": "news",
+                "quote": "... Budimex - 3,01 mln zł ...",
+                "published_at_local": "2026-04-26 21:37 CEST",
+                "url": "https://polskieradio24.pl/artykul/3678904,latwogang-zebral-juz-ponad-251-mln-zl-licznik-zbiorki-wciaz-bije",
+                "label": "Polskie Radio 24"
+              }
+            ],
+            "donor": "Budimex",
+            "observed_at_utc": null,
+            "confidence": "high"
+          },
+          {
+            "observed_at_local": null,
+            "amount_pln": 2510000,
+            "type": "brand",
+            "description_pl": "Tymbark wsparł akcję przelewem 2,51 mln zł, zachęcając Polaków do dalszego pomagania.",
+            "sources": [
+              {
+                "published_at_utc": "2026-04-26T19:37:00Z",
+                "source_type": "news",
+                "quote": "... Tymbark - 2,51 mln zł ...",
+                "published_at_local": "2026-04-26 21:37 CEST",
+                "url": "https://polskieradio24.pl/artykul/3678904,latwogang-zebral-juz-ponad-251-mln-zl-licznik-zbiorki-wciaz-bije",
+                "label": "Polskie Radio 24"
+              }
+            ],
+            "donor": "Tymbark",
+            "observed_at_utc": null,
+            "confidence": "high"
+          },
+          {
+            "observed_at_local": null,
+            "amount_pln": 1410000,
+            "type": "corporate",
+            "description_pl": "Wizi dołożyło 1,41 mln zł dla podopiecznych Fundacji Cancer Fighters.",
+            "sources": [
+              {
+                "published_at_utc": "2026-04-26T19:37:00Z",
+                "source_type": "news",
+                "quote": "... Wizi - 1,41 mln zł ...",
+                "published_at_local": "2026-04-26 21:37 CEST",
+                "url": "https://polskieradio24.pl/artykul/3678904,latwogang-zebral-juz-ponad-251-mln-zl-licznik-zbiorki-wciaz-bije",
+                "label": "Polskie Radio 24"
+              },
+              {
+                "published_at_utc": "2026-04-25T07:05:00Z",
+                "source_type": "news",
+                "quote": "... Wizi - 500 tys. zł (informacja z 25.04 ...) ",
+                "published_at_local": "2026-04-25 09:05",
+                "url": "https://www.bankier.pl/wiadomosc/Wyjatkowy-stream-influencera-Latwogang-Zebral-miliony-na-walke-dzieci-z-rakiem-9122911.html",
+                "label": "Bankier.pl"
+              }
+            ],
+            "donor": "Wizi",
+            "observed_at_utc": null,
+            "confidence": "high"
+          },
+          {
+            "observed_at_local": null,
+            "amount_pln": 1300000,
+            "type": "corporate",
+            "description_pl": "Wydawnictwo Niezwykłe przekazało 1,3 mln zł, dochodząc do rekordu polskiej dobroczynności online.",
+            "sources": [
+              {
+                "published_at_utc": "2026-04-26T19:37:00Z",
+                "source_type": "news",
+                "quote": "... Wydawnictwo Niezwykłe - 1,3 mln zł ...",
+                "published_at_local": "2026-04-26 21:37 CEST",
+                "url": "https://polskieradio24.pl/artykul/3678904,latwogang-zebral-juz-ponad-251-mln-zl-licznik-zbiorki-wciaz-bije",
+                "label": "Polskie Radio 24"
+              }
+            ],
+            "donor": "Wydawnictwo Niezwykłe",
+            "observed_at_utc": null,
+            "confidence": "high"
+          },
+          {
+            "observed_at_local": null,
+            "amount_pln": 1000000,
+            "type": "brand",
+            "description_pl": "Eveline Cosmetics zasiliło zbiórkę równym milionem złotych.",
+            "sources": [
+              {
+                "published_at_utc": "2026-04-26T19:37:00Z",
+                "source_type": "news",
+                "quote": "... Eveline Cosmetics - 1 mln zł ...",
+                "published_at_local": "2026-04-26 21:37 CEST",
+                "url": "https://polskieradio24.pl/artykul/3678904,latwogang-zebral-juz-ponad-251-mln-zl-licznik-zbiorki-wciaz-bije",
+                "label": "Polskie Radio 24"
+              }
+            ],
+            "donor": "Eveline Cosmetics",
+            "observed_at_utc": null,
+            "confidence": "high"
+          },
+          {
+            "observed_at_local": null,
+            "amount_pln": 1000000,
+            "type": "celebrity",
+            "description_pl": "Bedoes 2115 przekazał co najmniej 1 mln zł, wzmacniając efekt utworu „Ciągle tutaj jestem (diss na raka)”.",
+            "sources": [
+              {
+                "published_at_utc": "2026-04-26T19:37:00Z",
+                "source_type": "news",
+                "quote": "... Bedoes - 1 mln zł ...",
+                "published_at_local": "2026-04-26 21:37 CEST",
+                "url": "https://polskieradio24.pl/artykul/3678904,latwogang-zebral-juz-ponad-251-mln-zl-licznik-zbiorki-wciaz-bije",
+                "label": "Polskie Radio 24"
+              },
+              {
+                "published_at_utc": "2026-04-26T12:47:00Z",
+                "source_type": "news",
+                "quote": "Wsparcie finansowe ze strony gwiazd było znaczące — sam Bedoes przekazał ponad milion złotych.",
+                "published_at_local": "2026-04-26 14:47 (aktualizacja)",
+                "url": "https://sukces.rp.pl/internet/art44229281-ponad-200-milionow-zlotych-od-internautow-youtuber-latwogang-zbiera-pieniadze-na-chore-dzieci",
+                "label": "Rzeczpospolita"
+              }
+            ],
+            "donor": "Bedoes 2115",
+            "observed_at_utc": null,
+            "confidence": "high"
+          },
+          {
+            "observed_at_local": null,
+            "amount_pln": 1000000,
+            "type": "brand",
+            "description_pl": "NEBOA dołożyła okrągły 1 mln zł do wspólnego celu.",
+            "sources": [
+              {
+                "published_at_utc": "2026-04-26T19:37:00Z",
+                "source_type": "news",
+                "quote": "... NEBOA - 1 mln zł ...",
+                "published_at_local": "2026-04-26 21:37 CEST",
+                "url": "https://polskieradio24.pl/artykul/3678904,latwogang-zebral-juz-ponad-251-mln-zl-licznik-zbiorki-wciaz-bije",
+                "label": "Polskie Radio 24"
+              }
+            ],
+            "donor": "NEBOA",
+            "observed_at_utc": null,
+            "confidence": "high"
+          }
+        ]
+      }
+    }
+  }
+}
