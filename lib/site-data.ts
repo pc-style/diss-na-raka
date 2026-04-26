@@ -228,7 +228,12 @@ export const counterHistory: CounterHistoryPoint[] = [
   {
     amount: 122_000_000,
     atUtc: "2026-04-26T10:26:00Z",
-    source: "Bankier.pl (verified peak)",
+    source: "Bankier.pl report",
+  },
+  {
+    amount: 138_000_000,
+    atUtc: "2026-04-26T12:00:00Z",
+    source: "Official final total",
   },
 ];
 
@@ -262,7 +267,7 @@ export const seedSiteData: SiteData = {
       trackArtists: ["Bedoes 2115", "Maja Mecan", "Cancer Fighters"],
       trackLengthSeconds: 165,
     },
-    totalRaisedPln: 122_000_000,
+    totalRaisedPln: 138_000_000,
     hoursElapsed: 216,
     estimatedTotalLoops: 4_718,
     engagement: {
@@ -298,6 +303,7 @@ export const seedSiteData: SiteData = {
         { label: "73 000 000", hours: 213 },
         { label: "100 000 000", hours: 215 },
         { label: "122 000 000", hours: 216 },
+        { label: "138 000 000", hours: 216 },
       ],
     },
   },
@@ -593,14 +599,146 @@ export const seedSiteData: SiteData = {
     {
       id: "ms_122m_peak",
       targetAmount: 122_000_000,
-      title: "122M · Szczyt zbiórki",
+      title: "122M · Szczyt medialny",
       description:
-        "The reported peak of the fundraiser, achieved near the campaign's conclusion on April 26, 2026 at 12:26 CEST. This was the culmination of all previous events, including numerous high-profile guests, multiple celebrity head shaves, and substantial corporate gifts from donors like zen.com, Wydawnictwo Niezwykłe, and Allegro. Note: The 124M figure circulating on social media remains unverified.",
+        "Bankier.pl raportuje szczytową kwotę zbiórki: 122 mln PLN. To najwyższy zweryfikowany medialnie wynik. Kwota 124 mln PLN krążąca w social media pozostaje niepotwierdzona.",
       status: "achieved",
       dateAchieved: "2026-04-26T10:26:00Z",
     },
+    {
+      id: "ms_138m_final",
+      targetAmount: 138_000_000,
+      title: "138M · Oficjalny finał",
+      description:
+        "Oficjalny końcowy wynik zbiórki: 138 mln PLN. Kampania zakończyła się historycznym sukcesem po 9 dniach streamu.",
+      status: "achieved",
+      dateAchieved: "2026-04-26T12:00:00Z",
+    },
+    {
+      id: "ms_42m_kubanczyk_tattoo",
+      targetAmount: 42_000_000,
+      title: "42M · Tatuaż Kubańczyka i Gawronka",
+      description:
+        "Przy kwocie 42 mln zł raper Kubańczyk i influencer Gawronek zadeklarowali i wykonali tatuaż z obrazkiem stworzonym przez podopieczną fundacji.",
+      status: "achieved",
+      dateAchieved: "2026-04-25T13:00:00Z",
+    },
+    {
+      id: "ms_45m_blachowicz",
+      targetAmount: 45_000_000,
+      title: "45M · Golenie głowy: Jan Błachowicz",
+      description:
+        "Czołowy polski zawodnik MMA, były mistrz UFC związany niegdyś z federacją KSW, zgolił włosy po dobiciu do 45 mln zł w geście solidarności z pacjentami onkologicznymi.",
+      status: "achieved",
+      dateAchieved: "2026-04-25T14:00:00Z",
+    },
+    {
+      id: "ms_46_25m_maffashion",
+      targetAmount: 46_250_000,
+      title: "46,25M · Golenie głowy: Maffashion",
+      description:
+        "Influencerka modowa Julia 'Maffashion' Kuczyńska, przebywając w Marbelli, zdalnie ogoliła głowę na łyso po osiągnięciu progu 46,25 mln zł.",
+      status: "achieved",
+      dateAchieved: "2026-04-25T15:20:00Z",
+    },
+    {
+      id: "ms_50m_edyta_pazura",
+      targetAmount: 50_000_000,
+      title: "50M · Golenie głowy: Edyta Pazura",
+      description:
+        "Po obietnicy złożonej przez męża Cezarego Pazurę, przy 50 mln zł Edyta Pazura ogoliła głowę na łyso, z pomocą Roksany Węgiel i Kevina Mgleja.",
+      status: "achieved",
+      dateAchieved: "2026-04-25T16:20:00Z",
+    },
+    {
+      id: "ms_55m_nosowska",
+      targetAmount: 55_000_000,
+      title: "55M · Golenie głowy: Katarzyna Nosowska",
+      description:
+        "Ikona polskiej muzyki Katarzyna Nosowska ogoliła głowę przy wsparciu przyjaciółki, wybitnej aktorki Agaty Kuleszy, która wcieliła się w rolę fryzjerki.",
+      status: "achieved",
+      dateAchieved: "2026-04-25T18:30:00Z",
+    },
+    {
+      id: "ms_60m_aleksandra_domanska",
+      targetAmount: 60_000_000,
+      title: "60M · Golenie głowy: Aleksandra Domańska",
+      description:
+        "W geście solidarności i po przemowie o wewnętrznym pięknie, aktorka Aleksandra Domańska pozbyła się włosów, ogolona przez Katarzynę Nosowską i Agatę Kuleszę.",
+      status: "achieved",
+      dateAchieved: "2026-04-25T19:30:00Z",
+    },
+    {
+      id: "ms_66m_peszko",
+      targetAmount: 66_000_000,
+      title: "66M · Połączenie: Sławomir Peszko",
+      description:
+        "Obiecano i zrealizowano telefoniczne połączenie ze Sławomirem Peszką przy kwocie 66 mln PLN.",
+      status: "achieved",
+      dateAchieved: "2026-04-25T20:30:00Z",
+    },
+    {
+      id: "ms_68m_jan_urban",
+      targetAmount: 68_000_000,
+      title: "68M · Połączenie: Jan Urban",
+      description:
+        "Zrealizowano połączenie z legendarnym trenerem i piłkarzem Janem Urbanem.",
+      status: "achieved",
+      dateAchieved: "2026-04-25T21:00:00Z",
+    },
+    {
+      id: "ms_73m_blanka_lipinska",
+      targetAmount: 73_000_000,
+      title: "73M · Golenie głowy: Blanka Lipińska",
+      description:
+        "Pisarka Blanka Lipińska ogoliła włosy za pomocą maszynki obsługiwanej przez jej partnera Pawła Baryłę.",
+      status: "achieved",
+      dateAchieved: "2026-04-25T22:30:00Z",
+    },
+    {
+      id: "ms_80m_tatuaz_peszki",
+      targetAmount: 80_000_000,
+      title: "80M · Tatuaż Sławomira Peszki",
+      description:
+        "Łatwogang obiecał wykonanie tatuażu z wizerunkiem Sławomira Peszki po osiągnięciu pułapu 80 milionów złotych.",
+      status: "achieved",
+      dateAchieved: "2026-04-26T00:30:00Z",
+    },
+    {
+      id: "ms_97m_borys_szyc",
+      targetAmount: 97_000_000,
+      title: "97M · Pokaz muskulatury: Borys Szyc",
+      description:
+        "Borys Szyc po przekroczeniu kwoty 97 milionów żartobliwie zaprezentował przed kamerą swoją muskulaturę.",
+      status: "achieved",
+      dateAchieved: "2026-04-26T08:00:00Z",
+    },
+    {
+      id: "ms_130m_koncert",
+      targetAmount: 130_000_000,
+      title: "130M · Festiwal muzyczny w kawalerce",
+      description:
+        "Po wybiciu 130 mln PLN na żywo wystąpili Mrozu ('Jak nie my to kto') oraz zespół Golec uOrkiestra ('Ściernisko').",
+      status: "achieved",
+      dateAchieved: "2026-04-26T11:00:00Z",
+    },
   ],
   timelineEvents: [
+    {
+      id: "evt_037",
+      dateLocal: "2026-04-26",
+      relativeTime: "Dzień 10 — Finał",
+      sortUtc: "2026-04-26T12:00:00Z",
+      zrodlo: {
+        label: "Oficjalny finał: 138 mln zł",
+        url: "https://www.bankier.pl/wiadomosc/Wyjatkowy-stream-influencera-Latwogang-Zebral-miliony-na-walke-dzieci-z-rakiem-9122911.html",
+      },
+      participants: ["Łatwogang", "Cancer Fighters"],
+      category: "milestone_execution",
+      description:
+        "Oficjalny końcowy wynik zbiórki: 138 mln PLN. Kampania zakończyła się historycznym sukcesem po 9 dniach streamu.",
+      tags: ["138m", "final"],
+    },
     {
       id: "evt_036",
       dateLocal: "2026-04-26",
@@ -614,7 +752,7 @@ export const seedSiteData: SiteData = {
       category: "milestone_execution",
       description:
         "Bankier.pl raportuje szczytową kwotę zbiórki: 122 mln PLN. To najwyższy zweryfikowany medialnie wynik. Kwota 124 mln PLN krążąca w social media pozostaje niepotwierdzona.",
-      tags: ["122m", "peak", "bankier", "final"],
+      tags: ["122m", "bankier", "media_peak"],
     },
     {
       id: "evt_035",
@@ -1380,6 +1518,201 @@ export const seedSiteData: SiteData = {
       description:
         "Ręcznie potwierdzony snapshot z overlayu: 5 713 793,30 PLN wobec celu 6 000 000 PLN. Tracker zaokrągla ten stan do 5 715 000 PLN i oznacza go jako lokalny punkt odniesienia dla dalszych aktualizacji.",
       tags: ["snapshot", "overlay", "manual_update", "5_715m"],
+    },
+    {
+      id: "evt_038",
+      dateLocal: "2026-04-25",
+      relativeTime: "Dzień 9 — Ok. 13:46",
+      sortUtc: "2026-04-25T11:46:00Z",
+      zrodlo: {
+        label: "Plejada: Piniata i przejęcie streamu",
+        url: "https://www.onet.pl/styl-zycia/plejada/latwogang-zebral-juz-ponad-31-mln-zl-wsrod-gosci-sebastian-fabijanski/0hs6hsz,0898b825",
+      },
+      participants: ["Łatwogang", "Maciej Karaś", "Marcel 'Gawronek' Gawroński"],
+      category: "core_event",
+      description:
+        "Zaraz po przekroczeniu 40 mln złotych, Łatwogang symbolicznie roztrzaskał piniatę w kształcie raka. Następnie stream został 'przejęty' przez Macieja Karasia i Marcela 'Gawronka' Gawrońskiego.",
+      tags: ["40M", "symbolika", "piniata"],
+    },
+    {
+      id: "evt_039",
+      dateLocal: "2026-04-25",
+      relativeTime: "Dzień 9 — Południe",
+      sortUtc: "2026-04-25T12:00:00Z",
+      zrodlo: {
+        label: "Przegląd Sportowy Onet: Wpłata Onet-RASP",
+        url: "https://przegladsportowy.onet.pl/esportmania/influencerzy/na-zywo-spektakularna-akcja-latwoganga-sa-kolejne-gwiazdy-relacja-live/ppymzyx",
+      },
+      participants: ["Grupa Onet-RASP"],
+      category: "core_event",
+      description:
+        "Oficjalna wpłata korporacyjna: 50 000 PLN od grupy Onet i RASP. W trakcie transmisji odbył się wywiad na żywo dla Onetu.",
+      tags: ["wpłata", "media", "50k"],
+    },
+    {
+      id: "evt_040",
+      dateLocal: "2026-04-25",
+      relativeTime: "Dzień 9 — Popołudnie",
+      sortUtc: "2026-04-25T12:15:00Z",
+      zrodlo: {
+        label: "Przegląd Sportowy Onet: Wpłata Roksany Węgiel",
+        url: "https://przegladsportowy.onet.pl/esportmania/influencerzy/na-zywo-spektakularna-akcja-latwoganga-sa-kolejne-gwiazdy-relacja-live/ppymzyx",
+      },
+      participants: ["Roksana Węgiel"],
+      category: "core_event",
+      description:
+        "Prywatna wpłata gwiazdy: 20 000 PLN od wokalistki Roksany Węgiel.",
+      tags: ["wpłata", "gwiazdy", "20k"],
+    },
+    {
+      id: "evt_041",
+      dateLocal: "2026-04-25",
+      relativeTime: "Dzień 9 — Przy 43 mln",
+      sortUtc: "2026-04-25T12:30:00Z",
+      zrodlo: {
+        label: "Przegląd Sportowy Onet: Ekipa Fantasy",
+        url: "https://przegladsportowy.onet.pl/esportmania/influencerzy/na-zywo-spektakularna-akcja-latwoganga-sa-kolejne-gwiazdy-relacja-live/ppymzyx",
+      },
+      participants: ["Kamyk", "Koza"],
+      category: "guest_appearance",
+      description:
+        "Na streamie pojawiają się 'Kamyk' i 'Koza' reprezentujący Ekipa Fantasy. Przekazują na oficjalną aukcję charytatywną Puchar Fantasy.",
+      tags: ["aukcja", "youtube", "ekipa_fantasy"],
+    },
+    {
+      id: "evt_042",
+      dateLocal: "2026-04-25",
+      relativeTime: "Dzień 9 — Przed 44,2 mln",
+      sortUtc: "2026-04-25T13:10:00Z",
+      zrodlo: {
+        label: "Przegląd Sportowy Onet: Wpłata Zbyszko",
+        url: "https://przegladsportowy.onet.pl/esportmania/influencerzy/na-zywo-spektakularna-akcja-latwoganga-sa-kolejne-gwiazdy-relacja-live/ppymzyx",
+      },
+      participants: ["Zbyszko"],
+      category: "core_event",
+      description:
+        "Oficjalna wpłata korporacyjna: 333 000 PLN od firmy produkującej napoje 'Zbyszko'.",
+      tags: ["wpłata", "biznes", "333k"],
+    },
+    {
+      id: "evt_043",
+      dateLocal: "2026-04-25",
+      relativeTime: "Dzień 9 — Po 45,3 mln",
+      sortUtc: "2026-04-25T13:45:00Z",
+      zrodlo: {
+        label: "Przegląd Sportowy Onet: Maciej Musiał",
+        url: "https://przegladsportowy.onet.pl/esportmania/influencerzy/na-zywo-spektakularna-akcja-latwoganga-sa-kolejne-gwiazdy-relacja-live/ppymzyx",
+      },
+      participants: ["Maciej Musiał"],
+      category: "guest_appearance",
+      description:
+        "Na streamie osobiście zjawia się wybitny aktor młodego pokolenia, Maciej Musiał. Chwycił za odkurzacz i pomagał w sprzątaniu kawalerki w trakcie akcji.",
+      tags: ["wizyta", "humor", "akt"],
+    },
+    {
+      id: "evt_044",
+      dateLocal: "2026-04-25",
+      relativeTime: "Dzień 9 — Przed 57,2 mln",
+      sortUtc: "2026-04-25T17:30:00Z",
+      zrodlo: {
+        label: "Przegląd Sportowy Onet: Wpłata Allegro",
+        url: "https://przegladsportowy.onet.pl/esportmania/influencerzy/na-zywo-spektakularna-akcja-latwoganga-sa-kolejne-gwiazdy-relacja-live/ppymzyx",
+      },
+      participants: ["Allegro"],
+      category: "core_event",
+      description:
+        "Oficjalna wpłata korporacyjna: 550 000 PLN od giganta e-commerce, firmy Allegro.",
+      tags: ["wpłata", "biznes", "550k"],
+    },
+    {
+      id: "evt_045",
+      dateLocal: "2026-04-25",
+      relativeTime: "Dzień 9 — Ok. 54,4 mln",
+      sortUtc: "2026-04-25T18:15:00Z",
+      zrodlo: {
+        label: "Przegląd Sportowy Onet: Kevin Mglej golony",
+        url: "https://przegladsportowy.onet.pl/esportmania/influencerzy/na-zywo-spektakularna-akcja-latwoganga-sa-kolejne-gwiazdy-relacja-live/ppymzyx",
+      },
+      participants: ["Kevin Mglej", "Roksana Węgiel"],
+      category: "milestone_execution",
+      description:
+        "Mąż Roksany Węgiel, Kevin Mglej, dołącza do akcji i na żywo goli głowę na łyso, solidaryzując się z chorymi.",
+      tags: ["golenie_głowy", "solidarność"],
+    },
+    {
+      id: "evt_046",
+      dateLocal: "2026-04-25",
+      relativeTime: "Dzień 9 — Przy 55,3 mln",
+      sortUtc: "2026-04-25T18:40:00Z",
+      zrodlo: {
+        label: "Przegląd Sportowy Onet: Adam Małysz",
+        url: "https://przegladsportowy.onet.pl/esportmania/influencerzy/na-zywo-spektakularna-akcja-latwoganga-sa-kolejne-gwiazdy-relacja-live/ppymzyx",
+      },
+      participants: ["Adam Małysz", "Patec"],
+      category: "guest_appearance",
+      description:
+        "Zdalne połączenie ze słynnym polskim skoczkiem narciarskim Adamem Małyszem. Rozmowę prowadził obecny w studiu youtuber 'Patec'.",
+      tags: ["sport", "połączenie", "skoki"],
+    },
+    {
+      id: "evt_047",
+      dateLocal: "2026-04-25",
+      relativeTime: "Dzień 9 — Przy 56 mln",
+      sortUtc: "2026-04-25T18:55:00Z",
+      zrodlo: {
+        label: "Przegląd Sportowy Onet: Michał Wiśniewski",
+        url: "https://przegladsportowy.onet.pl/esportmania/influencerzy/na-zywo-spektakularna-akcja-latwoganga-sa-kolejne-gwiazdy-relacja-live/ppymzyx",
+      },
+      participants: ["Michał Wiśniewski"],
+      category: "guest_appearance",
+      description:
+        "Na streamie pojawia się ikona muzyki pop, lider zespołu Ich Troje, Michał Wiśniewski i wykonuje utwór porywając zgromadzonych.",
+      tags: ["koncert", "muzyka", "ich_troje"],
+    },
+    {
+      id: "evt_048",
+      dateLocal: "2026-04-25",
+      relativeTime: "Dzień 9 — Ok. 61,6 mln",
+      sortUtc: "2026-04-25T19:40:00Z",
+      zrodlo: {
+        label: "Przegląd Sportowy Onet: Eveline Cosmetics",
+        url: "https://przegladsportowy.onet.pl/esportmania/influencerzy/na-zywo-spektakularna-akcja-latwoganga-sa-kolejne-gwiazdy-relacja-live/ppymzyx",
+      },
+      participants: ["Eveline Cosmetics"],
+      category: "core_event",
+      description:
+        "Oficjalna wpłata korporacyjna: 1 000 000 PLN od firmy kosmetycznej Eveline Cosmetics.",
+      tags: ["wpłata", "biznes", "1m"],
+    },
+    {
+      id: "evt_049",
+      dateLocal: "2026-04-25",
+      relativeTime: "Noc Dnia 9 — Przy 80 mln",
+      sortUtc: "2026-04-25T23:30:00Z",
+      zrodlo: {
+        label: "Przegląd Sportowy Onet: Grzegorz Hyży",
+        url: "https://przegladsportowy.onet.pl/esportmania/influencerzy/na-zywo-spektakularna-akcja-latwoganga-sa-kolejne-gwiazdy-relacja-live/ppymzyx",
+      },
+      participants: ["Grzegorz Hyży"],
+      category: "milestone_execution",
+      description:
+        "Popularny wokalista popowy Grzegorz Hyży dołącza do 'gangu łysych', goląc głowę na zero na znak solidarności.",
+      tags: ["golenie_głowy", "solidarność", "muzyka"],
+    },
+    {
+      id: "evt_050",
+      dateLocal: "2026-04-26",
+      relativeTime: "Dzień 10 — Poranek",
+      sortUtc: "2026-04-26T07:00:00Z",
+      zrodlo: {
+        label: "Przegląd Sportowy Onet: Siles i DKMS",
+        url: "https://przegladsportowy.onet.pl/esportmania/influencerzy/na-zywo-spektakularna-akcja-latwoganga-sa-kolejne-gwiazdy-relacja-live/ppymzyx",
+      },
+      participants: ["Siles", "Fundacja DKMS"],
+      category: "core_event",
+      description:
+        "Czołowy polski komentator CS2 'Siles' ogolił głowę na żywo. Na streamie pojawiła się drużyna Fundacji DKMS, wspierająca akcję.",
+      tags: ["golenie_głowy", "fundacja", "esport"],
     },
   ],
 };

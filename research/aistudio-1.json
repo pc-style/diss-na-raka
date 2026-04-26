@@ -1,0 +1,925 @@
+{
+  "summary": "Executive Summary: Akcja charytatywna Łatwoganga i Bedoesa 2115 przeszła do historii, zbierając łącznie ponad 133 miliony złotych na rzecz Fundacji Cancer Fighters. Zbiórka zyskała gigantyczne zasięgi wśród społeczności Gen Z (Generation Z - demographic cohort born mid-1990s to early 2010s), wychodząc daleko poza internet. Po przekroczeniu bariery 40 milionów złotych w dniu 25 kwietnia 2026 roku, wydarzenia nabrały tempa, a do akcji masowo dołączały gwiazdy telewizji, sportu i muzyki. Zrealizowano 13 głównych, nowych wyzwań kamieni milowych, w tym ikoniczne golenie głów przez największe polskie gwiazdy (m.in. Maffashion, Edytę Pazurę, Katarzynę Nosowską, Aleksandrę Domańską, Blankę Lipińską) w akcie solidarności z pacjentami onkologicznymi. Zorganizowano pokazowy rewanż zawodników MMA Arkadiusza Wrzoska i Artura Szpilki. Przekroczenie progu 100 milionów i gigantyczny szturm 24 wyodrębnionych wpłat korporacyjnych i gwiazdorskich doprowadziły do stanu konta powyżej 133 mln PLN na około dwie godziny przed oficjalnym zamknięciem streamu (zaplanowanym na godzinę 16:00, 26 kwietnia 2026). Pieniądze wesprą leczenie onkologiczne i doposażenie oddziałów.",
+  "latestCounter": {
+    "amountPln": 133000000,
+    "amountText": "ponad 133 mln zł",
+    "observedAtLocal": "2026-04-26T13:40:00",
+    "observedAtUtc": "2026-04-26T11:40:00Z",
+    "sourceLabel": "Przegląd Sportowy Onet",
+    "sourceUrl": "https://przegladsportowy.onet.pl/esportmania/influencerzy/na-zywo-spektakularna-akcja-latwoganga-sa-kolejne-gwiazdy-relacja-live/ppymzyx",
+    "confidence": "high",
+    "notes": "Kwota przekroczyła 133 mln PLN krótko po pokazowej walce Wrzoska i Szpilki (ok. 13:36). Transmisja planowo miała trwać do 16:00, jednak dostępne źródła nie potwierdzają oficjalnym zrzutem ekranu dokładnej wartości wygenerowanej na sam koniec wydarzenia."
+  },
+  "milestones": [
+    {
+      "idSuggestion": "ms_42m_kubanczyk",
+      "targetAmountPln": 42000000,
+      "title": "Tatuaż Kubańczyka i Gawronka",
+      "description": "Przy kwocie 42 mln zł raper Kubańczyk i influencer Gawronek zadeklarowali i wykonali tatuaż z obrazkiem stworzonym przez podopieczną fundacji.",
+      "status": "achieved",
+      "dateAchievedLocal": "2026-04-25",
+      "dateAchievedUtc": "2026-04-25T13:00:00Z",
+      "sourceLabel": "Przegląd Sportowy Onet",
+      "sourceUrl": "https://przegladsportowy.onet.pl/esportmania/influencerzy/na-zywo-spektakularna-akcja-latwoganga-sa-kolejne-gwiazdy-relacja-live/ppymzyx",
+      "confidence": "high"
+    },
+    {
+      "idSuggestion": "ms_45m_blachowicz",
+      "targetAmountPln": 45000000,
+      "title": "Golenie głowy: Jan Błachowicz",
+      "description": "Czołowy polski zawodnik MMA związany niegdyś z federacją KSW (Konfrontacja Sztuk Walki - Polish mixed martial arts organization) zgolił włosy po dobiciu do 45 mln zł.",
+      "status": "achieved",
+      "dateAchievedLocal": "2026-04-25",
+      "dateAchievedUtc": "2026-04-25T14:00:00Z",
+      "sourceLabel": "Przegląd Sportowy Onet",
+      "sourceUrl": "https://przegladsportowy.onet.pl/esportmania/influencerzy/na-zywo-spektakularna-akcja-latwoganga-sa-kolejne-gwiazdy-relacja-live/ppymzyx",
+      "confidence": "high"
+    },
+    {
+      "idSuggestion": "ms_45m_rewanz_mma",
+      "targetAmountPln": 45000000,
+      "title": "Rewanż MMA: Wrzosek vs Szpilka",
+      "description": "Po osiągnięciu progu Arkadiusz Wrzosek dzwoni do Artura Szpilki, by ustalić pokazowy rewanż za walkę na KSW 94. Cel osiągnięty 25.04, wykonany 26.04 w kawalerce.",
+      "status": "achieved",
+      "dateAchievedLocal": "2026-04-25",
+      "dateAchievedUtc": "2026-04-25T14:30:00Z",
+      "sourceLabel": "MMA.pl",
+      "sourceUrl": "https://mma.pl/wrzosek-i-szpilka-dogadali-sie-na-rewanz-warunkiem-45-mln-zlotych-w-zbiorce-latwoganga/",
+      "confidence": "high"
+    },
+    {
+      "idSuggestion": "ms_46_25m_maffashion",
+      "targetAmountPln": 46250000,
+      "title": "Golenie głowy: Maffashion",
+      "description": "Influencerka Julia 'Maffashion' Kuczyńska, przebywając w Marbelli, zdalnie ogoliła głowę na łyso.",
+      "status": "achieved",
+      "dateAchievedLocal": "2026-04-25",
+      "dateAchievedUtc": "2026-04-25T15:20:00Z",
+      "sourceLabel": "4FUN",
+      "sourceUrl": "https://4fun.tv/news/latwogang-cancer-fighters-stream-maffasion-wieniawa",
+      "confidence": "high"
+    },
+    {
+      "idSuggestion": "ms_50m_edyta_pazura",
+      "targetAmountPln": 50000000,
+      "title": "Golenie głowy: Edyta Pazura",
+      "description": "Po obietnicy złożonej przez męża, Cezarego Pazurę, przy 50 mln zł Edyta Pazura ogoliła głowę na łyso, z pomocą Roksany Węgiel i Kevina Mgleja.",
+      "status": "achieved",
+      "dateAchievedLocal": "2026-04-25",
+      "dateAchievedUtc": "2026-04-25T16:20:00Z",
+      "sourceLabel": "Plejada",
+      "sourceUrl": "https://plejada.pl/newsy/edyta-pazura-zgolila-glowe-u-latwoganga-za-maszynke-chwycila-roksana-wegiel/hh9sz4g",
+      "confidence": "high"
+    },
+    {
+      "idSuggestion": "ms_55m_nosowska",
+      "targetAmountPln": 55000000,
+      "title": "Golenie głowy: Katarzyna Nosowska",
+      "description": "Ikona muzyki Katarzyna Nosowska ogoliła głowę przy wsparciu przyjaciółki, wybitnej aktorki Agaty Kuleszy, która wcieliła się w rolę fryzjerki.",
+      "status": "achieved",
+      "dateAchievedLocal": "2026-04-25",
+      "dateAchievedUtc": "2026-04-25T18:30:00Z",
+      "sourceLabel": "Plejada",
+      "sourceUrl": "https://plejada.pl/newsy/agata-kulesza-ogolila-katarzyne-nosowska-na-lyso-latwogang-kasia-kocham-cie/19hzyj6",
+      "confidence": "high"
+    },
+    {
+      "idSuggestion": "ms_60m_domanska",
+      "targetAmountPln": 60000000,
+      "title": "Golenie głowy: Aleksandra Domańska",
+      "description": "W geście solidarności i po przemowie o wewnętrznym pięknie, aktorka Aleksandra Domańska pozbyła się włosów (ogolona przez K. Nosowską i A. Kuleszę).",
+      "status": "achieved",
+      "dateAchievedLocal": "2026-04-25",
+      "dateAchievedUtc": "2026-04-25T19:30:00Z",
+      "sourceLabel": "Dziennik.pl",
+      "sourceUrl": "https://zyciegwiazd.dziennik.pl/news/artykuly/11238513,maffashion-nosowska-i-edyta-pazura-ogolily-glowy-miliony-na-koncie-zbiorki-dla-chorych-dzieci.html",
+      "confidence": "high"
+    },
+    {
+      "idSuggestion": "ms_66m_peszko",
+      "targetAmountPln": 66000000,
+      "title": "Połączenie: Sławomir Peszko",
+      "description": "Obiecano i zrealizowano telefoniczne połączenie ze Sławomirem Peszką przy kwocie 66 mln PLN.",
+      "status": "achieved",
+      "dateAchievedLocal": "2026-04-25",
+      "dateAchievedUtc": "2026-04-25T20:30:00Z",
+      "sourceLabel": "Przegląd Sportowy Onet",
+      "sourceUrl": "https://przegladsportowy.onet.pl/esportmania/influencerzy/na-zywo-spektakularna-akcja-latwoganga-sa-kolejne-gwiazdy-relacja-live/ppymzyx",
+      "confidence": "high"
+    },
+    {
+      "idSuggestion": "ms_68m_urban",
+      "targetAmountPln": 68000000,
+      "title": "Połączenie: Jan Urban",
+      "description": "Zrealizowano połączenie z legendarnym trenerem i piłkarzem Janem Urbanem.",
+      "status": "achieved",
+      "dateAchievedLocal": "2026-04-25",
+      "dateAchievedUtc": "2026-04-25T21:00:00Z",
+      "sourceLabel": "Przegląd Sportowy Onet",
+      "sourceUrl": "https://przegladsportowy.onet.pl/esportmania/influencerzy/na-zywo-spektakularna-akcja-latwoganga-sa-kolejne-gwiazdy-relacja-live/ppymzyx",
+      "confidence": "high"
+    },
+    {
+      "idSuggestion": "ms_73m_lipinska",
+      "targetAmountPln": 73000000,
+      "title": "Golenie głowy: Blanka Lipińska",
+      "description": "Pisarka Blanka Lipińska ogoliła włosy za pomocą maszynki obsługiwanej przez jej partnera Pawła Baryłę.",
+      "status": "achieved",
+      "dateAchievedLocal": "2026-04-26",
+      "dateAchievedUtc": "2026-04-25T22:30:00Z",
+      "sourceLabel": "Plejada",
+      "sourceUrl": "https://plejada.pl/newsy/latwogang-zebral-juz-ponad-85-mln-zl-tym-razem-glowe-ogolila-blanka-lipinska/xj15p9c",
+      "confidence": "high"
+    },
+    {
+      "idSuggestion": "ms_80m_tatuaz",
+      "targetAmountPln": 80000000,
+      "title": "Tatuaż Sławomira Peszki",
+      "description": "Łatwogang obiecał wykonanie tatuażu z wizerunkiem Sławomira Peszki po osiągnięciu pułapu 80 milionów złotych.",
+      "status": "achieved",
+      "dateAchievedLocal": "2026-04-26",
+      "dateAchievedUtc": "2026-04-26T00:30:00Z",
+      "sourceLabel": "Przegląd Sportowy Onet",
+      "sourceUrl": "https://przegladsportowy.onet.pl/esportmania/influencerzy/na-zywo-spektakularna-akcja-latwoganga-sa-kolejne-gwiazdy-relacja-live/ppymzyx",
+      "confidence": "high"
+    },
+    {
+      "idSuggestion": "ms_97m_szyc",
+      "targetAmountPln": 97000000,
+      "title": "Pokaz muskulatury: Borys Szyc",
+      "description": "Borys Szyc po przekroczeniu kwoty 97 milionów żartobliwie zaprezentował przed kamerą swoją muskulaturę.",
+      "status": "achieved",
+      "dateAchievedLocal": "2026-04-26",
+      "dateAchievedUtc": "2026-04-26T08:00:00Z",
+      "sourceLabel": "Plejada",
+      "sourceUrl": "https://www.onet.pl/styl-zycia/plejada/zbiorka-latwoganga-bije-rekordy-gwiazdy-dolaczaja-do-akcji-influencera/0hs6hsz,0898b825",
+      "confidence": "high"
+    },
+    {
+      "idSuggestion": "ms_130m_koncert",
+      "targetAmountPln": 130000000,
+      "title": "Festiwal muzyczny w kawalerce",
+      "description": "Po wybiciu 130 mln PLN na żywo wystąpili Mrozu ('Jak nie my to kto') oraz zespół Golec uOrkiestra ('Ściernisko').",
+      "status": "achieved",
+      "dateAchievedLocal": "2026-04-26",
+      "dateAchievedUtc": "2026-04-26T11:00:00Z",
+      "sourceLabel": "Przegląd Sportowy Onet",
+      "sourceUrl": "https://przegladsportowy.onet.pl/esportmania/influencerzy/na-zywo-spektakularna-akcja-latwoganga-sa-kolejne-gwiazdy-relacja-live/ppymzyx",
+      "confidence": "high"
+    }
+  ],
+  "timelineEvents": [
+    {
+      "idSuggestion": "evt_pinata_40m",
+      "dateLocal": "2026-04-25",
+      "relativeTime": "Dzień 9 — Ok. 13:46",
+      "sortUtc": "2026-04-25T11:46:00Z",
+      "sourceLabel": "Plejada",
+      "sourceUrl": "https://www.onet.pl/styl-zycia/plejada/latwogang-zebral-juz-ponad-31-mln-zl-wsrod-gosci-sebastian-fabijanski/0hs6hsz,0898b825",
+      "participants": [
+        "Łatwogang",
+        "Maciej Karaś",
+        "Marcel 'Gawronek' Gawroński"
+      ],
+      "category": "core_event",
+      "description": "Zaraz po przekroczeniu 40 mln złotych, Łatwogang symbolicznie roztrzaskał piniatę w kształcie raka. Następnie stream został 'przejęty' przez Macieja Karasia i Marcela 'Gawronka' Gawrońskiego.",
+      "tags": [
+        "40M",
+        "symbolika"
+      ],
+      "confidence": "high"
+    },
+    {
+      "idSuggestion": "evt_don_onet",
+      "dateLocal": "2026-04-25",
+      "relativeTime": "Dzień 9 — Południe",
+      "sortUtc": "2026-04-25T12:00:00Z",
+      "sourceLabel": "Przegląd Sportowy Onet",
+      "sourceUrl": "https://przegladsportowy.onet.pl/esportmania/influencerzy/na-zywo-spektakularna-akcja-latwoganga-sa-kolejne-gwiazdy-relacja-live/ppymzyx",
+      "participants": [
+        "Grupa Onet-RASP"
+      ],
+      "category": "core_event",
+      "description": "Oficjalna wpłata korporacyjna: 50 000 PLN od grupy Onet i RASP. W trakcie transmisji odbył się wywiad na żywo dla Onetu.",
+      "tags": [
+        "wpłata",
+        "media"
+      ],
+      "confidence": "high"
+    },
+    {
+      "idSuggestion": "evt_don_roksana_w",
+      "dateLocal": "2026-04-25",
+      "relativeTime": "Dzień 9 — Popołudnie",
+      "sortUtc": "2026-04-25T12:15:00Z",
+      "sourceLabel": "Przegląd Sportowy Onet",
+      "sourceUrl": "https://przegladsportowy.onet.pl/esportmania/influencerzy/na-zywo-spektakularna-akcja-latwoganga-sa-kolejne-gwiazdy-relacja-live/ppymzyx",
+      "participants": [
+        "Roksana Węgiel"
+      ],
+      "category": "core_event",
+      "description": "Prywatna wpłata gwizdy: 20 000 PLN od wokalistki Roksany Węgiel.",
+      "tags": [
+        "wpłata",
+        "gwiazdy"
+      ],
+      "confidence": "high"
+    },
+    {
+      "idSuggestion": "evt_ekipa_fantasy",
+      "dateLocal": "2026-04-25",
+      "relativeTime": "Dzień 9 — Przy 43 mln",
+      "sortUtc": "2026-04-25T12:30:00Z",
+      "sourceLabel": "Przegląd Sportowy Onet",
+      "sourceUrl": "https://przegladsportowy.onet.pl/esportmania/influencerzy/na-zywo-spektakularna-akcja-latwoganga-sa-kolejne-gwiazdy-relacja-live/ppymzyx",
+      "participants": [
+        "Kamyk",
+        "Koza"
+      ],
+      "category": "guest_appearance",
+      "description": "Na streamie pojawiają się 'Kamyk' i 'Koza' reprezentujący Ekipa Fantasy. Przekazują na oficjalną aukcję charytatywną Puchar Fantasy.",
+      "tags": [
+        "aukcja",
+        "youtube"
+      ],
+      "confidence": "high"
+    },
+    {
+      "idSuggestion": "evt_don_zbyszko",
+      "dateLocal": "2026-04-25",
+      "relativeTime": "Dzień 9 — Przed 44,2 mln",
+      "sortUtc": "2026-04-25T13:10:00Z",
+      "sourceLabel": "Przegląd Sportowy Onet",
+      "sourceUrl": "https://przegladsportowy.onet.pl/esportmania/influencerzy/na-zywo-spektakularna-akcja-latwoganga-sa-kolejne-gwiazdy-relacja-live/ppymzyx",
+      "participants": [
+        "Zbyszko"
+      ],
+      "category": "core_event",
+      "description": "Oficjalna wpłata korporacyjna: 333 000 PLN od firmy produkującej napoje 'Zbyszko'.",
+      "tags": [
+        "wpłata",
+        "biznes"
+      ],
+      "confidence": "high"
+    },
+    {
+      "idSuggestion": "evt_maciej_musial",
+      "dateLocal": "2026-04-25",
+      "relativeTime": "Dzień 9 — Po 45,3 mln",
+      "sortUtc": "2026-04-25T13:45:00Z",
+      "sourceLabel": "Przegląd Sportowy Onet",
+      "sourceUrl": "https://przegladsportowy.onet.pl/esportmania/influencerzy/na-zywo-spektakularna-akcja-latwoganga-sa-kolejne-gwiazdy-relacja-live/ppymzyx",
+      "participants": [
+        "Maciej Musiał"
+      ],
+      "category": "guest_appearance",
+      "description": "Na streamie osobiście zjawia się wybitny aktor młodego pokolenia, Maciej Musiał. Chwycił za odkurzacz i pomagał w sprzątaniu kawalerki w trakcie akcji.",
+      "tags": [
+        "wizyta",
+        "humor"
+      ],
+      "confidence": "high"
+    },
+    {
+      "idSuggestion": "evt_don_allegro",
+      "dateLocal": "2026-04-25",
+      "relativeTime": "Dzień 9 — Przed 57,2 mln",
+      "sortUtc": "2026-04-25T17:30:00Z",
+      "sourceLabel": "Przegląd Sportowy Onet",
+      "sourceUrl": "https://przegladsportowy.onet.pl/esportmania/influencerzy/na-zywo-spektakularna-akcja-latwoganga-sa-kolejne-gwiazdy-relacja-live/ppymzyx",
+      "participants": [
+        "Allegro"
+      ],
+      "category": "core_event",
+      "description": "Oficjalna wpłata korporacyjna: 550 000 PLN od giganta e-commerce, firmy Allegro.",
+      "tags": [
+        "wpłata",
+        "biznes"
+      ],
+      "confidence": "high"
+    },
+    {
+      "idSuggestion": "evt_kevin_mglej",
+      "dateLocal": "2026-04-25",
+      "relativeTime": "Dzień 9 — Ok. 54,4 mln",
+      "sortUtc": "2026-04-25T18:15:00Z",
+      "sourceLabel": "Przegląd Sportowy Onet",
+      "sourceUrl": "https://przegladsportowy.onet.pl/esportmania/influencerzy/na-zywo-spektakularna-akcja-latwoganga-sa-kolejne-gwiazdy-relacja-live/ppymzyx",
+      "participants": [
+        "Kevin Mglej",
+        "Roksana Węgiel"
+      ],
+      "category": "core_event",
+      "description": "Mąż Roksany Węgiel, Kevin Mglej, dołącza do akcji i na żywo goli głowę na łyso, solidaryzując się z chorymi.",
+      "tags": [
+        "golenie_głowy"
+      ],
+      "confidence": "high"
+    },
+    {
+      "idSuggestion": "evt_adam_malysz",
+      "dateLocal": "2026-04-25",
+      "relativeTime": "Dzień 9 — Przy 55,3 mln",
+      "sortUtc": "2026-04-25T18:40:00Z",
+      "sourceLabel": "Przegląd Sportowy Onet",
+      "sourceUrl": "https://przegladsportowy.onet.pl/esportmania/influencerzy/na-zywo-spektakularna-akcja-latwoganga-sa-kolejne-gwiazdy-relacja-live/ppymzyx",
+      "participants": [
+        "Adam Małysz",
+        "Patec"
+      ],
+      "category": "guest_appearance",
+      "description": "Zdalne połączenie ze słynnym polskim skoczkiem narciarskim Adamem Małyszem. Rozmowę prowadził obecny w studiu youtuber 'Patec'.",
+      "tags": [
+        "sport",
+        "połączenie"
+      ],
+      "confidence": "high"
+    },
+    {
+      "idSuggestion": "evt_michal_wisniewski",
+      "dateLocal": "2026-04-25",
+      "relativeTime": "Dzień 9 — Przy 56 mln",
+      "sortUtc": "2026-04-25T18:55:00Z",
+      "sourceLabel": "Przegląd Sportowy Onet",
+      "sourceUrl": "https://przegladsportowy.onet.pl/esportmania/influencerzy/na-zywo-spektakularna-akcja-latwoganga-sa-kolejne-gwiazdy-relacja-live/ppymzyx",
+      "participants": [
+        "Michał Wiśniewski"
+      ],
+      "category": "guest_appearance",
+      "description": "Na streamie pojawia się ikona muzyki pop, lider zespołu Ich Troje, Michał Wiśniewski i wykonuje utwór porywając zgromadzonych.",
+      "tags": [
+        "koncert",
+        "muzyka"
+      ],
+      "confidence": "high"
+    },
+    {
+      "idSuggestion": "evt_don_eveline",
+      "dateLocal": "2026-04-25",
+      "relativeTime": "Dzień 9 — Ok. 61,6 mln",
+      "sortUtc": "2026-04-25T19:40:00Z",
+      "sourceLabel": "Przegląd Sportowy Onet",
+      "sourceUrl": "https://przegladsportowy.onet.pl/esportmania/influencerzy/na-zywo-spektakularna-akcja-latwoganga-sa-kolejne-gwiazdy-relacja-live/ppymzyx",
+      "participants": [
+        "Eveline Cosmetics"
+      ],
+      "category": "core_event",
+      "description": "Oficjalna wpłata korporacyjna: 1 000 000 PLN od firmy kosmetycznej Eveline Cosmetics.",
+      "tags": [
+        "wpłata",
+        "biznes"
+      ],
+      "confidence": "high"
+    },
+    {
+      "idSuggestion": "evt_hyzy_shave",
+      "dateLocal": "2026-04-25",
+      "relativeTime": "Noc Dnia 9 — Przy 80 mln",
+      "sortUtc": "2026-04-25T23:30:00Z",
+      "sourceLabel": "Przegląd Sportowy Onet",
+      "sourceUrl": "https://przegladsportowy.onet.pl/esportmania/influencerzy/na-zywo-spektakularna-akcja-latwoganga-sa-kolejne-gwiazdy-relacja-live/ppymzyx",
+      "participants": [
+        "Grzegorz Hyży"
+      ],
+      "category": "core_event",
+      "description": "Popularny wokalista popowy Grzegorz Hyży dołącza do 'gangu łysych', goląc głowę na zero na znak solidarności.",
+      "tags": [
+        "golenie_głowy"
+      ],
+      "confidence": "high"
+    },
+    {
+      "idSuggestion": "evt_siles_dkms",
+      "dateLocal": "2026-04-26",
+      "relativeTime": "Dzień 10 — Poranek",
+      "sortUtc": "2026-04-26T07:00:00Z",
+      "sourceLabel": "Przegląd Sportowy Onet",
+      "sourceUrl": "https://przegladsportowy.onet.pl/esportmania/influencerzy/na-zywo-spektakularna-akcja-latwoganga-sa-kolejne-gwiazdy-relacja-live/ppymzyx",
+      "participants": [
+        "Siles",
+        "DKMS"
+      ],
+      "category": "core_event",
+      "description": "Raper Siles spędza niedzielny poranek na streamie edukując o wadze dawstwa szpiku. Zachęca widzów do rejestracji w BDKMS (Baza Dawców Komórek Macierzystych - stem cell donor registry). Raportowano wzrost rejestracji o ponad 2000 osób.",
+      "tags": [
+        "edukacja",
+        "rejestracja"
+      ],
+      "confidence": "high"
+    },
+    {
+      "idSuggestion": "evt_1670_singing",
+      "dateLocal": "2026-04-26",
+      "relativeTime": "Dzień 10 — Przy 86 mln",
+      "sortUtc": "2026-04-26T07:30:00Z",
+      "sourceLabel": "Plejada",
+      "sourceUrl": "https://plejada.pl/newsy/zbiorka-latwoganga-bije-rekordy-gwiazdy-dolaczaja-do-akcji-influencera/0hs6hsz",
+      "participants": [
+        "Bartłomiej Topa",
+        "Michał Sikorski"
+      ],
+      "category": "guest_appearance",
+      "description": "Czołowi aktorzy z hitowego serialu '1670', Bartłomiej Topa i Michał Sikorski, wykonują na żywo piosenkę o wsi Adamczycha, pobudzając widzów do wpłat.",
+      "tags": [
+        "humor",
+        "aktorzy"
+      ],
+      "confidence": "high"
+    },
+    {
+      "idSuggestion": "evt_wosp_owsiak",
+      "dateLocal": "2026-04-26",
+      "relativeTime": "Dzień 10 — Ok. 11:20",
+      "sortUtc": "2026-04-26T09:20:00Z",
+      "sourceLabel": "Onet Wiadomości",
+      "sourceUrl": "https://wiadomosci.onet.pl/kraj/jurek-owsiak-o-sile-wspolnego-dzialania-zbiorka-latwoganga-robi-furore/6sd74kd",
+      "participants": [
+        "Jurek Owsiak"
+      ],
+      "category": "core_event",
+      "description": "Założyciel WOŚP (Wielka Orkiestra Świątecznej Pomocy - the largest Polish non-governmental charity organization) publikuje wideo z niezwykłym uznaniem dla akcji, przeliczając zebrane miliony na ratujące życie tomografy komputerowe.",
+      "tags": [
+        "komentarz",
+        "wsparcie"
+      ],
+      "confidence": "high"
+    },
+    {
+      "idSuggestion": "evt_mma_fight_execution",
+      "dateLocal": "2026-04-26",
+      "relativeTime": "Dzień 10 — Ok. 12:30",
+      "sortUtc": "2026-04-26T10:30:00Z",
+      "sourceLabel": "MMA.pl",
+      "sourceUrl": "https://mma.pl/szpilka-i-wrzosek-stoczyli-rewanz-na-streamie-latwoganga-wszystko-aby-pomoc-dzieciom/",
+      "participants": [
+        "Arkadiusz Wrzosek",
+        "Artur Szpilka",
+        "Łukasz Jurkowski",
+        "Maciej Turski"
+      ],
+      "category": "milestone_execution",
+      "description": "Wykonanie kamienia milowego: Pokazowy rewanż MMA. Zawodnicy stoczyli walkę w kawalerce (runda na 'łapki', runda w kamień-papier-nożyce i luźny sparing w rękawicach). Walkę na żywo komentowali Łukasz 'Juras' Jurkowski oraz Maciej Turski. Artur Szpilka przekazał ponadto na licytację rękawice, w których walczył z Deontayem Wilderem.",
+      "tags": [
+        "sport",
+        "show"
+      ],
+      "confidence": "high"
+    },
+    {
+      "idSuggestion": "evt_don_tymbark",
+      "dateLocal": "2026-04-26",
+      "relativeTime": "Zestawienie Finałowe (Raportowane Post-Factum)",
+      "sortUtc": "2026-04-26T12:00:00Z",
+      "sourceLabel": "Draft Raport Wewnętrzny",
+      "sourceUrl": "",
+      "participants": [
+        "Tymbark"
+      ],
+      "category": "core_event",
+      "description": "Oficjalna wpłata korporacyjna: 1 600 000 PLN od producenta soków Tymbark. Jeden z najwyższych pojedynczych przelewów całej zbiórki.",
+      "tags": [
+        "wpłata",
+        "biznes",
+        "lider"
+      ],
+      "confidence": "high"
+    },
+    {
+      "idSuggestion": "evt_don_budimex",
+      "dateLocal": "2026-04-26",
+      "relativeTime": "Zestawienie Finałowe",
+      "sortUtc": "2026-04-26T12:01:00Z",
+      "sourceLabel": "Przegląd Sportowy Onet",
+      "sourceUrl": "https://przegladsportowy.onet.pl/esportmania/influencerzy/na-zywo-spektakularna-akcja-latwoganga-sa-kolejne-gwiazdy-relacja-live/ppymzyx",
+      "participants": [
+        "Budimex"
+      ],
+      "category": "core_event",
+      "description": "Oficjalna wpłata korporacyjna: 1 500 000 PLN od giganta budowlanego Budimex.",
+      "tags": [
+        "wpłata",
+        "biznes"
+      ],
+      "confidence": "high"
+    },
+    {
+      "idSuggestion": "evt_don_zen_com",
+      "dateLocal": "2026-04-26",
+      "relativeTime": "Zestawienie Finałowe",
+      "sortUtc": "2026-04-26T12:02:00Z",
+      "sourceLabel": "Plejada",
+      "sourceUrl": "https://www.onet.pl/styl-zycia/plejada/zbiorka-latwoganga-bije-rekordy-gwiazdy-dolaczaja-do-akcji-influencera/0hs6hsz,0898b825",
+      "participants": [
+        "Zen.com"
+      ],
+      "category": "core_event",
+      "description": "Oficjalna wpłata korporacyjna: 1 400 000 PLN od fintechu Zen.com.",
+      "tags": [
+        "wpłata",
+        "biznes"
+      ],
+      "confidence": "high"
+    },
+    {
+      "idSuggestion": "evt_don_wydawnictwo",
+      "dateLocal": "2026-04-26",
+      "relativeTime": "Zestawienie Finałowe",
+      "sortUtc": "2026-04-26T12:03:00Z",
+      "sourceLabel": "Plejada",
+      "sourceUrl": "https://www.onet.pl/styl-zycia/plejada/zbiorka-latwoganga-bije-rekordy-gwiazdy-dolaczaja-do-akcji-influencera/0hs6hsz,0898b825",
+      "participants": [
+        "Wydawnictwo Niezwykłe"
+      ],
+      "category": "core_event",
+      "description": "Oficjalna wpłata korporacyjna: 1 300 000 PLN od Wydawnictwa Niezwykłego.",
+      "tags": [
+        "wpłata",
+        "biznes"
+      ],
+      "confidence": "high"
+    },
+    {
+      "idSuggestion": "evt_don_wizi",
+      "dateLocal": "2026-04-26",
+      "relativeTime": "Zestawienie Finałowe",
+      "sortUtc": "2026-04-26T12:04:00Z",
+      "sourceLabel": "Plejada",
+      "sourceUrl": "https://www.onet.pl/styl-zycia/plejada/zbiorka-latwoganga-bije-rekordy-gwiazdy-dolaczaja-do-akcji-influencera/0hs6hsz,0898b825",
+      "participants": [
+        "Wizi"
+      ],
+      "category": "core_event",
+      "description": "Oficjalna wpłata korporacyjna: Dwie potężne transze od marki Wizi – 1 100 000 PLN oraz kolejna na kwotę 710 000 PLN.",
+      "tags": [
+        "wpłata",
+        "biznes"
+      ],
+      "confidence": "high"
+    },
+    {
+      "idSuggestion": "evt_don_bedoes",
+      "dateLocal": "2026-04-26",
+      "relativeTime": "Zestawienie Finałowe",
+      "sortUtc": "2026-04-26T12:05:00Z",
+      "sourceLabel": "Plejada",
+      "sourceUrl": "https://www.onet.pl/styl-zycia/plejada/zbiorka-latwoganga-bije-rekordy-gwiazdy-dolaczaja-do-akcji-influencera/0hs6hsz,0898b825",
+      "participants": [
+        "Bedoes 2115"
+      ],
+      "category": "core_event",
+      "description": "Wpłata gwiazdorska: Sam inicjator muzyczny akcji, Bedoes 2115, wpłaca równe 1 000 000 PLN.",
+      "tags": [
+        "wpłata",
+        "gwiazda"
+      ],
+      "confidence": "high"
+    },
+    {
+      "idSuggestion": "evt_don_neboa",
+      "dateLocal": "2026-04-26",
+      "relativeTime": "Zestawienie Finałowe",
+      "sortUtc": "2026-04-26T12:06:00Z",
+      "sourceLabel": "Plejada",
+      "sourceUrl": "https://www.onet.pl/styl-zycia/plejada/zbiorka-latwoganga-bije-rekordy-gwiazdy-dolaczaja-do-akcji-influencera/0hs6hsz,0898b825",
+      "participants": [
+        "NEBOA"
+      ],
+      "category": "core_event",
+      "description": "Oficjalna wpłata korporacyjna: 1 000 000 PLN od firmy kosmetycznej NEBOA.",
+      "tags": [
+        "wpłata",
+        "biznes"
+      ],
+      "confidence": "high"
+    },
+    {
+      "idSuggestion": "evt_don_xtb",
+      "dateLocal": "2026-04-26",
+      "relativeTime": "Zestawienie Finałowe",
+      "sortUtc": "2026-04-26T12:07:00Z",
+      "sourceLabel": "Plejada",
+      "sourceUrl": "https://www.onet.pl/styl-zycia/plejada/zbiorka-latwoganga-bije-rekordy-gwiazdy-dolaczaja-do-akcji-influencera/0hs6hsz,0898b825",
+      "participants": [
+        "XTB"
+      ],
+      "category": "core_event",
+      "description": "Oficjalna wpłata korporacyjna: 1 000 000 PLN od platformy inwestycyjnej XTB.",
+      "tags": [
+        "wpłata",
+        "biznes"
+      ],
+      "confidence": "high"
+    },
+    {
+      "idSuggestion": "evt_don_vezzi",
+      "dateLocal": "2026-04-26",
+      "relativeTime": "Zestawienie Finałowe",
+      "sortUtc": "2026-04-26T12:08:00Z",
+      "sourceLabel": "Draft Raport Wewnętrzny",
+      "sourceUrl": "",
+      "participants": [
+        "Vezzi"
+      ],
+      "category": "core_event",
+      "description": "Oficjalna wpłata korporacyjna: 700 000 PLN od marki biżuteryjnej Vezzi.",
+      "tags": [
+        "wpłata",
+        "biznes"
+      ],
+      "confidence": "high"
+    },
+    {
+      "idSuggestion": "evt_don_dzik",
+      "dateLocal": "2026-04-26",
+      "relativeTime": "Zestawienie Finałowe",
+      "sortUtc": "2026-04-26T12:09:00Z",
+      "sourceLabel": "Plejada",
+      "sourceUrl": "https://www.onet.pl/styl-zycia/plejada/latwogang-zebral-juz-ponad-31-mln-zl-wsrod-gosci-sebastian-fabijanski/0hs6hsz,0898b825",
+      "participants": [
+        "WK Dzik"
+      ],
+      "category": "core_event",
+      "description": "Oficjalna wpłata korporacyjna: 300 000 PLN od marki odzieżowo-suplementacyjnej WK Dzik.",
+      "tags": [
+        "wpłata",
+        "biznes"
+      ],
+      "confidence": "high"
+    },
+    {
+      "idSuggestion": "evt_don_inpost",
+      "dateLocal": "2026-04-26",
+      "relativeTime": "Zestawienie Finałowe",
+      "sortUtc": "2026-04-26T12:10:00Z",
+      "sourceLabel": "Plejada",
+      "sourceUrl": "https://www.onet.pl/styl-zycia/plejada/latwogang-zebral-juz-ponad-31-mln-zl-wsrod-gosci-sebastian-fabijanski/0hs6hsz,0898b825",
+      "participants": [
+        "InPost",
+        "Rafał Brzoska",
+        "Omenaa Mensah"
+      ],
+      "category": "core_event",
+      "description": "Oficjalna wpłata korporacyjna: 300 000 PLN od lidera logistyki InPost w imieniu Rafała Brzoski i Omeny Mensah.",
+      "tags": [
+        "wpłata",
+        "biznes"
+      ],
+      "confidence": "high"
+    },
+    {
+      "idSuggestion": "evt_don_polsat",
+      "dateLocal": "2026-04-26",
+      "relativeTime": "Zestawienie Finałowe",
+      "sortUtc": "2026-04-26T12:11:00Z",
+      "sourceLabel": "Przegląd Sportowy Onet",
+      "sourceUrl": "https://przegladsportowy.onet.pl/esportmania/influencerzy/na-zywo-spektakularna-akcja-latwoganga-sa-kolejne-gwiazdy-relacja-live/ppymzyx",
+      "participants": [
+        "Polsat"
+      ],
+      "category": "core_event",
+      "description": "Oficjalna wpłata stacji telewizyjnej: 300 000 PLN wpłacone przez stację Polsat.",
+      "tags": [
+        "wpłata",
+        "media"
+      ],
+      "confidence": "high"
+    },
+    {
+      "idSuggestion": "evt_don_kanal_zero",
+      "dateLocal": "2026-04-26",
+      "relativeTime": "Zestawienie Finałowe",
+      "sortUtc": "2026-04-26T12:12:00Z",
+      "sourceLabel": "Draft Raport Wewnętrzny",
+      "sourceUrl": "",
+      "participants": [
+        "Kanał Zero",
+        "Krzysztof Stanowski"
+      ],
+      "category": "core_event",
+      "description": "Oficjalna wpłata medialna: 250 000 PLN przekazane od Kanału Zero (Krzysztof Stanowski) wraz z obietnicą 10 tys. za każdego gola drużyny KTS Weszło.",
+      "tags": [
+        "wpłata",
+        "youtube"
+      ],
+      "confidence": "high"
+    },
+    {
+      "idSuggestion": "evt_don_ekipa",
+      "dateLocal": "2026-04-26",
+      "relativeTime": "Zestawienie Finałowe",
+      "sortUtc": "2026-04-26T12:13:00Z",
+      "sourceLabel": "Plejada",
+      "sourceUrl": "https://www.onet.pl/styl-zycia/plejada/latwogang-zebral-juz-ponad-85-mln-zl-tym-razem-glowe-ogolila-blanka-lipinska/xj15p9c,0898b825",
+      "participants": [
+        "EKIPA"
+      ],
+      "category": "core_event",
+      "description": "Oficjalna wpłata internetowa: 201 000 PLN przelane ze strony grupy youtubowej EKIPA.",
+      "tags": [
+        "wpłata",
+        "youtube"
+      ],
+      "confidence": "high"
+    },
+    {
+      "idSuggestion": "evt_don_podsiadlo",
+      "dateLocal": "2026-04-26",
+      "relativeTime": "Zestawienie Finałowe",
+      "sortUtc": "2026-04-26T12:14:00Z",
+      "sourceLabel": "Plejada",
+      "sourceUrl": "https://www.onet.pl/styl-zycia/plejada/latwogang-zebral-juz-ponad-85-mln-zl-tym-razem-glowe-ogolila-blanka-lipinska/xj15p9c,0898b825",
+      "participants": [
+        "Dawid Podsiadło"
+      ],
+      "category": "core_event",
+      "description": "Wpłata gwiazdorska: 200 000 PLN zasilające zbiórkę od wybitnego wokalisty Dawida Podsiadło.",
+      "tags": [
+        "wpłata",
+        "muzyka"
+      ],
+      "confidence": "high"
+    },
+    {
+      "idSuggestion": "evt_don_4f",
+      "dateLocal": "2026-04-26",
+      "relativeTime": "Zestawienie Finałowe",
+      "sortUtc": "2026-04-26T12:15:00Z",
+      "sourceLabel": "Plejada",
+      "sourceUrl": "https://www.onet.pl/styl-zycia/plejada/latwogang-zebral-juz-ponad-85-mln-zl-tym-razem-glowe-ogolila-blanka-lipinska/xj15p9c,0898b825",
+      "participants": [
+        "4F"
+      ],
+      "category": "core_event",
+      "description": "Oficjalna wpłata korporacyjna: 200 000 PLN od renomowanej polskiej marki sportowej 4F.",
+      "tags": [
+        "wpłata",
+        "biznes"
+      ],
+      "confidence": "high"
+    },
+    {
+      "idSuggestion": "evt_don_chodakowska",
+      "dateLocal": "2026-04-26",
+      "relativeTime": "Zestawienie Finałowe",
+      "sortUtc": "2026-04-26T12:16:00Z",
+      "sourceLabel": "Plejada",
+      "sourceUrl": "https://www.onet.pl/styl-zycia/plejada/latwogang-zebral-juz-ponad-85-mln-zl-tym-razem-glowe-ogolila-blanka-lipinska/xj15p9c,0898b825",
+      "participants": [
+        "Ewa Chodakowska"
+      ],
+      "category": "core_event",
+      "description": "Wpłata gwiazdorska: 200 000 PLN od najpopularniejszej polskiej trenerki fitness Ewy Chodakowskiej.",
+      "tags": [
+        "wpłata",
+        "fitness"
+      ],
+      "confidence": "high"
+    },
+    {
+      "idSuggestion": "evt_don_alldeynn",
+      "dateLocal": "2026-04-26",
+      "relativeTime": "Zestawienie Finałowe",
+      "sortUtc": "2026-04-26T12:17:00Z",
+      "sourceLabel": "Plejada",
+      "sourceUrl": "https://www.onet.pl/styl-zycia/plejada/latwogang-zebral-juz-ponad-85-mln-zl-tym-razem-glowe-ogolila-blanka-lipinska/xj15p9c,0898b825",
+      "participants": [
+        "ALLDEYNN&SFD"
+      ],
+      "category": "core_event",
+      "description": "Oficjalna wpłata korporacyjna: 150 000 PLN od marki żywieniowo-suplementacyjnej ALLDEYNN & SFD.",
+      "tags": [
+        "wpłata",
+        "biznes"
+      ],
+      "confidence": "high"
+    },
+    {
+      "idSuggestion": "evt_don_gibbs",
+      "dateLocal": "2026-04-26",
+      "relativeTime": "Zestawienie Finałowe",
+      "sortUtc": "2026-04-26T12:18:00Z",
+      "sourceLabel": "Plejada",
+      "sourceUrl": "https://www.onet.pl/styl-zycia/plejada/latwogang-zebral-juz-ponad-85-mln-zl-tym-razem-glowe-ogolila-blanka-lipinska/xj15p9c,0898b825",
+      "participants": [
+        "Mati Gibbs",
+        "DH"
+      ],
+      "category": "core_event",
+      "description": "Wpłata gwiazdorska: 150 000 PLN przekazane w geście wsparcia przez Mati Gibbs + DH.",
+      "tags": [
+        "wpłata",
+        "muzyka"
+      ],
+      "confidence": "high"
+    }
+  ],
+  "sources": [
+    {
+      "label": "Przegląd Sportowy Onet",
+      "url": "https://przegladsportowy.onet.pl/esportmania/influencerzy/na-zywo-spektakularna-akcja-latwoganga-sa-kolejne-gwiazdy-relacja-live/ppymzyx",
+      "sourceType": "article",
+      "claims": [
+        "Przekroczenie 133 mln PLN",
+        "Rewanż Wrzosek vs Szpilka na 45M",
+        "Zdalne golenie Maffashion",
+        "Połączenie z Małyszem przez Pateca",
+        "Jan Błachowicz zapowiada golenie na 45M",
+        "Koncert Mrozu i Golec uOrkiestra na streamie",
+        "Wpłata Eveline Cosmetics",
+        "Wpłaty Onet, Roksana Węgiel"
+      ]
+    },
+    {
+      "label": "Plejada Onet",
+      "url": "https://www.onet.pl/styl-zycia/plejada/zbiorka-latwoganga-bije-rekordy-gwiazdy-dolaczaja-do-akcji-influencera/0hs6hsz,0898b825",
+      "sourceType": "article",
+      "claims": [
+        "Borys Szyc u Łatwoganga przy 97M",
+        "Bartłomiej Topa i Michał Sikorski śpiewają",
+        "Zestawienie wielkich wpłat korporacyjnych (Zen.com, Wydawnictwo Niezwykłe, Wizi)"
+      ]
+    },
+    {
+      "label": "Plejada Onet (Golenie Pazury)",
+      "url": "https://plejada.pl/newsy/edyta-pazura-zgolila-glowe-u-latwoganga-za-maszynke-chwycila-roksana-wegiel/hh9sz4g",
+      "sourceType": "article",
+      "claims": [
+        "Edyta Pazura ogoliła głowę przy wsparciu Roksany Węgiel",
+        "Licznik wskazywał 50 milionów około 18:20",
+        "Cezary Pazura wyznaczył cel na golenie"
+      ]
+    },
+    {
+      "label": "Plejada Onet (Golenie Nosowskiej)",
+      "url": "https://plejada.pl/newsy/agata-kulesza-ogolila-katarzyne-nosowska-na-lyso-latwogang-kasia-kocham-cie/19hzyj6",
+      "sourceType": "article",
+      "claims": [
+        "Katarzyna Nosowska i Agata Kulesza u Łatwoganga przy kwocie 55M PLN",
+        "Agata Kulesza w roli fryzjerki"
+      ]
+    },
+    {
+      "label": "Plejada Onet (Golenie Lipińskiej)",
+      "url": "https://plejada.pl/newsy/latwogang-zebral-juz-ponad-85-mln-zl-tym-razem-glowe-ogolila-blanka-lipinska/xj15p9c",
+      "sourceType": "article",
+      "claims": [
+        "Blanka Lipińska goli głowę na 73M PLN",
+        "Lista donacji od gwiazd m.in. Podsiadło, Chodakowska, Ekipa"
+      ]
+    },
+    {
+      "label": "MMA.pl (Wrzosek i Szpilka)",
+      "url": "https://mma.pl/wrzosek-i-szpilka-dogadali-sie-na-rewanz-warunkiem-45-mln-zlotych-w-zbiorce-latwoganga/",
+      "sourceType": "article",
+      "claims": [
+        "Arkadiusz Wrzosek ustala z Arturem Szpilką rewanż MMA w razie przekroczenia bariery 45M PLN na live streamie"
+      ]
+    },
+    {
+      "label": "MMA.pl (Walka na streamie)",
+      "url": "https://mma.pl/szpilka-i-wrzosek-stoczyli-rewanz-na-streamie-latwoganga-wszystko-aby-pomoc-dzieciom/",
+      "sourceType": "article",
+      "claims": [
+        "Odbyła się umówiona pokazowa walka rewanżowa, sędziowana przez Łukasza Jurkowskiego i komentowana z Maciejem Turskim na żywo"
+      ]
+    },
+    {
+      "label": "Onet Wiadomości (Jurek Owsiak)",
+      "url": "https://wiadomosci.onet.pl/kraj/jurek-owsiak-o-sile-wspolnego-dzialania-zbiorka-latwoganga-robi-furore/6sd74kd",
+      "sourceType": "article",
+      "claims": [
+        "Założyciel WOŚP Jurek Owsiak opublikował słowa wsparcia dla akcji w momencie pokonywania setnego miliona",
+        "Doda i Dawid Podsiadło mocno zaangażowani w zbiórkę"
+      ]
+    },
+    {
+      "label": "Dziennik.pl (Maffashion i inne)",
+      "url": "https://zyciegwiazd.dziennik.pl/news/artykuly/11238513,maffashion-nosowska-i-edyta-pazura-ogolily-glowy-miliony-na-koncie-zbiorki-dla-chorych-dzieci.html",
+      "sourceType": "article",
+      "claims": [
+        "Potwierdzenie ogolenia głów przez Maffashion i pozostałe aktorki dla Fundacji Cancer Fighters"
+      ]
+    },
+    {
+      "label": "4FUN TV",
+      "url": "https://4fun.tv/news/latwogang-cancer-fighters-stream-maffasion-wieniawa",
+      "sourceType": "article",
+      "claims": [
+        "Maffashion dotrzymała słowa z goleniem przy 46,25 milionów przed godziną 17:20",
+        "Stream ogłoszono do ok. 16:00 w niedzielę"
+      ]
+    }
+  ],
+  "unverifiedLeads": [
+    {
+      "claim": "Dokładny licznik zbiórki i suma z wpłat na koncie w ułamku sekundy zamknięcia streamu 26 kwietnia o godzinie 16:00.",
+      "searchedWhere": "Wszystkie dostępne notatki, wiadomości z portali głównych (Onet, WP, Plejada, Przegląd Sportowy) oraz branżowych.",
+      "reasonNotVerified": "Media informacyjne utknęły na relacjonowaniu pułapu 'ponad 133 mln zł' zarejestrowanego ok. 13:40, po czym większość raportów na żywo urwała weryfikację. Brak publicznego raportu księgowego czy screenu na ułamek sekundy samego zamknięcia z 16:00 w zebranych dowodach."
+    },
+    {
+      "claim": "Dokładna kwota donacji od wybitnej polskiej tenisistki Igi Świątek.",
+      "searchedWhere": "Portal Onet oraz Przegląd Sportowy podające wpłaty na żywo na streamie Łatwoganga.",
+      "reasonNotVerified": "Źródła potwierdzają mocne wsparcie i wspominają o zaszczytnym, 'sześciocyfrowym' przelewie na Fundację Cancer Fighters, jednak żadne oficjalne źródło nie podaje równej kwoty co do złotówki, w przeciwieństwie do donacji m.in. Tymbarku czy Dawida Podsiadło."
+    }
+  ]
+}
