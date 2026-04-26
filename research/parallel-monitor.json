@@ -1,0 +1,1171 @@
+{
+  "requestedAt": "2026-04-26T16:19:46.170Z",
+  "mode": "monitor:create",
+  "monitor": {
+    "monitor_id": "monitor_5f31f989beca45b98f6e214451e50bb0",
+    "query": "Find public web news, official posts, and sourceable social/media updates about the Polish charity livestream “Diss na raka” / “Łatwogang” / Fundacja Cancer Fighters between Saturday 25 April 2026 18:00 CEST and Sunday 26 April 2026 18:00 CEST.\n\nTrack only source-backed events from this window. Include fundraising counter snapshots, milestone thresholds, celebrity appearances, head-shaving challenges, phone/video calls with public figures, corporate donations, major individual or celebrity donations, media coverage, Guinness/world-record claims, whether the stream/campaign was still ongoing, viral moments, auctions, pledged rewards, foundation updates, and contradictions/corrections between sources.\n\nImportant rules:\n- Do not call any checkpoint “final” unless the source explicitly says the campaign ended and later evidence does not contradict it.\n- If later evidence shows the campaign continued, treat earlier “final” amounts as checkpoints.\n- Prefer Europe/Warsaw local times for human labels and UTC ISO timestamps for machine sorting.\n- Deduplicate syndicated articles and keep the strongest/original source.\n- Every event must include source URLs.\n- Separate confirmed facts from unverified claims.\n- Descriptions should be concise and in Polish, ready to insert into lib/site-data.ts.\n- Use project-compatible field names: targetAmount, dateAchieved, dateLocal, relativeTime, sortUtc, zrodlo, participants, category, description, tags.\n\nKnown user-observed checkpoint to verify:\n- 188,571,160 PLN visible on the YouTube/Tipply stream overlay around 2026-04-26 17:53-17:55 CEST. Treat as user-provided screenshot evidence unless independently verified by another public source.\n\nSearch likely sources including TVN24, Onet, Plejada, Przegląd Sportowy Onet, WP, RMF FM, Polskie Radio, Bankier, Pudelek, GlamRap, Gazeta Wrocławska, TVP, MMA.pl, CGM, NowyMarketing, official Cancer Fighters channels, Łatwogang/YouTube live pages, and public social posts.",
+    "status": "active",
+    "cadence": "hourly",
+    "frequency": "1h",
+    "metadata": {
+      "project": "diss-na-raka",
+      "window_start_local": "2026-04-25T18:00:00+02:00",
+      "window_end_local": "2026-04-26T18:00:00+02:00",
+      "timezone": "Europe/Warsaw"
+    },
+    "output_schema": {
+      "json_schema": {
+        "type": "object",
+        "properties": {
+          "research_window": {
+            "type": "object",
+            "properties": {
+              "start_local": {
+                "type": "string"
+              },
+              "end_local": {
+                "type": "string"
+              },
+              "timezone": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "start_local",
+              "end_local",
+              "timezone"
+            ],
+            "additionalProperties": false
+          },
+          "summary": {
+            "type": "object",
+            "properties": {
+              "one_sentence": {
+                "type": "string"
+              },
+              "current_or_final_total_pln": {
+                "type": [
+                  "number",
+                  "null"
+                ]
+              },
+              "status_at_window_end": {
+                "type": "string",
+                "enum": [
+                  "ongoing",
+                  "ended",
+                  "unclear"
+                ]
+              },
+              "highest_verified_total_pln": {
+                "type": [
+                  "number",
+                  "null"
+                ]
+              },
+              "highest_verified_total_time_local": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "highest_verified_total_time_utc": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "confidence": {
+                "type": "string",
+                "enum": [
+                  "high",
+                  "medium",
+                  "low"
+                ]
+              },
+              "notes": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              }
+            },
+            "required": [
+              "one_sentence",
+              "current_or_final_total_pln",
+              "status_at_window_end",
+              "highest_verified_total_pln",
+              "highest_verified_total_time_local",
+              "highest_verified_total_time_utc",
+              "confidence",
+              "notes"
+            ],
+            "additionalProperties": false
+          },
+          "dashboard_patch": {
+            "type": "object",
+            "properties": {
+              "dashboard": {
+                "type": "object",
+                "properties": {
+                  "totalRaisedPln": {
+                    "type": [
+                      "number",
+                      "null"
+                    ]
+                  },
+                  "metadata": {
+                    "type": "object",
+                    "properties": {
+                      "lastUpdatedUtc": {
+                        "type": [
+                          "string",
+                          "null"
+                        ]
+                      }
+                    },
+                    "required": [
+                      "lastUpdatedUtc"
+                    ],
+                    "additionalProperties": false
+                  }
+                },
+                "required": [
+                  "totalRaisedPln",
+                  "metadata"
+                ],
+                "additionalProperties": false
+              }
+            },
+            "required": [
+              "dashboard"
+            ],
+            "additionalProperties": false
+          },
+          "milestones": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "id": {
+                  "type": "string"
+                },
+                "targetAmount": {
+                  "type": "number"
+                },
+                "title": {
+                  "type": "string"
+                },
+                "description": {
+                  "type": "string"
+                },
+                "status": {
+                  "type": "string",
+                  "enum": [
+                    "achieved",
+                    "pending",
+                    "failed"
+                  ]
+                },
+                "dateAchieved": {
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                },
+                "confidence": {
+                  "type": "string",
+                  "enum": [
+                    "high",
+                    "medium",
+                    "low"
+                  ]
+                },
+                "sources": {
+                  "$ref": "#/$defs/sources"
+                }
+              },
+              "required": [
+                "id",
+                "targetAmount",
+                "title",
+                "description",
+                "status",
+                "dateAchieved",
+                "confidence",
+                "sources"
+              ],
+              "additionalProperties": false
+            }
+          },
+          "timelineEvents": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "id": {
+                  "type": "string"
+                },
+                "dateLocal": {
+                  "type": "string"
+                },
+                "relativeTime": {
+                  "type": "string"
+                },
+                "sortUtc": {
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                },
+                "zrodlo": {
+                  "type": "object",
+                  "properties": {
+                    "label": {
+                      "type": "string"
+                    },
+                    "url": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "label",
+                    "url"
+                  ],
+                  "additionalProperties": false
+                },
+                "participants": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "category": {
+                  "type": "string",
+                  "enum": [
+                    "core_event",
+                    "milestone_execution",
+                    "guest_appearance",
+                    "endurance_challenge",
+                    "scheduled_appearance"
+                  ]
+                },
+                "description": {
+                  "type": "string"
+                },
+                "tags": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "confidence": {
+                  "type": "string",
+                  "enum": [
+                    "high",
+                    "medium",
+                    "low"
+                  ]
+                },
+                "sources": {
+                  "$ref": "#/$defs/sources"
+                }
+              },
+              "required": [
+                "id",
+                "dateLocal",
+                "relativeTime",
+                "sortUtc",
+                "zrodlo",
+                "participants",
+                "category",
+                "description",
+                "tags",
+                "confidence",
+                "sources"
+              ],
+              "additionalProperties": false
+            }
+          },
+          "counter_snapshots": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "amount_pln": {
+                  "type": "number"
+                },
+                "observed_at_local": {
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                },
+                "observed_at_utc": {
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                },
+                "source_label": {
+                  "type": "string"
+                },
+                "source_url": {
+                  "type": "string"
+                },
+                "confidence": {
+                  "type": "string",
+                  "enum": [
+                    "high",
+                    "medium",
+                    "low"
+                  ]
+                },
+                "notes": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "amount_pln",
+                "observed_at_local",
+                "observed_at_utc",
+                "source_label",
+                "source_url",
+                "confidence",
+                "notes"
+              ],
+              "additionalProperties": false
+            }
+          },
+          "donations": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "donor": {
+                  "type": "string"
+                },
+                "amount_pln": {
+                  "type": [
+                    "number",
+                    "null"
+                  ]
+                },
+                "type": {
+                  "type": "string",
+                  "enum": [
+                    "corporate",
+                    "individual",
+                    "celebrity",
+                    "brand",
+                    "unknown"
+                  ]
+                },
+                "observed_at_local": {
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                },
+                "observed_at_utc": {
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                },
+                "description": {
+                  "type": "string"
+                },
+                "sources": {
+                  "$ref": "#/$defs/sources"
+                },
+                "confidence": {
+                  "type": "string",
+                  "enum": [
+                    "high",
+                    "medium",
+                    "low"
+                  ]
+                }
+              },
+              "required": [
+                "donor",
+                "amount_pln",
+                "type",
+                "observed_at_local",
+                "observed_at_utc",
+                "description",
+                "sources",
+                "confidence"
+              ],
+              "additionalProperties": false
+            }
+          },
+          "unverified_leads": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "claim": {
+                  "type": "string"
+                },
+                "reason_unverified": {
+                  "type": "string"
+                },
+                "possible_sources": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "recommended_follow_up": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "claim",
+                "reason_unverified",
+                "possible_sources",
+                "recommended_follow_up"
+              ],
+              "additionalProperties": false
+            }
+          },
+          "source_index": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "label": {
+                  "type": "string"
+                },
+                "url": {
+                  "type": "string"
+                },
+                "source_type": {
+                  "type": "string",
+                  "enum": [
+                    "news",
+                    "official",
+                    "social",
+                    "youtube",
+                    "other"
+                  ]
+                },
+                "published_at_local": {
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                },
+                "published_at_utc": {
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                },
+                "claims_supported": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "reliability_notes": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "label",
+                "url",
+                "source_type",
+                "published_at_local",
+                "published_at_utc",
+                "claims_supported",
+                "reliability_notes"
+              ],
+              "additionalProperties": false
+            }
+          },
+          "conflicts_or_corrections": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "topic": {
+                  "type": "string"
+                },
+                "conflicting_values": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "preferred_value": {
+                  "type": "string"
+                },
+                "reasoning": {
+                  "type": "string"
+                },
+                "sources": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                }
+              },
+              "required": [
+                "topic",
+                "conflicting_values",
+                "preferred_value",
+                "reasoning",
+                "sources"
+              ],
+              "additionalProperties": false
+            }
+          }
+        },
+        "required": [
+          "research_window",
+          "summary",
+          "dashboard_patch",
+          "milestones",
+          "timelineEvents",
+          "counter_snapshots",
+          "donations",
+          "unverified_leads",
+          "source_index",
+          "conflicts_or_corrections"
+        ],
+        "additionalProperties": false,
+        "$defs": {
+          "sources": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "label": {
+                  "type": "string"
+                },
+                "url": {
+                  "type": "string"
+                },
+                "source_type": {
+                  "type": "string",
+                  "enum": [
+                    "news",
+                    "official",
+                    "social",
+                    "youtube",
+                    "other"
+                  ]
+                },
+                "published_at_local": {
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                },
+                "published_at_utc": {
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                },
+                "quote": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "label",
+                "url",
+                "source_type",
+                "published_at_local",
+                "published_at_utc",
+                "quote"
+              ],
+              "additionalProperties": false
+            }
+          }
+        }
+      },
+      "type": "json"
+    },
+    "created_at": "2026-04-26T16:19:46.058728Z",
+    "include_backfill": false
+  },
+  "prompt": "Find public web news, official posts, and sourceable social/media updates about the Polish charity livestream “Diss na raka” / “Łatwogang” / Fundacja Cancer Fighters between Saturday 25 April 2026 18:00 CEST and Sunday 26 April 2026 18:00 CEST.\n\nTrack only source-backed events from this window. Include fundraising counter snapshots, milestone thresholds, celebrity appearances, head-shaving challenges, phone/video calls with public figures, corporate donations, major individual or celebrity donations, media coverage, Guinness/world-record claims, whether the stream/campaign was still ongoing, viral moments, auctions, pledged rewards, foundation updates, and contradictions/corrections between sources.\n\nImportant rules:\n- Do not call any checkpoint “final” unless the source explicitly says the campaign ended and later evidence does not contradict it.\n- If later evidence shows the campaign continued, treat earlier “final” amounts as checkpoints.\n- Prefer Europe/Warsaw local times for human labels and UTC ISO timestamps for machine sorting.\n- Deduplicate syndicated articles and keep the strongest/original source.\n- Every event must include source URLs.\n- Separate confirmed facts from unverified claims.\n- Descriptions should be concise and in Polish, ready to insert into lib/site-data.ts.\n- Use project-compatible field names: targetAmount, dateAchieved, dateLocal, relativeTime, sortUtc, zrodlo, participants, category, description, tags.\n\nKnown user-observed checkpoint to verify:\n- 188,571,160 PLN visible on the YouTube/Tipply stream overlay around 2026-04-26 17:53-17:55 CEST. Treat as user-provided screenshot evidence unless independently verified by another public source.\n\nSearch likely sources including TVN24, Onet, Plejada, Przegląd Sportowy Onet, WP, RMF FM, Polskie Radio, Bankier, Pudelek, GlamRap, Gazeta Wrocławska, TVP, MMA.pl, CGM, NowyMarketing, official Cancer Fighters channels, Łatwogang/YouTube live pages, and public social posts.",
+  "schema": {
+    "type": "object",
+    "properties": {
+      "research_window": {
+        "type": "object",
+        "properties": {
+          "start_local": {
+            "type": "string"
+          },
+          "end_local": {
+            "type": "string"
+          },
+          "timezone": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "start_local",
+          "end_local",
+          "timezone"
+        ],
+        "additionalProperties": false
+      },
+      "summary": {
+        "type": "object",
+        "properties": {
+          "one_sentence": {
+            "type": "string"
+          },
+          "current_or_final_total_pln": {
+            "type": [
+              "number",
+              "null"
+            ]
+          },
+          "status_at_window_end": {
+            "type": "string",
+            "enum": [
+              "ongoing",
+              "ended",
+              "unclear"
+            ]
+          },
+          "highest_verified_total_pln": {
+            "type": [
+              "number",
+              "null"
+            ]
+          },
+          "highest_verified_total_time_local": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "highest_verified_total_time_utc": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "confidence": {
+            "type": "string",
+            "enum": [
+              "high",
+              "medium",
+              "low"
+            ]
+          },
+          "notes": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          }
+        },
+        "required": [
+          "one_sentence",
+          "current_or_final_total_pln",
+          "status_at_window_end",
+          "highest_verified_total_pln",
+          "highest_verified_total_time_local",
+          "highest_verified_total_time_utc",
+          "confidence",
+          "notes"
+        ],
+        "additionalProperties": false
+      },
+      "dashboard_patch": {
+        "type": "object",
+        "properties": {
+          "dashboard": {
+            "type": "object",
+            "properties": {
+              "totalRaisedPln": {
+                "type": [
+                  "number",
+                  "null"
+                ]
+              },
+              "metadata": {
+                "type": "object",
+                "properties": {
+                  "lastUpdatedUtc": {
+                    "type": [
+                      "string",
+                      "null"
+                    ]
+                  }
+                },
+                "required": [
+                  "lastUpdatedUtc"
+                ],
+                "additionalProperties": false
+              }
+            },
+            "required": [
+              "totalRaisedPln",
+              "metadata"
+            ],
+            "additionalProperties": false
+          }
+        },
+        "required": [
+          "dashboard"
+        ],
+        "additionalProperties": false
+      },
+      "milestones": {
+        "type": "array",
+        "items": {
+          "type": "object",
+          "properties": {
+            "id": {
+              "type": "string"
+            },
+            "targetAmount": {
+              "type": "number"
+            },
+            "title": {
+              "type": "string"
+            },
+            "description": {
+              "type": "string"
+            },
+            "status": {
+              "type": "string",
+              "enum": [
+                "achieved",
+                "pending",
+                "failed"
+              ]
+            },
+            "dateAchieved": {
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "confidence": {
+              "type": "string",
+              "enum": [
+                "high",
+                "medium",
+                "low"
+              ]
+            },
+            "sources": {
+              "$ref": "#/$defs/sources"
+            }
+          },
+          "required": [
+            "id",
+            "targetAmount",
+            "title",
+            "description",
+            "status",
+            "dateAchieved",
+            "confidence",
+            "sources"
+          ],
+          "additionalProperties": false
+        }
+      },
+      "timelineEvents": {
+        "type": "array",
+        "items": {
+          "type": "object",
+          "properties": {
+            "id": {
+              "type": "string"
+            },
+            "dateLocal": {
+              "type": "string"
+            },
+            "relativeTime": {
+              "type": "string"
+            },
+            "sortUtc": {
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "zrodlo": {
+              "type": "object",
+              "properties": {
+                "label": {
+                  "type": "string"
+                },
+                "url": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "label",
+                "url"
+              ],
+              "additionalProperties": false
+            },
+            "participants": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "category": {
+              "type": "string",
+              "enum": [
+                "core_event",
+                "milestone_execution",
+                "guest_appearance",
+                "endurance_challenge",
+                "scheduled_appearance"
+              ]
+            },
+            "description": {
+              "type": "string"
+            },
+            "tags": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "confidence": {
+              "type": "string",
+              "enum": [
+                "high",
+                "medium",
+                "low"
+              ]
+            },
+            "sources": {
+              "$ref": "#/$defs/sources"
+            }
+          },
+          "required": [
+            "id",
+            "dateLocal",
+            "relativeTime",
+            "sortUtc",
+            "zrodlo",
+            "participants",
+            "category",
+            "description",
+            "tags",
+            "confidence",
+            "sources"
+          ],
+          "additionalProperties": false
+        }
+      },
+      "counter_snapshots": {
+        "type": "array",
+        "items": {
+          "type": "object",
+          "properties": {
+            "amount_pln": {
+              "type": "number"
+            },
+            "observed_at_local": {
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "observed_at_utc": {
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "source_label": {
+              "type": "string"
+            },
+            "source_url": {
+              "type": "string"
+            },
+            "confidence": {
+              "type": "string",
+              "enum": [
+                "high",
+                "medium",
+                "low"
+              ]
+            },
+            "notes": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "amount_pln",
+            "observed_at_local",
+            "observed_at_utc",
+            "source_label",
+            "source_url",
+            "confidence",
+            "notes"
+          ],
+          "additionalProperties": false
+        }
+      },
+      "donations": {
+        "type": "array",
+        "items": {
+          "type": "object",
+          "properties": {
+            "donor": {
+              "type": "string"
+            },
+            "amount_pln": {
+              "type": [
+                "number",
+                "null"
+              ]
+            },
+            "type": {
+              "type": "string",
+              "enum": [
+                "corporate",
+                "individual",
+                "celebrity",
+                "brand",
+                "unknown"
+              ]
+            },
+            "observed_at_local": {
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "observed_at_utc": {
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "description": {
+              "type": "string"
+            },
+            "sources": {
+              "$ref": "#/$defs/sources"
+            },
+            "confidence": {
+              "type": "string",
+              "enum": [
+                "high",
+                "medium",
+                "low"
+              ]
+            }
+          },
+          "required": [
+            "donor",
+            "amount_pln",
+            "type",
+            "observed_at_local",
+            "observed_at_utc",
+            "description",
+            "sources",
+            "confidence"
+          ],
+          "additionalProperties": false
+        }
+      },
+      "unverified_leads": {
+        "type": "array",
+        "items": {
+          "type": "object",
+          "properties": {
+            "claim": {
+              "type": "string"
+            },
+            "reason_unverified": {
+              "type": "string"
+            },
+            "possible_sources": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "recommended_follow_up": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "claim",
+            "reason_unverified",
+            "possible_sources",
+            "recommended_follow_up"
+          ],
+          "additionalProperties": false
+        }
+      },
+      "source_index": {
+        "type": "array",
+        "items": {
+          "type": "object",
+          "properties": {
+            "label": {
+              "type": "string"
+            },
+            "url": {
+              "type": "string"
+            },
+            "source_type": {
+              "type": "string",
+              "enum": [
+                "news",
+                "official",
+                "social",
+                "youtube",
+                "other"
+              ]
+            },
+            "published_at_local": {
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "published_at_utc": {
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "claims_supported": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "reliability_notes": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "label",
+            "url",
+            "source_type",
+            "published_at_local",
+            "published_at_utc",
+            "claims_supported",
+            "reliability_notes"
+          ],
+          "additionalProperties": false
+        }
+      },
+      "conflicts_or_corrections": {
+        "type": "array",
+        "items": {
+          "type": "object",
+          "properties": {
+            "topic": {
+              "type": "string"
+            },
+            "conflicting_values": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "preferred_value": {
+              "type": "string"
+            },
+            "reasoning": {
+              "type": "string"
+            },
+            "sources": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            }
+          },
+          "required": [
+            "topic",
+            "conflicting_values",
+            "preferred_value",
+            "reasoning",
+            "sources"
+          ],
+          "additionalProperties": false
+        }
+      }
+    },
+    "required": [
+      "research_window",
+      "summary",
+      "dashboard_patch",
+      "milestones",
+      "timelineEvents",
+      "counter_snapshots",
+      "donations",
+      "unverified_leads",
+      "source_index",
+      "conflicts_or_corrections"
+    ],
+    "additionalProperties": false,
+    "$defs": {
+      "sources": {
+        "type": "array",
+        "items": {
+          "type": "object",
+          "properties": {
+            "label": {
+              "type": "string"
+            },
+            "url": {
+              "type": "string"
+            },
+            "source_type": {
+              "type": "string",
+              "enum": [
+                "news",
+                "official",
+                "social",
+                "youtube",
+                "other"
+              ]
+            },
+            "published_at_local": {
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "published_at_utc": {
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "quote": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "label",
+            "url",
+            "source_type",
+            "published_at_local",
+            "published_at_utc",
+            "quote"
+          ],
+          "additionalProperties": false
+        }
+      }
+    }
+  }
+}
