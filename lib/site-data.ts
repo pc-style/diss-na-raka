@@ -282,8 +282,8 @@ export const seedSiteData: SiteData = {
       hostId: "latwogang_official",
       beneficiary: "Fundacja Cancer Fighters",
       startTimestampUtc: "2026-04-17T14:00:00Z",
-      lastUpdatedUtc: "2026-04-26T10:26:00Z",
-      lastYouTubeSyncUtc: "2026-04-26T10:26:00Z",
+      lastUpdatedUtc: "2026-04-26T19:37:00Z",
+      lastYouTubeSyncUtc: "2026-04-26T19:37:00Z",
       platform: "YouTube Live",
       channelId: "UCjpBbH8NmL4XHVUgJurDPZg",
       currentLiveVideoId: "UNAqqHIPbWA",
@@ -295,13 +295,13 @@ export const seedSiteData: SiteData = {
       trackArtists: ["Bedoes 2115", "Maja Mecan", "Cancer Fighters"],
       trackLengthSeconds: 165,
     },
-    totalRaisedPln: 201_300_000,
-    hoursElapsed: 216,
-    estimatedTotalLoops: 4_718,
+    totalRaisedPln: 250_000_000,
+    hoursElapsed: 217,
+    estimatedTotalLoops: 4_741,
     engagement: {
       averageConcurrentViewers: 497_542,
-      newSubscribersDuringEvent: 340_000,
-      totalViewsGenerated: 3_320_833,
+      newSubscribersDuringEvent: 402_000,
+      totalViewsGenerated: 102_403_634,
     },
     velocity: {
       averagePlnPerHour: 564_814.81,
@@ -332,6 +332,10 @@ export const seedSiteData: SiteData = {
         { label: "100 000 000", hours: 214 },
         { label: "122 000 000", hours: 215 },
         { label: "138 000 000", hours: 216 },
+        { label: "163 000 000", hours: 216 },
+        { label: "190 000 000", hours: 217 },
+        { label: "210 000 000", hours: 217 },
+        { label: "250 000 000", hours: 217 },
       ],
     },
   },
@@ -764,6 +768,42 @@ export const seedSiteData: SiteData = {
         "Po wybiciu 130 mln PLN na żywo wystąpili Mrozu ('Jak nie my to kto') oraz zespół Golec uOrkiestra ('Ściernisko').",
       status: "achieved",
       dateAchieved: "2026-04-26T11:00:00Z",
+    },
+    {
+      id: "ms_119m_szczesny",
+      targetAmount: 119_000_000,
+      title: "119M · Wojciech Szczęsny w drużynie Maty",
+      description:
+        "Przy 119 mln PLN Wojciech Szczęsny zadeklarował udział w meczu w drużynie Maty - poranek finałowej niedzieli.",
+      status: "achieved",
+      dateAchieved: "2026-04-26T08:00:00Z",
+    },
+    {
+      id: "ms_164m_tede_peja",
+      targetAmount: 164_000_000,
+      title: "164M · Pojednanie Tede i Peja",
+      description:
+        "Po przekroczeniu 164 mln PLN Tede zadzwonił do Peji - historyczne pojednanie dwóch legend polskiego rapu na żywo.",
+      status: "achieved",
+      dateAchieved: "2026-04-26T12:00:00Z",
+    },
+    {
+      id: "ms_211m_wk_dzik",
+      targetAmount: 211_000_000,
+      title: "211M · Wieczorny stan zbiórki, wkład WK DZIK 5M",
+      description:
+        "Wieczorny stan licznika 211 mln PLN, w tym pojedyncza wpłata WK DZIK na 5 mln PLN.",
+      status: "achieved",
+      dateAchieved: "2026-04-26T18:00:00Z",
+    },
+    {
+      id: "ms_250m_finale",
+      targetAmount: 250_000_000,
+      title: "250M · Finał 9-dniowego streamu o 21:37",
+      description:
+        "Tuż przed zakończeniem transmisji o 21:37 CEST licznik przekroczył 250 mln PLN - największa zbiórka w polskim internecie.",
+      status: "achieved",
+      dateAchieved: "2026-04-26T19:37:00Z",
     },
   ],
   timelineEvents: [
@@ -1756,6 +1796,126 @@ export const seedSiteData: SiteData = {
       description:
         "Czołowy polski komentator CS2 'Siles' ogolił głowę na żywo. Na streamie pojawiła się drużyna Fundacji DKMS, wspierająca akcję.",
       tags: ["golenie_głowy", "fundacja", "esport"],
+    },
+    {
+      id: "evt_post_1330_130m",
+      dateLocal: "2026-04-26",
+      relativeTime: "Dzień 10 — 13:30 CEST",
+      sortUtc: "2026-04-26T11:30:00Z",
+      zrodlo: {
+        label: "Wrocław.pl: 130 mln zł",
+        url: "https://www.wroclaw.pl/dla-mieszkanca/latwogang-zbiorka-diss-na-raka-cancer-fighters-maja-mecan-olawy-bedoes",
+      },
+      participants: ["Łatwogang", "Cancer Fighters"],
+      category: "milestone_execution",
+      description:
+        "O 13:30 licznik zbiórki dobijał do 130 mln PLN — tempo wpłat gwałtownie rosło przed planowanym finałem.",
+      tags: ["130m", "checkpoint", "26_kwietnia"],
+    },
+    {
+      id: "evt_post_1500_150m",
+      dateLocal: "2026-04-26",
+      relativeTime: "Dzień 10 — po 15:00 CEST",
+      sortUtc: "2026-04-26T13:05:00Z",
+      zrodlo: {
+        label: "Rzeczpospolita: ponad 163 mln zł",
+        url: "https://www.rp.pl/spoleczenstwo/art44237501-final-najwiekszej-zbiorki-w-polskim-internecie-zebrano-ponad-163-miliony-zlotych-na-pomoc-dzieciom-chorym-onkologicznie",
+      },
+      participants: ["Łatwogang", "Cancer Fighters"],
+      category: "milestone_execution",
+      description:
+        "Po 15:00 zebrano ponad 150 mln PLN — kolejne progi padały co kilkanaście minut.",
+      tags: ["150m", "checkpoint", "26_kwietnia"],
+    },
+    {
+      id: "evt_post_1600_extension",
+      dateLocal: "2026-04-26",
+      relativeTime: "Dzień 10 — 16:00 CEST",
+      sortUtc: "2026-04-26T14:00:00Z",
+      zrodlo: {
+        label: "Spidersweb: do kiedy stream",
+        url: "https://rozrywka.spidersweb.pl/latwogang-do-kiedy-stream",
+      },
+      participants: ["Łatwogang", "Cancer Fighters"],
+      category: "core_event",
+      description:
+        "O 16:00 — gdy pierwotnie planowano finał — na liczniku było już prawie 163 mln PLN. Łatwogang zdecydował o przedłużeniu transmisji.",
+      tags: ["extension", "163m", "26_kwietnia"],
+    },
+    {
+      id: "evt_post_1708_guinness",
+      dateLocal: "2026-04-26",
+      relativeTime: "Dzień 10 — 17:08 CEST",
+      sortUtc: "2026-04-26T15:08:00Z",
+      zrodlo: {
+        label: "Euronews: rekord Guinnessa",
+        url: "https://pl.euronews.com/europa/2026/04/26/polski-livestream-charytatywny-pobil-rekord-guinnessa-poprzedni-nalezal-do-francji",
+      },
+      participants: ["Łatwogang", "Cancer Fighters", "Guinness World Records"],
+      category: "milestone_execution",
+      description:
+        "Media (TVN24, Euronews) raportują, że transmisja pobiła rekord Guinnessa jako największy stream charytatywny na świecie, przebijając poprzedni francuski wynik.",
+      tags: ["guinness", "rekord_świata", "26_kwietnia"],
+    },
+    {
+      id: "evt_post_1800_190m",
+      dateLocal: "2026-04-26",
+      relativeTime: "Dzień 10 — ok. 18:00 CEST",
+      sortUtc: "2026-04-26T16:00:00Z",
+      zrodlo: {
+        label: "Obserwacja Tipply (188,571,160 PLN)",
+        url: "https://www.youtube.com/live/UNAqqHIPbWA",
+      },
+      participants: ["Łatwogang", "Cancer Fighters"],
+      category: "milestone_execution",
+      description:
+        "Około 18:00 CEST kwota zbiórki przekroczyła 188,5 mln PLN (zrzut z overlay'a Tipply). Tempo dalej przyspieszało.",
+      tags: ["190m", "tipply", "checkpoint"],
+    },
+    {
+      id: "evt_post_2000_extension2",
+      dateLocal: "2026-04-26",
+      relativeTime: "Dzień 10 — 20:00 CEST",
+      sortUtc: "2026-04-26T18:00:00Z",
+      zrodlo: {
+        label: "Wrocław.pl: 210 mln zł",
+        url: "https://www.wroclaw.pl/dla-mieszkanca/latwogang-zbiorka-diss-na-raka-cancer-fighters-maja-mecan-olawy-bedoes",
+      },
+      participants: ["Łatwogang", "Cancer Fighters"],
+      category: "core_event",
+      description:
+        "Po przedłużeniu finału do 20:00 transmisja ponownie nie zakończyła się — na koncie było 210 mln PLN, ogłoszono kolejne przedłużenie do 21:37.",
+      tags: ["extension", "210m", "26_kwietnia"],
+    },
+    {
+      id: "evt_post_2110_250m",
+      dateLocal: "2026-04-26",
+      relativeTime: "Dzień 10 — po 21:00 CEST",
+      sortUtc: "2026-04-26T19:10:00Z",
+      zrodlo: {
+        label: "TVN24: ponad 250 mln zł",
+        url: "https://tvn24.pl/polska/ponad-250-milionow-zlotych-na-liczniku-latwogang-i-charytatywny-stream-st9017459",
+      },
+      participants: ["Łatwogang", "Cancer Fighters"],
+      category: "milestone_execution",
+      description:
+        "Tuż przed zakończeniem transmisji licznik przebił 250 mln PLN — historyczny pułap polskiego streamingu charytatywnego.",
+      tags: ["250m", "rekord", "tvn24"],
+    },
+    {
+      id: "evt_post_2137_end",
+      dateLocal: "2026-04-26",
+      relativeTime: "Dzień 10 — 21:37 CEST",
+      sortUtc: "2026-04-26T19:37:00Z",
+      zrodlo: {
+        label: "Radio ZET: stream zakończył się o 21:37",
+        url: "https://wiadomosci.radiozet.pl/polska/latwogang-zebral-250-mln-zl-zbiorka-trwala-podczas-transmisji-online",
+      },
+      participants: ["Łatwogang", "Bedoes 2115", "Cancer Fighters", "Aleksandra Kopyść"],
+      category: "core_event",
+      description:
+        "Stream zakończył się o 21:37 CEST. Łącznie zebrano ponad 250 mln PLN dla Fundacji Cancer Fighters — środki na leczenie podopiecznych, doposażenie szpitali onkologicznych i zakup protez.",
+      tags: ["finał", "250m", "21:37", "koniec"],
     },
   ],
 };
