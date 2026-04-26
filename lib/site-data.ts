@@ -267,7 +267,7 @@ export const seedSiteData: SiteData = {
       trackArtists: ["Bedoes 2115", "Maja Mecan", "Cancer Fighters"],
       trackLengthSeconds: 165,
     },
-    totalRaisedPln: 194_500_000,
+    totalRaisedPln: 200_000_000,
     hoursElapsed: 216,
     estimatedTotalLoops: 4_718,
     engagement: {
@@ -598,11 +598,11 @@ export const seedSiteData: SiteData = {
       dateAchieved: "2026-04-26T10:26:00Z",
     },
     {
-      id: "ms_194_5m_final",
-      targetAmount: 194_500_000,
-      title: "194,5M · Finałowy wynik",
+      id: "ms_200m_estimated",
+      targetAmount: 200_000_000,
+      title: "200M+ · Szacowany wynik",
       description:
-        "Finałowy wynik zbiórki: 194 500 000 PLN. Stream przedłużony do godziny 20:00 CEST.",
+        "Szacunkowy wynik końcowy przekracza 200 mln PLN. To ostrożna estymacja oparta na obserwacji licznika, nie precyzyjny oficjalny komunikat.",
       status: "achieved",
       dateAchieved: "2026-04-26T18:00:00Z",
     },
@@ -611,7 +611,7 @@ export const seedSiteData: SiteData = {
       targetAmount: 161_000_000,
       title: "161M · Checkpoint",
       description:
-        "Checkpoint raportowany przez media. Kwota później zaktualizowana do 194,5 mln PLN.",
+        "Checkpoint raportowany przez media. Późniejsza estymacja wyniku przekracza 200 mln PLN.",
       status: "achieved",
       dateAchieved: "2026-04-26T14:00:00Z",
     },
@@ -998,14 +998,14 @@ export const seedSiteData: SiteData = {
       relativeTime: "Dzień 10 — Finał o 20:00",
       sortUtc: "2026-04-26T18:00:00Z",
       zrodlo: {
-        label: "Oficjalne zakończenie: 194,5 mln zł",
+        label: "Szacunek końcowy: 200M+ PLN",
         url: "https://www.bankier.pl/wiadomosc/Wyjatkowy-stream-influencera-Latwogang-Zebral-miliony-na-walke-dzieci-z-rakiem-9122911.html",
       },
       participants: ["Łatwogang", "Cancer Fighters"],
       category: "core_event",
       description:
-        "Oficjalny finał dziewięciodniowego streamu: niedziela 26 kwietnia o 20:00 CEST. Stream został przedłużony z pierwotnie planowanego zakończenia o 16:00. Finałowa kwota zbiórki: 194 500 000 PLN.",
-      tags: ["final", "194_5m", "26_kwietnia"],
+        "Stream został przedłużony do 20:00 CEST. Na podstawie obserwacji licznika wynik końcowy jest szacowany na ponad 200 mln PLN; traktujemy to jako estymację, nie precyzyjny oficjalny komunikat.",
+      tags: ["final", "200m_plus", "estimated", "26_kwietnia"],
     },
     {
       id: "evt_020",
