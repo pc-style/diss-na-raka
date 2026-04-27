@@ -11,6 +11,9 @@ import { formatDateTimeGmtPlus2 } from "@/lib/time";
  */
 export function LiveClock({ dashboard }: { dashboard: DashboardState }) {
   const start = new Date(dashboard.metadata.startTimestampUtc).getTime();
+  const end = dashboard.metadata.endTimestampUtc
+    ? new Date(dashboard.metadata.endTimestampUtc).getTime()
+    : null;
   const trackSec = dashboard.metadata.trackLengthSeconds;
 
   // Initial state MUST be deterministic on server + first client render to
@@ -23,7 +26,9 @@ export function LiveClock({ dashboard }: { dashboard: DashboardState }) {
     return () => clearInterval(id);
   }, []);
 
-  const elapsedMs = Math.max(0, tick - start);
+  // If stream has ended, cap elapsed time at the end timestamp
+  const effectiveNow = end && tick > end ? end : tick;
+  const elapsedMs = Math.max(0, effectiveNow - start);
   const totalSec = Math.floor(elapsedMs / 1000);
   const days = Math.floor(totalSec / 86_400);
   const hours = Math.floor((totalSec % 86_400) / 3600);
@@ -33,11 +38,13 @@ export function LiveClock({ dashboard }: { dashboard: DashboardState }) {
 
   const pad = (n: number) => n.toString().padStart(2, "0");
 
+  const hasEnded = end && tick >= end;
+
   return (
     <div className="grid grid-cols-1 gap-0 hairline-box divide-y divide-[var(--color-hair)]">
       <div className="p-4">
         <div className="font-mono text-[10px] tracking-[0.24em] text-paper-dim">
-          CZAS NA ANTENIE
+          {hasEnded ? "CZAS NA ANTENIE · ZAKOŃCZONE" : "CZAS NA ANTENIE"}
         </div>
         <div className="mt-2 font-display tnum leading-none text-[clamp(22px,2.1vw,30px)] whitespace-nowrap">
           {days}

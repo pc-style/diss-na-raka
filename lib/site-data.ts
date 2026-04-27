@@ -38,6 +38,7 @@ export interface DashboardState {
     hostId: string;
     beneficiary: string;
     startTimestampUtc: string;
+    endTimestampUtc?: string;
     lastUpdatedUtc: string;
     lastYouTubeSyncUtc?: string;
     platform: string;
@@ -282,6 +283,7 @@ export const seedSiteData: SiteData = {
       hostId: "latwogang_official",
       beneficiary: "Fundacja Cancer Fighters",
       startTimestampUtc: "2026-04-17T14:00:00Z",
+      endTimestampUtc: "2026-04-26T19:37:00Z",
       lastUpdatedUtc: "2026-04-26T19:37:00Z",
       lastYouTubeSyncUtc: "2026-04-26T19:37:00Z",
       platform: "YouTube Live",
