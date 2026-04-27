@@ -106,9 +106,10 @@ async function updateSiteDataWithCounter(
     const siteData = await getSiteData();
     const lastHistoryEntry =
       siteData.counterHistory[siteData.counterHistory.length - 1];
+    const currentTotal = siteData.dashboard.totalRaisedPln;
 
-    // Only update if value has actually changed
-    if (lastHistoryEntry && lastHistoryEntry.amount === newValue) {
+    // Only update if value has actually changed (check both total and last history entry)
+    if (currentTotal === newValue) {
       return false;
     }
 
@@ -122,10 +123,14 @@ async function updateSiteDataWithCounter(
     // Update site data with new counter value and history
     await updateSiteData({
       dashboard: {
-        totalRaisedPln: newValue,
+        totalRaisedPln: Math.round(newValue), // Round to nearest integer
       },
       counterHistory: [...siteData.counterHistory, newHistoryEntry],
     });
+
+    console.log(
+      `Updated counter from ${currentTotal} to ${newValue}`,
+    );
 
     return true;
   } catch (error) {

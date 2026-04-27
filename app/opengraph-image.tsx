@@ -28,7 +28,7 @@ function CrabMark() {
 }
 
 export default function Image() {
-  const total = "202 000 000+";
+  const total = "250 000 000+";
 
   return new ImageResponse(
     (
