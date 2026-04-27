@@ -915,7 +915,7 @@ export const seedSiteData: SiteData = {
       tags: ["wardega", "friz", "wersow", "reconciliation", "haircut"],
     },
     {
-      id: "evt_033",
+      id: "evt_033_b",
       dateLocal: "2026-04-25",
       relativeTime: "Dzień 9 — Rano",
       sortUtc: "2026-04-25T08:54:00Z",
@@ -930,7 +930,7 @@ export const seedSiteData: SiteData = {
       tags: ["rodzinka_pl", "karolak", "zdrojkowski", "pawlowski", "wieniawa"],
     },
     {
-      id: "evt_034",
+      id: "evt_034_b",
       dateLocal: "2026-04-25",
       relativeTime: "Dzień 9 — W ciągu dnia",
       sortUtc: "2026-04-25T10:30:00Z",
