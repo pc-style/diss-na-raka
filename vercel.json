@@ -1,0 +1,8 @@
+{
+  "crons": [
+    {
+      "path": "/api/fundraiser-counter",
+      "schedule": "0 0 * * *"
+    }
+  ]
+}

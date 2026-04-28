@@ -7,6 +7,7 @@ import { TopSupportersSection } from "@/components/site/top-supporters";
 import { ContextSection } from "@/components/site/context";
 import { SiteFooter } from "@/components/site/footer";
 import { SiteLiveCounterProvider } from "@/components/site/live-counter-provider";
+import { FundraiserScraperTrigger } from "@/components/site/fundraiser-scraper-trigger";
 import { getSiteData } from "@/lib/data-store";
 import { categoryMeta, counterHistory, topSupporters } from "@/lib/site-data";
 
@@ -21,6 +22,7 @@ export default async function Home() {
         dashboard={data.dashboard}
         snapshots={counterHistory}
       >
+        <FundraiserScraperTrigger />
         <TopBar dashboard={data.dashboard} />
         <SiteHeader dashboard={data.dashboard} />
         <main className="flex-1">
