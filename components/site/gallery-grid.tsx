@@ -2,6 +2,21 @@
 
 import { useMemo, useState } from "react";
 import type { VideoClip, VideoClipType } from "@/lib/video-clips";
+import { parseYouTubeId } from "@/lib/youtube";
+
+function platformLabel(url: string): string {
+  try {
+    const host = new URL(url).hostname.replace(/^www\./, "").toLowerCase();
+    if (host.includes("youtube") || host === "youtu.be") return "YOUTUBE";
+    if (host.includes("tiktok")) return "TIKTOK";
+    if (host.includes("instagram")) return "INSTAGRAM";
+    if (host === "x.com" || host === "twitter.com") return "X";
+    if (host.includes("facebook")) return "FACEBOOK";
+    return host.toUpperCase();
+  } catch {
+    return "ŹRÓDŁO";
+  }
+}
 
 const filterOptions: Array<{ value: VideoClipType | "all"; label: string }> = [
   { value: "all", label: "Wszystko" },
@@ -53,17 +68,39 @@ export function GalleryGrid({ clips }: { clips: VideoClip[] }) {
       </div>
 
       <div className="grid grid-cols-1 gap-6 lg:grid-cols-2">
-        {filteredClips.map((clip, index) => (
+        {filteredClips.map((clip, index) => {
+          const ytId = parseYouTubeId(clip.sourceUrl);
+          const platform = platformLabel(clip.sourceUrl);
+          return (
           <article key={clip.id} className="hairline-box bg-ink card-wipe">
             <div className="aspect-video bg-paper/10 hairline-b">
-              <iframe
-                src={`https://www.youtube-nocookie.com/embed/${clip.videoId}`}
-                title={clip.title}
-                className="h-full w-full"
-                loading={index === 0 ? "eager" : "lazy"}
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                allowFullScreen
-              />
+              {ytId ? (
+                <iframe
+                  src={`https://www.youtube-nocookie.com/embed/${ytId}?rel=0`}
+                  title={clip.title}
+                  className="h-full w-full"
+                  loading={index === 0 ? "eager" : "lazy"}
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                  allowFullScreen
+                />
+              ) : (
+                <a
+                  href={clip.sourceUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="group flex h-full w-full flex-col items-center justify-center gap-3 bg-ink px-6 py-8 text-center transition-colors hover:bg-paper/5"
+                >
+                  <span className="font-mono text-[10px] tracking-[0.28em] text-paper-dim uppercase">
+                    {platform} · KLIP ZEWNĘTRZNY
+                  </span>
+                  <span className="font-display uppercase text-2xl leading-tight text-paper">
+                    Otwórz w nowej karcie ↗
+                  </span>
+                  <span className="font-mono text-[10px] tracking-[0.18em] text-accent group-hover:text-paper transition-colors">
+                    ▶ ZOBACZ NA {platform}
+                  </span>
+                </a>
+              )}
             </div>
             <div className="grid grid-cols-12 gap-4 p-5 md:p-6">
               <div className="col-span-12 md:col-span-3">
@@ -99,16 +136,17 @@ export function GalleryGrid({ clips }: { clips: VideoClip[] }) {
                   <a
                     href={clip.sourceUrl}
                     target="_blank"
-                    rel="noreferrer"
+                    rel="noopener noreferrer"
                     className="text-accent hover:text-paper transition-colors"
                   >
-                    YOUTUBE ↗
+                    {platform} ↗
                   </a>
                 </div>
               </div>
             </div>
           </article>
-        ))}
+          );
+        })}
       </div>
     </div>
   );

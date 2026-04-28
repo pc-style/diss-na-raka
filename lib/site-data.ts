@@ -7,6 +7,7 @@ export interface Milestone {
   description: string;
   status: MilestoneStatus;
   dateAchieved: string | null;
+  clipLink?: string;
 }
 
 export type EventCategory =
@@ -352,6 +353,7 @@ export const seedSiteData: SiteData = {
         "Oficjalny cel na starcie 9-dniowego maratonu — 200 godzin streamu pod utwór w pętli. Przekroczony w kilka godzin.",
       status: "achieved",
       dateAchieved: "2026-04-17T18:00:00Z",
+      clipLink: "https://www.youtube.com/live/UNAqqHIPbWA",
     },
     {
       id: "ms_500k_tattoo",
@@ -361,6 +363,7 @@ export const seedSiteData: SiteData = {
         "GlamRap raportował już ponad 400k PLN na wczesnym etapie streamu, a po dobiciu do 500k uruchamia się obiecany trigger: Bedoes robi tatuaż wybrany przez widzów. Dołącza do niego ekipa Brokies i Dajczman — głowy, brody i wąsy idą pod maszynkę w solidarności.",
       status: "achieved",
       dateAchieved: "2026-04-19T14:00:00Z",
+      clipLink: "https://www.instagram.com/reel/DNOgpRQiMj4",
     },
     {
       id: "ms_1_5m_gang",
@@ -370,6 +373,8 @@ export const seedSiteData: SiteData = {
         "Po około 3 dobach na liczniku jest już 1,5M. Bedoes kończy serię tatuaży; w studio powstaje wiral o „gangu łysych\".",
       status: "achieved",
       dateAchieved: "2026-04-20T18:00:00Z",
+      clipLink:
+        "https://www.instagram.com/p/DXV0EdcDJ9A/?utm_source=ig_embed&utm_campaign=loading",
     },
     {
       id: "ms_2_3m_szpaku",
@@ -379,6 +384,7 @@ export const seedSiteData: SiteData = {
         "Po czterech dniach streamu licznik dobija do około 2,3M PLN. Szpaku deklaruje wtedy, że zagra live koncert, ale dopiero kiedy licznik przebije 3 miliony.",
       status: "achieved",
       dateAchieved: "2026-04-21T16:00:00Z",
+      clipLink: "https://www.youtube.com/watch?v=2vzZHs2yMms",
     },
     {
       id: "ms_2_8m_bambi",
@@ -397,6 +403,7 @@ export const seedSiteData: SiteData = {
         "Licznik przebija 3M PLN — Szpaku realizuje obietnicę koncertu, a w studio zliczają już 17 ogolonych głów i 9 tatuaży zaprojektowanych przez Maję Mecan.",
       status: "achieved",
       dateAchieved: "2026-04-22T10:00:00Z",
+      clipLink: "https://www.youtube.com/live/UNAqqHIPbWA",
     },
     {
       id: "ms_4m_oki",
@@ -406,6 +413,7 @@ export const seedSiteData: SiteData = {
         "Przy 4M PLN Oki i Kinny Zimmer oficjalnie kończą swój beef live na streamie. Oki zostawia 180k, Merghani 140k, Bedoes 150k, Żabson 70k.",
       status: "achieved",
       dateAchieved: "2026-04-22T22:00:00Z",
+      clipLink: "https://www.youtube.com/watch?v=Emjbs8YgMZw",
     },
     {
       id: "ms_5m_doda",
@@ -415,6 +423,7 @@ export const seedSiteData: SiteData = {
         "Doda wchodzi do studia i pomaga rozkręcić donejty — licznik przebił 5 milionów PLN i leci dalej. GlamRap raportował potem już ponad 5,5 mln PLN po pięciu dniach streamu. Snapshot z 23 kwietnia 2026, 09:57 GMT+2: ~5 715 000 PLN (overlay na screenie pokazywał dokładnie 5 713 793,30 PLN).",
       status: "achieved",
       dateAchieved: "2026-04-22T23:22:26Z",
+      clipLink: "https://www.youtube.com/watch?v=TlWztVe9awk",
     },
     {
       id: "ms_8_75m_dzinold_tomanek",
@@ -442,6 +451,7 @@ export const seedSiteData: SiteData = {
         "Po przekroczeniu 10 mln PLN Young Leosia odpaliła zapowiadany telefon do Kacpra B. i zapytała go na streamie o dziarę.",
       status: "achieved",
       dateAchieved: "2026-04-24T00:00:00Z",
+      clipLink: "https://www.tiktok.com/@dawid_.d/video/7632051094016822560",
     },
     {
       id: "ms_7m_litewka_dedication",
@@ -469,6 +479,7 @@ export const seedSiteData: SiteData = {
         "Po przekroczeniu progu 13 milionów PLN streamerka Kasix realizuje zapowiedź i ścina włosy na żywo. Rzeczpospolita odnotowała, że cel pękł po 11:40 lokalnego czasu 24 kwietnia.",
       status: "achieved",
       dateAchieved: "2026-04-24T09:40:00Z",
+      clipLink: "https://www.twitch.tv/kasix/clips?filter=clips&lang=tr-TR",
     },
     {
       id: "ms_14m_midday_surge",
@@ -478,6 +489,8 @@ export const seedSiteData: SiteData = {
         "Po goleniu Kasix licznik szybko idzie dalej: Dzień Dobry TVN raportuje już ponad 14 mln PLN w piątkowe popołudnie.",
       status: "achieved",
       dateAchieved: "2026-04-24T12:46:00Z",
+      clipLink:
+        "https://player.pl/programy-online,2/dzien-dobry-tvn-odcinki,1052975/odcinek-865,S90E865,13743035",
     },
     {
       id: "ms_16m_tvp_snapshot",
@@ -487,6 +500,7 @@ export const seedSiteData: SiteData = {
         "TVP3 Wrocław podaje, że 24 kwietnia o 15:15 czasu lokalnego licznik zbiórki wskazywał już 16 mln PLN.",
       status: "achieved",
       dateAchieved: "2026-04-24T13:15:00Z",
+      clipLink: "https://www.youtube.com/watch?v=UNAqqHIPbWA",
     },
     {
       id: "ms_19_5m_medonet_snapshot",
@@ -505,6 +519,7 @@ export const seedSiteData: SiteData = {
         "24 kwietnia o 18:12 czasu lokalnego licznik przekracza 20 mln PLN. Wieczorna faza streamu zaczyna gwałtownie przyspieszać.",
       status: "achieved",
       dateAchieved: "2026-04-24T16:12:00Z",
+      clipLink: "https://www.youtube.com/watch?v=Ike47VbRsSE",
     },
     {
       id: "ms_25m_cancer_fighters",
@@ -514,6 +529,7 @@ export const seedSiteData: SiteData = {
         "Fundacja Cancer Fighters potwierdza na Instagramie, że zbiórka przekroczyła 25 mln PLN. To ważny oficjalny punkt pośredni między raportami 23M i 26M.",
       status: "achieved",
       dateAchieved: "2026-04-24T19:30:00Z",
+      clipLink: "https://www.instagram.com/p/DXhrODOjaH-",
     },
     {
       id: "ms_23m_evening_surge",
@@ -532,6 +548,7 @@ export const seedSiteData: SiteData = {
         "Plejada raportuje, że 24 kwietnia po 22:00 czasu lokalnego licznik pokazuje już ponad 26 mln PLN. To ostatni mocny snapshot przed późniejszą aktualizacją ponad 28 mln.",
       status: "achieved",
       dateAchieved: "2026-04-24T20:00:00Z",
+      clipLink: "https://www.youtube.com/@latwogang8538",
     },
     {
       id: "ms_28m_late_evening",
@@ -641,6 +658,7 @@ export const seedSiteData: SiteData = {
         "Licznik dobił do 200 mln PLN, gdy akcja była relacjonowana na żywo w TVN. Dalszy wynik traktujemy jako estymację 200M+.",
       status: "achieved",
       dateAchieved: "2026-04-26T17:00:00Z",
+      clipLink: "https://www.youtube.com/watch?v=dVbEbpyaCyw",
     },
     {
       id: "ms_161m_checkpoint",
@@ -650,6 +668,7 @@ export const seedSiteData: SiteData = {
         "Checkpoint raportowany przez media. Późniejsza estymacja wyniku przekracza 200 mln PLN.",
       status: "achieved",
       dateAchieved: "2026-04-26T14:00:00Z",
+      clipLink: "https://www.youtube.com/@latwogang8538",
     },
     {
       id: "ms_138m_checkpoint",
@@ -671,6 +690,7 @@ export const seedSiteData: SiteData = {
         "Przy kwocie 42 mln zł raper Kubańczyk i influencer Gawronek zadeklarowali i wykonali tatuaż z obrazkiem stworzonym przez podopieczną fundacji.",
       status: "achieved",
       dateAchieved: "2026-04-25T13:00:00Z",
+      clipLink: "https://www.youtube.com/watch?v=UNAqqHIPbWA",
     },
     {
       id: "ms_45m_blachowicz",
@@ -680,6 +700,7 @@ export const seedSiteData: SiteData = {
         "Czołowy polski zawodnik MMA, były mistrz UFC związany niegdyś z federacją KSW, zgolił włosy po dobiciu do 45 mln zł w geście solidarności z pacjentami onkologicznymi.",
       status: "achieved",
       dateAchieved: "2026-04-25T14:00:00Z",
+      clipLink: "https://www.youtube.com/watch?v=zKs5bxt7YT8",
     },
     {
       id: "ms_46_25m_maffashion",
@@ -689,6 +710,7 @@ export const seedSiteData: SiteData = {
         "Influencerka modowa Julia 'Maffashion' Kuczyńska, przebywając w Marbelli, zdalnie ogoliła głowę na łyso po osiągnięciu progu 46,25 mln zł.",
       status: "achieved",
       dateAchieved: "2026-04-25T15:20:00Z",
+      clipLink: "https://www.tiktok.com/@niepekam/video/7632721148035271968",
     },
     {
       id: "ms_50m_edyta_pazura",
@@ -698,6 +720,7 @@ export const seedSiteData: SiteData = {
         "Po obietnicy złożonej przez męża Cezarego Pazurę, przy 50 mln zł Edyta Pazura ogoliła głowę na łyso, z pomocą Roksany Węgiel i Kevina Mgleja.",
       status: "achieved",
       dateAchieved: "2026-04-25T16:20:00Z",
+      clipLink: "https://www.instagram.com/p/DXkDlDCDJ21",
     },
     {
       id: "ms_55m_nosowska",
@@ -707,6 +730,8 @@ export const seedSiteData: SiteData = {
         "Ikona polskiej muzyki Katarzyna Nosowska ogoliła głowę przy wsparciu przyjaciółki, wybitnej aktorki Agaty Kuleszy, która wcieliła się w rolę fryzjerki.",
       status: "achieved",
       dateAchieved: "2026-04-25T18:30:00Z",
+      clipLink:
+        "https://www.pudelek.pl/agata-kulesza-ogolila-glowe-katarzynie-nosowskiej-nigdy-wczesniej-nie-mialam-maszynki-do-golenia-w-rekach-wideo-7279732420448833v",
     },
     {
       id: "ms_60m_aleksandra_domanska",
@@ -716,6 +741,7 @@ export const seedSiteData: SiteData = {
         "W geście solidarności i po przemowie o wewnętrznym pięknie, aktorka Aleksandra Domańska pozbyła się włosów, ogolona przez Katarzynę Nosowską i Agatę Kuleszę.",
       status: "achieved",
       dateAchieved: "2026-04-25T19:30:00Z",
+      clipLink: "https://www.youtube.com/watch?v=H8viDmSZCXQ",
     },
     {
       id: "ms_66m_peszko",
@@ -725,6 +751,7 @@ export const seedSiteData: SiteData = {
         "Obiecano i zrealizowano telefoniczne połączenie ze Sławomirem Peszką przy kwocie 66 mln PLN.",
       status: "achieved",
       dateAchieved: "2026-04-25T20:30:00Z",
+      clipLink: "https://youtu.be/7vCUqYt9m1g?t=2823",
     },
     {
       id: "ms_68m_jan_urban",
@@ -734,6 +761,7 @@ export const seedSiteData: SiteData = {
         "Zrealizowano połączenie z legendarnym trenerem i piłkarzem Janem Urbanem.",
       status: "achieved",
       dateAchieved: "2026-04-25T21:00:00Z",
+      clipLink: "https://www.youtube.com/shorts/OBXXiaKp2Wk",
     },
     {
       id: "ms_73m_blanka_lipinska",
@@ -743,6 +771,7 @@ export const seedSiteData: SiteData = {
         "Pisarka Blanka Lipińska ogoliła włosy za pomocą maszynki obsługiwanej przez jej partnera Pawła Baryłę.",
       status: "achieved",
       dateAchieved: "2026-04-25T22:30:00Z",
+      clipLink: "https://www.tiktok.com/@influorio/video/7633121197194104096",
     },
     {
       id: "ms_80m_tatuaz_peszki",
@@ -752,6 +781,7 @@ export const seedSiteData: SiteData = {
         "Łatwogang obiecał wykonanie tatuażu z wizerunkiem Sławomira Peszki po osiągnięciu pułapu 80 milionów złotych.",
       status: "achieved",
       dateAchieved: "2026-04-26T00:30:00Z",
+      clipLink: "https://www.tiktok.com/@goniec.pl/video/7632787046951619872",
     },
     {
       id: "ms_97m_borys_szyc",
@@ -761,6 +791,7 @@ export const seedSiteData: SiteData = {
         "Borys Szyc po przekroczeniu kwoty 97 milionów żartobliwie zaprezentował przed kamerą swoją muskulaturę.",
       status: "achieved",
       dateAchieved: "2026-04-26T08:00:00Z",
+      clipLink: "https://www.youtube.com/watch?v=mJKJABFXOdo",
     },
     {
       id: "ms_119m_szczesny",
@@ -770,6 +801,7 @@ export const seedSiteData: SiteData = {
         "Przy 119 mln PLN Wojciech Szczęsny zadeklarował udział w meczu w drużynie Maty - poranek finałowej niedzieli.",
       status: "achieved",
       dateAchieved: "2026-04-26T08:00:00Z",
+      clipLink: "https://www.instagram.com/p/DXl3pWhDaqn/",
     },
     {
       id: "ms_130m_koncert",
@@ -779,6 +811,7 @@ export const seedSiteData: SiteData = {
         "Po wybiciu 130 mln PLN na żywo wystąpili Mrozu ('Jak nie my to kto') oraz zespół Golec uOrkiestra ('Ściernisko').",
       status: "achieved",
       dateAchieved: "2026-04-26T11:00:00Z",
+      clipLink: "https://www.youtube.com/watch?v=i4iIxg1Qo_4",
     },
     {
       id: "ms_164m_tede_peja",
@@ -788,6 +821,7 @@ export const seedSiteData: SiteData = {
         "Po przekroczeniu 164 mln PLN Tede zadzwonił do Peji - historyczne pojednanie dwóch legend polskiego rapu na żywo.",
       status: "achieved",
       dateAchieved: "2026-04-26T12:00:00Z",
+      clipLink: "https://www.youtube.com/watch?v=9DqdfxJY6xE",
     },
     {
       id: "ms_211m_wk_dzik",
@@ -797,6 +831,7 @@ export const seedSiteData: SiteData = {
         "Wieczorny stan licznika 211 mln PLN, w tym pojedyncza wpłata WK DZIK na 5 mln PLN.",
       status: "achieved",
       dateAchieved: "2026-04-26T18:00:00Z",
+      clipLink: "https://www.youtube.com/watch?v=gGPxYVsGokw",
     },
     {
       id: "ms_250m_finale",
@@ -806,6 +841,7 @@ export const seedSiteData: SiteData = {
         "Tuż przed zakończeniem transmisji o 21:37 CEST licznik przekroczył 250 mln PLN - największa zbiórka w polskim internecie.",
       status: "achieved",
       dateAchieved: "2026-04-26T19:37:00Z",
+      clipLink: "https://www.youtube.com/watch?v=zFVrOgLLgcA",
     },
   ],
   timelineEvents: [

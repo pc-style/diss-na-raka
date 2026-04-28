@@ -1,12 +1,16 @@
 "use client";
 
+import { useCallback, useEffect, useState } from "react";
 import type { DashboardState, Milestone } from "@/lib/site-data";
 import { formatMilestoneDateGmtPlus2 } from "@/lib/time";
 import { useLiveCounter } from "@/lib/live-counter";
+import { parseYouTubeId, youTubeEmbedUrl } from "@/lib/youtube";
 
 function formatPLN(n: number) {
   return n.toLocaleString("pl-PL");
 }
+
+type EmbedState = { url: string; title: string } | null;
 
 export function MilestonesSection({
   dashboard,
@@ -19,6 +23,23 @@ export function MilestonesSection({
   const raised = estimatedRaisedPln;
   const max = Math.max(...milestones.map((m) => m.targetAmount));
   const progress = Math.min(raised / max, 1);
+  const [embed, setEmbed] = useState<EmbedState>(null);
+
+  const closeEmbed = useCallback(() => setEmbed(null), []);
+
+  useEffect(() => {
+    if (!embed) return;
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === "Escape") closeEmbed();
+    };
+    document.addEventListener("keydown", onKey);
+    const previous = document.body.style.overflow;
+    document.body.style.overflow = "hidden";
+    return () => {
+      document.removeEventListener("keydown", onKey);
+      document.body.style.overflow = previous;
+    };
+  }, [embed, closeEmbed]);
 
   return (
     <section id="cele" className="hairline-t bg-ink-2 relative">
@@ -47,6 +68,7 @@ export function MilestonesSection({
                 m={m}
                 idx={i + 1}
                 last={i === milestones.length - 1}
+                onEmbed={(state) => setEmbed(state)}
               />
             ))}
           </ol>
@@ -64,7 +86,54 @@ export function MilestonesSection({
           </span>
         </div>
       </div>
+      {embed && <ClipEmbedModal embed={embed} onClose={closeEmbed} />}
     </section>
+  );
+}
+
+function ClipEmbedModal({
+  embed,
+  onClose,
+}: {
+  embed: { url: string; title: string };
+  onClose: () => void;
+}) {
+  return (
+    <div
+      role="dialog"
+      aria-modal="true"
+      aria-label={embed.title}
+      className="fixed inset-0 z-50 flex items-center justify-center bg-ink/90 px-4 py-8 backdrop-blur-sm"
+      onClick={onClose}
+    >
+      <div
+        className="relative w-full max-w-5xl"
+        onClick={(e) => e.stopPropagation()}
+      >
+        <div className="flex items-center justify-between pb-3">
+          <span className="font-mono text-[10px] tracking-[0.22em] text-paper-dim uppercase truncate pr-3">
+            ▶ {embed.title}
+          </span>
+          <button
+            type="button"
+            onClick={onClose}
+            aria-label="Zamknij klip"
+            className="font-mono text-[11px] tracking-[0.18em] text-paper-dim hover:text-paper transition-colors"
+          >
+            ZAMKNIJ ✕
+          </button>
+        </div>
+        <div className="aspect-video w-full bg-ink hairline-box overflow-hidden">
+          <iframe
+            src={embed.url}
+            title={embed.title}
+            className="h-full w-full"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            allowFullScreen
+          />
+        </div>
+      </div>
+    </div>
   );
 }
 
@@ -104,12 +173,15 @@ function MilestoneCard({
   m,
   idx,
   last,
+  onEmbed,
 }: {
   m: Milestone;
   idx: number;
   last: boolean;
+  onEmbed: (state: { url: string; title: string }) => void;
 }) {
   const achieved = m.status === "achieved";
+  const ytId = m.clipLink ? parseYouTubeId(m.clipLink) : null;
   return (
     <li
       className={`group relative flex flex-col shrink-0 snap-start w-[260px] md:w-[280px] ${
@@ -159,6 +231,22 @@ function MilestoneCard({
         <p className="font-serif text-sm text-paper-dim leading-snug">
           {m.description}
         </p>
+        {m.clipLink && (
+          <a
+            href={m.clipLink}
+            target="_blank"
+            rel="noopener noreferrer"
+            onClick={(e) => {
+              if (ytId) {
+                e.preventDefault();
+                onEmbed({ url: youTubeEmbedUrl(ytId), title: m.title });
+              }
+            }}
+            className="w-fit border border-accent/70 bg-accent/10 px-3 py-2 font-mono text-[10px] tracking-[0.18em] text-accent transition-colors hover:bg-accent hover:text-ink"
+          >
+            ▶ {ytId ? "ZOBACZ KLIP" : "ZOBACZ ŹRÓDŁO"}
+          </a>
+        )}
 
         <div className="mt-auto pt-3 hairline-t flex items-center justify-between font-mono text-[10px] tracking-widest text-paper-dim">
           <span>
