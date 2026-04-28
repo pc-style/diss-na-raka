@@ -57,10 +57,27 @@ async function writeBlobData(data: SiteData) {
   );
 }
 
+function backfillMilestoneClipLinks(loaded: SiteData): SiteData {
+  const seedById = new Map(seedSiteData.milestones.map((m) => [m.id, m]));
+  let mutated = false;
+  const milestones = loaded.milestones.map((m) => {
+    if (m.clipLink) return m;
+    const seeded = seedById.get(m.id);
+    if (seeded?.clipLink) {
+      mutated = true;
+      return { ...m, clipLink: seeded.clipLink };
+    }
+    return m;
+  });
+  return mutated ? { ...loaded, milestones } : loaded;
+}
+
 export async function getSiteData() {
-  const loaded = shouldUseBlobStorage()
+  const loadedRaw = shouldUseBlobStorage()
     ? (await readBlobData()) ?? seedSiteData
     : (await readLocalData()) ?? seedSiteData;
+
+  const loaded = backfillMilestoneClipLinks(loadedRaw);
 
   return {
     ...loaded,
